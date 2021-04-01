@@ -5,8 +5,8 @@ export const NewsComments = ({comments}) => {
     console.log('from newscomments', comments)
     return (
         <>
-            <section className="my-5">
-                <h4 className="m-0 mb-3 ">Comments</h4>
+            <section className="comment--feed my-5  p-2 p-lg-0">
+                <h4 className="m-0 mb-3">Comments</h4>
                 {/* { 
                     comments && comments.map((comment)=>{
                         <Card>

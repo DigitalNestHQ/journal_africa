@@ -23,7 +23,7 @@ class Banner extends Component {
     
     // METHOD 2
     const getPremiumNews = feeds && feeds.filter((feed)=>feed.post_type=='premium') // extract premium news
-    const firstFeed = Array.isArray(getPremiumNews) && getPremiumNews.length ? getPremiumNews[0] : {};
+    const firstFeed = Array.isArray(getPremiumNews) && getPremiumNews.length ? getPremiumNews[6] : {};
     const secondFeed = Array.isArray(getPremiumNews) && getPremiumNews.length ? getPremiumNews[1] : {};
 
     if(feeds.length == 0){// if there is no feeds display loader
@@ -84,15 +84,20 @@ class Banner extends Component {
           { firstFeed &&
             <div className="cnt-1"
               style={{
-                backgroundImage:`url(https://api.tv24africa.com/public/storage/post_image/${firstFeed.featured_image})`,
-                background: 'rgba(0,0,0,0.8)',
-                backgroundPosition: 'center',
+                // backgroundImage:`url(https://api.tv24africa.com/public/storage/post_image/${firstFeed.featured_image})`,
+                // background: 'rgba(0,0,0,0.8)',
+                // backgroundPosition: 'center',
                 // height: '100%'
                 // background: `
                 // linear-gradient(rgba(0, 0, 0, 0.5), 
                 // rgba(0, 0, 0, 0.6)),
                 // url(https://api.tv24africa.com/public/storage/post_image/${firstFeed.featured_image}) top/cover fixed no-repeat`,
                 // color: '#fff'
+                  background: `
+                  linear-gradient(rgba(0, 0, 0, 0.5), 
+                  rgba(0, 0, 0, 0.6)),
+                  url(https://api.tv24africa.com/public/storage/post_image/${firstFeed.featured_image}) bottom/cover fixed no-repeat`,
+                  color: '#fff',
               }}
             >
               <div className="cnt-txt-wrap">

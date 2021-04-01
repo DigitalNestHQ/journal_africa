@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { pageurl } from "./utils/constants.js";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./components/homepage/Homepage";
@@ -25,6 +25,7 @@ import AlertState from "./context/alert/AlertState";
 // middleware
 import setAuthToken from "./utils/setAuthToken";
 import "./App.css";
+import authContext from "./context/auth/authContext.js";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);

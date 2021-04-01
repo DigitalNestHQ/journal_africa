@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 
-const PoliticsCard = ({
+const EcoAfricaCard = ({
   post_title,
   featured_image,
   id,
@@ -29,4 +29,4 @@ const PoliticsCard = ({
     </div>
   );
 };
-export default PoliticsCard;
+export default EcoAfricaCard;

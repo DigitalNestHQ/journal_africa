@@ -82,8 +82,10 @@ input::placeholder{
         height: auto;
     }
     .sub-logo img {
-        width: 200.66px !important;
-        height: 150.66px;
+        /* width: 200.66px !important;
+        height: 150.66px; */
+        width: auto !important;
+        height: auto !important;
         /* text-align: center; */
         margin: 0 auto;
         display: block;

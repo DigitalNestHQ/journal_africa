@@ -15,4 +15,17 @@ const ContactsAds = () => {
   );
 };
 
+export const ContactsAds1 = () => {
+  return (
+    <div className="ads_contact">
+      <div className="ads_contact-img">
+        <img src={AdImage1} alt="ad1" />
+      </div>
+      {/* <div className="ads_contact-img">
+        <img src={AdImage2} alt="ad1" />
+      </div> */}
+    </div>
+  );
+};
+
 export default ContactsAds;

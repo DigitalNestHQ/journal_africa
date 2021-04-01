@@ -17,6 +17,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "../reusables/navigation/Footer/Footer";
 import "./homepage.css";
+import EcoAfricaComponent from "./ecoAfrica/EcoAfricaComponent";
 
 function Homepage() {
   const [news, setNews] = useState([]);
@@ -44,13 +45,30 @@ function Homepage() {
   return (
     <Fragment>
       <Nav />
+      {/* <Banner data={news} /> */}
+      {/* <Politics data={news} /> */}
+      {/* discover africa  */}
+      {/* <InsideAfrica /> */}
+      {/* eco africa */}
+      {/* <EcoAfricaComponent data={news} /> */}
+      {/* tech africa */}
+      {/* <Tech data={news}/> */}
+      {/* sport */}
+      {/* <Sports data={news}/> */}
+      {/* <TeaserSection data={news} />
+      <Headlines data={news}/>
+      <Business data={news} />
+      <Lifestyles data={news}/>
+      <Entertainment data={news}/>
+      <SubscribeForm /> */}
+      
       <Banner data={news} />
       <Politics data={news} />
       <TeaserSection data={news} />
       <Headlines data={news}/>
       <Business data={news} />
       <InsideAfrica />
-      {/* <Tech /> */}
+      <Tech />
       <Sports data={news}/>
       <Lifestyles data={news}/>
       <Entertainment data={news}/>

@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 
 const SportCard = ({ post_title, featured_image, slug, category_id, post_type }) => {
   return (
-    <div className="col-lg-3 col-sm-12 sport-sec">
+    // <div className="col-lg-3 col-sm-12  sport-sec">
+    <div className="col-lg-3 col-sm-6 col-6 sport-sec"
+    style={{
+      // margin: '10px 10px',
+      padding: '0px auto'
+    }}>
       <Card className="sport-crd sec-2">
         <Link
           to={{
@@ -19,7 +24,7 @@ const SportCard = ({ post_title, featured_image, slug, category_id, post_type })
           />
              {
             //  only show the post type for premium
-              post_type !== "premium" && <span className="premium_category_indicator">Premium{ post_type }</span>
+              post_type !== "premium" && <span className="premium_category_indicator--sport">Premium{ post_type }</span>
             } 
         </Link>
         <Card.Body className="sprt-txt">

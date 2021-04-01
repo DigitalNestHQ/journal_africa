@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SportCard from "./SportCard";
 import "./sport.css";
+import { Link } from "react-router-dom";
 
 export class SportComponent extends Component {
   render() {
@@ -10,7 +11,16 @@ export class SportComponent extends Component {
     return (
       <div className="sport">
         <div className="container-fluid shadow-sm">
-          <h3>SPORTS </h3>
+          <Link
+          to={{
+            pathname: "/news/categories",
+            search: `?category=Sport`,
+          }}
+        >
+          <h3 className="">
+          SPORTS
+          </h3>
+        </Link>
           <div className="container-fluid mt-3 mb-4 py-2  d-flex row sport-card-wrap">
             {sportNews && sportNews.length > 0 &&
               sportNews.map((news) => {

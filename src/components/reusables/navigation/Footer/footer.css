@@ -131,6 +131,12 @@ footer ul li{
   line-height: 27px;
 }
 
+@media(max-width: 390px){
+  .app-store a img{
+    width: 130px;
+  }
+}
+
 
 
 @media screen and (max-width: 772px){

@@ -38,10 +38,10 @@
     background-color:#D1D1D1
 }
 .news-sec a:hover{
-    transform: scale(0.9);
+    /* transform: scale(0.9);
+    transform: scale(0.8); */
     color: hsl(0, 100%, 64%);
     opacity: 0.8;
-    transform: scale(0.8);
     cursor: pointer;
 }
 /*  news link style with hover */
@@ -110,6 +110,7 @@
     color:#2b2929;
     text-decoration: none;
     padding:5px 15px;
+    margin: 10px 0px 0px 0px;
     text-align: center;
     text-transform: capitalize;
 }
@@ -123,12 +124,13 @@
 .sec-2 img{
     /* display: block;
     width: 100%; */
-        height: 230px;
+        /* height: 230px; */
+    height: 177px;
 
 }
 
 
-.premium_category_indicator{
+.premium_category_indicator--politics{
     letter-spacing: normal;
     background-color: #DC143C;
     font-style: italic;
@@ -145,14 +147,23 @@
     font-weight: 500;
     position: absolute;
     top: 8px;
-    left: 16px;
+    left: 15px;
 }
 
 
 @media(max-width: 400px){
     .sec-2 img{
         height: 150px;
-        display: block;
         width: 100%;
+        display: block;
+    }
+    .card a{
+        color:#333;
+        font-size: 16px;
+        padding: 5px 0px;
+        /* margin: 10px 0px 0px 0px; */
+        text-align: center;
+        line-height: 120%;
+        text-transform: capitalize;
     }
 }

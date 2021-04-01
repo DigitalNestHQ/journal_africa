@@ -10,6 +10,13 @@
     color: #fff!important;
   }
 
+  .nav-link:hover{
+    background-color: #DC143C;
+    }
+    .nav-sub-tp:hover{
+        background: none;
+    }
+
   @media(max-width: 1000px){
 
       .nav-link{

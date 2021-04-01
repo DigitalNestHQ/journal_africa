@@ -28,7 +28,10 @@ const CommentForm = (props) => {
         !isAuthenticated && (
           <>
             <label htmlFor="name">Name</label>
-            <input type="text" name="name" minLength="2" onChange={handleChange} className="form-control" required/>
+            <input 
+            type="text" name="name" 
+            minLength="2" onChange={handleChange} 
+            className="form-control" required/>
             {/* Email not included in the endpoint params */}
             {/* <label htmlFor="email">Email</label>
             <input type="email" name="email" onChange={handleChange}/> */}

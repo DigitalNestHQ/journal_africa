@@ -21,7 +21,7 @@ const TeaserCard = ({ featured_image, id, slug, category_id }) => {
               {category_id}
             </Button>
             <Card.Text className="ts-card-txt" style={{zIndex:"200"}}>
-              <Link to={`/post/${slug}`} className="ts-card-txt text-white">
+              <Link to={`/post/${slug}`} className="ts-card-txt text-white" style={{height: '100px'}}>
                 {slug.toLowerCase()}
               </Link>
             </Card.Text>

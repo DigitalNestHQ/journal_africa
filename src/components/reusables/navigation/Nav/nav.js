@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import {
   Link,
 } from "react-router-dom";
@@ -7,11 +7,9 @@ import { pageurl } from "../../../../utils/constants";
 import TopNav from "../../Topnav";
 import "./nav.css";
 import "../../header.css";
-import authContext from "../../../../context/auth/authContext";
+import { HandleAuthButton } from "./HandleAuthButton";
 
 const Navbar = () => {
-  const userContext = useContext(authContext)
-  const { isAuthenticated } = userContext;
   return (
     <div className="Navigation">
       <TopNav />
@@ -55,7 +53,7 @@ const Navbar = () => {
                     activeclassname="activeLink"
                     href={pageurl.DISCOVERAFRICA}
                   >
-                    DISCOVER AREA
+                    DISCOVER AFRICA
                   </a>
                 </li>
                 <li className="nav-item">
@@ -81,10 +79,49 @@ const Navbar = () => {
                       search: `?category=Business News`,
                     }}
                   >
-                    BUSINESS
+                    BUSINESS/FINANCE
                   </Link>
                 </li>
+                {/* <li className="nav-item">
+                  <Link
+                    className="nav-link ml-lg-3"
+                    activeclassname="activeLink"
+                    // to={pageurl.ENTERTAINMENT}
+                     to={{
+                      pathname: "/news/categories",
+                      search: `?category=Economy`,
+                    }}
+                  >
+                    ECONOMY
+                  </Link>
+                </li> */}
                 <li className="nav-item">
+                  <Link
+                    className="nav-link ml-lg-3"
+                    activeclassname="activeLink"
+                    // to={pageurl.ENTERTAINMENT}
+                     to={{
+                      pathname: "/news/categories",
+                      search: `?category=Tech Africa`,
+                    }}
+                  >
+                    TECH AFRICA
+                  </Link>
+                </li>
+                {/* <li className="nav-item">
+                  <Link
+                    className="nav-link ml-lg-3"
+                    activeclassname="activeLink"
+                    // to={pageurl.ENTERTAINMENT}
+                     to={{
+                      pathname: "/news/categories",
+                      search: `?category=View Point`,
+                    }}
+                  >
+                    VIEW POINT
+                  </Link>
+                </li> */}
+                {/* <li className="nav-item">
                   <Link
                     className="nav-link ml-lg-3"
                     activeclassname="activeLink"
@@ -96,7 +133,7 @@ const Navbar = () => {
                   >
                     ENTERTAINMENT
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <Link
                     className="nav-link ml-lg-3"
@@ -113,26 +150,17 @@ const Navbar = () => {
               </ul>
               <ul className="navbar-nav ml-auto mt-2 mt-lg-0 nav-sub-i">
                 <li className="nav-item hd-bd">
-                  {
-                    isAuthenticated ?
+                {
+                  localStorage.token ? HandleAuthButton() :(
                     <Link
-                      // path={withRouter(pageurl.SIGNIN)}
-                      to="/login"
-                      className="nav-link mt-3 mt-lg-0 px-4 text-white nav-sub-tp"
-                    >
-                      <i className="fas fa-sign-in-alt"></i>
-                      LOGOUT
-                    </Link>
-                    :
-                    <Link
-                      // path={withRouter(pageurl.SIGNIN)}
-                      to="/login"
-                      className="nav-link mt-3 mt-lg-0 px-4 text-white nav-sub-tp"
-                    >
-                      <i className="fas fa-sign-in-alt"></i>
-                      SIGN IN
-                    </Link>
-                  }
+                    to="/login"
+                    className="nav-link mt-3 mt-lg-0 px-4 text-white nav-sub-tp"
+                  >
+                    <i className="fas fa-sign-in-alt"></i> SIGN IN
+                  </Link>
+                  )          
+                  
+                }
                 </li>
                 <li className="nav-item hd-bd">
                   <Link

@@ -6,7 +6,13 @@
     line-height: 30px;
     font-family: 'Roboto', sans-serif;
     text-align: justify;
+    
 }
+
+.news img{
+    width: 600px;
+}
+
 .post_title{
     font-size: 28px;
     line-height: 32px;
@@ -22,17 +28,32 @@
     margin: 10px;
 }
 .text-wrap{
+    font-size: 18px;
+    font-weight: lighter;
+    padding: 5px;
+    line-height: 1.5;
+    letter-spacing: -0.3;
+    font-weight: lighter;
     text-rendering: optimizeLegibility;
 
 }
 @media screen and (max-width: 772px){
-    .post_img{
+    .news img{
         width: 300px;
+        margin: 15px 0 !important;
     }
     .text-wrap{
+        font-size: 20px;
+        font-size: 16px !important;
+        line-height: 1.5;
+        text-rendering: optimizeLegibility;
+        padding: 0px;
         max-width: 95%;
         margin: 0 auto;
-        font-size: 20px;
+    
+    }
+    .post_img{
+        width: 300px;
     }
     .post_title{
         font-size: 22px;
@@ -60,6 +81,7 @@
 .comment-form input, textarea{
     font-size: 15px;
     padding-left: 5px;
+    border: 1px solid #555 !important;
 }
 .comment-form .btn-submit{
     margin-top: 20px;
@@ -75,16 +97,27 @@
     background: #fff;
 }
 @media screen and (max-width:540px){
+    .news{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .comment--feed{
+        align-self: baseline;
+    }
+
     .comment-form{
         width: 95%;
-        padding: 10px;
+        /* padding: 10px; */
         margin: 0 auto;
     } 
 }
 
 /* shares */
 .news-icons{
-    padding: 20px 0;
+    /* padding: 20px 0; */
+    margin-left: 1px;
 }
 .news-icons h4{
     font-size: 17px;
@@ -96,16 +129,16 @@
     border-radius: 5px;
 }
 .fb{
-    background: #29487d;
-    color: #fff;
+    color: #29487d;
+    background-color: #fff;
 }
 .twt{
-    background: #00acee;
-    color: #fff;
+    color: #00acee;
+    background-color: #fff;
 }
 .lnk{
-    background: #0e76a8;
-    color: #fff;
+    color: #0e76a8;
+    background-color: #fff;
 }
 .link{
     text-decoration: none;

@@ -81,7 +81,7 @@ const Signup = (props) => {
             <form className="form signup-form" onSubmit={onSubmit}>
               <div className="row mb-3">
                 <div className="col-sm-6 inp-half">
-                  <label htmlFor="first name" class="form-label">
+                  <label htmlFor="first name" className="form-label">
                     First Name
                   </label>
                   <input
@@ -96,7 +96,7 @@ const Signup = (props) => {
                   />
                 </div>
                 <div className="col-sm-6 inp-half">
-                  <label htmlFor="Last name" class="form-label">
+                  <label htmlFor="Last name" className="form-label">
                     Last Name
                   </label>
                   <input
@@ -112,7 +112,7 @@ const Signup = (props) => {
                 </div>
               </div>
               <div className="mb-3">
-                <label htmlFor="email" class="form-label">
+                <label htmlFor="email" className="form-label">
                   Email
                 </label>
                 <input
@@ -127,7 +127,7 @@ const Signup = (props) => {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="phone" class="form-label">
+                <label htmlFor="phone" className="form-label">
                   Phone
                 </label>
                 <input
@@ -142,7 +142,7 @@ const Signup = (props) => {
               </div>
 
               <div className="mb-1">
-                <label htmlFor="password" class="form-label">
+                <label htmlFor="password" className="form-label">
                   Password
                 </label>
                 <input
@@ -158,9 +158,9 @@ const Signup = (props) => {
                 <span className="showPassword">show</span>
               </div>
               <div className="mb-2 my-0">
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value=""
                     id="invalidCheck2"

@@ -9,12 +9,12 @@ const CategoryCard = ({ post_title, featured_image, id, post_type, slug }) => {
           src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
           alt={id}
         />
-        {// only show the post type for premium
-          post_type == "premium" && <span className="premium_category_indicator ml-1">{ post_type }</span>
-        } 
+        {/* {// only show the post type for premium
+          // post_type == "premium" && <span className="premium_category_indicator ml-">{ post_type }</span>
+        }  */}
       </div>
 
-      <div className="card-caption">
+      <div className="card-caption mt-3 mt-lg-0">
         <h3 className="card-caption-title">
           {" "}
           {post_title.toLowerCase().slice(0, 100)}{" "}

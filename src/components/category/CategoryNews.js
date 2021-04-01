@@ -13,6 +13,7 @@ import Loader from "../loader/Loader";
 import "./newscategory.css";
 import { Button, Card } from "react-bootstrap";
 import UnableToFetchNews from "../reusables/errorMessages/UnableToFetchNews";
+import {ContactsAds1} from "../ContactUs/mainSection/ContactsAds";
 
 const CategoryNews = () => {
   const [loading, setLoading] = useState(true);
@@ -56,8 +57,8 @@ const CategoryNews = () => {
       }
     }
     return () => (sub = null);
-    //eslint-disable-next-line
-  }, []);
+    // eslint-disable-next-line
+  }, [category]);
 
   if (error) {
     return <Link to="/error404" />;
@@ -102,11 +103,12 @@ const CategoryNews = () => {
             <div className="right-pane">
               <h4 className="trend">TRENDS</h4>
               <ul>
-                {news && news.length > 0 && news.slice(0, 10).map((news) => (
-                  <li className="trend_list">
+                {news && news.length > 0 && news.slice(0, 5).map((news, index) => (
+                  <li className="trend_list" key={index}>
                     <Link to={`/post/${news.slug}`}>{news.slug}</Link>
                   </li>
                 ))}
+                <li><ContactsAds1 /></li>
               </ul>
             </div>
           </section>

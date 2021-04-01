@@ -74,13 +74,13 @@ const Login = (props) => {
               <Alerts />
             </div>
             <form className="form login-form" onSubmit={onSubmit}>
-              <div class="mb-3">
-                <label htmlFor="email" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">
                   Email
                 </label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Enter your email address"
                   name="email"
                   value={email}
@@ -89,13 +89,13 @@ const Login = (props) => {
                 />
               </div>
 
-              <div class="mb-3">
-                <label htmlFor="password" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">
                   Password
                 </label>
                 <input
                   type="password"
-                  class="form-control password-input"
+                  className="form-control password-input"
                   placeholder="Enter your password"
                   name="password"
                   value={password}

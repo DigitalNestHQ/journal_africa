@@ -1,6 +1,7 @@
 import React from "react";
 import EntertainmentCard from "./EntertainmentCard";
 import "./entertainment.css";
+import { Link } from "react-router-dom";
 
 class Entertainment extends React.Component {
   render() {
@@ -9,7 +10,16 @@ class Entertainment extends React.Component {
     );
     return (
       <div className="entertainment">
-        <h3 className="text-center py-2">ENTERTAINMENT</h3>
+        <Link
+          to={{
+            pathname: "/news/categories",
+            search: `?category=Entertainment`,
+          }}
+        >
+          <h3 className="text-center py-2">
+            ENTERTAINMENT
+          </h3>
+        </Link>
         <div className="container-fluid ent-chng-pos">
           <div className="container-fluid row w-100 bg-white mx-auto ent-pos-tp">
             {entertainment && entertainment.length &&
@@ -20,6 +30,7 @@ class Entertainment extends React.Component {
                   slug,
                   post_title,
                   id,
+                  post_type
                 } = life;
                 return (
                   <EntertainmentCard
@@ -28,6 +39,7 @@ class Entertainment extends React.Component {
                     category_id={category_id}
                     slug={slug}
                     post_title={post_title}
+                    post_type={post_type}
                   />
                 );
               })}

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import PoliticsCard from "./PoliticsCard";
-import "./politicsComponent.css";
+// import "./politicsComponent.css";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import EcoAfricaCard from "./EcoAfricaCard";
 
 
-class politicsComponent extends Component {
+class EcoAfricaComponent extends Component {
   render() {
     const feeds = this.props.data;
     // console.log(feeds)
@@ -14,7 +14,7 @@ class politicsComponent extends Component {
         <>
           <div className="politics-wrap container-fluid my-4">
             <Link to="/">
-              <h3>LATEST STORIES FOR ME</h3>
+              <h3>Eco Africa</h3>
             </Link>
             <div className="container-fluid my-3 p-2 row  pol-news-card-wrap">
                   <div className="card sec-2 col-lg-6 col-sm-6 col-6 my-2 mx-auto" style={{
@@ -35,7 +35,7 @@ class politicsComponent extends Component {
     return (
       <div className="politics-wrap container-fluid my-4">
         <Link to="/">
-          <h3>LATEST STORIES FOR ME</h3>
+          <h3>ECO AFRICA</h3>
         </Link>
         <div className="container-fluid my-3 p-2 row  pol-news-card-wrap">
           {feeds && feeds.length > 0 &&
@@ -49,7 +49,7 @@ class politicsComponent extends Component {
                 category_id,
               } = categ;
               return (
-                <PoliticsCard
+                <EcoAfricaCard
                   key={id}
                   post_title={post_title}
                   post_type={post_type}
@@ -66,4 +66,4 @@ class politicsComponent extends Component {
   }
 }
 
-export default politicsComponent;
+export default EcoAfricaComponent;

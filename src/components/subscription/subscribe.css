@@ -1,13 +1,25 @@
 .subscribe-container {
     max-width: 1440px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .subscribe-header {
     color: "i will be right back"
 }
+
+.subscribe-header .lnk1{
+    color: #000000;
+}
+
+.subscribe-header .lnk2{
+    background-color: #FF1717;
+    color: #FFFFFF;
+}
+
 .cur_crd-wrap {
     position: relative;
 }
@@ -29,18 +41,26 @@
 }
 
 .pay_plan-wrap {
+    z-index: 100;
     background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
         url("../../assets/images/elephant.jpg")center/cover fixed no-repeat;
-    padding: 20px;
-    max-width: 1100;
+    background: linear-gradient(rgba(92, 18, 18, 0.6),  rgba(92, 18, 18, 0.8)),
+        url("../../assets/images/elephant.jpg")top/cover fixed no-repeat;
+    padding: 50px 0px;
+    max-width: 1200px;
     margin: 0 auto;
-    mix-blend-mode: multiply;
-    height: 785px
+    height: auto;
+    z-index: 100;
+    position: relative;
+    bottom: 140px;
+    /* height: 785px; */
+    /* mix-blend-mode: multiply; */
     /* position: absolute;
     top: 70%;
     z-index: 100;
     transform: translateX(50, 50); */
 }
+
 
 .pay_plan-wrap h2 {
     text-align: center;
@@ -68,6 +88,13 @@
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .sub-curency_ngn {
@@ -100,14 +127,24 @@
     text-align: center;
 }
 
-.sub-signup {
-    padding: 10px 35px;
-    border-radius: 10px;
+.sub-crd .sub-signup {
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px;
     background: #FF1717;
-    color: #fff;
+    color: #FFFFFF;
     font-weight: 500;
     font-size: 14px;
-    line-height: 16px;
+    /* line-height: 16px; */
+    border: 1px solid transparent;
+    text-align: center;
+    /* width: 210px !important; */
+}
+
+.sub-crd .sub-signup:hover {
+    background-color: #FFFFFF;
+    color: #FF1717;
+    border: 1px solid #FF1717
 }
 
 .signup-wrap {
@@ -115,26 +152,111 @@
     justify-content: space-between;
     align-items: center;
 }
-.trial{
-    background: #FFFFFF;
-    border-radius: 10px;
-    padding: 7px 20px;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    color: #FF1717;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: 30px;
-}
 .card-flex{
     margin-top: 60px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    /* padding: 20px; */
 }
-.sub-crd{
+
+.sub-crd .card{
     width: 275px;
     height: 267px;
+    background-color: #FFFFFF;
+}
+
+.trial{
+    margin-top: 100px;
+    text-align: center;
+}
+.trial .trial-btn{
+    background: #FFFFFF;
+    border-radius: 5px;
+    padding: 7px 20px;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FF1717;
+    /* transform: translate(-50%, -50%); */
+    /* position: relative; */
+    /* left: 50%; */
+}
+
+.trial .trial-btn:hover{
+    background: #FF1717;
+    color: #FFFFFF;
+}
+
+
+@media (max-width: 1200px) {
+    .card-flex{
+        padding-right: 5rem;
+    }
+}
+@media (max-width: 800px) { 
+    .card-flex{
+        padding-right: 6rem;
+        justify-content: unset;
+    }
+}
+
+/* medium devices */
+@media (max-width: 768px) {
+    .sub-banner p {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 22px;
+        padding-top: 30px;
+    }
+    .pay_plan-wrap {
+        bottom: 157px;
+        padding: 30px 0px;
+    }
+    .pay_plan-wrap h2{
+        font-size: 18px;
+    }
+    .card-flex{
+        width: 100%;
+        /* margin: 20px auto; */
+        justify-content: center;
+        margin-top: 10px
+    }
+}
+
+/* small devices */
+@media (max-width: 576px){
+    .sub-banner p {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 22px;
+        padding-top: 30px;
+    }
+    .pay_plan-wrap {
+        width: 360px;
+        bottom: 157px;
+        padding: 10px 0px;
+    }
+    .pay_plan-wrap h2{
+        font-size: 18px;
+    }
+    .card-flex{
+        margin-top: 20px;
+        padding: 0px 20px 0px 20px;
+        margin: 0 auto;
+
+    }
+    .sub-crd .card{
+        margin-bottom: 20px;
+    }
+    .trial{
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+}
+/* smallest break point */
+@media (max-width: 347px) {
+    .pay_plan-wrap{
+        width: 340px;
+    }
 }

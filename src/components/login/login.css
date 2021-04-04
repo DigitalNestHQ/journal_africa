@@ -89,16 +89,24 @@ line-height: 22px;
     max-width: 80%;
     margin: 0 auto;
 }
-.form{
-    margin-top: 30px;
+.login .form{
+    margin-top: 13px;
     padding-top: 30px;
 }
+
+.password-input{
+    margin-bottom: 10px;
+}
+
 .fpass{
     margin-top: 0;
     padding-top: 0;
-    margin-left: 250px;
+    /* margin-left: 250px; */
     color: #000;
     text-align: right;
+    float: right;
+    margin: 10px 0px;
+    white-space: nowrap;
 }
 .gosignup{
     text-align: center;
@@ -113,4 +121,92 @@ line-height: 22px;
 .gsignup{
     color: #FF1717;
     text-transform: capitalize;
+}
+
+
+
+
+@media(max-width: 810px){
+
+    .login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-txt{
+        display: none;
+    }
+
+    .login-form{
+        width: 100%;
+    }
+
+}
+
+
+@media(max-width: 560px){
+
+    .login-form{
+        width: 420px;
+    }
+
+    .login-form input,
+    .login-form button{
+        width: 400px;
+    }
+
+    .fpass{
+        margin-left: 200px !important;
+    }
+}
+
+@media(max-width: 488px){
+    .login-form{
+        width: 300px;
+    }
+
+    .login-form input,
+    .login-form button{
+        width: 300px;
+        white-space: nowrap;
+    }
+    .showPassword{
+        display: none;
+    }
+    .fpass{
+        margin-left: 9px !important;
+    }
+}
+
+@media(max-width: 380px){
+    .login-form{
+        width: 250px;
+    }
+
+    .login-form input,
+    .login-form button{
+        width: 100%;
+        font-size: 15px !important;
+        padding: 15px 12px;
+    }
+
+    .login-form input::placeholder{
+        font-size: 16px;
+    }
+
+    .showPassword{
+        display: none;
+    }
+    .fpass{
+        margin-left: 9px !important;
+    }
+}
+
+@media(max-width: 330px){
+    .login-form{
+        width: 220px;
+    }
+    .formHeader{
+        white-space: nowrap;
+    }
 }

@@ -1,3 +1,7 @@
+div.discover-cont{
+  display: flex;
+}
+
 section.discover {
   display: flex;
   background-color: #f3efef;
@@ -12,6 +16,7 @@ section.discover {
   padding: 66px 18px;
   text-align: center;
   width: 30%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .trend {
@@ -39,7 +44,66 @@ section.discover {
   text-decoration: none;
 }
 
-@media screen and (max-width: 540px) {
+.trend_list > a:hover {
+  color: red;
+  text-decoration: none;
+}
+
+
+
+@media screen and (min-width: 1000px){
+  .left-pane .card-unit{
+    margin-top: 20px;
+    margin-bottom: 20px
+  }
+  
+
+  /* .right-pane{
+    width: 100%;
+  }
+  .left-pane{
+    width: 100%; */
+  /* } */
+}
+
+.card-caption-title{
+  /* margin: 10px !important; */
+}
+
+
+@media screen and (max-width: 1350px){
+  section.discover {
+    /* flex-direction: column; */
+  }
+
+  .left-pane {
+    width: 70%;
+  }
+  .main-section-card {
+    display: inline;
+  }
+  
+
+  .right-pane {
+    width: 30%;
+  }
+}
+  @media screen and (max-width: 900px){ 
+  section.discover{
+    flex-direction: column;
+   }
+  .right-pane,
+  .left-pane{
+    width: 100%;
+  }
+}
+/* @media screen and (max-width: 700px){
+  .right-pane{
+    width: 60%;
+  }
+  
+} */
+/* @media screen and (max-width: 540px) {
   section.discover {
     flex-direction: column;
   }
@@ -53,10 +117,13 @@ section.discover {
   .right-pane {
     width: 100%;
   }
-}
+} */
+
+
+/* 
 @media screen and (min-width: 1000px){
   .left-pane .card-unit{
     margin-top: 20px;
     margin-bottom: 20px
   }
-}
+} */

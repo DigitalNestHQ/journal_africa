@@ -27,6 +27,8 @@
   margin-top: 10px;
 }
 
+
+
 .discover .discover_header {
   display: flex;
   flex-direction: column;
@@ -60,7 +62,7 @@
 
 .africa-auth {
   text-align: right;
-  padding: 40px;
+  /* padding: 40px; */
 }
 
 .africa-auth > a {

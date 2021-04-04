@@ -29,7 +29,7 @@ const AuthState = props => {
     const register = async formData => {
         const config ={
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             }
         }
         try {
@@ -60,7 +60,9 @@ const AuthState = props => {
                 type: LOGIN_SUCCESS,
                 payload: res.data
             })
-            console.log(res.data);
+            // console.log(res.data);
+            // console.log(state)
+            return res
          } catch (error) {
             dispatch({
                 type: LOGIN_FAIL,
@@ -69,15 +71,25 @@ const AuthState = props => {
         }
     }
     // load user 
-    const loadUser = async () => {
-        if(localStorage.token){
-            setAuthToken(localStorage.token)
+    const loadUser = async () => { // get user details from the database
+        if(!localStorage.token){
+            // setAuthToken(localStorage.token)
+            return null
         }   
+        const token = localStorage.getItem("token");
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization" : `Bearer ${token}`, 
+              }
+        }
+
         try {
-            const res = await axios.get('http://api.tv24africa.com/api/v1/');
+            const res = await axios.get('http://api.tv24africa.com/api/v1/user', config);
+            // console.log('loaduser', res.data.data)
             dispatch({
                 type: USER_LOADED,
-                payload: res.data,
+                payload: res.data.data,
             })
         } catch (err) {
             dispatch({
@@ -88,6 +100,7 @@ const AuthState = props => {
 
     }
     // logout user
+    const logOut = () => dispatch({type: LOGOUT})
 
     // clear errors
     const clearErrors = () => dispatch({
@@ -106,6 +119,7 @@ const AuthState = props => {
             register,
             login,
             clearErrors,
+            logOut
         }}
         >
             {props.children}

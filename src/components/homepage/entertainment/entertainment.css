@@ -1,17 +1,36 @@
 .entertainment{
-    margin-top: 60px;
+    margin-top: 250px;
     margin-bottom: 40px;
     font-family:  'Roboto', sans-serif;
 }
+.premium_category_indicator--entertainment{
+    letter-spacing: normal;
+    background-color: #DC143C;
+    font-style: italic;
+    color: white;
+    text-transform: uppercase;
+    font-weight: lighter;
+    line-height: 1;
+    font-size: 0.75rem;
+    display: inline-block;
+    padding: 7px 16px 6px 16px;
+    border-radius: 2px;
+    margin: 10px 0px 0px 0px;
+    width: 90px;
+    font-weight: 500;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
 .entertainment h3{
-    margin: 40px auto 30px auto;
+    margin: 40px auto 40px auto;
     font-style: normal;
     font-weight: 500;
     font-size: 36px;
     line-height: 42px;
     color: #EE3039;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-top: 20px;
+    padding-top: 20px !important;
 }
 .mt-wrap{
     height: 100%;
@@ -19,14 +38,6 @@
     border: none;
 }
 
-.butn{
-    background: #fff;
-    color: #F08080;
-}
-.butn:hover{
-    background: #F08080;
-    color: #fff
-}
 .overl{
     position: absolute;
     top: 50%;
@@ -46,18 +57,18 @@
 }
 .ent-pos-tp{
     position: relative;
-    top: -20px;
+    top: -35px;
     padding-bottom: 70px;
     padding-left: 15px!important;
     padding-right: 15px!important;
     max-width: 1358px!important;
     margin:0 auto;
-    height: 640px;
+    /* height: 640px; */
+    height: 480px;
 }
 .ent-chng-pos{
     position: relative;
     background-color: #4E4A4A;
-    top: 30px;
     margin-bottom: 40px;
 }
 .mt-wrap a{
@@ -76,8 +87,7 @@
     color: #EE3039
 }
 .mg-sm-scr{
-    height: 461px;
-    width: 330px;
+    height: 330px;
 }
 .mg-sm-scr, 
 .ent-pos-tp{
@@ -85,20 +95,42 @@
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
+    border-radius: 17px;
 }
 .ent-h-100{
     height: 100%;
+    object-fit: cover;
 }
+
+@media screen and (max-width: 1000px){ 
+    .entertainment{
+        /* this fixed the footer overlay with entertainment section */
+        margin-bottom: 800px;
+    }
+}
+
 @media screen and (max-width: 772px){
-    .mg-sm-scr{
-        margin: 40px auto!important;
-        padding: 30px auto!important;
-        width: 300px
+    .entertainment{
+        margin-top: 20px;
+        margin-bottom: 40px;
+        font-family:  'Roboto', sans-serif;
+        border-bottom: 17px solid #4E4A4A;
     }
     .h-100 a{
         padding: 20px auto!important;
         text-decoration: none;
     }
+    .ent-card{
+        background-color: white !important;
+        margin-top: 30px;
+    }
+    .ent-h-100{
+        height: auto;
+    }
+    .ent-pos-tp{
+        border-radius: 0px;
+    }
+
     .mt-wrap a{
         padding: 20px 0!important;
         position: relative;
@@ -108,7 +140,7 @@
     .mg-sm-scr{
         margin: 20px auto;
          /* border: 4px solid; */
-         padding: 20px 0;
+         /* padding: 20px 0; */
     }
     .ent-pos-tp {
         position: static;
@@ -116,4 +148,13 @@
         margin: 20px 30px;
         height: auto;
     }
+    .mb-2, .my-2 {
+        margin-bottom: 0rem!important;
+    }
+    .mt-2, .my-2 {
+        margin-top: 0rem!important;
+    }
+
 }
+
+

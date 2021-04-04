@@ -6,17 +6,24 @@ const EntertainmentCard = ({
   category_id,
   slug,
   post_title,
+  post_type
 }) => {
   return (
-    <div className="col-sm-3 my-2 mg-sm-scr">
-      <Card className="bg-dark text-white mt-wrap">
+    <div className="col-lg-3 col-sm-12 my-2 mg-sm-scr">
+      <Card className="bg-dark text-white mt-wrap ent-card">
         <Card.Img
           src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
           alt="Card image"
           className="ent-h-100"
         />
-        <Card.ImgOverlay className="overl">
-          <Card.Text className="">{category_id}</Card.Text>
+        <Card.ImgOverlay className="overlay">
+          <Card.Text className="">
+            {post_type === "premium" ? (
+            <span className="premium_category_indicator--entertainment">
+                { post_type }
+              </span>
+            ) : ""}
+          </Card.Text>
         </Card.ImgOverlay>
         <Link to={`/post/${slug}`}>{post_title}</Link>
       </Card>

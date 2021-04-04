@@ -1,6 +1,27 @@
 .lifestyle{
     background-color: #000;
+    margin-bottom: 120px !important;
 }
+.premium_category_indicator--life{
+    letter-spacing: normal;
+    background-color: #DC143C;
+    font-style: italic;
+    color: white;
+    text-transform: uppercase;
+    font-weight: lighter;
+    line-height: 1;
+    font-size: 0.75rem;
+    display: inline-block;
+    padding: 7px 16px 6px 16px;
+    border-radius: 2px;
+    margin: 10px 0px 0px 0px;
+    width: 90px;
+    font-weight: 500;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
 .lifestyle h3{
     font-weight: 500;
     font-size: 36px;
@@ -21,4 +42,32 @@
 .lf-wrap{
     position: relative;
     top: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
+/* .card-img, .card-img-bottom {
+    border-bottom-right-radius:  0px !important;
+    border-bottom-left-radius:  0px !important;
+}
+.card-img, .card-img-top
+{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+} */
+
+
+
+@media screen and (max-width: 772px){
+    .lifestyle-card{
+        background-color: white !important;
+        margin-top: 30px;
+
+    }
+    .ent-h-100{
+        height: auto;
+    }
+
+   
+}
+
+

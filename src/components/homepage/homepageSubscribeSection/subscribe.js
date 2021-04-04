@@ -3,14 +3,14 @@ import { Form, InputGroup, FormControl, Button } from "react-bootstrap";
 import LogoRed from "../../../assets/images/100 x100 main.png";
 import "./subscribe.css"
 
-const subscribe = () => {
+const Subscribe = () => {
   return (
     <div classnames="bg-white py-3 my-4 px-2">
       <div className="subscription-wrap">
-        <div className="col-sm-3 sub-logo mb-3">
-          <img src={LogoRed} alt="Logo sub-logo" />
+        <div className="col-12 col-md-4 col-lg-4 mb-3 sub-logo">
+          <img src={LogoRed} alt="Logo sub-logo" className="img-fluid"/>
         </div>
-        <div className="col-sm-6 mb-3 sub-inpt-cont">
+        <div className="col-12 col-md-8 col-lg-8  mb-3 sub-inpt-cont">
           <Form action="" method="post" className="subscribe-form mt-4">
             <InputGroup className="inpt">
               <FormControl
@@ -30,4 +30,4 @@ const subscribe = () => {
   );
 };
 
-export default subscribe;
+export default Subscribe;

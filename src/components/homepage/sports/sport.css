@@ -4,6 +4,8 @@
     font-family: 'Roboto', sans-serif;
     max-width: 1500px;
     margin: 0 auto;
+    background-color: #EFEFEF;
+    padding-top: 30px;
 }
 .sport-card-wrap{
     max-width: 1500px;
@@ -17,12 +19,13 @@
     line-height: 42px;
     color: #EE3039;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-left: 1.5rem;
+    /* margin-left: 1.5rem; */
 }
 .sport-crd{
     background-color: #fff;
     box-shadow: 0;
     border: 0;
+    border-radius: 0 !important;
 }
 .sprt-txt{
     padding-left: 0!important;
@@ -32,22 +35,67 @@
     text-decoration: none;
     transition: transform 2s ease;
     height: 100%;
-    width: 292px;
     max-width: 100%;
     color: #050505;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: capitalize;
 }
 .sprt-crd-img{
-    width: 292px;
+    width: 100%;
     height: 277px;  
 }
 .sport-sec a:hover{
-    transform: scale(0.9);
+    /* transform: scale(0.9);
+    transform: scale(0.8); */
+    /* transform: scale(0.99);  */
     color: red;
     opacity: 0.8;
-    transform: scale(0.8);
     cursor: pointer;
+}
+
+.premium_category_indicator--sport{
+    letter-spacing: normal;
+    background-color: #DC143C;
+    font-style: italic;
+    color: white;
+    text-transform: uppercase;
+    font-weight: lighter;
+    line-height: 1;
+    font-size: 0.75rem;
+    display: inline-block;
+    padding: 7px 16px 6px 16px;
+    border-radius: 2px;
+    margin: 20px 0px 0px 0px;
+    width: 90px;
+    font-weight: 500;
+    position: absolute;
+    top: 8px;
+    left: 25px;
+}
+
+@media(max-width: 400px){
+    .sprt-crd-img{
+        height: 200px;
+        display: block;
+        width: auto;
+    }
+    .premium_category_indicator--sport{
+        left: 0px;
+        top: -5px;
+    }
+    .sport-crd{
+        margin-bottom: 15px;
+    }
+    .sport-sec a{
+        font-size: 16px;
+        text-align: left;
+    }
+    .sprt-txt{
+        padding-left: 7px !important;
+        width: 140px;
+    }
+
 }

@@ -1,17 +1,27 @@
 import React, { Component } from "react";
 import SportCard from "./SportCard";
 import "./sport.css";
+import { Link } from "react-router-dom";
 
 export class SportComponent extends Component {
   render() {
       const sportNews = this.props.data && this.props.data.filter(
-        (news) => news.category_id === "Sport"
+        (news) => news.category_id === "Sport Africa"
       );
     return (
       <div className="sport">
-        <div className="container-fluid shadow-sm">
-          <h3>SPORTS </h3>
-          <div className="container-fluid mt-3 mb-3 py-2 d-flex row sport-card-wrap">
+        <div className="custom-container container-fluid shadow-sm">
+          <Link
+          to={{
+            pathname: "/news/categories",
+            search: `?category=Sport`,
+          }}
+        >
+          <h3 className="">
+          SPORTS
+          </h3>
+        </Link>
+          <div className="container-fluid mt-3 mb-4 py-2  d-flex row sport-card-wrap">
             {sportNews && sportNews.length > 0 &&
               sportNews.map((news) => {
                 const {

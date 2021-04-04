@@ -2,16 +2,49 @@ import React, { Component } from "react";
 import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./homepage.css";
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+
 
 class Banner extends Component {
   render() {
     const feeds = this.props.data;
-    const firstFeed = Array.isArray(feeds) && feeds.length ? feeds[0] : {};
-    const secondFeed = Array.isArray(feeds) && feeds.length ? feeds[8] : {};
+
+    // METHOD 1
+    // // filter out the premium news from feeds
+    // const getPremiumNews = feeds.filter((feed)=>feed.post_type=='premium')
+    // // filter out the politics news
+    // const getPoliticsNews = getPremiumNews.filter((premiumNews)=>premiumNews.category_id.toLowerCase()=='politics')
+    // // filter out the lifestyle news
+    // const getLifeStyleNews = getPremiumNews.filter((premiumNews)=>premiumNews.category_id.toLowerCase()=='lifestyle')
+    // // set the news to display
+    // const firstFeed = Array.isArray(getPoliticsNews) && getPoliticsNews.length ? getPoliticsNews[0] : {};
+    // const secondFeed = Array.isArray(getLifeStyleNews) && getLifeStyleNews.length ? getLifeStyleNews[0] : {};
+    // console.log(feeds)
+    
+    // METHOD 2
+    const getPremiumNews = feeds && feeds.filter((feed)=>feed.post_type=='premium') // extract premium news
+    const firstFeed = Array.isArray(getPremiumNews) && getPremiumNews.length ? getPremiumNews[6] : {};
+    const secondFeed = Array.isArray(getPremiumNews) && getPremiumNews.length ? getPremiumNews[1] : {};
+
+    if(feeds.length == 0){// if there is no feeds display loader
+      return(
+        <div className="container-fluid flex-container banner">
+          <div className="col-sm-12 py-3 carousel-ct">
+            <div className="mt-3 carosel" style={{ fontSize: 20, lineHeight: 2 }}>
+              <SkeletonTheme color="#EEE" highlightColor="#CCC">
+                  <p>
+                  <Skeleton count={10} duration={7} />
+                  </p>
+              </SkeletonTheme>
+            </div>
+          </div>
+        </div>
+      )
+    }
 
     return (
-      <div className="container-fluid flex-container banner">
-        <div className="col-sm-8 py-3 carousel-ct">
+      <div className="custom-container  container-fluid flex-container banner">
+        <div className="col-sm-8 py- carousel-ct">
           <Carousel slide={false} fade={false} className="mt-3 carosel">
             {feeds &&
               feeds.slice(0, 3).map((categ) => {
@@ -22,6 +55,8 @@ class Banner extends Component {
                       className="d-block"
                       src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
                       alt="First slide"
+                      width='100%'
+                      height='100%'
                     />
                     <Carousel.Caption className="caro-capxn">
                       <Link
@@ -45,9 +80,26 @@ class Banner extends Component {
               })}
           </Carousel>
         </div>
-        <div className="col-sm-4 py-4 mt-3">
-          {
-            <div className="cnt-1">
+        <div className="col-sm-4 mt-3">
+          { firstFeed &&
+            <div className="cnt-1"
+              style={{
+                // backgroundImage:`url(https://api.tv24africa.com/public/storage/post_image/${firstFeed.featured_image})`,
+                // background: 'rgba(0,0,0,0.8)',
+                // backgroundPosition: 'center',
+                // height: '100%'
+                // background: `
+                // linear-gradient(rgba(0, 0, 0, 0.5), 
+                // rgba(0, 0, 0, 0.6)),
+                // url(https://api.tv24africa.com/public/storage/post_image/${firstFeed.featured_image}) top/cover fixed no-repeat`,
+                // color: '#fff'
+                  background: `
+                  linear-gradient(rgba(0, 0, 0, 0.5), 
+                  rgba(0, 0, 0, 0.6)),
+                  url(https://api.tv24africa.com/public/storage/post_image/${firstFeed.featured_image}) bottom/cover fixed no-repeat`,
+                  color: '#fff',
+              }}
+            >
               <div className="cnt-txt-wrap">
                 <Link
                   to={{
@@ -65,23 +117,35 @@ class Banner extends Component {
               </div>
             </div>
           }
-          <div className="cnt-2">
-            <div className="cnt-txt-wrap">
-              <Link
-                to={{
-                  pathname: "/news/categories",
-                  search: `?category=${secondFeed.category_id}`,
-                }}
-              >
-                <button className="text-decoration-none inline-block p-2 text-left cap-anco mt-5">
-                  {secondFeed.category_id}
-                </button>
-              </Link>
-              <Link to={`/post/${secondFeed.slug}`} className="slug">
-                <p className="text-capitalize pb-4">{secondFeed.post_title}</p>
-              </Link>
+          {
+            secondFeed &&
+              <div className="cnt-2"
+              style={{
+                background: `
+                linear-gradient(rgba(0, 0, 0, 0.5), 
+                rgba(0, 0, 0, 0.6)),
+                url(https://api.tv24africa.com/public/storage/post_image/${secondFeed.featured_image}) top/cover fixed no-repeat`,
+                color: '#fff'
+              }}
+            >
+              <div className="cnt-txt-wrap">
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: `?category=${secondFeed.category_id}`,
+                  }}
+                  >
+                  <button className="text-decoration-none inline-block p-2 text-left cap-anco mt-5">
+                    {secondFeed.category_id}
+                  </button>
+                </Link>
+                <Link to={`/post/${secondFeed.slug}`} className="slug">
+                  <p className="text-capitalize pb-4">{secondFeed.post_title}</p>
+                </Link>
+              </div>
             </div>
-          </div>
+          }
+
         </div>
       </div>
     );

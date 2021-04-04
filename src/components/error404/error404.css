@@ -3,12 +3,18 @@
   color: #505962;
   line-height: 1.5;
   font-size: 16px;
+
+  /* this fix the overlay with navbar */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* THIS IS THE HEADER SECTION */
 
 .error404-page .heading-title {
-    padding: 4em 0 7em 0;
+  padding: 4em 0 7em 0;
   background: rgba(242, 235, 233, 0.6);;
 }
 

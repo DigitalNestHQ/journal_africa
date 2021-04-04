@@ -4,20 +4,26 @@
 button{
     border:none;
 }
-img{
+
+
+/* .sb-cntrl:active,
+.sb-cntrl:focus{
+    outline: none !important;
+} */
+/* img{
     width: 100%;
     height: 100%;
-}
+} */
 .cnt-1 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
         url("../../assets/images/endsars.jpg")top/cover fixed no-repeat;
-    color: #fff;
+    color: #fff; */
 }
 
 .cnt-2 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
         url("../../assets/images/Mambilla-Plateau.jpg")top/cover fixed no-repeat;
-    color: #fff;
+    color: #fff; */
 }
 .car-p {
     font-size: 14px;
@@ -239,10 +245,11 @@ img{
 
 /*############## Tease section ###################*/
 .teaser {
-    background-color: #ccc;
+    background-color: #FFFFFF;
     padding-top: 40px;
     padding-bottom: 30px;
 }
+
 .butn {
     background: #fff;
     color: #F83D3D;
@@ -282,8 +289,13 @@ img{
 }
 
 .h-100:hover {
-    /* transform: scale(0.8); */
+    /* transform: scale(1.06); */
     cursor: pointer;
+    border-radius: 20px;
+}
+
+.teaser .card-img-overlay{
+    border-radius: 20px;
 }
 
 .ts-card-txt:hover {

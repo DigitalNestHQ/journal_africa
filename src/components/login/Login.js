@@ -43,18 +43,25 @@ const Login = (props) => {
       login({
         email,
         password,
-      });
-      setAlert("login successful", "success");
-      setTimeout(() => {
-            props.history.push("/");
-          }, 4000)
+      })
+      .then((res)=>{
+        setAlert("login successful", "success");
+        setTimeout(() => {
+              props.history.push("/");
+            }, 4000)
+      })
+      .catch((err)=>{
+        console.log(err)
+        setAlert("Login Failed", "danger");
+
+      })
 
     }
   };
   return (
     <div className="login">
       <div className="page-wrap">
-        <FormHeader />
+        <FormHeader redirectTo="signup" linkLabel="Sign Up" />
         <div className="container-fluid login-wrap">
           <div className="login-txt">
             <span>Telling</span>
@@ -62,15 +69,18 @@ const Login = (props) => {
           </div>
           <div className="form-wrap">
             <h2>Sign In</h2>
-            <Alerts />
+            {/* add the alert inside a container to solve the UI dropping down */}
+            <div style={{height: '0.7rem'}}>
+              <Alerts />
+            </div>
             <form className="form login-form" onSubmit={onSubmit}>
-              <div class="mb-3">
-                <label htmlFor="email" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">
                   Email
                 </label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Enter your email address"
                   name="email"
                   value={email}
@@ -79,20 +89,20 @@ const Login = (props) => {
                 />
               </div>
 
-              <div class="mb-3">
-                <label htmlFor="password" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">
                   Password
                 </label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control password-input"
                   placeholder="Enter your password"
                   name="password"
                   value={password}
                   required
                   onChange={onChange}
                 />
-                <span className="showPassword">show</span>
+                {/* <span className="showPassword">show</span> */}
                 <Link className="fpass" to="/forgotPassword">
                   Forgot your password?
                 </Link>

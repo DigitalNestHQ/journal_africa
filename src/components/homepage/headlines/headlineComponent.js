@@ -10,7 +10,7 @@ class HeadlineComponent extends Component {
     );
     return (
       <div className="hl-wrapper">
-        <div className="container-fluid hl-tp-cont mx-auto">
+        <div className="custom-container container-fluid hl-tp-cont mx-auto">
           <div className="row container-fluid mx-auto">
             <div className="col-sm-9 ns-txt-wrap">
               { newsHeadlines && newsHeadlines.length &&

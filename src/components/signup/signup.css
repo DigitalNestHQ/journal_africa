@@ -47,7 +47,7 @@ line-height: 22px;
     font-size: 14px;
     line-height: 16px;
     color: #000!important;
-    text-align: center;
+    text-align: left;
 }
 .showPassword {
     font-weight: 500;
@@ -108,13 +108,13 @@ line-height: 22px;
     margin-top: 30px;
     padding-top: 30px;
 }
-.fpass{
+/* .fpass{
     margin-top: 0;
     padding-top: 0;
     margin-left: 250px;
     color: #000;
     text-align: right;
-}
+} */
 .gosignup{
     text-align: center;
 }
@@ -135,14 +135,115 @@ line-height: 22px;
     text-transform: capitalize;
     font-weight: bold;
 }
+
+.alert{
+    color: white; 
+    /* font-size: 12px; */
+    text-align: center;
+}
+
+.alert-danger{
+    background-color: red; 
+
+}
+
+.alert-success{
+    background-color: green;
+}
 .danger{
     font-size: 12px;
     text-align: center;
     background-color: red; 
 }
-.alert{
-    color: white; 
-}
+
 .success{
     background-color: green;
+}
+
+
+
+
+@media(max-width: 810px){
+
+    .signup{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .signup-txt{
+        display: none;
+    }
+
+    .signup-form{
+        width: 100%;
+    }
+
+}
+
+
+@media(max-width: 560px){
+
+    .signup-form{
+        width: 420px;
+    }
+
+    .signup-form input,
+    .signup-form button{
+        width: 400px;
+    }
+
+    .fpass{
+        margin-left: 200px !important;
+    }
+}
+
+@media(max-width: 488px){
+    .signup-form{
+        width: 300px;
+    }
+
+    .signup-form input,
+    .signup-form button{
+        width: 300px;
+        white-space: nowrap;
+    }
+    .showPassword{
+        display: none;
+    }
+    .fpass{
+        margin-left: 9px !important;
+    }
+}
+
+@media(max-width: 380px){
+    .signup-form{
+        width: 250px;
+    }
+
+    .signup-form input,
+    .signup-form button{
+        width: 100%;
+        font-size: 15px !important;
+        padding: 15px 12px;
+    }
+
+    .signup-form input::placeholder{
+        font-size: 16px;
+    }
+
+    .showPassword{
+        display: none;
+    }
+    .fpass{
+        margin-left: 9px !important;
+    }
+}
+
+@media(max-width: 330px){
+    .signup-form{
+        width: 220px;
+    }
+    .formHeader{
+        white-space: nowrap;
+    }
 }

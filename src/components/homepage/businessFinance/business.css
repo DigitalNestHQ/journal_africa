@@ -35,7 +35,7 @@
 }
 .sme_rght h5{
     color: #EE3039;
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 500;
     font-size: 38px;
     line-height: 46px;
@@ -43,7 +43,7 @@
 .sme_rght p{
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 22px;
     line-height: 35px;
     color: #000000;
     padding-top: 10px;
@@ -59,16 +59,16 @@
     color: #000;
 }
 .bus-sec a:hover{
-    transform: scale(0.9);
-    color: #e7332b;
+    /* transform: scale(0.9);
+    transform: scale(0.8); */
+    color: #e7332b !important;
     opacity: 0.8;
-    transform: scale(0.8);
     cursor: pointer;
     text-decoration: none;
 }
 .bus-crd{
     border: none;
-    box-shadow: 0 0 0 0;
+    /* box-shadow: 0 0 0 0; */
 }
 .bus-crd-img{
     
@@ -83,6 +83,10 @@
     line-height: 19px;
     font-family: 'Roboto', sans-serif;
     padding-top: 10px
+}
+
+.bus-crd-caption:hover{
+    color: #e7332b
 }
 .bus-col-wrap{
     background-color: #fff;

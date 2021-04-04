@@ -6,7 +6,7 @@ import TeaserSection from "./homepageTeaser/TeaserSection";
 import SubscribeForm from "./homepageSubscribeSection/Subscribe";
 import Politics from "./politics/PoliticsComponent";
 import Headlines from "./headlines/HeadlineComponent";
-import Lifestyles from "./lifestyle/LifestyleComponent";
+import Lifestyles from "./lifestyle/LlifestyleComponent";
 import Entertainment from "./entertainment/EntertainmentComponent";
 import { getNewsFeed } from "../../context/news/NewsApi";
 import Business from "./businessFinance/Business";
@@ -17,11 +17,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "../reusables/navigation/Footer/Footer";
 import "./homepage.css";
+import EcoAfricaComponent from "./ecoAfrica/EcoAfricaComponent";
 
 function Homepage() {
   const [news, setNews] = useState([]);
   const [error, setError] = useState(null);
   const { slug } = useParams();
+  // console.log(news);
   // your useeffct function will cause memory  leaks
   useEffect(() => {
     AOS.init();
@@ -44,13 +46,30 @@ function Homepage() {
   return (
     <Fragment>
       <Nav />
+      {/* <Banner data={news} /> */}
+      {/* <Politics data={news} /> */}
+      {/* discover africa  */}
+      {/* <InsideAfrica /> */}
+      {/* eco africa */}
+      {/* <EcoAfricaComponent data={news} /> */}
+      {/* tech africa */}
+      {/* <Tech data={news}/> */}
+      {/* sport */}
+      {/* <Sports data={news}/> */}
+      {/* <TeaserSection data={news} />
+      <Headlines data={news}/>
+      <Business data={news} />
+      <Lifestyles data={news}/>
+      <Entertainment data={news}/>
+      <SubscribeForm /> */}
+      
       <Banner data={news} />
       <Politics data={news} />
       <TeaserSection data={news} />
       <Headlines data={news}/>
       <Business data={news} />
       <InsideAfrica />
-      {/* <Tech /> */}
+      <Tech data={news}/>
       <Sports data={news}/>
       <Lifestyles data={news}/>
       <Entertainment data={news}/>

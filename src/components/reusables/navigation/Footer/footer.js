@@ -9,7 +9,7 @@ const Footer = () => {
     <div className="footer-wrapper container-fluid">
       <footer className="footer">
         <div className="row ft-mob">
-          <div className="col-sm-3 ">
+          <div className="col-12 col-md-6 col-lg-3 mb-3">
             <h3 className="ft-hd-1">About</h3>
             <p>
               TV24 Africa Newspaper is Africa’s top online publication
@@ -29,7 +29,7 @@ const Footer = () => {
               <i className="fab fa-youtube"></i>
             </Card.Link>
           </div>
-          <div className="col-sm-3 ">
+          <div className="col-12 col-md-6 col-lg-3">
             <h3 className="ft-hd-2">categories</h3>
             <ul>
               <li>
@@ -58,7 +58,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="col-sm-3 ft-crd">
+          <div className="col-12 col-md-6 col-lg-2 ft-crd">
             <h3 className="ft-hd-3">company</h3>
             <ul>
               <li>
@@ -90,7 +90,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="col-sm-3">
+          <div className="col-12 col-md-6 col-lg-4 app-cont">
             <h3 className="ps_p">DOWNLOAD APP</h3>
             <div className="app-store">
               <a href="/playStore">
@@ -100,7 +100,7 @@ const Footer = () => {
                 <img src={ApplePlayImg} alt="google play" />{" "}
               </a>
             </div>
-            <small className="text-center">&copy;2021 TV24 Media Network</small>
+            <small className="copyRight_text">&copy;2021 TV24 Media Network</small>
           </div>
         </div>
       </footer>

@@ -1,0 +1,17 @@
+
+/*  overwrite the styles from header.css */
+
+.weather-wrap{
+    background-color: transparent !important;
+    padding: auto;
+}
+
+
+.weather-text{
+    background-color: transparent !important;
+    text-transform: capitalize !important;
+}
+
+.weather-btn{
+    cursor: pointer;
+}

@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import authContext from "../../context/auth/authContext";
+import { Weather } from "../weather/Weather";
 import "./header.css";
 
-function topNav(props) {
+function TopNav(props) {
+  const userContext = useContext(authContext)
+  const { user } = userContext;
+  
+  // const authContext = useContext(AuthContext);
+
+  useEffect(() => {
+    userContext.loadUser()
+    // eslint-disable-next-line
+  }, []);
+
   const getDate = () => {
     const date = new Date();
     const month = date.getMonth() + 1;
@@ -49,7 +61,21 @@ function topNav(props) {
     <div className="top-nav">
       <p className="text-white name-sp" style={{ marginBottom: "0px" }}>
         {" "}
-        <span>Welcome Adeola Konga</span> <span>{getDate()}</span>{" "}
+        {
+          user && user ? (
+            <>
+              <span>Welcome {user.firstname} {user.lastname}</span> <span className="p-1">{getDate()}</span>
+            </>
+          ) :(
+              <><span>Welcome </span> <span className="p-1">{getDate()}</span></>
+          )
+        }
+        {" "}
+      </p>
+      {/* the weather repost component goes here */}
+      <p className="text-white name-sp ml-auto">
+        <span className="weather-wrap"> <Weather /> </span>
+        {/* <span className="weather-wrap"> Weather: FCT : 32° <sup></sup></span> */}
       </p>
       <ul className="soc-nav" style={{ marginBottom: "0px" }}>
         <li>
@@ -77,4 +103,4 @@ function topNav(props) {
   );
 }
 
-export default topNav;
+export default TopNav;

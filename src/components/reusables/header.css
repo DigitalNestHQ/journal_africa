@@ -5,6 +5,7 @@
     height: 40px;
     padding-bottom: 7px;
     padding-top: 5px;
+    display: flex;
 }
 .name-sp{
     color: #fff;
@@ -15,7 +16,7 @@
 }
 .top-nav p span:first-child{
     padding: 5px 5px 3px 5px;
-    background-color: red;
+    background-color: #DC143C;
     line-height: 13px;
 }
 
@@ -39,12 +40,24 @@
     text-decoration: none;
     color: #fff;
     font-size: 17px;
-    background-color: red;
+    background-color: #DC143C;
     text-transform: uppercase;
     display: inline-block;
     padding: 3px 6px 3px 5px;
     margin-top: 5px!important;
     font-weight: 400!important;
+}
+
+/* Style the navbar dropdown */
+@media(max-width: 1000px){
+    .nav-sub{
+        padding: 12px !important;
+        margin: 12px;
+        border-radius: 5px;
+    }
+    .nav-sub-tp{
+        padding: 12px !important;
+    }
 }
 .nav-sub-tp{
     font-weight: 400!important;

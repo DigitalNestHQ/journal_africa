@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { pageurl } from "./utils/constants.js";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./components/homepage/Homepage";
@@ -18,6 +18,9 @@ import CategoryNews from "./components/category/CategoryNews";
 
 import Error404 from "./components/error404/Error404";
 
+// css override
+import './../src/components/reusables/utilitize/index.css'
+
 // states
 import AuthState from "./context/auth/AuthState";
 import AlertState from "./context/alert/AlertState";
@@ -25,6 +28,7 @@ import AlertState from "./context/alert/AlertState";
 // middleware
 import setAuthToken from "./utils/setAuthToken";
 import "./App.css";
+import authContext from "./context/auth/authContext.js";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);

@@ -4,11 +4,25 @@
     margin:0;
     position:fixed;
     width: 100%;
-    z-index: 10;
+    z-index: 100;
   }
   .activeLink {
     color: #fff!important;
   }
+
+  .nav-link:hover{
+    background-color: #DC143C;
+    }
+    .nav-sub-tp:hover{
+        background: none;
+    }
+
+  @media(max-width: 1000px){
+
+      .nav-link{
+          margin-top: 10px;
+        }
+    }
 
   .Navigation .nav-item .nav-link:hover{
     color: #e7332b;
@@ -18,7 +32,7 @@
    background:rgba(242, 235, 233, 0.6);
    transition: all 0.5s;
    width: 100%;
-   height: 90px;
+   height: 80px;
  }
  .Navigation header .h-btn{
    background: #e7332b;
@@ -27,7 +41,7 @@
  
  .logo{
      width: 78px;
-     height: 78px;
+     height: 65px;
  }
  .logo img{
     width: 100%;
@@ -84,6 +98,7 @@
     .Navigation  header .h-btn {
         margin-left: 100px;
     }
+
 }
 
 @media screen and (min-width: 776px) {
@@ -103,8 +118,8 @@
 }
 .nav-mn li{
     font-weight: bold;
-    font-size: 16px;
-    line-height: 21px;
+    font-size: 15px;
+    /* line-height: 21px; */
     font-family: 'Roboto' sans-serif;
 }
 .nav-sub-i li{
@@ -143,8 +158,8 @@
 }
 @media (max-width: 978px) {
     .container, .container-fluid {
-      padding:0;
-      margin:0;
+      /* padding:0;
+      margin:0; */
     }
     body {
       padding:0;

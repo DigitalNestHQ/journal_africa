@@ -35,7 +35,8 @@ export default (state, action) => {
         ...action.payload,
         isAuthenticated: true,
         loading: false,
-        message: action.payload.data.message
+        message: action.payload.data.message,
+        user: action.payload.data
       };
 
     case REGISTER_FAIL:

@@ -10,8 +10,8 @@ export class discoverAfrica extends Component {
   render() {
     return (
       <div className="africa">
-        <h3>DISCOVER AFRICA</h3>
-        <div className="container-fluid row af-bg-red ml-0">
+        <h3 className="px-5">DISCOVER AFRICA</h3>
+        <div className="custom-container container-fluid row af-bg-red ml-0">
           <div className="col-sm-6 af-col-tp my-2 mx-auto">
               <p>MAMBILA FOREST</p>
           </div>

@@ -24,7 +24,7 @@ const PoliticsCard = ({
       } 
       <img className='responsive-img img-fluid' src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}` }></img>
       <Link to={`/post/${slug}`} className="news-link">
-          <p>{post_title.toLowerCase()}</p>
+          <p className="custom-news-title">{post_title.toLowerCase()}</p>
       </Link>
     </div>
   );

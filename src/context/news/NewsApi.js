@@ -3,6 +3,10 @@ const token = localStorage.getItem("token");
 const config = {
   headers: {
     Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'mode': 'no-cors',
   },
 };
 

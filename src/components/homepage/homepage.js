@@ -23,6 +23,7 @@ function Homepage() {
   const [news, setNews] = useState([]);
   const [error, setError] = useState(null);
   const { slug } = useParams();
+  // console.log(news);
   // your useeffct function will cause memory  leaks
   useEffect(() => {
     AOS.init();
@@ -68,7 +69,7 @@ function Homepage() {
       <Headlines data={news}/>
       <Business data={news} />
       <InsideAfrica />
-      <Tech />
+      <Tech data={news}/>
       <Sports data={news}/>
       <Lifestyles data={news}/>
       <Entertainment data={news}/>

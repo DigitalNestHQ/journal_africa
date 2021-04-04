@@ -6,7 +6,7 @@ const HeadlineCard = ({ post_title, slug, featured_image, category_id }) => {
   return (
     <div className="container-fluid news-bg-wrapper">
       <div className="shadow-sm row mb-3 bt-red bg-var-blue">
-        <div className="col-lg-6 col-sm-12 ns-txt">
+        <div className="col-lg-7 col-sm-12 ns-txt">
           <div className="text-bold news-hd" id="news--headline">
             <Link to={`/post/${slug}`}>
               <h3>{post_title}</h3>
@@ -14,7 +14,7 @@ const HeadlineCard = ({ post_title, slug, featured_image, category_id }) => {
             <p className="newssummary">{slug}</p>
           </div>
         </div>
-        <div className="col-lg-6 col-sm-12 hd-img-wrap">
+        <div className="col-lg-5 col-sm-12 hd-img-wrap">
           <Link
             to={{
               pathname: "/news/categories",

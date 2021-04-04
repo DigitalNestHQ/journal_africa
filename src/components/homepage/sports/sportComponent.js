@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 export class SportComponent extends Component {
   render() {
       const sportNews = this.props.data && this.props.data.filter(
-        (news) => news.category_id === "Sport"
+        (news) => news.category_id === "Sport Africa"
       );
     return (
       <div className="sport">
-        <div className="container-fluid shadow-sm">
+        <div className="custom-container container-fluid shadow-sm">
           <Link
           to={{
             pathname: "/news/categories",

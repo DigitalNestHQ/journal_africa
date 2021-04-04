@@ -38,14 +38,6 @@
     border: none;
 }
 
-.butn{
-    background: #fff;
-    color: #F08080;
-}
-.butn:hover{
-    background: #F08080;
-    color: #fff
-}
 .overl{
     position: absolute;
     top: 50%;
@@ -71,7 +63,8 @@
     padding-right: 15px!important;
     max-width: 1358px!important;
     margin:0 auto;
-    height: 640px;
+    /* height: 640px; */
+    height: 480px;
 }
 .ent-chng-pos{
     position: relative;

@@ -43,8 +43,8 @@ class Banner extends Component {
     }
 
     return (
-      <div className="container-fluid flex-container banner">
-        <div className="col-sm-8 py-3 carousel-ct">
+      <div className="custom-container  container-fluid flex-container banner">
+        <div className="col-sm-8 py- carousel-ct">
           <Carousel slide={false} fade={false} className="mt-3 carosel">
             {feeds &&
               feeds.slice(0, 3).map((categ) => {
@@ -80,7 +80,7 @@ class Banner extends Component {
               })}
           </Carousel>
         </div>
-        <div className="col-sm-4 py-4 mt-3">
+        <div className="col-sm-4 mt-3">
           { firstFeed &&
             <div className="cnt-1"
               style={{

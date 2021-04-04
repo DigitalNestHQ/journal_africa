@@ -12,14 +12,14 @@ class Business extends Component {
       (bn) => bn.category_id === "Business and Finance"
     );
     const singleBussinessNews = businessNews[1]
-    console.log(businessNews);
+    // console.log(businessNews);
     return (
       <Fragment>
-        <div className="business my-4 container-fluid">
+        <div className="custom-container business my-4 container-fluid">
           <Link
           to={{
             pathname: "/news/categories",
-            search: `?category=Business News`,
+            search: `?category=Business and Finance`,
           }}
         >
           <h3 className="">
@@ -30,9 +30,9 @@ class Business extends Component {
             <div className="col-sm-6 sme_bg"></div>
             <div className="col-sm-6 sme_rght">
               {/* <h5>Bank highlights business support solutions</h5> */}
-              <h5>{singleBussinessNews.post_title}</h5>
+              <h5>{ singleBussinessNews && singleBussinessNews.post_title}</h5>
               <p>
-                {singleBussinessNews.slug}
+                {singleBussinessNews && singleBussinessNews.slug}
                 {/* Modified date: November 27, 20200 The United Kingdom Trade Envoy
                 to Nigeria, Hon. Helen Grant, has said that Nigeria was the
                 fastest growing economy in Africa. Grant said this at... */}

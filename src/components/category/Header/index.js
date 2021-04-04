@@ -25,8 +25,18 @@ const Header = ({post_type}) => {
                 VOD
               </Link>
             </li>
-            <li className="nav-items">
+            {/* <li className="nav-items">
               <Link className="nav-links discover" to="/discover">
+                DISCOVER AFRICA
+              </Link>
+            </li> */}
+            <li className="nav-items">
+              <Link className="nav-links discover"
+               to={{
+                pathname: "/news/categories",
+                search: `?category=Discovery Africa`,
+              }}
+               >
                 DISCOVER AFRICA
               </Link>
             </li>
@@ -35,7 +45,7 @@ const Header = ({post_type}) => {
               //  to="/politics"
                to={{
                 pathname: "/news/categories",
-                search: `?category=Politics`,
+                search: `?category=Politics and Governance`,
               }}
                >
                 POLITICS & GOVERNANCE
@@ -46,7 +56,7 @@ const Header = ({post_type}) => {
               // to="/business"
               to={{
                 pathname: "/news/categories",
-                search: `?category=Business News`,
+                search: `?category=Business and Finance`,
               }}
               >
                 BUSINESS & FINANCE

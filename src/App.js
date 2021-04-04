@@ -18,6 +18,9 @@ import CategoryNews from "./components/category/CategoryNews";
 
 import Error404 from "./components/error404/Error404";
 
+// css override
+import './../src/components/reusables/utilitize/index.css'
+
 // states
 import AuthState from "./context/auth/AuthState";
 import AlertState from "./context/alert/AlertState";

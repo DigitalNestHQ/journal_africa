@@ -13,8 +13,6 @@ const TeaserSection = (props) => {
   const sportAfricaTeaser = teasers.filter((post)=>post.category_id === "Sport Africa")
   // select 1 from each category
   const selectedTeasers = [discoverAfricaTeaser[0], ecoAfricaTeaser[0], techAfricaTeaser[0], sportAfricaTeaser[0]] || [{}]
-  console.log(teasers)
-  console.log(selectedTeasers)
   AOS.init();
   if(typeof selectedTeasers[0] === "undefined"){return null}
   return (
@@ -25,7 +23,7 @@ const TeaserSection = (props) => {
       data-aos-duration="1500"
     >
       {selectedTeasers && 
-      <div className="row container-fluid mx-auto teas-crd-wrap">
+      <div className="custom-container row container-fluid mx-auto teas-crd-wrap">
         {selectedTeasers.length > 0 &&
           selectedTeasers.map(({featured_image, id, slug, category_id}) => {
             // selectedTeasers.slice(7,11).map((teaser) => {

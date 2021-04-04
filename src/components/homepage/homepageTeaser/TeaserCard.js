@@ -17,12 +17,12 @@ const TeaserCard = ({ featured_image, id, slug, category_id }) => {
             className="h-100"
           />
           <Card.ImgOverlay className="m-t text-center d-flex justify-content-end flex-column align-items-center ts-oerlay" style={{height: "100%",background: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)"}}>
-            <Button variant="outline-danger" className="butn">
+            <Button variant="outline-dange" className="butn" style={{fontSize: '20px'}}>
               {category_id}
             </Button>
             <Card.Text className="ts-card-txt" style={{zIndex:"200"}}>
-              <Link to={`/post/${slug}`} className="ts-card-txt text-white" style={{height: '100px'}}>
-                {slug.toLowerCase()}
+              <Link to={`/post/${slug}`} className="ts-card-txt text-white custom-news-title" style={{height: '100px'}}>
+                {slug.toLowerCase().slice(0,90)}...
               </Link>
             </Card.Text>
           </Card.ImgOverlay>

@@ -18,7 +18,8 @@
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
         url("../../../assets/images/tech_1.jpg")center/cover no-repeat;
     height: 430px;
-    width: 1084px;
+    /* width: 1084px; */
+    width: 100%;
     padding: 30px;
 }
 
@@ -46,10 +47,12 @@
 }
 
 .tech-bottom-left {
-    width: 1084px;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    padding-left: 20px;
 }
 
 .tech-top {
@@ -78,6 +81,8 @@
     display: inline-block;
     border: 6px solid #FFFFFF;
     border-radius: 15px;
+    object-fit: cover;
+
 }
 .tech-crd{
     border: none;

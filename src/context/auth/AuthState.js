@@ -60,8 +60,8 @@ const AuthState = props => {
                 type: LOGIN_SUCCESS,
                 payload: res.data
             })
-            console.log(res.data);
-            console.log(state)
+            // console.log(res.data);
+            // console.log(state)
             return res
          } catch (error) {
             dispatch({
@@ -86,7 +86,7 @@ const AuthState = props => {
 
         try {
             const res = await axios.get('http://api.tv24africa.com/api/v1/user', config);
-            console.log('loaduser', res.data.data)
+            // console.log('loaduser', res.data.data)
             dispatch({
                 type: USER_LOADED,
                 payload: res.data.data,

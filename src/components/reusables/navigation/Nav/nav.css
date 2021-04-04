@@ -32,7 +32,7 @@
    background:rgba(242, 235, 233, 0.6);
    transition: all 0.5s;
    width: 100%;
-   height: 100px;
+   height: 80px;
  }
  .Navigation header .h-btn{
    background: #e7332b;
@@ -41,7 +41,7 @@
  
  .logo{
      width: 78px;
-     height: 78px;
+     height: 65px;
  }
  .logo img{
     width: 100%;
@@ -118,8 +118,8 @@
 }
 .nav-mn li{
     font-weight: bold;
-    font-size: 16px;
-    line-height: 21px;
+    font-size: 15px;
+    /* line-height: 21px; */
     font-family: 'Roboto' sans-serif;
 }
 .nav-sub-i li{

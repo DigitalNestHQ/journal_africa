@@ -8,7 +8,7 @@ import { getNewsFeed } from "../../context/news/NewsApi";
 
 import CategoryCard from "./CategoryCard";
 import { getCategories } from "../../context/news/NewsApi";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Loader from "../loader/Loader";
 import "./newscategory.css";
 import { Button, Card } from "react-bootstrap";
@@ -20,6 +20,7 @@ const CategoryNews = () => {
   const [newsCateg, setNewsCateg] = useState(null);
   const [error, setError] = useState(null);
   const [news, setNews] = useState([]);
+  const history = useHistory()
 
   // method1
   const { search } = useLocation();
@@ -61,7 +62,8 @@ const CategoryNews = () => {
   }, [category]);
 
   if (error) {
-    return <Link to="/error404" />;
+    // return <Link to="/error404" />;
+    return history.pushState('/error404')
   }
   if (loading) {
     return <Loader />;

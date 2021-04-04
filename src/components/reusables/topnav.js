@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import authContext from "../../context/auth/authContext";
+import { Weather } from "../weather/Weather";
 import "./header.css";
 
 function TopNav(props) {
@@ -72,8 +73,9 @@ function TopNav(props) {
         {" "}
       </p>
       {/* the weather repost component goes here */}
-      <p className="text-white name-sp">
-        <span className=""> Weather: Abuja : 23 <sup>degree</sup></span>
+      <p className="text-white name-sp ml-auto">
+        <span className="weather-wrap"> <Weather /> </span>
+        {/* <span className="weather-wrap"> Weather: FCT : 32° <sup></sup></span> */}
       </p>
       <ul className="soc-nav" style={{ marginBottom: "0px" }}>
         <li>

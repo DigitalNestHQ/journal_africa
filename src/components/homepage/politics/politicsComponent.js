@@ -14,9 +14,9 @@ class politicsComponent extends Component {
         <>
           <div className="politics-wrap container-fluid my-4">
             <Link to="/">
-              <h3>LATEST STORIES FOR ME</h3>
+              <h3 className="pt-5">LATEST STORIES FOR ME</h3>
             </Link>
-            <div className="container-fluid my-3 p-2 row  pol-news-card-wrap">
+            <div className="container-fluid row pol-news-card-wrap">
                   <div className="card sec-2 col-lg-6 col-sm-6 col-6 my-2 mx-auto" style={{
                     margin: '10px 0px',
                     padding: '0px 5px'
@@ -33,11 +33,11 @@ class politicsComponent extends Component {
       )
     }
     return (
-      <div className="politics-wrap container-fluid my-4">
+      <div className="custom-container politics-wrap container-fluid my-4">
         <Link to="/">
-          <h3>LATEST STORIES FOR ME</h3>
+          <h3 className="custom-categories-heading">LATEST STORIES FOR ME</h3>
         </Link>
-        <div className="container-fluid my-3 p-2 row  pol-news-card-wrap">
+        <div className="container-fluid row  pol-news-card-wrap">
           {feeds && feeds.length > 0 &&
             feeds.slice(0, 4).map((categ) => {
               const {

@@ -143,7 +143,7 @@ button{
 }
 .cnt-txt-wrap {
     width: 84%;
-    padding: 40px 0 0 20px;
+    padding: 2px 0 0px 20px;
 }
 
 .cnt-txt-wrap a{
@@ -207,13 +207,19 @@ button{
 }
 @media (max-width: 978px) {
    
-    .cap-ancor {
+    button.cap-ancor {
         font-weight: 500;
         background-color: #fff;
         width: inherit;
         font-size: 14px;
     }
-    .caro-capxn p, .caro-capxn a{
+    .feed-btn{
+        font-weight: 500;
+        font-size: 15px;
+    }
+    .caro-capxn p, 
+    .caro-capxn a,
+    .cnt-txt-wrap p{
         font-size: 14px;
         line-height:20px
     }

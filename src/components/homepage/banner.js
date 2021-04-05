@@ -107,7 +107,7 @@ class Banner extends Component {
                     search: `?category=${firstFeed.category_id}`,
                   }}
                 >
-                  <button className="text-decoration-none inline-block p-2  cap-anco text-left mt-5">
+                  <button className="text-decoration-none inline-block p-2  cap-anco feed-btn text-left mt-5">
                     {firstFeed.category_id}
                   </button>
                 </Link>
@@ -135,7 +135,7 @@ class Banner extends Component {
                     search: `?category=${secondFeed.category_id}`,
                   }}
                   >
-                  <button className="text-decoration-none inline-block p-2 text-left cap-anco mt-5">
+                  <button className="text-decoration-none inline-block p-2 text-left feed-btn cap-anco mt-5">
                     {secondFeed.category_id}
                   </button>
                 </Link>

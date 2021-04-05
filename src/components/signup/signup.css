@@ -26,7 +26,14 @@ line-height: 22px;
 .signup-form input{
     width: 455px;
     height: 47px;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
+    /* border: 1px solid #979797 !important; */
+    outline: none;
+
+}
+
+.signup-form input:focus{
+    box-shadow: inset 0 -1px 0 #ddd;
 }
 .tclabel{
     font-weight: 500;

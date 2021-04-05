@@ -17,7 +17,7 @@ const LifeStyleCard = ({ featured_image, category_id, post_type, post_title, slu
             ) : ""}
           </Card.Text>
         </Card.ImgOverlay>
-        <Link to={`/post/${slug}`}>{post_title}</Link>
+        <Link to={`/post/${slug}`} className="custom-news-title pl-">{post_title}</Link>
       </Card>
     </div>
   );

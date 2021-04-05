@@ -13,7 +13,7 @@ import { getNewsComments, getSingleNews } from "../../context/news/NewsApi";
 import Loader from "../loader/Loader";
 import "./allNews.css";
 import NewsComments from "./NewsComments";
-import axios from "axios";
+import { FreeReaderPersuader } from "./FreeReaderPersuader";
 
 function transform(node, index) {
   if (node.type === "tag" && node.name === "span") {
@@ -92,9 +92,10 @@ const GetNews = () => {
   return (
     <Fragment>
       <Nav />
+
       {
         news &&
-          <div className="container news">
+        <div className="container news">
             <h2 className="post_title">{news.post_title}</h2>
             <img
               style={{
@@ -106,6 +107,7 @@ const GetNews = () => {
               alt="news"
             />
             <div className="text-wrap">{ReactHtmlParser(html, options)}</div>
+            <FreeReaderPersuader />
             <NewsComments comments={comments}/>
             <CommentForm post_title={news.post_title} post_id={news.id}/>
             <ShareNews />

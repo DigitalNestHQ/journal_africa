@@ -1,0 +1,33 @@
+.persuader{
+    margin-top: 20px;
+    padding: 10px 0px;
+}
+
+.persuader h5{
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 1.6;
+}
+
+.persuader p{
+    font-size: 17px;
+}
+
+
+.persuader .btn{
+    background: #e7332b;
+    color: #FFFFFF;
+    margin: 0px 10px 0px 0px;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.persuader .btn:hover{
+    opacity: 0.9;
+    color: #FFFFFF;
+}
+
+.persuader span{
+    font-size: 17px;
+}

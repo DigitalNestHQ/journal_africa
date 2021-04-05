@@ -5,6 +5,7 @@ import Truck from "../../../assets/images/cybertruck1.jpg";
 import Telescope from "../../../assets/images/tech2.jpg";
 import "./tech.css";
 import { TechAfricaCard } from "./TechAfricaCard";
+import { ExploreMore } from "../ExploreMore";
 
 class TechAfrica extends Component {
   render() {
@@ -43,7 +44,10 @@ class TechAfrica extends Component {
                   )
                 }
               )
-            }         
+            }
+            <div className="col-12 ml-3 ml-md-0 ml-lg-0 mr-lg-3">
+              <ExploreMore category_id="Tech Africa"/>
+            </div>
           </div>
         </div>
       </div>

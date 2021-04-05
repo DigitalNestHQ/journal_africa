@@ -6,6 +6,7 @@
     padding-bottom: 7px;
     padding-top: 5px;
     display: flex;
+    white-space: nowrap;
 }
 .name-sp{
     color: #fff;
@@ -52,7 +53,7 @@
 @media(max-width: 1000px){
     .nav-sub{
         padding: 12px !important;
-        margin: 12px;
+        margin: 0px 12px;
         border-radius: 5px;
     }
     .nav-sub-tp{

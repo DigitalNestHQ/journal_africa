@@ -22,7 +22,7 @@
     /* margin-left: 1.5rem; */
 }
 .sport-crd{
-    background-color: #fff;
+    /* background-color: #fff; */
     box-shadow: 0;
     border: 0;
     border-radius: 0 !important;
@@ -94,8 +94,8 @@
         text-align: left;
     }
     .sprt-txt{
-        padding-left: 7px !important;
-        width: 140px;
+        padding-right: 9px!important;
+        width: 120px;
     }
 
 }

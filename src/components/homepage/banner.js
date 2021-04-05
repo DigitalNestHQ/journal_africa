@@ -26,7 +26,7 @@ class Banner extends Component {
     const firstFeed = Array.isArray(getPremiumNews) && getPremiumNews.length ? getPremiumNews[6] : {};
     const secondFeed = Array.isArray(getPremiumNews) && getPremiumNews.length ? getPremiumNews[1] : {};
 
-    if(feeds.length == 0){// if there is no feeds display loader
+    if(feeds?.length == 0){// if there is no feeds display loader
       return(
         <div className="container-fluid flex-container banner">
           <div className="col-sm-12 py-3 carousel-ct">

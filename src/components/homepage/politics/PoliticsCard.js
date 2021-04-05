@@ -23,7 +23,7 @@ const PoliticsCard = ({
         post_type == "premium" && <span className="premium_category_indicator--politics">{ post_type }</span>
       } 
       <img className='responsive-img img-fluid' src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}` }></img>
-      <Link to={`/post/${slug}`} className="news-link">
+      <Link to={`/post/${slug}`} className="news-link custom-news-title">
           <p className="custom-news-title">{post_title.toLowerCase()}</p>
       </Link>
     </div>

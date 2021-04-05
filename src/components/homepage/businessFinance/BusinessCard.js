@@ -9,23 +9,23 @@ const BusinessCard = ({
   slug,
 }) => {
   return (
-    <div className="col-sm-4 bus-col-wrap bus-sec my-2 ">
+    <div className="col-6 col-md-3 col-lg-3 bus-col-wrap bus-sec my-3">
       <Card className="bus-crd">
+          <Card.Img
+            variant="top"
+            src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
+            className="bus-crd-img"
+          />
         <Link
           to={{
             pathname: "/news/categories",
             search: `?category=${category_id}`,
           }}
         >
-          <Card.Img
-            variant="top"
-            src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
-            className="bus-crd-img"
-          />
         </Link>
-        <Link to={`/post/${slug}`}>
-          <Card.Body>
-            <Card.Text className="bus-crd-caption">{post_title}</Card.Text>
+        <Link to={`/post/${slug}`} className="">
+          <Card.Body className="custom-card-body">
+            <Card.Text className="bus-crd-caption custom-news-title">{post_title}</Card.Text>
           </Card.Body>
         </Link>
       </Card>

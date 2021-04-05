@@ -25,7 +25,7 @@ const EntertainmentCard = ({
             ) : ""}
           </Card.Text>
         </Card.ImgOverlay>
-        <Link to={`/post/${slug}`}>{post_title}</Link>
+        <Link to={`/post/${slug}`} className="custom-news-title pl-1">{post_title}</Link>
       </Card>
     </div>
   );

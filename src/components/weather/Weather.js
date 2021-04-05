@@ -16,7 +16,7 @@ export const Weather = () => {
       return;
     }
   }, [])
-  console.log(userWeather)
+  // console.log(userWeather)
 
   if(!localStorage.getItem('location-allowed')){ // if there is no permission
     return (
@@ -45,7 +45,7 @@ export const Weather = () => {
     }
   
   async function getWeatherData (latitude, longitude){
-    console.log(latitude, longitude)
+    // console.log(latitude, longitude)
       // const weatherApi = `http://api.openweathermap.org/data/2.5/weather?lat=9.0797&lon=6.0097&units=metric&appid=${REACT_APP_WEATHER_KEY}`;
       const weatherApi = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${REACT_APP_WEATHER_KEY}`;
       try {
@@ -62,10 +62,10 @@ export const Weather = () => {
     const { main, name, weather } = userWeather;
   return (
     <>
-      <span className="weather-text"> weather: {name} : {main.temp}° <sup>
+      <span className="weather-text"> <span className="d-none d-md-inline d-lg-inline weather-text">weather:</span> {name} : {main.temp}° <sup>
         <img 
             src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`} alt='weather icon'
-            className='weather-icon d-none d-lg-inline'
+            className='weather-icon d- d-lg-inline'
             style={{
               width: '10%',
               height: 'auto',

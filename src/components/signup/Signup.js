@@ -10,6 +10,7 @@ import AuthContext from "../../context/auth/authContext";
 const Signup = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false)
 
   const { setAlert } = alertContext;
   const { register, error, clearErrors, isAuthenticated } = authContext;
@@ -146,7 +147,7 @@ const Signup = (props) => {
                   Password
                 </label>
                 <input
-                  type="password"
+                  type={`${showPassword ? "text" : "password"}`}
                   className="form-control"
                   placeholder="Enter your password"
                   name="password"
@@ -155,7 +156,7 @@ const Signup = (props) => {
                   required
                   minLength="6"
                 />
-                <span className="showPassword">show</span>
+                <span className="showPassword"onClick={()=>setShowPassword(!showPassword)}>{showPassword ? "hide" : "show"}</span>
               </div>
               <div className="mb-2 my-0">
                 <div className="form-check">

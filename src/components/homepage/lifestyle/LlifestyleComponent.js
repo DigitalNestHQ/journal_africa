@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import LifeStyleCard from "./LifeStyleCard";
 import "./lifestyle.css";
 import { Link } from "react-router-dom";
+import { ExploreMore } from "../ExploreMore";
 
 class Lifestyle extends Component {
   render() {
@@ -9,6 +10,7 @@ class Lifestyle extends Component {
       (news) => news.category_id === "Lifestyle"
     );
     return (
+      <>
       <div className="lifestyle mt-3 mb-3 pt-3">
         <Link
           to={{
@@ -39,6 +41,10 @@ class Lifestyle extends Component {
           </div>
         </div>
       </div>
+      <div className="ml-3">
+        <ExploreMore category_id="Lifestyle"/>
+      </div>
+      </>
     );
   }
 }

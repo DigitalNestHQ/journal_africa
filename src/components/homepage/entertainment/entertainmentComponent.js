@@ -2,6 +2,7 @@ import React from "react";
 import EntertainmentCard from "./EntertainmentCard";
 import "./entertainment.css";
 import { Link } from "react-router-dom";
+import { ExploreMore } from "../ExploreMore";
 
 class Entertainment extends React.Component {
   render() {
@@ -43,6 +44,9 @@ class Entertainment extends React.Component {
                   />
                 );
               })}
+              <div className="row mt-5 mr-5">
+                <ExploreMore category_id="Entertainment"/>
+              </div>
           </div>
         </div>
       </div>

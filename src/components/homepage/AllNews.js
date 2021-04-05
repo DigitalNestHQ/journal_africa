@@ -22,7 +22,7 @@ class AllNews extends Component {
 
   render() {
     const { feeds } = this.state;
-    console.log(feeds)
+    // console.log(feeds)
     return (
       <div className="sprt-itm-wra">
         {feeds.length > 0 &&

@@ -9,7 +9,7 @@ const Subscribe = () => {
   return (
     <div className="container-fluid subscribe-container">
       <header className="subscribe-header">
-        <FormHeader redirectTo="/login" linkLabel="Sign In"/>
+        <FormHeader redirectTo="login" linkLabel="Sign In"/>
       </header>
       <div className="cur_crd-wrap">
         <div className="sub-banner">
@@ -23,6 +23,17 @@ const Subscribe = () => {
             <span className="sub-curency_ngn">NGN</span>
             <span className="sub-curency_usd">USD</span>
           </div>
+        <div className="row px-5 text-white mb-5">
+          <div class="col-12">
+            <ul className="ml-0 ml-md-4 ml-lg-4">
+              <li>Read beyond the news</li>
+              <li>No commitment, cancel anytime</li>
+              <li>Explore indept analysis and correct to details contents</li>
+              <li>Listen to live radio and podcast on TV24 Africa website and mobile app</li>
+              <li>Access exclusive stories, expert correct and expensive coverage and TV24 Africa website and mobile app</li>
+            </ul>
+          </div>
+        </div>
           <div className="card-flex row">
             <div className="col-sm-4 col-md-4 col-lg-3 m-5 m-md-5 m-lg-0 sub-crd">
               <Card>

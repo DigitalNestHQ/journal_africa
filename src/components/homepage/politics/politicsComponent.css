@@ -6,6 +6,9 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.card-body{
+    padding: 0;
+}
 
 .politics-wrap h3{
     text-decoration: underline;
@@ -105,13 +108,13 @@
   }
  
   .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
 }
 .card a{
     color:#2b2929;
     text-decoration: none;
-    padding:5px 15px;
-    margin: 10px 0px 0px 0px;
+    /* padding:5px 15px;
+    margin: 10px 0px 0px 0px; */
     text-align: center;
     text-transform: capitalize;
 }
@@ -161,7 +164,7 @@
     .card a{
         color:#333;
         font-size: 16px;
-        padding: 5px 0px;
+        /* padding: 5px 0px; */
         /* margin: 10px 0px 0px 0px; */
         text-align: center;
         line-height: 120%;

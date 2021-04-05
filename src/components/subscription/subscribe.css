@@ -90,7 +90,7 @@
     line-height: 28px;
 }
 
-.card-body{
+.subscribe-container .card-body{
     display: flex;
     flex-direction: column;
     justify-content: center;

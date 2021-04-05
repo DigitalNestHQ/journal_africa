@@ -75,12 +75,13 @@ export const getNewsComments = async (slug) => {
 }
 
 
-export const postNewComment = async (newComment) =>{{
+export const postNewComment = async (newComment) =>{
   try{
     console.log(newComment)
-    const res = await axios.post(`http://api.tv24africa.com/api/v1/comment/`, newComment, config);
-    console.log('response from new comment', res)
+    const res = await axios.post(`http://api.tv24africa.com/api/v1/comment`, newComment, config);
+    return res
   }catch(err){
     console.log('error from new comment', err)
+    return err
   }
-}}
+}

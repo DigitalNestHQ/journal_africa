@@ -15,7 +15,7 @@ export const TechAfricaCard = ({ post_title, featured_image, slug, category_id, 
                     className="tech-crd-img"
                   />
                   <Card.Body>
-                    <Card.Text className="tech-crd-caption  p-2" style={{height: '100px'}}>
+                    <Card.Text className="tech-crd-caption custom-news-title pl-2" style={{height: '100px'}}>
                       {/* The secret to moving this ancient sphinx screening */}
                       {slug}
                     </Card.Text>

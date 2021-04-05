@@ -303,7 +303,8 @@ button{
 }
 
 .ts-card-wrap {
-    height: 280px;
+    /* height: 280px; */
+    height: 210px;
     border: none !important;
 }
 

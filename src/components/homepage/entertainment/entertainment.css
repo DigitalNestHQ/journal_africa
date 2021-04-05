@@ -76,18 +76,17 @@
     padding: 10px auto;
     color: #000;
     display: inline-block;
-    padding-top: 20px;
-    padding-right: 20px;
+    /* padding-top: 20px;
+    padding-right: 20px; */
     font-size: 18px;
     line-height: 21px;
-    padding-top: 20px;
 }
 .mt-wrap a:hover{
     text-decoration: none;
     color: #EE3039
 }
 .mg-sm-scr{
-    height: 330px;
+    /* height: 330px; */
 }
 .mg-sm-scr, 
 .ent-pos-tp{

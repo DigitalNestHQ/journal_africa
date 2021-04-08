@@ -20,8 +20,9 @@ export const DiscoveryAfricaCard = ({
                   <div className="af-crd-lst">
                       {
                           post_type === 'premium' ?(
-                              <span>PREMIUM</span>
-                          ):(<span className="text-white">Free</span>)
+                              <span className="premium_category_indicator--discovery">PREMIUM</span>
+                          ):null
+                          //  (<span className="text-white">Free</span>)
                       }
                     <p>
                       {/* Inside Calabar Carnival, africa's biggest street party */}

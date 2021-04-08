@@ -101,6 +101,7 @@ const GetNews = () => {
               style={{
                 float: "left",
                 margin: "9px 15px",
+                // margin: '0px auto'
               }}
               className="post_img"
               src={`https://api.tv24africa.com/public/storage/post_image/${news.featured_image}`}

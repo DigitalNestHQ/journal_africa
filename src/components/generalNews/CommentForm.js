@@ -4,6 +4,7 @@ import "./allNews.css";
 import { postNewComment } from '../../context/news/NewsApi'
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
+import { ExploreMore } from "../homepage/ExploreMore";
 
 const CommentForm = (props) => {
   const [commentAdded, setCommentAdded] = useState(false)
@@ -28,10 +29,12 @@ const CommentForm = (props) => {
 
   if(commentAdded){
     return(
-      <div className="badge badge-primary">
-        You have dropped a comment succefully... 
-        <Link to="/" className="text-white"> Click here to explore more news</Link>
-      </div>
+      <>
+        <p className="small">
+          Comment posted successfully
+        </p>
+          <Link to="/" className="btn btn-sm  btn-danger text-white small">Explore more news</Link>
+      </>
     )
   }
   return (

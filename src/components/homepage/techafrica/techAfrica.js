@@ -16,7 +16,7 @@ class TechAfrica extends Component {
     // console.log(techNews)
     return (
       <div className="tech">
-        <h3 className="px-4">TECH AFRICA</h3>
+        <h3 className="" style={{paddingLeft: '2rem'}}>TECH AFRICA</h3>
         <div className="tech-top">
           <div className="tech-top-left"></div>
           {/* <div className="tech-top-right d-none d-lg-block"></div> */}

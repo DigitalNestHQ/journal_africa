@@ -14,17 +14,21 @@ const CategoryCard = ({ post_title, featured_image, id, post_type, slug }) => {
         }  */}
       </div>
 
-      <div className="card-caption mt-3 mt-lg-0">
+      <div className="card-caption mt-lg-0">
         <h3 className="card-caption-title">
           {" "}
           {post_title.toLowerCase().slice(0, 100)}{" "}
         </h3>
-        <br />
+        {/* <br /> */}
         <Link to={`/post/${slug}`}>
-          <p className="card-caption-content">
-            {" "}
-            {slug.toLowerCase()} <br /> <span>Read more...</span>
-          </p>
+          <div  className="card-caption-content">
+            <p className="mb-1">
+              {" "}
+              {/* {slug.toLowerCase().slice(0, 50)}... <br /> <span>Read more</span> */}
+              {slug.toLowerCase().slice(0, 50)}<br />
+            </p>
+              <span> Read more... </span>
+          </div>
         </Link>
       </div>
     </div>

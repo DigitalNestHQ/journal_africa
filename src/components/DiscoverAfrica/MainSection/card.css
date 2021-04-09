@@ -48,7 +48,7 @@
 .card-caption-title {
   color: #020000;
   font-weight: 700;
-  font-family: Roboto;
+  font-family:/* was roboto before*/;
   line-height: 2rem;
   font-size: 25px;
   text-align: left;
@@ -64,7 +64,7 @@
 
 .card-caption-content {
   color: #000000;
-  font-family: Roboto;
+  font-family:/* was roboto before*/;
   font-size: 16px;
   font-weight: 300;
   line-height: 25px;

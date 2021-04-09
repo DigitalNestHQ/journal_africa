@@ -1,0 +1,13 @@
+.explore-tag{
+    background-color: var(--color-red);
+    color: var(--color-white);
+    padding: 2px 5px;
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+.explore-tag:hover{
+    background-color: var(--color-red);
+    color: var(--color-white);
+    opacity: 0.9;
+}

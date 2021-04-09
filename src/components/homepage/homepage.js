@@ -61,7 +61,6 @@ function Homepage() {
       <Lifestyles data={news}/>
       <Entertainment data={news}/>
       <SubscribeForm /> */}
-      
       <Banner data={news} />
       <Politics data={news} />
       <TeaserSection data={news} />
@@ -72,7 +71,7 @@ function Homepage() {
       <Sports data={news}/>
       <Lifestyles data={news}/>
       <Entertainment data={news}/>
-      <SubscribeForm />
+      {/* <SubscribeForm /> */}
       <Footer />
     </Fragment>
   );

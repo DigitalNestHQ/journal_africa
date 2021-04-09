@@ -1,7 +1,7 @@
 .sport{
     margin-top: 30px;
     margin-bottom: 30px;
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
     max-width: 1500px;
     margin: 0 auto;
     background-color: #EFEFEF;

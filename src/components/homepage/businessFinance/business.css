@@ -3,7 +3,7 @@
     margin: 0 auto;
     background: #FFFFFF;
     border-radius: 18px;
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
 }
 .business h3{
     font-style: normal;
@@ -78,7 +78,7 @@
     font-weight: 300;
     font-size: 18px;
     line-height: 19px;
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
     padding-top: 10px
 }
 

@@ -25,7 +25,7 @@ const TeaserSection = (props) => {
       {selectedTeasers && 
       <div className="custom-container row container-fluid mx-auto teas-crd-wrap">
         {selectedTeasers.length > 0 &&
-          selectedTeasers.map(({featured_image, id, slug, category_id}) => {
+          selectedTeasers.map(({featured_image, id, slug, category_id, post_description}) => {
             // selectedTeasers.slice(7,11).map((teaser) => {
             // const { featured_image, id, slug, category_id } = selectedTeaser;
             return (
@@ -34,6 +34,7 @@ const TeaserSection = (props) => {
                 featured_image={featured_image}
                 slug={slug}
                 category_id={category_id}
+                post_description={post_description}
               />
             );
           })}

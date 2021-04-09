@@ -5,7 +5,7 @@
 .af-bg-red{
     background-color: #ff0000;
     padding: 30px auto;
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
 }
 .da_img{
     width: 100%;

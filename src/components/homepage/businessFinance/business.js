@@ -72,7 +72,6 @@ class Business extends Component {
               })}
           <ExploreMore category_id="Business and Finance"/>
           </div>
-          <div className="bus-ad"></div>
         </div>
       </Fragment>
     );

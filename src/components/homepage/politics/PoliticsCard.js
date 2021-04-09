@@ -15,9 +15,9 @@ const PoliticsCard = ({
   // console.log(category_id);
 
   return (
-    <div className="card sec-2 col-lg-3 col-sm-6 col-6 my-4 mx-auto" style={{
-      margin: '10px 0px',
-      padding: '0px 5px'
+    <div className="politics-article card sec-2 col-lg-3 col-sm-6 col-6 my-4 mx-auto" style={{
+      // margin: '10px 0px',
+      // padding: '0px 5px'
     }}>
             {// only show the post type for premium
         post_type == "premium" && <span className="premium_category_indicator--politics">{ post_type }</span>

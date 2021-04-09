@@ -171,7 +171,7 @@ const Signup = (props) => {
                     className="form-check-label tclabel"
                     for="invalidCheck2"
                   >
-                    I agree to the Stears Terms and{" "}
+                    I agree to the Tv4Africa Terms and{" "}
                     <Link className="link_terms" to={pageurl.COOKIEPOLICY}>
                       Conditions
                     </Link>{" "}

@@ -28,7 +28,7 @@ class Banner extends Component {
 
     if(feeds?.length == 0){// if there is no feeds display loader
       return(
-        <div className="container-fluid flex-container banner">
+        <div className="custom-container container-fluid flex-container banner">
           <div className="col-sm-12 py-3 carousel-ct">
             <div className="mt-3 carosel" style={{ fontSize: 20, lineHeight: 2 }}>
               <SkeletonTheme color="#EEE" highlightColor="#CCC">
@@ -43,7 +43,7 @@ class Banner extends Component {
     }
 
     return (
-      <div className="custom-container  container-fluid flex-container banner">
+      <div className="custom-container container-fluid flex-container banner">
         <div className="col-sm-8 py- carousel-ct">
           <Carousel slide={false} fade={false} className="mt-3 carosel">
             {feeds &&

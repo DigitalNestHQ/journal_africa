@@ -4,7 +4,7 @@
     background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
     url("../../assets/images/elephant.jpg")center/cover fixed no-repeat;
     height: 100vh;
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
 
 }
 .login-wrap{

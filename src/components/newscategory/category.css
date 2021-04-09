@@ -1,7 +1,7 @@
 .categ-wrap{
     max-width: 1500px;
     margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
     padding-top: 180px;
     padding-bottom: 30px
 }

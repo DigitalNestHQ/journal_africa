@@ -46,11 +46,6 @@ button{
 
 .flex-container {
     padding-top: 180px;
-    max-width: 1440px;
-}
-.top-na,
-.flex-container{
-    /* width: 1244px; */
 }
 
 .caro-capxn {
@@ -254,6 +249,86 @@ button{
     }
 }
 
+/*############## Tease section ###################*/
+.teaser {
+    background-color: #FFFFFF;
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+.butn {
+    background: #fff;
+    color: #F83D3D;
+    padding: 5px 10px;
+    font-family:/* was roboto before*/;
+    font-weight: 700;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.butn:hover {
+    background: #F08080;
+    color: #fff
+}
+
+.h-100 {
+    transition: transform 2s ease;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: none;
+}
+
+.h-100:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.h-100:hover {
+    /* transform: scale(1.06); */
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.teaser .card-img-overlay{
+    border-radius: 20px;
+}
+
+.ts-card-txt:hover {
+    filter: brightness(1.5);
+}
+
+.ts-card-wrap {
+    /* height: 280px; */
+    height: 210px;
+    border: none !important;
+}
+
+.ts-overlay {
+    top: 40%;
+}
+
+.ts-card-txt {
+    font-family:/* was roboto before*/;
+    /* margin-top: 20px; */
+    font-size: 17px !important;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 10px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-transform: capitalize;
+}
 
 @media screen and (max-width: 560px) {
     .caro-item {

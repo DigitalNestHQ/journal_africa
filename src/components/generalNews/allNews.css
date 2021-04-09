@@ -4,7 +4,7 @@
     padding-top: 180px;
     font-size: 24px;
     line-height: 30px;
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
     text-align: justify;
     /* font-family: Spectral-Light; */
 
@@ -74,7 +74,7 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
 }
 .comment--feed{
     font-size: 0.8865rem;

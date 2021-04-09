@@ -3,7 +3,7 @@
     margin: 0 auto;
     background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
     url("../../assets/images/elephant.jpg")center/cover fixed no-repeat;
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
     padding-bottom: 20px;
     mix-blend-mode: multiply;
 }

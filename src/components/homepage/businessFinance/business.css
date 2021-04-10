@@ -3,7 +3,6 @@
     margin: 0 auto;
     background: #FFFFFF;
     border-radius: 18px;
-    font-family: 'Roboto', sans-serif;
 }
 .business h3{
     font-style: normal;
@@ -24,21 +23,19 @@
 }
 .bus-article-wrap{
     max-width: 1273px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 .sme_bg{
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-        url("../../../assets/images/sme.jpg")center/cover fixed no-repeat;
     height: 100%;
     width: 100%;
-    border-radius: 18px;
+    border-radius: 15px;
 }
 .sme_rght h5{
     color: #EE3039;
     /* font-style: italic; */
     font-weight: 500;
     font-size: 38px;
-    line-height: 46px;
+    line-height: 45px;
 }
 .sme_rght p{
     font-style: normal;
@@ -71,8 +68,7 @@
     /* box-shadow: 0 0 0 0; */
 }
 .bus-crd-img{
-    
-    height: 250px;
+    height: 177px;
 }
 .bus-crd-caption{
     margin-left: -1.25rem;
@@ -81,7 +77,6 @@
     font-weight: 300;
     font-size: 18px;
     line-height: 19px;
-    font-family: 'Roboto', sans-serif;
     padding-top: 10px
 }
 

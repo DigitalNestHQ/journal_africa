@@ -9,7 +9,7 @@ const Subscribe = () => {
   return (
     <div className="container-fluid subscribe-container">
       <header className="subscribe-header">
-        <FormHeader />
+        <FormHeader redirectTo="login" linkLabel="Sign In"/>
       </header>
       <div className="cur_crd-wrap">
         <div className="sub-banner">
@@ -19,13 +19,23 @@ const Subscribe = () => {
         </div>
         <div className="container pay_plan-wrap">
           <h2>Pay from Nigeria</h2>
-
           <div className="sub-curency">
             <span className="sub-curency_ngn">NGN</span>
             <span className="sub-curency_usd">USD</span>
           </div>
+        <div className="row px-5 text-white mb-5">
+          <div class="col-12">
+            <ul className="ml-0 ml-md-4 ml-lg-4">
+              <li>Read beyond the news</li>
+              <li>No commitment, cancel anytime</li>
+              <li>Explore indept analysis and correct to details contents</li>
+              <li>Listen to live radio and podcast on TV24 Africa website and mobile app</li>
+              <li>Access exclusive stories, expert correct and expensive coverage and TV24 Africa website and mobile app</li>
+            </ul>
+          </div>
+        </div>
           <div className="card-flex row">
-            <div className="col-sm-3 sub-crd">
+            <div className="col-sm-4 col-md-4 col-lg-3 m-5 m-md-5 m-lg-0 sub-crd">
               <Card>
                 <Card.Body>
                   <Card.Title className="sub-crd-title text-center">
@@ -42,7 +52,7 @@ const Subscribe = () => {
                 </Card.Body>
               </Card>
             </div>
-            <div className="col-sm-3 sub-crd">
+            <div className="col-sm-4 col-md-4 col-lg-3 m-5 m-md-5 m-lg-0 sub-crd">
               <Card>
                 <Card.Body>
                   <Card.Title className="sub-crd-title text-center">
@@ -59,7 +69,7 @@ const Subscribe = () => {
                 </Card.Body>
               </Card>
             </div>
-            <div className="col-sm-3 sub-crd">
+            <div className="col-sm-4 col-md-4 col-lg-3 m-5 m-md-5 m-lg-0 sub-crd">
               <Card>
                 <Card.Body>
                   <Card.Title className="sub-crd-title text-center">
@@ -77,7 +87,9 @@ const Subscribe = () => {
               </Card>
             </div>
           </div>
-            <button className="trial">7 Days Trial</button>
+          <div className="trial">
+            <button className="trial-btn">7 Days Trial</button>
+          </div>
         </div>
       </div>
     </div>

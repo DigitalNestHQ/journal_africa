@@ -86,7 +86,7 @@ const AuthState = props => {
 
         try {
             const res = await axios.get('http://api.tv24africa.com/api/v1/user', config);
-            // console.log('loaduser', res.data.data)
+            console.log('loaduser', res.data.data)
             dispatch({
                 type: USER_LOADED,
                 payload: res.data.data,

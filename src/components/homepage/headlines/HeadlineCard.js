@@ -1,19 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Image } from "react-bootstrap";
+import ReactHtmlParser, {
+} from "react-html-parser";
+import { HtmlParseOptions } from "../../../_helper/parseNewsHtml";
 
-const HeadlineCard = ({ post_title, slug, featured_image, category_id }) => {
+const HeadlineCard = ({ post_title, slug, featured_image, category_id, post_description }) => {
+  const getAllParagraphs = post_description.split("</p>")
+  const firstParagraph = getAllParagraphs[0];
+  let html;
+  if(post_description){
+    html = `${firstParagraph.slice(0,90)}...`
+  }
   return (
-    <div className="container-fluid news-bg-wrapper">
-      <div className="shadow-sm row mb-3 bt-red bg-var-blue">
-        <div className="col-lg-7 col-sm-12 ns-txt">
-          <div className="text-bold news-hd" id="news--headline">
-            <Link to={`/post/${slug}`}>
-              <h3>{post_title}</h3>
-            </Link>
-            <p className="newssummary">{slug}</p>
-          </div>
-        </div>
+    <div className=" shadow-lg container-fluid news-bg-wrappr headline--cont">
+      <div className=" row mb-3 bt-red">
         <div className="col-lg-5 col-sm-12 hd-img-wrap">
           <Link
             to={{
@@ -27,6 +28,14 @@ const HeadlineCard = ({ post_title, slug, featured_image, category_id }) => {
               className="hd-img"
             />
           </Link>
+        </div>
+        <div className="col-lg-7 col-sm-12 ns-txt">
+          <div className="text-bold news-hd" id="news--headline">
+            <Link to={`/post/${slug}`}>
+              <h3>{post_title}</h3>
+              <h3 className="headline-summary">{ReactHtmlParser(html, HtmlParseOptions)}</h3>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

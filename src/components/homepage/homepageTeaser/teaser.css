@@ -1,0 +1,119 @@
+.teaser .teaser-text{
+    /* margin-top: 20px; */
+    /* background-color: red; */
+}
+
+.teaser .link-wrap{
+    padding: 20px 0px 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: black; */
+}
+
+.teaser-text .link-wrap h5#news-category-label{
+    color: var(--color-red) !important;
+    font-size: 19px;
+    font-weight: 900;
+    margin-bottom: 0;
+}
+
+.teaser-text .more-btn{
+    margin-bottom: auto;
+    margin-top: auto;
+    background: var(--color-red);
+    color: var(--color-white);
+    padding: 0px 10px;
+    font-size: 11px;
+    border-radius: 25px;
+}
+
+.teaser-text .teaser-heading{
+    color: var(--news-heading);
+    font-weight: var(--news-heading-weight);
+    font-size: var(--news-heading-size);
+    /* text-shadow: var(--section-heading-text-shadow); */
+    line-height: 0;
+}
+
+.teaser-news-description{
+    font-size: var(--news-description-size);
+    font-weight: var(--news-description-weight);
+}
+
+/* 
+.teaser {
+    background-color: #FFFFFF;
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+.butn {
+    background: #fff;
+    color: #F83D3D;
+    padding: 5px 10px;
+    font-weight: 700;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.butn:hover {
+    background: #F08080;
+    color: #fff
+}
+
+.h-100 {
+    transition: transform 2s ease;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: none;
+}
+
+.h-100:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.h-100:hover {
+    transform: scale(1.06);
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.teaser .card-img-overlay{
+    border-radius: 20px;
+}
+
+.ts-card-txt:hover {
+    filter: brightness(1.5);
+}
+
+.ts-card-wrap {
+    height: 210px;
+    border: none !important;
+}
+
+.ts-overlay {
+    top: 40%;
+}
+
+.ts-card-txt {
+    font-size: 17px !important;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 10px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-transform: capitalize;
+} */

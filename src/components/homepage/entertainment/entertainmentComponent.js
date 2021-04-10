@@ -2,35 +2,39 @@ import React from "react";
 import EntertainmentCard from "./EntertainmentCard";
 import "./entertainment.css";
 import { Link } from "react-router-dom";
-
+import { ExploreMore } from "../ExploreMore";
+// this component has been changed to business and finance
 class Entertainment extends React.Component {
+
+  
   render() {
-    const entertainment = this.props.data && this.props.data.filter(
-      (news) => news.category_id === "Entertainment"
+    const businessNews = this.props.data && this.props.data.filter(
+      (news) => news.category_id === "Business and Finance"
     );
     return (
       <div className="entertainment">
         <Link
           to={{
             pathname: "/news/categories",
-            search: `?category=Entertainment`,
+            search: `?category=Business and Finance`,
           }}
-        >
-          <h3 className="text-center py-2">
-            ENTERTAINMENT
+          >
+          <h3 className="entertainment-category-heading">
+            Business & Finance
           </h3>
         </Link>
-        <div className="container-fluid ent-chng-pos">
+        <div className="custom-container container-fluid ent-chng-pos">
           <div className="container-fluid row w-100 bg-white mx-auto ent-pos-tp">
-            {entertainment && entertainment.length &&
-              entertainment.slice(0, 4).map((life) => {
+            {businessNews && businessNews.length &&
+              businessNews.slice(0, 4).map((life) => {
                 const {
                   featured_image,
                   category_id,
                   slug,
                   post_title,
                   id,
-                  post_type
+                  post_type,
+                  post_description
                 } = life;
                 return (
                   <EntertainmentCard
@@ -40,10 +44,17 @@ class Entertainment extends React.Component {
                     slug={slug}
                     post_title={post_title}
                     post_type={post_type}
+                    post_description={post_description}
                   />
                 );
               })}
+              <div className="">
+                <ExploreMore category_id="Business and Finance"/>
+              </div>
           </div>
+        </div>
+        <div className="custom-container">
+          <div className="bus-ad"></div>
         </div>
       </div>
     );

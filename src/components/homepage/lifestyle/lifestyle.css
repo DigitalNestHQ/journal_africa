@@ -1,73 +1,155 @@
-.lifestyle{
-    background-color: #000;
-    margin-bottom: 120px !important;
-}
-.premium_category_indicator--life{
-    letter-spacing: normal;
-    background-color: #DC143C;
-    font-style: italic;
-    color: white;
-    text-transform: uppercase;
-    font-weight: lighter;
-    line-height: 1;
-    font-size: 0.75rem;
-    display: inline-block;
-    padding: 7px 16px 6px 16px;
-    border-radius: 2px;
-    margin: 10px 0px 0px 0px;
-    width: 90px;
-    font-weight: 500;
-    position: absolute;
-    top: 8px;
-    left: 10px;
+.lifestyle {
+    margin-top: 50px;
+    margin-bottom: 200px
 }
 
-.lifestyle h3{
-    font-weight: 500;
-    font-size: 36px;
-    line-height: 42px;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    position: relative;
-    top: 25px;
+.lifestyle-top-left {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+        url("../../../assets/images/lifestyle.js.png")center/cover no-repeat;
+    /* background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+        url("../../../assets/images/tech_1.jpg")center/cover no-repeat; */
+        /* width: 1084px; */
+    /* height: 430px; */
+    height: 310px;
+    width: 100%;
+    padding: 30px;
 }
-.mt-wrap{
+
+.lifestyle-top-right {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+        url("../../../assets/images/widget_banner.png")top/cover no-repeat;
+    width: 255px;
+    padding: 30px;
+    height: 318px;
+}
+
+@media(max-width: 400px){
+    .lifestyle-top-left {
+        /* width: %; */
+        padding: 30px;
+    }
+    
+    .lifestyle-top-right {
+        /* background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+            url("../../../assets/images/widget_banner.png")top/cover no-repeat;
+        width: 255px;
+        padding: 30px;
+        height: 318px; */
+    }
+}
+
+.lifestyle-bottom-left {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* justify-content: center; */
+    padding-left: 20px;
+}
+
+.lifestyle-top {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+}
+
+.lifestyle-sq {
+    width: 296px;
+}
+
+.lifestyle-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    position: relative;
+    bottom: 50px;
+}
+
+.lifestyle-crd-img {
+    /* height: 277px; */
     height: 100%;
+    width: 100%;
+    display: inline-block;
+    border: 6px solid #FFFFFF;
+    object-fit: cover;
+
 }
-.overl{
-    position: absolute;
-    top: 100px;
-    font-size: 20px;
-    color: lightgrey;
+.lifestyle-crd{
+    border: none;
+    box-shadow: none;
+    padding: 20px;
+    width: 250px;
+    height: 250px;
 }
-.lf-wrap{
+.lifestyle-crd-caption{
+    margin-left: -1.25rem;
+    color: #000000;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    /* padding-top: 10px; */
+    text-align: center;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.tch-anchor:hover,
+.lifestyle-crd-caption:hover{
+    text-decoration: none;
+    color: #EE3039;
+}
+
+.lifestyle-category-heading{
+    margin: 0;
+    margin-bottom: 9px;
+    color: var(--color-red);
+    font-size: var(--section-heading-size);
+    font-weight: var(--news-heading-weight);
+    text-shadow: var(--section-heading-text-shadow);
+    border-bottom: 1px solid var(--color-red);
+    width: fit-content;
+}
+
+.lifestyle-text{
+    padding: 5px 20px;
+    text-align: left;
+}
+
+.lifestyle-text .lifestyle-heading{
+    margin: 10px 0px 10px 0px;
+    line-height: 1.3;
+    color: var(--lifestyle-news-heading-color);
+    font-size: var(--news-heading-size);
+    font-weight: var(--news-heading-weight);
+}
+
+.lifestyle-text .lifestyle-description{
+    color:#000000;
+    font-weight: 400;
+    font-size: var(--news-description-size);
+    font-weight: var(--news-description-weight);
+    text-align: left;
+}
+
+.lifestyle-text .lifestyle-description p{
+    margin-top: 10px;
+}
+/* reset em */
+.lifestyle-text .lifestyle-description p em{
+    font-style: normal;
+}
+
+.lifestyle-more-btn{
     position: relative;
-    top: 50px;
-    padding-left: 15px;
-    padding-right: 15px;
+    top: 10rem;
+    left: 5rem
 }
-/* .card-img, .card-img-bottom {
-    border-bottom-right-radius:  0px !important;
-    border-bottom-left-radius:  0px !important;
-}
-.card-img, .card-img-top
-{
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-} */
 
 
-
-@media screen and (max-width: 772px){
-    .lifestyle-card{
-        background-color: white !important;
-        margin-top: 30px;
-
+@media screen and (max-width: 772px) {
+    .lifestyle {
+        margin: 30px auto;
     }
-    .ent-h-100{
-        height: auto;
-    }
-
-   
 }
-
-

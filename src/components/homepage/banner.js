@@ -26,9 +26,9 @@ class Banner extends Component {
     const firstFeed = Array.isArray(getPremiumNews) && getPremiumNews.length ? getPremiumNews[6] : {};
     const secondFeed = Array.isArray(getPremiumNews) && getPremiumNews.length ? getPremiumNews[1] : {};
 
-    if(feeds.length == 0){// if there is no feeds display loader
+    if(feeds?.length == 0){// if there is no feeds display loader
       return(
-        <div className="container-fluid flex-container banner">
+        <div className="custom-container container-fluid flex-container banner">
           <div className="col-sm-12 py-3 carousel-ct">
             <div className="mt-3 carosel" style={{ fontSize: 20, lineHeight: 2 }}>
               <SkeletonTheme color="#EEE" highlightColor="#CCC">
@@ -43,7 +43,7 @@ class Banner extends Component {
     }
 
     return (
-      <div className="custom-container  container-fluid flex-container banner">
+      <div className="custom-container container-fluid flex-container banner">
         <div className="col-sm-8 py- carousel-ct">
           <Carousel slide={false} fade={false} className="mt-3 carosel">
             {feeds &&
@@ -107,7 +107,7 @@ class Banner extends Component {
                     search: `?category=${firstFeed.category_id}`,
                   }}
                 >
-                  <button className="text-decoration-none inline-block p-2  cap-anco text-left mt-5">
+                  <button className="text-decoration-none inline-block p-2  cap-anco feed-btn text-left mt-5">
                     {firstFeed.category_id}
                   </button>
                 </Link>
@@ -135,7 +135,7 @@ class Banner extends Component {
                     search: `?category=${secondFeed.category_id}`,
                   }}
                   >
-                  <button className="text-decoration-none inline-block p-2 text-left cap-anco mt-5">
+                  <button className="text-decoration-none inline-block p-2 text-left feed-btn cap-anco mt-5">
                     {secondFeed.category_id}
                   </button>
                 </Link>

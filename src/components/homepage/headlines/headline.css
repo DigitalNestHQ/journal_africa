@@ -10,17 +10,21 @@ a {
 }
 .hd-img{
     width: 100%;
-    height: 200px;
+    height: 277px;
     display: inline-block;
     margin: auto auto auto 0px;
     border-radius: 20px!important;
+    object-fit: cover;
+/* big style */
+    height: 200px;
+    margin: 20px;
 }
 .news-bg-wrapper{
     background-color: #fff;
     padding-top: 15px;
-    border-top: 1px solid red;
+    /* border-top: 1px solid red; */
     position: relative;
-    left: -5%;
+    left: -2%;
     padding-right: 15px;
 }
 .bg-var-blue{
@@ -42,42 +46,81 @@ a {
     font-family: 'Roboto'sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 21px;
-    line-height: 1.1;
+    font-size: 25px;
+    line-height: 1.4;
     display: flex;
     align-items: flex-end;
-    color: #020000;
+    color: var(--news-heading);
 }
 
+.headline-summary{
+    font-family: var(--nimbus-font);
+}
 .news-hd p{
-    color: #000;
+    /* color: #000; */
     font-style: normal;
-    font-weight: 330;
-    font-size: 16px;
-    color: #333;
-    line-height: 28px;
-    padding-left: 20px;
+    font-weight: 550;
+    line-height: 1.3;
+    /* padding-left: 20px; when using slug */
+    /* padding-left: auto;  */
+    align-items: flex-end;
+    font-size: 18px;
 }
 
-.news-hd h3:hover,
-.news-hd p:hover{
+/* for strong tags */
+.news-hd p strong{
+    font-weight: unset;
+}
+
+.news-hd ol li{
+    list-style: none;
+    font-family: var(--nimbus-font);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: 1.3;
+}
+
+
+.news-hd h3:hover{
     color: red;
     cursor: pointer;
+}
 
+.news-hd .headline-summary:hover{
+    color: var(--news-heading);
 }
 
 .bt-red{
     padding: 10px 0;
     margin-top: 10px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+/* big style */
+    padding: 29px 0px;
 }
 .ns-art-wrap{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.ns-txt,
+.ns-txt-wrap{
+    padding-left: 0;
+}
+.ns-txt-wrap a .headline-category-heading{
+    color: var(--color-red) !important;
+    border-bottom: 1px solid var(--color-red);
+    text-shadow: var(--section-heading-text-shadow);
+    font-size: 19px;
+    font-weight: 900;
+    margin-bottom: 0;
+    width: 100%
+}
 .hd-img-wrap{
+    padding: 0px;
+}
+.ns-txt{
     padding-top: 15px;
     padding-bottom: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .ns-art-wrap h2{
     color: #fff;
@@ -111,17 +154,18 @@ a {
     text-decoration: none;
     color: orangered
 }
-.ns-art-wrap .ads{
+.headline-ads{
     text-align: center;
     width: 80%;
     margin: 0 auto;
-    height: 200px;
+    /* height: 230px; */
+    height: 257px;
     margin-top: 30px;
     font-size: 17px;
     color: red;
     padding: 100px auto!important;
 }
-.ns-art-wrap .ads>span{
+.headline-ads>span{
     color: red;
     display: inline-block;
     padding-top: 60px;
@@ -170,4 +214,9 @@ a {
     padding-bottom: 0px;
 }
 
+}
+
+
+.explore-more-politics .container a {
+    
 }

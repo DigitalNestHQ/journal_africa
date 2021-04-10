@@ -1,0 +1,91 @@
+html, body{
+
+}
+
+:root{
+/* General styles*/
+    --color-red: #F83D3D;
+    --color-white: #FFFFFF;
+
+/* News styles */
+    --news-heading: #1D1D1D;
+    --news-heading-weight: 700;
+    --news-heading-size: 1rem;
+    --news-description-weight: 400;
+    --news-description-size: 0.9rem;
+    --lifestyle-news-heading-color: #4E4A4A;
+    
+    
+    /* Must read styles */
+    --must-read-tag-btn-bg: #787878;
+    --nimbus-font: 'Nimbus Sans L Regular';
+    
+    /* section background colors  */
+    --development-bg-color: #343434;
+    --economy-bg-color: #000102;
+
+/* section headings */
+    --section-heading-size: 19px;
+    --section-heading-weight:  500; 
+    --section-heading-text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    
+}
+
+.custom-container{
+    padding-right: 120px !important;
+    padding-left: 120px !important;
+    font-family: 'Nimbus Sans L Regular';
+
+        /* padding: 160px 57px 160px 100px !important;
+    padding: 160px 116px 160px 111px; */
+}
+
+/* fonts */
+
+.custom-categories-heading{
+    /* font-size: 32px !important;
+    text-decoration: none !important; */
+    
+}
+
+.custom-news-heading{
+
+}
+/* latest news */
+.custom-news-title{
+    /* text-align: left !important; */
+    /* font-size: 16px !important; */
+    /* font-weight: 500 !important; */
+    /* line-height: 1.3 !important; */
+    /* margin: 5px 0px 0px 0px !important; */
+    /* padding: 0rem 1rem 0rem 0rem; */
+    
+}
+
+
+.custom-card-body{
+}
+
+
+
+
+@media (max-width: 930px){
+    div.custom-container{
+        padding-right: 25px !important;
+        padding-left: 25px !important;
+    }
+    .custom-categories-heading{
+        font-size: 23px !important;
+    }
+    /* latest news */
+    .custom-news-title{
+        font-size: 14px !important;
+    }
+    
+}
+
+@media (max-width: 576px){
+    .custom-categories-heading{
+        font-size: 20px !important;
+    }
+}

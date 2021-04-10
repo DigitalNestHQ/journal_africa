@@ -6,7 +6,7 @@
 .about{
     max-width: 1440px;
     margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
     background-color: #BDBCBC;
     padding-top: 150px;
 }

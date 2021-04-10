@@ -36,10 +36,10 @@ const Navbar = () => {
               <i style={{ color: "#E7332B" }} className="fas fa-bars" />
             </button>
             <div className="collapse navbar-collapse" id="collapsibleNavId">
-              <ul className="navbar-nav ml-auto mt-2 mt-lg-0 nav-mn">
+              <ul className="navbar-nav ml- mt-2 mt-lg-0 nav-mn">
                 <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-3"
+                    className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     exact
                     to={pageurl.HOMEPAGE}
@@ -49,20 +49,7 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-3"
-                    activeclassname="activeLink"
-                    // href={pageurl.DISCOVERAFRICA}
-                    to={{
-                      pathname: "/news/categories",
-                      search: `?category=Discovery Africa`,
-                    }}
-                  >
-                    DISCOVER AFRICA
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    className="nav-link ml-lg-3"
+                    className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     // to={pageurl.GOVERNANCE}
                     to={{
@@ -75,36 +62,69 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-3"
+                    className="nav-link ml-lg-1"
                     activeclassname="activeLink"
-                    // to={pageurl.BUSINESS}
                      to={{
-                      pathname: "/news/categories",
-                      search: `?category=Business and Finance`,
-                    }}
+                       pathname: "/news/categories",
+                       search: `?category=Business and Finance`,
+                      }}
                   >
                     BUSINESS/FINANCE
                   </Link>
                 </li>
-                {/* <li className="nav-item">
+                <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-3"
+                  className="nav-link ml-lg-1"
+                  activeclassname="activeLink"
+                  to={{
+                    pathname: "/news/categories",
+                    search: `?category=Development`,
+                  }}
+                  >
+                    DEVELOPMENT
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link ml-lg-1"
                     activeclassname="activeLink"
-                    // to={pageurl.ENTERTAINMENT}
-                     to={{
+                    to={{
                       pathname: "/news/categories",
                       search: `?category=Economy`,
                     }}
                   >
                     ECONOMY
                   </Link>
-                </li> */}
+                </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-3"
+                    className="nav-link ml-lg-1"
                     activeclassname="activeLink"
-                    // to={pageurl.ENTERTAINMENT}
                      to={{
+                       pathname: "/news/categories",
+                       search: `?category=Lifestyle`,
+                      }}
+                  >
+                    LIFESTYLE
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link ml-lg-1"
+                    activeclassname="activeLink"
+                    to={{
+                      pathname: "/news/categories",
+                      search: `?category=Discovery Africa`,
+                    }}
+                  >
+                    DISCOVER AFRICA
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link ml-lg-1"
+                    activeclassname="activeLink"
+                      to={{
                       pathname: "/news/categories",
                       search: `?category=Tech Africa`,
                     }}
@@ -112,53 +132,26 @@ const Navbar = () => {
                     TECH AFRICA
                   </Link>
                 </li>
-                {/* <li className="nav-item">
-                  <Link
-                    className="nav-link ml-lg-3"
-                    activeclassname="activeLink"
-                    // to={pageurl.ENTERTAINMENT}
-                     to={{
-                      pathname: "/news/categories",
-                      search: `?category=View Point`,
-                    }}
-                  >
-                    VIEW POINT
-                  </Link>
-                </li> */}
-                {/* <li className="nav-item">
-                  <Link
-                    className="nav-link ml-lg-3"
-                    activeclassname="activeLink"
-                    // to={pageurl.ENTERTAINMENT}
-                     to={{
-                      pathname: "/news/categories",
-                      search: `?category=Entertainment`,
-                    }}
-                  >
-                    ENTERTAINMENT
-                  </Link>
-                </li> */}
                 <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-3"
+                    className="nav-link ml-lg-1"
                     activeclassname="activeLink"
-                    // to={pageurl.LIFESTYLE}
-                     to={{
+                      to={{
                       pathname: "/news/categories",
-                      search: `?category=Lifestyle`,
+                      search: `?category=VIEWPOINT`,
                     }}
                   >
-                    LIFESTYLE
+                    VIEWPOINT
                   </Link>
                 </li>
               </ul>
-              <ul className="navbar-nav ml-auto mt-2 mt-lg-0 nav-sub-i">
+              <ul className="navbar-nav mr- pr-  mt-2 mt-lg-0 nav-sub-i">
                 <li className="nav-item hd-bd">
                 {
                   localStorage.token ? HandleAuthButton() :(
                     <Link
                     to="/login"
-                    className="nav-link mt-3 mt-lg-0 px-4 text-white nav-sub-tp"
+                    className="nav-link mt-3 mt-lg-0 px- text-white nav-sub-tp"
                   >
                     <i className="fas fa-sign-in-alt"></i> SIGN IN
                   </Link>

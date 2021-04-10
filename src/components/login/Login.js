@@ -8,9 +8,9 @@ import AuthContext from "../../context/auth/authContext";
 import "./login.css";
 
 const Login = (props) => {
+  const [showPassword, setShowPassword] = useState(false)
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
-
   const { setAlert } = alertContext;
   const { login, error, clearErrors, isAuthenticated } = authContext;
 
@@ -65,7 +65,8 @@ const Login = (props) => {
         <div className="container-fluid login-wrap">
           <div className="login-txt">
             <span>Telling</span>
-            <p>The Untold African Story</p>
+            {/* <p>The Untold African Story</p> */}
+            <p style={{fontSize: "56px", lineHeight: '1.2'}}> In-depth and correct to details analysis of original African stories</p>
           </div>
           <div className="form-wrap">
             <h2>Sign In</h2>
@@ -94,7 +95,7 @@ const Login = (props) => {
                   Password
                 </label>
                 <input
-                  type="password"
+                  type={`${showPassword ? "text" : "password"}`}
                   className="form-control password-input"
                   placeholder="Enter your password"
                   name="password"
@@ -102,7 +103,7 @@ const Login = (props) => {
                   required
                   onChange={onChange}
                 />
-                {/* <span className="showPassword">show</span> */}
+                <span className="showPassword"onClick={()=>setShowPassword(!showPassword)}>{showPassword ? "hide" : "show"}</span>
                 <Link className="fpass" to="/forgotPassword">
                   Forgot your password?
                 </Link>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SportCard from "./SportCard";
 import "./sport.css";
 import { Link } from "react-router-dom";
+import { ExploreMore } from "../ExploreMore";
 
 export class SportComponent extends Component {
   render() {
@@ -41,6 +42,9 @@ export class SportComponent extends Component {
                   />
                 );
               })}
+          </div>
+          <div className="col-12 ml-2 ml-lg-0">
+            <ExploreMore category_id="Sport Africa" />
           </div>
         </div>
       </div>

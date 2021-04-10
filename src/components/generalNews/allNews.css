@@ -4,17 +4,25 @@
     padding-top: 180px;
     font-size: 24px;
     line-height: 30px;
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
     text-align: justify;
+    /* font-family: Spectral-Light; */
+
     
 }
 
 .news img{
-    width: 600px;
+    /* width: 600px; */
+    /* width: 380px; */
+    width: 400px;
+    /* width: 100%; */
+    object-fit: cover;
+    height: 300px;
 }
 
 .post_title{
-    font-size: 28px;
+    /* font-size: 28px; */
+    font-size: 25px;
     line-height: 32px;
     text-align: center;
     text-transform: capitalize;
@@ -66,7 +74,49 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
+}
+.comment--feed{
+    font-size: 0.8865rem;
+    line-height: 1.97406;
+}
+.comment--feed .card{
+    margin: 25px 0px;
+}
+.comment--feed h4{
+    /* border-bottom: 2px solid #000; */
+    padding: 0 0 5px 0;
+    margin: 0 0 5px 0;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 23px;
+    color: #111111;
+    text-transform: uppercase;
+    width: 135px;
+    margin-bottom: 0.875rem;
+    font-size: 1.323rem;
+    line-height: 1.32275;
+}
+.comment--feed .commenter{
+    font-weight: 600;
+    font-size: 23px;
+}
+.comment--feed p.comment{
+    color: #363636;
+    font-weight: 500;
+    font-size: 0.8865rem;
+    line-height: 1.97406;
+    max-width: 600px;
+}
+.comment--feed .comment-date{
+    color: #757575;
+    font-size: 0.851rem;
+    line-height: 2.0564;
+}
+
+.drop-comment-text{
+    font-size: 18px;
+    font-weight: 400;
 }
 .comment-form label{
     text-transform: capitalize;
@@ -76,26 +126,26 @@
 }
 .comment-form textarea::placeholder{
     font-size: 15px;
-    padding-left: 10px;
+    /* padding-left: 10px; */
 }
 .comment-form input, textarea{
     font-size: 15px;
     padding-left: 5px;
-    border: 1px solid #555 !important;
+    border: 1px solid #979797 !important;
 }
 .comment-form .btn-submit{
     margin-top: 20px;
     display: inline-block;
-    background: #F83D3D;
+    background: #e7332b;
     color: #fff;
-    border: 1px solid #F83D3D;
+    border: 1px solid transparent !important;
     border-radius: 10px;
     padding: 5px 0;
 }
 .comment-form .btn-submit:hover{
-    color: #F83D3D;
-    background: #fff;
+    opacity: 0.9;
 }
+
 @media screen and (max-width:540px){
     .news{
         display: flex;
@@ -112,6 +162,17 @@
         /* padding: 10px; */
         margin: 0 auto;
     } 
+    .comment--feed .commenter{
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .comment--feed p.comment{
+        font-size: 17px;
+        text-align: left;
+    }
+    .comment--feed .comment-date{
+        font-size: 13px;
+    }
 }
 
 /* shares */

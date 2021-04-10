@@ -14,8 +14,8 @@ export const HandleAuthButton = () =>{
               onClick={()=>userContext.logOut()}
               className="nav-link mt-3 mt-lg-0 px-4 text-white nav-sub-tp"
             >
-              <i className="fas fa-sign-in-alt"></i>
-              LOGOUT
+              <i className="fas fa-sign-in-alt"></i> 
+                {" "}LOGOUT
             </Link>
             :
             <Link

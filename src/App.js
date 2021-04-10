@@ -18,8 +18,10 @@ import CategoryNews from "./components/category/CategoryNews";
 
 import Error404 from "./components/error404/Error404";
 
+// import { NewHomePage } from "./components/newDesign/NewHomePage"
+
 // css override
-import './../src/components/reusables/utilitize/index.css'
+import './../src/components/reusables/utilities/index.css'
 
 // states
 import AuthState from "./context/auth/AuthState";
@@ -39,6 +41,7 @@ function App() {
       <AuthState>
         <AlertState>
           <Switch>
+            {/* <Route exact path="/news/home" component={NewHomePage} /> */}
             <Route exact path={pageurl.HOMEPAGE} component={HomePage} />
             <Route exact path={pageurl.SUBSCRIBE} component={Subscribe} />
             <Route exact path={pageurl.CATEGORY} component={Category} />

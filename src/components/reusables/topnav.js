@@ -59,6 +59,8 @@ function TopNav(props) {
   };
   return (
     <div className="top-nav">
+      {/* <section class="top-nav-wrap"> */}
+
       <p className="text-white name-sp" style={{ marginBottom: "0px" }}>
         {" "}
         {
@@ -67,17 +69,17 @@ function TopNav(props) {
               <span>Welcome {user.firstname} {user.lastname}</span> <span className="p-1">{getDate()}</span>
             </>
           ) :(
-              <><span>Welcome </span> <span className="p-1">{getDate()}</span></>
+              <><span>Welcome Adeola Konga</span> <span className="p-1">{getDate()}</span></>
           )
         }
         {" "}
       </p>
       {/* the weather repost component goes here */}
-      <p className="text-white name-sp ml-auto">
+      <p className="text-white name-sp mlauto weather-nav">
         <span className="weather-wrap"> <Weather /> </span>
         {/* <span className="weather-wrap"> Weather: FCT : 32° <sup></sup></span> */}
       </p>
-      <ul className="soc-nav" style={{ marginBottom: "0px" }}>
+      <ul className="soc-nav mr-" style={{ marginBottom: "0px" }}>
         <li>
           <a href="/">
             <i className="fab fa-facebook"></i>
@@ -99,6 +101,7 @@ function TopNav(props) {
           </a>
         </li>
       </ul>
+      {/* </section> */}
     </div>
   );
 }

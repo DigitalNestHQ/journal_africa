@@ -1,11 +1,12 @@
 .top-nav{
     background: #4F4D4D;
-    font-family: 'roboto', sans-serif;
+    font-family:/* was roboto before*/;
     /* border-bottom: .8px solid #fff; */
     height: 40px;
     padding-bottom: 7px;
     padding-top: 5px;
     display: flex;
+    white-space: nowrap;
 }
 .name-sp{
     color: #fff;
@@ -30,7 +31,7 @@
     padding-right: 5px;
 }
 .navbar a{
-    font-family: 'Roboto', sans-serif;
+    font-family:/* was roboto before*/;
     font-weight: 700;
 }
 .fa-search{
@@ -52,7 +53,7 @@
 @media(max-width: 1000px){
     .nav-sub{
         padding: 12px !important;
-        margin: 12px;
+        margin: 0px 12px;
         border-radius: 5px;
     }
     .nav-sub-tp{
@@ -81,6 +82,8 @@
 .soc-nav{
     list-style-type: none;
     text-align: center;
+    max-width: 1440px;
+    padding-right: 128px;
 }
 .soc-nav li{
     display: inline-block;
@@ -104,8 +107,80 @@
     padding-bottom: 20px;
     border-right: 1px solid grey;
 }
+
+
+@media(max-width:900px){
+    .soc-nav{
+        padding-right: 26px;
+    }
+}
+
 @media screen and (max-width: 560px){
     .soc-nav{
         display: none;
     }
+
+    .top-nav .weather-nav{
+        /* margin-left: 150px; */
+    }
 }
+
+
+
+.navbar-brand{
+    margin-right: 0px;
+}
+
+.logo img{
+    object-fit: cover !important;
+}
+
+
+
+
+
+
+
+
+
+@media(min-width:1400px){
+    .soc-nav{
+        padding-right: 150px;
+    }
+    .nav-mn{
+        /* margin-left : 200px !important; */
+        margin-left: auto !important;
+    }
+    .logo{
+    }
+    .nav-mn li{
+        /* font-size: 14px !important; */
+    }
+}
+
+@media(min-width: 900px){
+    .d-print{
+        width: 1290px;
+        max-width: 1290px;
+    }
+}
+
+/* @media (min-width: 950px) */
+@media (max-width: 990px){
+    .d-print {
+        width: 89%;
+    }
+}
+
+@media (max-width: 900px){
+    .d-print {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+

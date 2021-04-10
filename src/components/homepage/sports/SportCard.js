@@ -29,7 +29,7 @@ const SportCard = ({ post_title, featured_image, slug, category_id, post_type })
         </Link>
         <Card.Body className="sprt-txt">
           <Link to={`/post/${slug}`}>
-            <Card.Text>{post_title.toLowerCase()}</Card.Text>
+            <Card.Text className="custom-news-title">{post_title.toLowerCase()}</Card.Text>
           </Link>
         </Card.Body>
       </Card>

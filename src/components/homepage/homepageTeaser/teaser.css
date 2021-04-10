@@ -32,11 +32,13 @@
     color: var(--news-heading);
     font-weight: var(--news-heading-weight);
     font-size: var(--news-heading-size);
+    /* text-shadow: var(--section-heading-text-shadow); */
     line-height: 0;
 }
 
 .teaser-news-description{
     font-size: var(--news-description-size);
+    font-weight: var(--news-description-weight);
 }
 
 /* 

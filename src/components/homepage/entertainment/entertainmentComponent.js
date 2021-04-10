@@ -16,7 +16,7 @@ class Entertainment extends React.Component {
         <Link
           to={{
             pathname: "/news/categories",
-            search: `?category=Entertainment`,
+            search: `?category=Business and Finance`,
           }}
           >
           <h3 className="entertainment-category-heading">

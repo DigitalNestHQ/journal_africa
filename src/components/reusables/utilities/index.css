@@ -3,14 +3,32 @@ html, body{
 }
 
 :root{
+/* General styles*/
     --color-red: #F83D3D;
     --color-white: #FFFFFF;
+
+/* News styles */
     --news-heading: #1D1D1D;
     --news-heading-weight: 700;
     --news-heading-size: 1rem;
+    --news-description-weight: 400;
     --news-description-size: 0.9rem;
+    --lifestyle-news-heading-color: #4E4A4A;
+    
+    
+    /* Must read styles */
     --must-read-tag-btn-bg: #787878;
-    --nimbus-font: 'Nimbus Sans L Regular'
+    --nimbus-font: 'Nimbus Sans L Regular';
+    
+    /* section background colors  */
+    --development-bg-color: #343434;
+    --economy-bg-color: #000102;
+
+/* section headings */
+    --section-heading-size: 19px;
+    --section-heading-weight:  500; 
+    --section-heading-text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    
 }
 
 .custom-container{

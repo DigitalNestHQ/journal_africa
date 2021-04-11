@@ -1,10 +1,10 @@
 import React from "react";
-import EntertainmentCard from "./EntertainmentCard";
-import "./entertainment.css";
+import BusinessCard from "./BusinessCard";
+import "./business.css";
 import { Link } from "react-router-dom";
 import { ExploreMore } from "../ExploreMore";
 // this component has been changed to business and finance
-class Entertainment extends React.Component {
+class Business extends React.Component {
 
   
   render() {
@@ -12,14 +12,14 @@ class Entertainment extends React.Component {
       (news) => news.category_id === "Business and Finance"
     );
     return (
-      <div className="entertainment">
+      <div className="business">
         <Link
           to={{
             pathname: "/news/categories",
             search: `?category=Business and Finance`,
           }}
           >
-          <h3 className="entertainment-category-heading">
+          <h3 className="business-category-heading">
             Business & Finance
           </h3>
         </Link>
@@ -37,7 +37,7 @@ class Entertainment extends React.Component {
                   post_description
                 } = life;
                 return (
-                  <EntertainmentCard
+                  <BusinessCard
                     key={id}
                     featured_image={featured_image}
                     category_id={category_id}
@@ -61,4 +61,4 @@ class Entertainment extends React.Component {
   }
 }
 
-export default Entertainment;
+export default Business;

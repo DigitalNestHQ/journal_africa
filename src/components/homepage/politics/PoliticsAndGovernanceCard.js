@@ -5,7 +5,7 @@ import ReactHtmlParser, {
 } from "react-html-parser";
 import { HtmlParseOptions } from "../../../_helper/parseNewsHtml";
 
-const HeadlineCard = ({ post_title, slug, featured_image, category_id, post_description }) => {
+const PoliticsAndGovernanceCard = ({ post_title, slug, featured_image, category_id, post_description }) => {
   const getAllParagraphs = post_description.split("</p>")
   const firstParagraph = getAllParagraphs[0];
   let html;
@@ -13,9 +13,9 @@ const HeadlineCard = ({ post_title, slug, featured_image, category_id, post_desc
     html = `${firstParagraph.slice(0,90)}...`
   }
   return (
-    <div className=" shadow-lg container-fluid news-bg-wrappr headline--cont">
+    <div className="container-fluid news-bg-wrappr politics--cont">
       <div className=" row mb-3 bt-red">
-        <div className="col-lg-5 col-sm-12 hd-img-wrap">
+        <div className="col-12 col-md-6 col-lg-5 hd-img-wrap">
           <Link
             to={{
               pathname: "/news/categories",
@@ -29,11 +29,11 @@ const HeadlineCard = ({ post_title, slug, featured_image, category_id, post_desc
             />
           </Link>
         </div>
-        <div className="col-lg-7 col-sm-12 ns-txt">
-          <div className="text-bold news-hd" id="news--headline">
+        <div className="col-12 col-md-6 col-lg-7 ns-txt">
+          <div className="text-bold news-hd" id="news--politics">
             <Link to={`/post/${slug}`}>
-              <h3>{post_title}</h3>
-              <h3 className="headline-summary">{ReactHtmlParser(html, HtmlParseOptions)}</h3>
+              <h3 className="politics-heading">{post_title}</h3>
+              <h3 className="politics-summary">{ReactHtmlParser(html, HtmlParseOptions)}</h3>
             </Link>
           </div>
         </div>
@@ -41,4 +41,4 @@ const HeadlineCard = ({ post_title, slug, featured_image, category_id, post_desc
     </div>
   );
 };
-export default HeadlineCard;
+export default PoliticsAndGovernanceCard;

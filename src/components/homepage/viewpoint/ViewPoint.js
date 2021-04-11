@@ -12,7 +12,7 @@ export class ViewPoint extends Component {
       );
     return (
       <div className="viewpoint">
-        <div className="custom-container container-fluid shadow-sm">
+        <div className="custom-container container-fluid">
         <Link
         to={{
           pathname: "/news/categories",
@@ -23,7 +23,7 @@ export class ViewPoint extends Component {
           Viewpoint
         </span>
         </Link>
-          <div className="container-fluid mt-3 mb-4 py-2  d-flex row viewpoint-card-wrap">
+          <div className="container-luid mt-3 mb-4 row viewpoint-card-wrap">
             {viewpointNews && viewpointNews.length > 0 &&
               viewpointNews.map((news) => {
                 const {
@@ -32,6 +32,7 @@ export class ViewPoint extends Component {
                   featured_image,
                   slug,
                   category_id,
+                  post_description
                 } = news;
                 return (
                   <ViewPointCard
@@ -40,11 +41,12 @@ export class ViewPoint extends Component {
                     featured_image={featured_image}
                     slug={slug}
                     category_id={category_id}
+                    post_description={post_description}
                   />
                 );
               })}
           </div>
-          <div className="col-12 ml-2 ml-lg-0">
+          <div className="viewpoint-more-btn">
             <ExploreMore category_id="Sport Africa" />
           </div>
         </div>

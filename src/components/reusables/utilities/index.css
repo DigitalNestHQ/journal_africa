@@ -5,15 +5,18 @@ html, body{
 :root{
 /* General styles*/
     --color-red: #F83D3D;
+    --color-red-2: #FF0000;
     --color-white: #FFFFFF;
 
 /* News styles */
     --news-heading: #1D1D1D;
+    --news-description-color: #000000;
     --news-heading-weight: 700;
     --news-heading-size: 1rem;
     --news-description-weight: 400;
     --news-description-size: 0.9rem;
     --lifestyle-news-heading-color: #4E4A4A;
+    --premium-tag-bg: #EE3039;
     
     
     /* Must read styles */
@@ -29,6 +32,34 @@ html, body{
     --section-heading-weight:  500; 
     --section-heading-text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     
+}
+
+
+.premium-tag{
+    background-color: var(--premium-tag-bg);
+    letter-spacing: normal;
+    letter-spacing: 1.2px;
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-weight: lighter;
+    line-height: 1;
+    font-size: 12px;
+    display: inline-block;
+    padding: 4px 5px;
+    text-align: center;
+}
+.free-tag{
+    background-color: var(--color-white);
+    letter-spacing: normal;
+    letter-spacing: 1.2px;
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-weight: lighter;
+    line-height: 1;
+    font-size: 12px;
+    display: inline-block;
+    padding: 4px 5px;
+    text-align: center;
 }
 
 .custom-container{

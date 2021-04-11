@@ -16,8 +16,8 @@ a {
     border-radius: 20px!important;
     object-fit: cover;
 /* big style */
-    height: 200px;
-    margin: 20px;
+    /* height: 200px;
+    margin: 20px; */
 }
 .news-bg-wrapper{
     background-color: #fff;
@@ -53,7 +53,7 @@ a {
     color: var(--news-heading);
 }
 
-.headline-summary{
+.politics-summary{
     font-family: var(--nimbus-font);
 }
 .news-hd p{
@@ -87,7 +87,7 @@ a {
     cursor: pointer;
 }
 
-.news-hd .headline-summary:hover{
+.news-hd .politics-summary:hover{
     color: var(--news-heading);
 }
 
@@ -96,7 +96,7 @@ a {
     margin-top: 10px;
     margin-bottom: 10px;
 /* big style */
-    padding: 29px 0px;
+    /* padding: 29px 0px; */
 }
 .ns-art-wrap{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -104,7 +104,7 @@ a {
 .ns-txt-wrap{
     padding-left: 0;
 }
-.ns-txt-wrap a .headline-category-heading{
+.ns-txt-wrap a .politics-category-heading{
     color: var(--color-red) !important;
     border-bottom: 1px solid var(--color-red);
     text-shadow: var(--section-heading-text-shadow);
@@ -152,9 +152,9 @@ a {
 }
 .ns-art-wrap article a:hover{
     text-decoration: none;
-    color: orangered
+    color: var(--color-red);
 }
-.headline-ads{
+.politics-ads{
     text-align: center;
     width: 80%;
     margin: 0 auto;
@@ -165,7 +165,7 @@ a {
     color: red;
     padding: 100px auto!important;
 }
-.headline-ads>span{
+.politics-ads>span{
     color: red;
     display: inline-block;
     padding-top: 60px;
@@ -201,22 +201,79 @@ a {
     .news-hd h3{
         font-size: 25px;
         line-height: 32px;
-        text-align: center;
+        margin-top: 10px;
+        /* margin: 0px; */
     }
     .news-hd p{
         font-size: 18px;
         line-height: 25px;
-        text-align: center;
     }
     .ns-txt,
     .hd-img-wrap{
     padding-top: 0px;
     padding-bottom: 0px;
+    padding: 0px;
+    }
+
+
 }
 
+@media(max-width: 696px){
+    
+    .politics-heading{
+        /* font-size: 12px !important; */
+    }
+
+    .explore-more-politics{
+        margin-top: 20px;
+    }
 }
 
 
 .explore-more-politics .container a {
     
+}
+
+
+
+/* // Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+    .politics{
+        /* background-color: green; */
+    }
+}
+
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    .politics{
+        /* background-color: pink; */
+    }
+    .news-hd{
+        padding: 0px;
+    }
+    .ns-txt{
+        padding: 10px 0px;
+    }
+    .explore-more-politics{
+        position: relative;
+        right: 84%;
+        bottom: 10px;
+    }
+}
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    .politics{
+        /* background-color: blue; */
+    }
+    .news-hd{
+        text-align: center;
+    }
+}
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .politics{
+        /* background-color: red; */
+    }
 }

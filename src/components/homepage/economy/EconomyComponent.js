@@ -7,7 +7,7 @@ import EconomyCard from "./EconomyCard";
 class EconomyComponent extends Component {
   render() {
     const economy = this.props.data && this.props.data.filter(
-      (news) => news.category_id === "Eco Africa"
+      (news) => news.category_id === "Discovery Africa"
     );
     return (
       <>
@@ -42,7 +42,7 @@ class EconomyComponent extends Component {
           </div>
         </div>
       </div>
-      <div className="custom-container ecomony-more-btn">
+      <div style={{position:'relative'}} className="custom-container ecomony-more-btn">
         <ExploreMore category_id="Economy"/>
       </div>
       </>

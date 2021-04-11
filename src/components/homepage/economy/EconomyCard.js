@@ -14,7 +14,7 @@ if(post_description){
   html = `${firstParagraph.slice(0, 100)}...`
 }
   return (
-    <div className="col-sm-3 my-2 mg-sm-scr">
+    <div className="col-6 col-md-3 col-lg-3 my-2 mg-sm-scr">
       <Card className="mt-wrap economy-card">
         <Card.Img src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`} 
           alt="Card image" 

@@ -1,42 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Card } from "react-bootstrap";
-import ReactHtmlParser, {
-} from "react-html-parser";
-import { HtmlParseOptions } from "../../../_helper/parseNewsHtml";
-const EntertainmentCard = ({
-  featured_image,
-  category_id,
-  slug,
-  post_title,
-  post_type,
-  post_description
-}) => {
-  const getAllParagraphs = post_description.split("</p>")
-  const firstParagraph = getAllParagraphs[0];
-  let html;
-  if(post_description){
-    html = `${firstParagraph.slice(0,90)}...`
-  }
-  return (
-    <div className="col-lg-3 col-sm-12 my-2 mg-sm-scr">
-      <Card className="text-white mt-wrap ent-card">
-        <Card.Img
-          src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
-          alt="Card image"
-          className="ent-h-100"
-        />
-        <Card.Body>
-          <Card.Text className="entertainment-text">
-            <Link to={`/post/${slug}`} className="entertainment-heading">{post_title.slice(0,60)}</Link>
-            <Link to={`/post/${slug}`} className="entertainment-description">
-              {ReactHtmlParser(html, HtmlParseOptions)}
-            </Link>
-          </Card.Text>
-        </Card.Body>
-      </Card>
-    </div>
-  );
-};
+import React from 'react';
+import { Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-export default EntertainmentCard;
+export const EntertainmentCard = ({
+    post_title,
+    featured_image,
+    id,
+    post_type,
+    slug,
+    category_id,
+}) => {
+    return (
+        <React.Fragment>
+            <div className="col-6 col-md-6 col-lg-6 mx-auto my- my-md-2 my-lg-2 cal_3">
+                <Link to={`/post/${slug}`} className="entertainment-crd-anc-bt">
+                <div>
+                <Image variant="top" src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}` } className="entertainment-card-img" />
+                </div>
+                  <div className="entertainment-crd-lst">
+                      {
+                          post_type === 'premium' ? (
+                            <span className="premium-tag premium_category_indicator--entertainment">PREMIUM</span>
+                          ):(
+                            null
+                            // <span className="free-tag premium_category_indicator--entertainment">Free</span>
+                          )
+                      }
+                    <section className="entertainment-description">
+                      <p>
+                        { post_title }
+                      </p>
+                    </section>
+                  </div>
+                </Link>
+              </div>
+        </React.Fragment>
+    )
+}

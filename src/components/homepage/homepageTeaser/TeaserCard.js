@@ -12,7 +12,7 @@ const TeaserCard = ({ featured_image, slug, category_id, post_description }) => 
   }
   return (
     
-    <section className="teaser col-12 col-md-12 col-lg-3">
+    <section className="teaser col-6 col-md-3 col-lg-3">
       <Card>
           <Card.Img variant="top" src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`} style={{height: '258px', objectFit: 'cover'}} />
           <Card.Body>

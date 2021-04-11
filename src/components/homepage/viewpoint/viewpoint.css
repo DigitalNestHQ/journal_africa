@@ -53,7 +53,15 @@
     padding-left: 0!important;
 
 }
-.viewpoint-sec a{
+
+.viewpoint-sec:last-child{
+    padding-right: 0;
+}
+.viewpoint-sec:first-child{
+    padding-left: 0;
+}
+
+/* .viewpoint-sec a{
     text-decoration: none;
     transition: transform 2s ease;
     height: 100%;
@@ -64,45 +72,61 @@
     font-size: 18px;
     line-height: 22px;
     text-transform: capitalize;
-}
+} */
 .sprt-crd-img{
     width: 100%;
-    height: 277px;  
+    height: 250px;  
+    object-fit: cover;
 }
 .viewpoint-sec a:hover{
     /* transform: scale(0.9);
     transform: scale(0.8); */
     /* transform: scale(0.99);  */
-    color: red;
+    /* color: red;
     opacity: 0.8;
-    cursor: pointer;
+    cursor: pointer; */
 }
 
 .premium_category_indicator--viewpoint{
-    letter-spacing: normal;
-    background-color: #DC143C;
-    font-style: italic;
-    color: white;
-    text-transform: uppercase;
-    font-weight: lighter;
-    line-height: 1;
-    font-size: 0.75rem;
-    display: inline-block;
-    padding: 7px 16px 6px 16px;
-    border-radius: 2px;
-    margin: 20px 0px 0px 0px;
-    width: 90px;
-    font-weight: 500;
     position: absolute;
-    top: 8px;
-    left: 25px;
+    top: 10px;
+    left: 20px;
+}
+
+.viewpoint-text .card-text{
+    margin-top: 20px;
+}
+
+.viewpoint-text .card-text .viewpoint-heading{
+    text-decoration: none;
+    font-size: var(--news-heading-size);
+    font-weight: var(--news-heading-weight);
+    color: var(--color-red);
+    font-family: var(--nimbus-font);
+    line-height: 21px;
+    text-align: left;
+    text-transform: inherit;
+}
+
+
+.viewpoint-text .card-text .viewpoint-description{
+    text-align: left;
+    line-height: 1.3;
+    font-size: var(--news-description-size);
+    font-weight: var(--news-description-weight);
+    color: var(--news-description-color);
+    text-transform: capitalize;
+}
+
+.viewpoint-text .card-text .viewpoint-description p{
+    margin-top: 10px;
 }
 
 @media(max-width: 400px){
     .sprt-crd-img{
         height: 200px;
         display: block;
-        width: auto;
+        /* width: auto; */
     }
     .premium_category_indicator--viewpoint{
         left: 0px;
@@ -120,4 +144,50 @@
         width: 120px;
     }
 
+}
+
+
+
+
+/* // Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+    .viewpoint{
+        /* background-color: green; */
+    }
+}
+
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    .viewpoint{
+        /* background-color: pink; */
+    }
+    .sprt-crd-img{
+        height: 100px;
+    }
+    .viewpoint-text .card-text{
+        margin-top: 10px;
+    }
+
+    .viewpoint-sec{
+        padding-left: 0px;
+    }
+}
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    .viewpoint{
+        /* background-color: blue; */
+    }
+    .sprt-crd-img {
+        width: 100%;
+        height: 168px;
+        object-fit: cover;
+    }
+}
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .viewpoint{
+        /* background-color: red; */
+    }
 }

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 
-const EcoAfricaCard = ({
+const LatestNewsCard = ({
   post_title,
   featured_image,
   id,
@@ -15,18 +15,18 @@ const EcoAfricaCard = ({
   // console.log(category_id);
 
   return (
-    <div className="card sec-2 col-lg-3 col-sm-6 col-6 my-4 mx-auto" style={{
-      margin: '10px 0px',
-      padding: '0px 5px'
+    <div className="latest-news-article card sec-2 col-6 col-md-3 col-lg-3 my-4 mx-auto" style={{
+      // margin: '10px 0px',
+      // padding: '0px 5px'
     }}>
             {// only show the post type for premium
-        post_type == "premium" && <span className="premium_category_indicator--politics">{ post_type }</span>
+        post_type == "premium" && <span className="premium-tag premium_category_indicator--latest-news">{ post_type }</span>
       } 
       <img className='responsive-img img-fluid' src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}` }></img>
-      <Link to={`/post/${slug}`} className="news-link">
-          <p>{post_title.toLowerCase()}</p>
+      <Link to={`/post/${slug}`} className="news-link latest-news-title">
+          <p className="latest-news-title">{post_title.toLowerCase()}</p>
       </Link>
     </div>
   );
 };
-export default EcoAfricaCard;
+export default LatestNewsCard;

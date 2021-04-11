@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import PoliticsCard from "./PoliticsCard";
-import "./politicsComponent.css";
+import LatestNewsCard from "./LatestNewsCard";
+import "./latestnews.css";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 
-class politicsComponent extends Component {
+class LatestNews extends Component {
   render() {
     const feeds = this.props.data;
     // console.log(feeds)
     if(feeds.length === 0){
       return (
         <>
-          <div className="politics-wrap container-fluid my-4">
+          <div className="latest-news-wrap container-fluid my-4">
             <Link to="/">
             {/* <label className="categories-heading">Latest Stories For Me</label> */}
             </Link>
@@ -33,7 +33,7 @@ class politicsComponent extends Component {
       )
     }
     return (
-      <div className="custom-container politics-wrap container-fluid my-4">
+      <div className="custom-container latest-news-wrap container-fluid my-4">
         <Link to="/">
           <label className="categories-heading">Latest Stories For Me</label>
         </Link>
@@ -49,7 +49,7 @@ class politicsComponent extends Component {
                 category_id,
               } = categ;
               return (
-                <PoliticsCard
+                <LatestNewsCard
                   key={id}
                   post_title={post_title}
                   post_type={post_type}
@@ -66,4 +66,4 @@ class politicsComponent extends Component {
   }
 }
 
-export default politicsComponent;
+export default LatestNews;

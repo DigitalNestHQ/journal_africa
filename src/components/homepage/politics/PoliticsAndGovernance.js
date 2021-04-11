@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import HeadlineCard from "./HeadlineCard";
+import PoliticsAndGovernanceCard from "./PoliticsAndGovernanceCard";
 import ReaderList from "./ReaderList";
-import "./headline.css";
+import "./politicsandgovernance.css";
 import { Link } from "react-router-dom";
 import { ExploreMore } from "../ExploreMore";
 
 // THE FIRST FRONTEND GUY MADE SEVERAL CONFUSING NAMING CONVENTION 
 // THIS COMPONENT HAS BEEN CHANGED TO POLITICS COMPONENT
 
-class HeadlineComponent extends Component {
+class PoliticsAndGovernance extends Component {
   render() {
     const feeds = this.props.data;
     const getPoliticsNews = feeds && feeds.filter(
@@ -17,14 +17,13 @@ class HeadlineComponent extends Component {
     const getPremiumNews = getPoliticsNews && getPoliticsNews.filter(
       (newsHD) => newsHD.post_type === "free"
     );
-    console.log(getPremiumNews);
     return (
-      <div className="hl-wrapper">
+      <div className="politics">
         <div className="custom-container container-fluid hl-tp-cont mx-auto">
           <div className="row container-fluid mx-auto">
-            <div className="col-sm-9 ns-txt-wrap">
+            <div className="col-12 col-md-12 col-lg-9 ns-txt-wrap">
             <Link to="/">
-              <label className="headline-category-heading">Politics and Governance</label>
+              <label className="politics-category-heading">Politics and Governance</label>
             </Link>
               { getPremiumNews && getPremiumNews.length &&
                 getPremiumNews.slice(0, 3).map((news) => {
@@ -37,7 +36,7 @@ class HeadlineComponent extends Component {
                     post_description,
                   } = news;
                   return (
-                    <HeadlineCard
+                    <PoliticsAndGovernanceCard
                       key={id}
                       post_title={post_title}
                       slug={slug}
@@ -48,7 +47,7 @@ class HeadlineComponent extends Component {
                   );
                 })}
             </div>
-            <div className="col-sm-3 mx-auto must-read-container">
+            <div className="col-12 col-md-10 col-lg-3 mx-auto must-read-container">
               {/* <h2>MUST READ</h2> */}
               <div>
                 {feeds && feeds.length &&
@@ -64,7 +63,7 @@ class HeadlineComponent extends Component {
                   })}
               </div>
 
-              <div className="shadow-sm headline-ads">
+              <div className="politics-ads">
                 <span>Ads</span>
               </div>
             </div>
@@ -78,4 +77,4 @@ class HeadlineComponent extends Component {
   }
 }
 
-export default HeadlineComponent;
+export default PoliticsAndGovernance;

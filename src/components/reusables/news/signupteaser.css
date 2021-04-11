@@ -1,0 +1,106 @@
+/* .img-con{
+    margin: 20px 0px 15px;
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+img{
+    width: 100%;
+}
+.img-con .img{
+    flex: 0 1 50%;
+    margin: 10px 0px;
+    padding: 0px 5px;
+}
+
+.img-con .img section{
+    width: 100%;
+    margin: 0px;
+} */
+
+.signup-teaser{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.signup-teaser .teaser-message{
+    font-size: 36px;
+    max-width: 900px;
+    line-height: 43.2px;
+    color: var(--news-description-color);
+    font-weight: 400;
+}
+
+.signup-teaser .teaser--btn{
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    margin-bottom: 200px;
+    background-color: var(--color-red-2);
+    color: var(--color-white);
+    font-size: 36px;
+    height: 76px;
+    width: 265px;
+    border-radius: 10px;
+}
+
+
+/* // Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+    .signup-teaser{
+        /* background-color: green; */
+    }
+    .signup-teaser .teaser-message{
+        font-size: 33px;
+    }
+    .signup-teaser .teaser--btn{
+        font-size: 34px;
+        height: 70px;
+        width: 260px;
+        border-radius: 10px;
+    }
+}
+
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    .signup-teaser{
+        /* background-color: pink; */
+    }
+    .signup-teaser .teaser-message{
+        font-size: 30px;
+    }
+    .signup-teaser .teaser--btn{
+        font-size: 32px;
+        height: 60px;
+        width: 240px;
+        border-radius: 10px;
+    }
+}
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    .signup-teaser{
+        /* background-color: blue; */
+    }
+    .signup-teaser .teaser-message {
+        font-size: 22px;
+        line-height: 35px;
+    }
+    .signup-teaser .teaser--btn{
+        font-size: 27px;
+        height: 63px;
+        width: 220px;
+        border-radius: 10px;
+    }
+}
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .signup-teaser{
+        /* background-color: red; */
+    }
+}

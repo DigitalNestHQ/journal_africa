@@ -83,6 +83,7 @@
 
 .development-description{
     font-size: var(--news-description-size);
+    font-weight: var(--news-description-weight);
 }
 
 /* reset the post description */

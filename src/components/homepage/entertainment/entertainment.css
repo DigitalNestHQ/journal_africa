@@ -1,59 +1,78 @@
 .entertainment{
-    /* margin-top: 250px; */
-    margin-bottom: 40px;
-    font-family:  'Roboto', sans-serif;
+    max-width: 1520px!important;
+    margin: 50px auto 200px auto;
 }
-.entertainment a .entertainment-category-heading{
-    border-bottom: 1px solid var(--color-red);
-    font-weight: var(--section-heading-weight);
-    text-shadow: var(--section-heading-text-shadow);
-    color: var(--color-red) !important;
-    margin-bottom: 0;
-    width: fit-content;
-    margin: 40px 0px 40px auto;
-    font-style: normal;
-    font-size: 19px;
-    color: #EE3039;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-top: 20px !important;
-    margin-left: 137px;
-    text-transform: capitalize;
-
+.entertainment-bg-red{
+    background-color: #ff0000;
+    padding: 30px auto;
+    height: 550px;
+}
+.entertainment-card-img{
+    width: 100%;
+    height: 150px;
+    /* height: auto; */
+    object-fit: cover;
+}
+.entertainment-bg-red a:hover{
+    text-decoration: none;
+}
+.entertainment .entertainment-category-heading{
+    text-align: center;
+    color: var(--premium-tag-bg);
+    font-size: 2rem;
+    font-weight: var(--news-heading-weight);
+    text-shadow: var(--section-heading-text-shadow);    
 }
 .premium_category_indicator--entertainment{
-    letter-spacing: normal;
-    background-color: #DC143C;
-    font-style: italic;
-    color: white;
-    text-transform: uppercase;
-    font-weight: lighter;
-    line-height: 1;
-    font-size: 0.75rem;
-    display: inline-block;
-    padding: 7px 16px 6px 16px;
     border-radius: 2px;
-    margin: 10px 0px 0px 0px;
-    width: 90px;
+    margin-bottom: 9px;
     font-weight: 500;
+}
+.entertainment-crd-lst .entertainment-description{
+    font-size: var(--news-description-size);
+    font-weight: var(--news-description-weight);
+    color: var(--news-description-color);
+    padding-bottom: 10px;
     position: absolute;
-    top: 8px;
-    left: 10px;
 }
 
-.mt-wrap{
+.entertainment-col-tp{
+    /* background-color:#fff; */
+    position: relative;
+    top: 50px;
+    max-width: 610px!important;
+    /* background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),url("../../../assets/images/Mambilla-Plateau.jpg")center/cover fixed no-repeat; */
+    height: 550px;
+    width:600px;
+    /* background-repeat: no-repeat; */
+    /* margin: 0 auto; */
+    border: 12px solid #fff;
+    /* height: 456px; */
+    padding: 0px;
+    
+}
+
+.entertainment .card, 
+.entertainment .card img{
     height: 100%;
-    border-radius: 0;
-    border: none;
+    border-radius: 0px;
+}
+.entertainment-col-tp .card .card-img-overlay{
+    background: rgba(0,0,0,0.5);
+    background-image: linear-gradient(135deg, rgba(#96deda, 0.5) 0%, rgba(#537895, 0.7) 100%);
+    display: flex;
+    align-items: flex-end;
 }
 
-.overl{
-    position: absolute;
-    top: 50%;
+.entertainment-col-tp p{
+    color:#fff;
     font-style: italic;
     font-weight: 500;
-    font-size: 36px;
-    line-height: 42px;
-    color: #FFFFFF;
+    /* font-size: 56px;
+    line-height: 92px; */
+    font-size: 56px;
+    font-size: 40px;
+    /* line-height: 80px; */
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 4px 4px rgba(0, 0, 0, 0.25),
@@ -62,120 +81,154 @@
     0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* position: relative; */
+    /* top: 25%;
+    left: 2%; */
+    /* top: 5%;
+    left: 2%; */
 }
-.ent-pos-tp{
+.entertainment-col-bt{
     position: relative;
-    top: -40px;
-    padding-bottom: 70px;
-    padding-left: 15px!important;
-    padding-right: 15px!important;
-    max-width: 1358px!important;
-    margin:0 auto;
-    /* height: 480px; */
-    height: 540px;
+    /* this make the entertainment 4 images container equal with the big frame   */
+    /* top: 50px;  */
 }
-.ent-chng-pos{
+.cal_3{
     position: relative;
-    background-color: #4E4A4A;
-    margin-bottom: 40px;
+    top: 50px;
+}
+.obudu_4{
+    position: relative;
+    top: 55px;
 }
 
-.entertainment-text{
-    padding-right: 20px;
+.entertainment-card-txt{
+    font-size: 50px;
+    font-weight: bold;
 }
-.mt-wrap .entertainment-heading{
-    text-decoration: none;
-    display: inline-block;
-    font-size: var(--news-heading-size);
-    font-weight: var(--news-heading-weight);
+.entertainment-card-overl{
+    top: 200px;
+}
+.entertainment-crd-anc-tp>div,
+.entertainment-crd-anc-bt>div{
+    border: 6px solid #fff;
+}
+.entertainment-crd-anc-tp span{
+color: #FAFF00;
+font-style: italic;
+font-weight: 500;
+font-size: 14px;
+line-height: 16px;
+}
+.entertainment-crd-anc-tp p{
+    color: #fff;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
     line-height: 21px;
-    text-align: left;
-    margin: 10px 0px;
-    color: var(--news-heading);
-    font-family: var(--nimbus-font);
+}
+.entertainment-sm-news p{
+    width: 90%;  
+}
+.entertainment-sm-news{
+    justify-content: flex-end;
+}
+.entertainment-sm-news .my-2{
+    width: 280px;
+}
+.entertainment-crd-lst{
+    background-color:#fff;
+    padding-top: 0;
+    height: 120px;
+}
+.entertainment-crd-lst span{
+/* font-style: italic;
+color: #FF0000;
+font-weight: 500;
+font-size: 14px;
+line-height: 16px; */
+}
+.entertainment-crd-anc-bt p{
+    /* color: #000;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px; */
 }
 
-.mt-wrap .entertainment-description{
-    font-family: var(--nimbus-font);
-    font-size: var(--news-description-size);
-    text-align: left;
-    color: var(--news-heading);
-    font-weight: 100;
-}
-.mt-wrap a:hover{
-    text-decoration: none;
-    color: #EE3039
-}
-.mg-sm-scr{
-    /* height: 330px; */
-}
-.mg-sm-scr, 
-.ent-pos-tp{
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    border-radius: 17px;
-}
-.ent-h-100{
-    height: 265px;
-    width: 100%;
-    object-fit: cover;
-}
 
-@media screen and (max-width: 1000px){ 
-    .entertainment{
-        /* this fixed the footer overlay with entertainment section */
-        margin-bottom: 800px;
-    }
+.entertainment-more-btn{
+    position: relative;
+    top: 120px;
+    left: 10px;
 }
 
 @media screen and (max-width: 772px){
-    .entertainment{
-        margin-top: 20px;
-        margin-bottom: 40px;
-        font-family:  'Roboto', sans-serif;
-        border-bottom: 17px solid #4E4A4A;
+    .entertainment h3{
+        padding-left: 0;
+        text-align: center;
+        font-size: 24px;
+    } 
+    .entertainment-card-overl{
+        top: 20px;
     }
-    .h-100 a{
-        padding: 20px auto!important;
-        text-decoration: none;
+    .entertainment-col-tp-bg p{
+        font-size: 22px;
+        line-height: 26px;
     }
-    .ent-card{
-        background-color: white !important;
-        margin-top: 30px;
+    .entertainment-col-tp{
+        background-attachment: scroll;
     }
-    .ent-h-100{
-        height: auto;
-    }
-    .ent-pos-tp{
-        border-radius: 0px;
-    }
-
-    .mt-wrap a{
-        padding: 20px 0!important;
-        position: relative;
-        top: 3;
-        bottom: 3%;
-    }
-    .mg-sm-scr{
-        margin: 20px auto;
-         /* border: 4px solid; */
-         /* padding: 20px 0; */
-    }
-    .ent-pos-tp {
-        position: static;
-        padding-bottom: 30px;
-        margin: 20px 30px;
-        height: auto;
-    }
-    .mb-2, .my-2 {
-        margin-bottom: 0rem!important;
-    }
-    .mt-2, .my-2 {
-        margin-top: 0rem!important;
-    }
-
 }
 
 
+
+/* // Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+    .entertainment{
+        /* background-color: green; */
+    }
+    .entertainment .entertainment-crd-lst{
+        height: 140px;
+    }
+}
+
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    .entertainment{
+        /* background-color: pink; */
+    }
+
+    .entertainment-crd-lst .entertainment-description{
+        font-size: 13px;
+    }
+
+}
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    .entertainment{
+        /* background-color: blue; */
+    }
+    .entertainment-sm-news{
+        width: 500px;
+        margin: 0;
+        position: relative;
+        left: 30px;
+        bottom: 30px;
+    }
+    .entertainment-bg-red {
+        margin-bottom: 565px;
+    }
+}
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .entertainment{
+        /* background-color: red; */
+    }
+    .entertainment-sm-news{
+        width: 350px;
+        margin: 0;
+        padding: 0;
+        left: unset;
+        bottom: 30px;
+    }
+}

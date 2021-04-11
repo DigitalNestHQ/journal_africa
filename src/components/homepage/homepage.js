@@ -3,24 +3,20 @@ import { useParams } from "react-router-dom";
 import Nav from "../reusables/navigation/Nav/Nav";
 import Banner from "./Banner";
 import TeaserSection from "./homepageTeaser/TeaserSection";
-import SubscribeForm from "./homepageSubscribeSection/Subscribe";
-import Politics from "./politics/PoliticsComponent";
-import Headlines from "./headlines/HeadlineComponent";
-// import Lifestyles from "./lifestyle/LlifestyleComponent";
-import Entertainment from "./entertainment/EntertainmentComponent";
+import PoliticsAndGovernance from "./politics/PoliticsAndGovernance";
+import Entertainment from "./entertainment/Entertainment";
 import { getNewsFeed } from "../../context/news/NewsApi";
-import Business from "./businessFinance/Business";
 import Tech from "./lifestyle/LifeStyle";
-import Sports from "./sports/SportComponent";
-import InsideAfrica from "./dicoverafrica/DiscoverAfrica";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "../reusables/navigation/Footer/Footer";
 import "./homepage.css";
-import EcoAfricaComponent from "./ecoAfrica/EcoAfricaComponent";
 import Development from "./development/Development";
 import EconomyComponent from "./economy/EconomyComponent";
 import ViewPoint from "./viewpoint/ViewPoint";
+import Business from "./business/Business";
+import { SignupTeaser } from "../reusables/news/SignupTeaser";
+import LatestNews from "./latestnews/LatestNews";
 
 function Homepage() {
   const [news, setNews] = useState([]);
@@ -47,39 +43,18 @@ function Homepage() {
     return (
     <Fragment>
       <Nav />
-      {/* <Banner data={news} /> */}
-      {/* <Politics data={news} /> */}
-      {/* discover africa  */}
-      {/* <InsideAfrica /> */}
-      {/* eco africa */}
-      {/* <EcoAfricaComponent data={news} /> */}
-      {/* tech africa */}
-      {/* <Tech data={news}/> */}
-      {/* sport */}
-      {/* <Sports data={news}/> */}
-      {/* <TeaserSection data={news} />
-      <Headlines data={news}/>
-      <Business data={news} />
-      <Lifestyles data={news}/>
-      <Entertainment data={news}/>
-      <SubscribeForm /> */}
-      {/* <EcoAfricaComponent data={news} /> */}
-      <Banner data={news} />
-      <Politics data={news} />
-      <TeaserSection data={news} />
-      <Headlines data={news}/>
-      {/* // change to businessFinance */}
-      <Entertainment data={news}/>
-      <Development data={news}/>
-      <EconomyComponent data={news}/>
-      <Tech data={news}/>
-      <ViewPoint data={news}/>
-
-      {/* <Business data={news} />
-      <InsideAfrica data={news}/>
-      <Sports data={news}/>
-      <Lifestyles data={news}/> */}
-      {/* <SubscribeForm /> */}
+        <Banner data={news} />
+        <LatestNews data={news} />
+        <TeaserSection data={news} />
+        <PoliticsAndGovernance data={news}/>
+        <Business data={news}/>
+        <Development data={news}/>
+        <EconomyComponent data={news}/>
+        <Tech data={news}/>
+        <ViewPoint data={news}/>
+        <Entertainment data={news}/>
+        <SignupTeaser />
+        {/* <SubscribeForm /> */}
       <Footer />
     </Fragment>
   );

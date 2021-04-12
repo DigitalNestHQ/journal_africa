@@ -1,9 +1,8 @@
 .categ-wrap{
     max-width: 1500px;
     margin: 0 auto;
-    font-family:/* was roboto before*/;
     padding-top: 180px;
-    padding-bottom: 30px
+    padding-bottom: 30px;
 }
 .categ-wrap h3{
     font-style: normal;
@@ -40,4 +39,10 @@
     font-size: 24px;
     line-height: 28px;
     text-align: justify;
+}
+
+.premium_category_indicator{
+    position: relative;
+    bottom: 102%;
+    /* left: 3%; */
 }

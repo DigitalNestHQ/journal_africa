@@ -9,9 +9,9 @@ const CategoryCard = ({ post_title, featured_image, id, post_type, slug }) => {
           src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
           alt={id}
         />
-        {/* {// only show the post type for premium
-          // post_type == "premium" && <span className="premium_category_indicator ml-">{ post_type }</span>
-        }  */}
+        {// only show the post type for premium
+          post_type == "premium" && <span className="premium-tag premium_category_indicator ml-">{ post_type }</span>
+        } 
       </div>
 
       <div className="card-caption mt-lg-0">

@@ -12,7 +12,7 @@ export const HandleAuthButton = () =>{
             isAuthenticated ?
             <Link
               onClick={()=>userContext.logOut()}
-              className="nav-link mt-3 mt-lg-0 px-4 text-white nav-sub-tp"
+              className="nav-link mt-3 mt-lg-0 text-white nav-sub-tp"
             >
               <i className="fas fa-sign-in-alt"></i> 
                 {" "}LOGOUT
@@ -20,7 +20,7 @@ export const HandleAuthButton = () =>{
             :
             <Link
               to="/login"
-              className="nav-link mt-3 mt-lg-0 px-4 text-white nav-sub-tp"
+              className="nav-link mt-3 mt-lg-0 text-white nav-sub-tp"
             >
               <i className="fas fa-sign-in-alt"></i>
               SIGN IN

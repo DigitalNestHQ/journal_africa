@@ -13,80 +13,6 @@ const Header = ({post_type}) => {
         </Link>
       </div>
       <div className="discover_header">
-        <nav className="discover_nav">
-          <ul>
-            <li className="nav-items">
-              <Link className="nav-links discover" to="/">
-                HOME
-              </Link>
-            </li>
-            <li className="nav-items">
-              <Link className="nav-links discover" to="/vod">
-                VOD
-              </Link>
-            </li>
-            {/* <li className="nav-items">
-              <Link className="nav-links discover" to="/discover">
-                DISCOVER AFRICA
-              </Link>
-            </li> */}
-            <li className="nav-items">
-              <Link className="nav-links discover"
-               to={{
-                pathname: "/news/categories",
-                search: `?category=Discovery Africa`,
-              }}
-               >
-                DISCOVER AFRICA
-              </Link>
-            </li>
-            <li className="nav-items">
-              <Link className="nav-links discover"
-              //  to="/politics"
-               to={{
-                pathname: "/news/categories",
-                search: `?category=Politics and Governance`,
-              }}
-               >
-                POLITICS & GOVERNANCE
-              </Link>
-            </li>
-            <li className="nav-items">
-              <Link className="nav-links discover" 
-              // to="/business"
-              to={{
-                pathname: "/news/categories",
-                search: `?category=Business and Finance`,
-              }}
-              >
-                BUSINESS & FINANCE
-              </Link>
-            </li>
-            <li className="nav-items">
-              <Link className="nav-links discover" 
-              // to="/entertainment"
-              to={{
-                pathname: "/news/categories",
-                search: `?category=Entertainment`,
-              }}
-              >
-                ENTERTAINMENT
-              </Link>
-            </li>
-            <li className="nav-items" id="last">
-              <Link className="nav-links discover" 
-              // to="/lifestyle"
-              to={{
-                pathname: "/news/categories",
-                search: `?category=Lifestyle`,
-              }}
-              >
-                LIFESTYLE
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <h1>{post_type && post_type.toUpperCase()}</h1>
        <div className="africa-auth">
          {/* if the iaAuthentication is not ready, do not show the buttons */}
           {
@@ -104,6 +30,7 @@ const Header = ({post_type}) => {
             SUBSCRIBE
           </Link>
         </div>
+        <h1 className="category-heading">{post_type && post_type.toUpperCase()}</h1>
       </div>
     </header>
   );

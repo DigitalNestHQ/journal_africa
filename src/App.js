@@ -31,6 +31,7 @@ import AlertState from "./context/alert/AlertState";
 import setAuthToken from "./utils/setAuthToken";
 import "./App.css";
 import authContext from "./context/auth/authContext.js";
+import Categories from "./components/newscategory/Categories";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -50,6 +51,7 @@ function App() {
             <Route exact path="/post/:slug" component={NewsFeeds} />
             <Route path="/allnews" component={AllNewsFeeds} />
             <Route exact path="/news/categories" component={CategoryNews} />
+            <Route exact path="/news/1" component={Categories} />
             <Route
               exact
               path={pageurl.PRIVACYPOLICY}

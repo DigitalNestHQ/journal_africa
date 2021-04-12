@@ -38,9 +38,10 @@ footer p{
 }
 footer .fab{
   font-weight: bold;
+  font-weight: 100;
 }
 footer{
-  font-family: 'Gothic A1', sans-serif;
+  /* font-family: 'Gothic A1', sans-serif; */
   font-style: normal;
 }
 footer h3:not(.ps_p){
@@ -126,7 +127,7 @@ footer p{
 }
 
 footer ul li{
-  font-weight: 600;
+  font-weight: 100;
   font-size: 18px;
   line-height: 27px;
 }

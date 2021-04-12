@@ -217,18 +217,97 @@ line-height: 16px; */
     .entertainment-bg-red {
         margin-bottom: 565px;
     }
+    .entertainment-crd-anc-tp>div,
+    .entertainment-crd-anc-bt>div{
+        width: 200px;
+        margin-right: 10px;
+    }
 }
 
 /* // Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
     .entertainment{
+        overflow: hidden;
         /* background-color: red; */
+        margin: 55px auto -100px auto;
     }
+
     .entertainment-sm-news{
         width: 350px;
         margin: 0;
         padding: 0;
         left: unset;
         bottom: 30px;
+    }
+    .entertainment-crd-anc-tp>div,
+    .entertainment-crd-anc-bt>div{
+        width: 138px;
+        margin-right: 0px;
+    }
+
+    .entertainment-col-tp{
+        height: 300px;
+    }
+    .entertainment-col-tp p{
+        color:#fff;
+        font-style: italic;
+        font-weight: 500;
+        /* font-size: 56px;
+        line-height: 92px; */
+        font-size: 30px;
+    }
+    .entertainment-more-btn {
+        position: relative;
+        top: -150px;
+        left: 50px;
+    }
+    
+}
+@media (max-width: 400.98px) {
+    .entertainment{
+        margin: 0px;
+        margin-top: 50px;
+        overflow: hidden;
+    }
+    .entertainment-crd-lst{
+        background-color:#fff;
+        padding-top: 0;
+        padding: 0px;
+    }
+    .entertainment-crd-anc-tp>div,
+    .entertainment-crd-anc-bt>div{
+        height: 150px !important;
+        width: 150px !important;
+        padding: 0px;
+    }
+    .entertainment-card-img {
+    }
+    .entertainment-sm-news {
+        left: -32px;
+        top: 20px;
+        /* padding: 20px; */
+    }
+    .entertainment-more-btn {
+        position: relative;
+        top: -130px;
+        left: 20px;
+    }
+}
+
+@media (max-width: 330px) {
+    .entertainment-crd-anc-tp>div,
+    .entertainment-crd-anc-bt>div{
+        height: 150px !important;
+        width: 130px !important;
+        padding: 0px;
+    }
+    .entertainment-sm-news {
+        left: -42px;
+        top: 20px;
+        /* padding: 20px; */
+    }
+    .entertainment-description{
+        padding-right: 10px;
+        white-space: break-spaces;
     }
 }

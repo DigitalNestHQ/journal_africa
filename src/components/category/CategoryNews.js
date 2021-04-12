@@ -14,6 +14,9 @@ import "./newscategory.css";
 import { Button, Card } from "react-bootstrap";
 import UnableToFetchNews from "../reusables/errorMessages/UnableToFetchNews";
 import {ContactsAds1} from "../ContactUs/mainSection/ContactsAds";
+import Navbar from "../reusables/navigation/Nav/Nav";
+import CategoryNavbar from "./Header/CategoryNavbar";
+import ReaderList from "../homepage/politics/ReaderList";
 
 const CategoryNews = () => {
   const [loading, setLoading] = useState(true);
@@ -70,7 +73,11 @@ const CategoryNews = () => {
   }
   return (
     <Fragment>
-      <TopNav />
+      {/* <TopNav /> */}
+      {/* <Navbar /> */}
+
+      <CategoryNavbar />
+
       <Header post_type={newsCateg && newsCateg[0].category_id}/>
       {/* {<h1 className="text-center text-title">{newsCateg && newsCateg[0].category_id}</h1>} */}
       {/* <h1 className="text-center text-title">Welcome Here</h1> */}
@@ -80,7 +87,7 @@ const CategoryNews = () => {
           <section className="discover">
             <div className="left-pane">
               {newsCateg && newsCateg.length > 0 &&
-                newsCateg.map((aNews) => {
+                newsCateg.slice(0, 9).map((aNews) => {
                   const {
                     post_title,
                     featured_image,
@@ -103,13 +110,26 @@ const CategoryNews = () => {
                 })}
             </div>
             <div className="right-pane">
-              <h4 className="trend">TRENDS</h4>
+              {/* <ReaderList data={news}/> */}
+              {news && news.length &&
+                  news.slice(0, 4).map(({ slug, post_title, id, created_at, post_description}) => {
+                    return <ReaderList 
+                            key={id} 
+                            slug={slug} 
+                            post_title={post_title}
+                            post_description={post_description}
+                            created_at={created_at}
+                          />;
+                  })}
+              {/* <h4 className="trend">TRENDS</h4> */}
               <ul>
-                {news && news.length > 0 && news.slice(0, 5).map((news, index) => (
+                {/* {news && news.length > 0 && news.slice(0, 5).map((news, index) => (
                   <li className="trend_list" key={index}>
                     <Link to={`/post/${news.slug}`}>{news.slug}</Link>
                   </li>
-                ))}
+                ))} */}
+                <li><ContactsAds1 /></li>
+                <li><ContactsAds1 /></li>
                 <li><ContactsAds1 /></li>
               </ul>
             </div>

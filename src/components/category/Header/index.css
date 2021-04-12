@@ -57,13 +57,15 @@
   padding: 10px 20px;
 }
 
-.discover_header > h1 {
+.discover_header .category-heading {
   text-align: center;
+  font-size: 30px;
+  padding-bottom: 20px;
 }
 
 .africa-auth {
   text-align: right;
-  padding: 0px 40px 40px 40px !important;
+  padding: 0px 70px 0px 40px !important;
   margin-right: 55px;
 }
 
@@ -79,7 +81,7 @@
   background-color: #ff0000;
   /* padding: 5px 10px; */
   font-weight: 600;
-  width: 163px;
+  width: 153px;
   text-align: center;
   height: 33px;
 }

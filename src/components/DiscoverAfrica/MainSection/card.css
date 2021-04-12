@@ -1,10 +1,13 @@
 .discover-cont{
   display: flex;
   justify-content: center;
-  margin-right: 100px;
-  margin-left: 100px;
-  position: relative;
-  bottom: 40px;
+  /* margin-right: 100px;
+  margin-left: 100px; */
+  margin-right: 58px;
+  margin-left: 131px;
+  /* position: relative; */
+  /* bottom: 40px; */
+  /* margin-top: 3  0px; */
 
 }
 .main-section-card {
@@ -34,7 +37,10 @@
 .image > img {
   /* width: 390px;
   height: 274px; */
-  width: 300px;
+  /* width: 300px; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .main-section-card > div {
@@ -42,29 +48,28 @@
   margin: 0;
   /* width: 50%; */
   /* width: 40%; */
-  width: 310px;
+  /* width: 310px; */
+  width: 304px;
+  height: 177px;
 }
 
 .card-caption-title {
-  color: #020000;
+  color: #FF0000;
   font-weight: 700;
-  font-family:/* was roboto before*/;
   line-height: 2rem;
-  font-size: 25px;
   text-align: left;
   vertical-align: bottom;
   padding: 0;
   margin: 0;
   justify-content: flex-start;
   text-transform: capitalize;
-  line-height: 1.7rem;
-  font-size: 18px;
-  margin-top: -5px;
+  line-height: 1.6rem;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 .card-caption-content {
   color: #000000;
-  font-family:/* was roboto before*/;
   font-size: 16px;
   font-weight: 300;
   line-height: 25px;
@@ -79,8 +84,8 @@
 }
 
 .card-caption-content span{
-  color:#f03730;
-  font-size: 17px;
+  color: var(--color-red);
+  font-size: 15px;
   text-transform: capitalize;
 }
 

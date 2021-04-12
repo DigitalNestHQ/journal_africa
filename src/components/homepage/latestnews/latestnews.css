@@ -207,6 +207,8 @@
 @media (max-width: 575.98px) {
     .latest-news-article{
         /* background-color: red; */
+        /* margin-top: 0px !important; */
+        margin-bottom: 0px !important;
     }
     .sec-2 img{
         height: 150px;
@@ -226,4 +228,27 @@
         top: 110px;
         left: 20px;
     }
+}
+
+
+@media (max-width: 400.98px) {
+    .latest-news-article {
+        /* margin-top: 0px !important; */
+        margin-bottom: -20px !important;
+        /* display: none !important; */
+    }
+    .sec-2 img{
+        height: 126px;
+        width: 150px;
+    }
+    .card a{
+        margin-top: 10px;
+    }
+
+    .latest-news-article .premium_category_indicator--latest-news{
+        top: 120px;
+        left: 15px;
+    }
+
+
 }

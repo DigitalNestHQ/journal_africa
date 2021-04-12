@@ -172,10 +172,13 @@
         margin-top: 30px;
     }
     .ent-h-100{
-        
+        padding-right: 10px;
+        height: 150px !important;
+        /* width: 100%; */
     }
     .ent-pos-tp{
         border-radius: 0px;
+       
     }
 
     .mt-wrap a{

@@ -190,7 +190,8 @@
         height: 200px;
     }
     .lifestyle-sq{
-        padding: 0px 30px;
+        padding: 0px 80px;
+        margin-bottom: 25px;
 
     }
     .lifestyle-crd{
@@ -204,4 +205,33 @@
     .lifestyle{
         /* background-color: red; */
     }
+    .lifestyle-more-btn{
+        position: relative;
+        top: 0rem !important;
+        left: 5.6rem !important;
+        display: inline;
+    }
 }
+
+@media (max-width: 400.98px) {
+    .lifestyle-sq{
+        padding: 0px 20px 0px 40px;
+        margin-bottom: 20px;
+    }
+    .lifestyle-crd-img{
+        height: 150px !important;
+        /* width: 150px !important; */
+    }
+    .lifestyle-crd{
+        /* height:350px; */
+        margin-bottom: 25px;
+    }
+    .lifestyle-more-btn{
+        position: relative;
+        top: 0rem !important;
+        left: 3rem !important;
+        top: -2rem !important;
+        left: 7rem !important;
+    }
+}
+

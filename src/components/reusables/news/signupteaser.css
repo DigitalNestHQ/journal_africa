@@ -1,3 +1,4 @@
+
 /* .img-con{
     margin: 20px 0px 15px;
     padding: 0px 15px;
@@ -102,5 +103,35 @@ img{
 @media (max-width: 575.98px) {
     .signup-teaser{
         /* background-color: red; */
+    }
+    .signup-teaser .teaser-message {
+        font-size: 22px;
+        line-height: 35px;
+    }
+    .signup-teaser .teaser--btn{
+        font-size: 25px;
+        height: 60px;
+        width: 210px;
+        border-radius: 6px;
+        margin-bottom: 50px;
+
+    }
+}
+
+@media (max-width: 400.98px) {
+    .signup-teaser{
+        margin-top: 20px;
+    }
+    .signup-teaser .teaser-message {
+        font-size: 17px;
+        line-height: 20px;
+    }
+    .signup-teaser .teaser--btn{
+        font-size: 20px;
+        height: 40px;
+        width: 150px;
+        border-radius: 5px;
+        margin-bottom: 50px;
+
     }
 }

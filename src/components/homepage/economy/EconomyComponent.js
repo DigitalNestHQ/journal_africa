@@ -7,7 +7,7 @@ import EconomyCard from "./EconomyCard";
 class EconomyComponent extends Component {
   render() {
     const economy = this.props.data && this.props.data.filter(
-      (news) => news.category_id === "Discovery Africa"
+      (news) => news.category_id === "Economy"
     );
     return (
       <>

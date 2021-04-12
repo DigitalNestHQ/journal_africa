@@ -23,7 +23,7 @@ export class ViewPoint extends Component {
           Viewpoint
         </span>
         </Link>
-          <div className="container-luid mt-3 mb-4 row viewpoint-card-wrap">
+          <div className="container-flui mt-3 mb-4 row viewpoint-card-wrap">
             {viewpointNews && viewpointNews.length > 0 &&
               viewpointNews.map((news) => {
                 const {

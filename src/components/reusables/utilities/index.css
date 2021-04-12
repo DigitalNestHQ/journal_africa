@@ -102,8 +102,8 @@ html, body{
 
 @media (max-width: 930px){
     div.custom-container{
-        padding-right: 25px !important;
-        padding-left: 25px !important;
+        /* padding-right: 25px !important;
+        padding-left: 25px !important; */
     }
     .custom-categories-heading{
         font-size: 23px !important;
@@ -118,5 +118,20 @@ html, body{
 @media (max-width: 576px){
     .custom-categories-heading{
         font-size: 20px !important;
+    }
+}
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .custom-container{
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+    }
+}
+
+@media (max-width: 400.98px) {
+    .custom-container{
+        padding-right: 5px !important;
+        padding-left: 5px !important;
     }
 }

@@ -95,7 +95,7 @@ const CategoryNews = () => {
           <section className="discover">
             <div className="left-pane">
               {newsCateg && newsCateg.length > 0 &&
-                newsCateg.slice(0, numberOfCategCard).map((aNews) => {
+                news.slice(0, numberOfCategCard).map((aNews) => {
                   const {
                     post_title,
                     featured_image,
@@ -116,9 +116,13 @@ const CategoryNews = () => {
                       />
                   );
                 })}
-              <button 
-                className="premium-tag load-more-btn ml-3 ml-md-3 ml-lg-3 mb-5 mb-md-5 mb-lg-0"
-                onClick={()=>setNumberOfCategCard(numberOfCategCard+3)}>Load More...</button>
+                {
+                  newsCateg?.length > 1 || numberOfCategCard?.length !== numberOfCategCard && (
+                    <button 
+                      className="premium-tag load-more-btn ml-3 ml-md-3 ml-lg-3 mb-5 mb-md-5 mb-lg-0"
+                      onClick={()=>setNumberOfCategCard(numberOfCategCard+3)}>Load More...</button>
+                  )
+                }
             </div>
             <div className="right-pane">
               {/* <ReaderList data={news}/> */}

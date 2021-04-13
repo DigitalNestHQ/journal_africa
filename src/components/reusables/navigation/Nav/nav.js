@@ -138,7 +138,7 @@ const Navbar = () => {
                     activeclassname="activeLink"
                       to={{
                       pathname: "/news/categories",
-                      search: `?category=VIEWPOINT`,
+                      search: `?category=View Point`,
                     }}
                   >
                     VIEWPOINT

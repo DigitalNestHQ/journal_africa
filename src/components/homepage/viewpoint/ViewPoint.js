@@ -8,7 +8,7 @@ import ViewPointCard from "./ViewPointCard";
 export class ViewPoint extends Component {
   render() {
       const viewpointNews = this.props.data && this.props.data.filter(
-        (news) => news.category_id === "Sport Africa"
+        (news) => news.category_id === "View Point"
       );
     return (
       <div className="viewpoint">
@@ -16,7 +16,7 @@ export class ViewPoint extends Component {
         <Link
         to={{
           pathname: "/news/categories",
-          search: `?category=Development`,
+          search: `?category=View Point`,
         }}
         >
         <span className="viewpoint-category-heading">
@@ -47,7 +47,7 @@ export class ViewPoint extends Component {
               })}
           </div>
           <div className="viewpoint-more-btn">
-            <ExploreMore category_id="Sport Africa" />
+            <ExploreMore category_id="View Point" />
           </div>
         </div>
       </div>

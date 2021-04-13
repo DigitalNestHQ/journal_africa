@@ -20,7 +20,7 @@ import LatestNews from "./latestnews/LatestNews";
 import Loader from "../loader/Loader";
 
 function Homepage() {
-  const [news, setNews] = useState([]);
+  const [news, setNews] = useState(null);
   const [error, setError] = useState(null);
   const { slug } = useParams();
   // your useeffct function will cause memory  leaks
@@ -42,7 +42,7 @@ function Homepage() {
     //eslint-disable-next-line
   }, [slug, setNews]);
   // console.log(news.forEach((n)=>console.log(n.category_id)))
-  if(news){
+  if(!news){
    return <Loader />
   }
     return (

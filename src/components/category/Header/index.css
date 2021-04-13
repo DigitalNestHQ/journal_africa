@@ -91,4 +91,11 @@
     font-size: 22px;
     text-align: center;
   }
+  
+  .africa-auth {
+    text-align: right;
+    padding: 0px 50px 0px 40px !important;
+    position: relative;
+    bottom: 20px;
+  }
 }

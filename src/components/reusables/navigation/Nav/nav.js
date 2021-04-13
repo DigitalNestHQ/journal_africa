@@ -117,7 +117,7 @@ const Navbar = () => {
                       search: `?category=Discovery Africa`,
                     }}
                   >
-                    DISCOVER AFRICA
+                    DISCOVERY AFRICA
                   </Link>
                 </li>
                 <li className="nav-item">

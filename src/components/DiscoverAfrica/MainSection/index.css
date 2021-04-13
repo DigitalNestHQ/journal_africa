@@ -85,7 +85,7 @@ section.discover {
     width: 70%;
   }
   .main-section-card {
-    display: inline;
+    /* display: inline; */
   }
   
 
@@ -103,6 +103,15 @@ section.discover {
   }
   .trend{
     margin: 10px 0px 20px 0px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .main-section-card {
+    display: inline;
+  }
+  .discover-cont {
+    margin-left: 66px;
   }
 }
 /* @media screen and (max-width: 700px){

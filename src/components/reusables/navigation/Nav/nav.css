@@ -43,6 +43,9 @@
         }
     }
 
+  .Navigation .nav-item .nav-link{
+    margin-right: -2px !important;
+  }
   .Navigation .nav-item .nav-link:hover{
     color: #e7332b;
   }

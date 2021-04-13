@@ -23,6 +23,7 @@ const CategoryNews = () => {
   const [newsCateg, setNewsCateg] = useState(null);
   const [error, setError] = useState(null);
   const [news, setNews] = useState([]);
+  const [numberOfCategCard, setNumberOfCategCard] = useState(10);
   const history = useHistory()
 
   // method1
@@ -43,8 +44,8 @@ const CategoryNews = () => {
       try {
         getCategories(`${category}`)
           .then((res) => {
-            setNewsCateg(res);
             // console.log(res);
+            setNewsCateg(res);
           })
           .then(() => {
             setLoading(false);
@@ -64,11 +65,18 @@ const CategoryNews = () => {
     // eslint-disable-next-line
   }, [category]);
 
+  useEffect(() => { // if there is no news for the selected category, set all news
+    if(newsCateg?.length < 1){
+      setNewsCateg(news)
+    }
+  }, [news])
+
   if (error) {
     // return <Link to="/error404" />;
     return history.pushState('/error404')
   }
-  if (loading) {
+
+  if (loading || news.length < 1) {
     return <Loader />;
   }
   return (
@@ -78,7 +86,7 @@ const CategoryNews = () => {
 
       <CategoryNavbar />
 
-      <Header post_type={newsCateg && newsCateg[0].category_id}/>
+      <Header post_type={newsCateg && newsCateg[0]?.category_id}/>
       {/* {<h1 className="text-center text-title">{newsCateg && newsCateg[0].category_id}</h1>} */}
       {/* <h1 className="text-center text-title">Welcome Here</h1> */}
       {
@@ -87,7 +95,7 @@ const CategoryNews = () => {
           <section className="discover">
             <div className="left-pane">
               {newsCateg && newsCateg.length > 0 &&
-                newsCateg.slice(0, 9).map((aNews) => {
+                news.slice(0, numberOfCategCard).map((aNews) => {
                   const {
                     post_title,
                     featured_image,
@@ -108,6 +116,13 @@ const CategoryNews = () => {
                       />
                   );
                 })}
+                {
+                  newsCateg?.length > 1 || numberOfCategCard?.length !== numberOfCategCard && (
+                    <button 
+                      className="premium-tag load-more-btn ml-3 ml-md-3 ml-lg-3 mb-5 mb-md-5 mb-lg-0"
+                      onClick={()=>setNumberOfCategCard(numberOfCategCard+3)}>Load More...</button>
+                  )
+                }
             </div>
             <div className="right-pane">
               {/* <ReaderList data={news}/> */}

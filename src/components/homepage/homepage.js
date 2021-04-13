@@ -17,6 +17,7 @@ import ViewPoint from "./viewpoint/ViewPoint";
 import Business from "./business/Business";
 import { SignupTeaser } from "../reusables/news/SignupTeaser";
 import LatestNews from "./latestnews/LatestNews";
+import Loader from "../loader/Loader";
 
 function Homepage() {
   const [news, setNews] = useState([]);
@@ -40,6 +41,10 @@ function Homepage() {
 
     //eslint-disable-next-line
   }, [slug, setNews]);
+  // console.log(news.forEach((n)=>console.log(n.category_id)))
+  if(news){
+   return <Loader />
+  }
     return (
     <Fragment>
       <Nav />

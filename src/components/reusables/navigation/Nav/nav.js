@@ -117,7 +117,7 @@ const Navbar = () => {
                       search: `?category=Discovery Africa`,
                     }}
                   >
-                    DISCOVER AFRICA
+                    DISCOVERY AFRICA
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -138,7 +138,7 @@ const Navbar = () => {
                     activeclassname="activeLink"
                       to={{
                       pathname: "/news/categories",
-                      search: `?category=VIEWPOINT`,
+                      search: `?category=View Point`,
                     }}
                   >
                     VIEWPOINT

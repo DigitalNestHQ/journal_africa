@@ -81,12 +81,22 @@
 .main-section-card{
   margin-top: 10px!important;
   margin-bottom: 20px!important;
+  /* hide read me when the text is longer */
+  overflow: hidden;
+
 }
 
 .card-caption-content span{
   color: var(--color-red);
   font-size: 15px;
   text-transform: capitalize;
+}
+.card-caption-content p{
+  padding-bottom: 12px;
+}
+
+.card-caption-content p ol{
+  list-style: none;
 }
 
 @media(max-width: 1350px) {
@@ -102,4 +112,8 @@
   .main-section-card > div{
     width: 330px;
   }
+  .card-caption-content p{
+    padding-bottom: 0px;
+  }
+  
 }

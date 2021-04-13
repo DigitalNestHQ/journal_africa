@@ -101,9 +101,9 @@ html, body{
 
 
 @media (max-width: 930px){
-    div.custom-container{
-        /* padding-right: 25px !important;
-        padding-left: 25px !important; */
+    .custom-container{
+        padding-right: 25px !important;
+        padding-left: 25px !important;
     }
     .custom-categories-heading{
         font-size: 23px !important;

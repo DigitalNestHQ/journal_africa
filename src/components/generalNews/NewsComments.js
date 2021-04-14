@@ -5,11 +5,10 @@ import { formatDate } from '../../_helper/dateFormatter';
 export const NewsComments = ({comments}) => {
     return (
         <>
-            <section className="comment--feed mt-5  p-1 p-lg-1">
-                <h4 className="m-0 mb-3">Comments</h4>
+            <section className="comment--feed">
                 {/*  if there is no comment display drop a comment else return the comments */}
                 {
-                    comments && comments.length == 0 ? <><p className="mt-1 lead drop-comment-text">Leave a Reply</p></> :
+                    comments && comments.length == 0 ? <><p className="drop-comment-text">Leave a Reply</p></> :
                      comments && comments.map((comment, index)=>{
                         return (
                         <Card key={index}>

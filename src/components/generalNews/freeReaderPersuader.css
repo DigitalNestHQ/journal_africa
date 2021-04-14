@@ -1,6 +1,16 @@
+.free-users-persuader{
+    /* padding-left: 28px; */
+    /* background-color: red; */
+    margin-top: 50px;
+    padding-left: 12px;
+
+}
+
 .persuader{
-    margin-top: 20px;
-    padding: 10px 5px;
+    /* margin-top: 20px; */
+    padding: 20px 5px 30px 5px;
+    text-align: center;
+    background-color: #BDBCBC;
     /* font-family: Spectral-Light; */
 }
 
@@ -14,9 +24,12 @@
     font-size: 17px;
 }
 
+.persuader a{
+    color: #FFFFFF;
+}
+
 
 .persuader .btn{
-    background: #e7332b;
     color: #FFFFFF;
     margin: 0px 10px 0px 0px;
     font-size: 16px;
@@ -27,6 +40,14 @@
 .persuader .btn:hover{
     opacity: 0.9;
     color: #FFFFFF;
+}
+
+.persuader .persuader-signup-btn{
+    background-color: var(--color-red-2);
+}
+
+.persuader .persuader-login-btn{
+    background-color: #000000;
 }
 
 .persuader span{

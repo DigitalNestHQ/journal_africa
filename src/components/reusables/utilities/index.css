@@ -22,6 +22,9 @@ html, body{
     /* Must read styles */
     --must-read-tag-btn-bg: #787878;
     --nimbus-font: 'Nimbus Sans L Regular';
+
+    /* Readers List */
+    --reader-border-color: #CCCCCC;
     
     /* section background colors  */
     --development-bg-color: #343434;

@@ -7,13 +7,16 @@ import ReactHtmlParser, {
 } from "react-html-parser";
 import Nav from "../reusables/navigation/Nav/Nav";
 import Footer from "../reusables/navigation/Footer/Footer";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { getNewsComments, getSingleNews } from "../../context/news/NewsApi";
+import { getNewsComments, getNewsFeed, getSingleNews } from "../../context/news/NewsApi";
 import Loader from "../loader/Loader";
 import "./allNews.css";
 import NewsComments from "./NewsComments";
 import { FreeReaderPersuader } from "./FreeReaderPersuader";
+import ReaderList from "../homepage/politics/ReaderList";
+import { ContactsAds1 } from "../ContactUs/mainSection/ContactsAds";
+import { formatDate } from "../../_helper/dateFormatter";
 
 function transform(node, index) {
   if (node.type === "tag" && node.name === "span") {
@@ -48,6 +51,7 @@ const options = {
 };
 const GetNews = () => {
   const [news, setNews] = useState(null);
+  const [readersListNews, setReadersListNews] = useState(null);
   const [comments, setComments] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -56,6 +60,10 @@ const GetNews = () => {
   useEffect(() => {
     let subscribe = true;
     if (subscribe) {
+      getNewsFeed().then((data) => {
+        setReadersListNews(data);
+        // console.log(news)
+      });
       const getThisNews = () => {
         try {
           getSingleNews(slug).then((res) => {
@@ -77,10 +85,10 @@ const GetNews = () => {
       getThisNews();
     }
     return () => (subscribe = null);
-  }, []);
+  }, [slug]);
   let html;
   if (news) {
-    html = `<div>${news.post_description}</div>`;
+    html = `${news.post_description}`;
   }
   if (loading) {
     return (
@@ -89,6 +97,7 @@ const GetNews = () => {
       </div>
     );
   }
+  console.log(news);
   return (
     <Fragment>
       <Nav />
@@ -96,24 +105,104 @@ const GetNews = () => {
       {
         news &&
         <div className="container news">
-            <h2 className="post_title">{news.post_title}</h2>
-            <img
-              style={{
-                float: "left",
-                margin: "9px 15px",
-                // margin: '0px auto'
-              }}
-              className="post_img"
-              src={`https://api.tv24africa.com/public/storage/post_image/${news.featured_image}`}
-              alt="news"
-            />
-            <div className="text-wrap">{ReactHtmlParser(html, options)}</div>
-            <FreeReaderPersuader />
-            <NewsComments comments={comments}/>
-            <CommentForm post_title={news.post_title} post_id={news.id}/>
-            <ShareNews />
+          <div className="row">
+            <article className="news-body col-12 col-md-12 col-lg-9 bg-dager">
+              <span className="news-posted-date small">{news.category_id} - {formatDate(news.created_at)}</span>
+              <h2 className="post_title">{news.post_title}</h2>
+             <div className="img-news-con">
+
+              <img
+                className="post_img"
+                src={`https://api.tv24africa.com/public/storage/post_image/${news.featured_image}`}
+                alt="news"
+                />
+                </div>
+              <div className="text-wrap">{ReactHtmlParser(html, options)}</div>
+            </article>
+            <section className="ml-4 mx-auto ml-lg-0 col-10 col-md-7 col-lg-3 news-reader-list">
+              {readersListNews?.slice(0, 4).map((news) => {
+                const { slug, post_title, id, created_at, post_description} = news;
+                return <ReaderList 
+                key={id} 
+                slug={slug} 
+                post_title={post_title}
+                post_description={post_description}
+                created_at={created_at}
+                />;
+              })}
+              <ul className="list-unstyled mb-5">
+                <li><ContactsAds1 /></li>
+              </ul>
+            </section>
           </div>
-        }
+          <div className="row free-users-persuader">
+            <section className="col-12 col-md-9 col-lg-9">
+              <FreeReaderPersuader />
+              <ShareNews />
+              <section className="up-next-container">
+                <article className="previous-article">
+                  <Link to="">
+                    <p className="previous-article-heading">Previous Article</p>
+                    <span className="previous-article-content">
+                      Aid agencies are hindering development and undermining efforts to attract investment in...
+                    </span>
+                  </Link>
+                </article>
+                <article className="next-article">
+                  <Link to="">
+                    <p className="next-article-heading">Next Article</p>
+                    <span className="next-article-content">
+                      Aid agencies are hindering development and undermining efforts to attract investment in...
+                    </span>
+                  </Link>
+                </article>
+              </section>
+
+
+              <section className="news-teaser-article">
+                {// only show the news that are in the same category with the current news and remove the current news from the displayed ones
+                  readersListNews?.filter((newsList)=>newsList.category_id === news.category_id && newsList.id !== news.id).slice(0,4).map(({featured_image, post_title})=>{
+                    return(
+                      <article>
+                        <div className="news-teaser-img-wrap">
+                          <img 
+                            src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
+                          />
+                        </div>
+                        <p className="news-teaser-heading">{post_title}</p>
+                        {/* <p>Aid agencies are hindering development and undermining efforts to attract investment in...</p> */}
+                      </article>
+                    )
+                  })
+                }
+              </section>
+
+
+
+
+              <NewsComments comments={comments}/>
+              <CommentForm post_title={news.post_title} post_id={news.id}/>
+
+              
+            </section>
+            <section className="ml-4 mx-auto ml-lg-0 col-7 co-md-3 col-lg-3 news-reader-list">
+            {readersListNews?.slice(4, 8).map((news) => {
+              const { slug, post_title, id, created_at, post_description} = news;
+                return <ReaderList 
+                key={id} 
+                slug={slug} 
+                post_title={post_title}
+                post_description={post_description}
+                created_at={created_at}
+                />;
+              })}
+              <ul className="list-unstyled mb-5">
+                <li><ContactsAds1 /></li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      }
       <Footer />
     </Fragment>
   );

@@ -30,10 +30,10 @@
     /* width: 400px; */
     /* width: 100%; */
     /* height: 300px; */
-    /* width: 100%;
-    height: 100%; */
-    width: inherit;
+    width: 100%;
     height: 100%;
+    /* width: inherit;
+    height: 100%; */
     /* object-fit: cover; */
 }
 
@@ -61,7 +61,7 @@
     font-weight: 400;
     text-rendering: optimizeLegibility;
     font-family: initial;
-    width: min-content;
+    /* width: min-content; */
 }
 
 .text-wrap ol{
@@ -70,8 +70,9 @@
 }
 
 .text-wrap p img{
-    width: inherit !important;
+    /* width: inherit !important; */
     height: 100% !important;
+    width: 100% !important;
 }
 @media screen and (max-width: 772px){
     .news img{

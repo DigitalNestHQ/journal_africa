@@ -119,7 +119,7 @@ const GetNews = () => {
                 </div>
               <div className="text-wrap">{ReactHtmlParser(html, options)}</div>
             </article>
-            <section className="ml-4 mx-auto ml-lg-0 col-10 col-md-7 col-lg-3 news-reader-list">
+            <section className="ml-3 ml-md-4 mx-auto ml-lg-0 col-10 col-md-7 col-lg-3 news-reader-list">
               {readersListNews?.slice(0, 4).map((news) => {
                 const { slug, post_title, id, created_at, post_description} = news;
                 return <ReaderList 
@@ -136,7 +136,7 @@ const GetNews = () => {
             </section>
           </div>
           <div className="row free-users-persuader">
-            <section className="col-12 col-md-9 col-lg-9">
+            <section className="col-12 col-md-12 col-lg-9">
               <FreeReaderPersuader />
               <ShareNews />
               <section className="up-next-container">
@@ -185,7 +185,7 @@ const GetNews = () => {
 
               
             </section>
-            <section className="ml-4 mx-auto ml-lg-0 col-7 co-md-3 col-lg-3 news-reader-list">
+            <section className="ml-3 ml-md-4 mx-auto ml-lg-0 col-10 co-md-3 col-lg-3 news-reader-list">
             {readersListNews?.slice(4, 8).map((news) => {
               const { slug, post_title, id, created_at, post_description} = news;
                 return <ReaderList 

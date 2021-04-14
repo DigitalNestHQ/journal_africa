@@ -53,3 +53,28 @@
 .persuader span{
     font-size: 17px;
 }
+
+
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .free-users-persuader{
+        padding-left: 0px;
+    }
+        
+    .persuader h5{
+        font-weight: 900;
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .persuader p{
+        font-size: 13px;
+    }
+
+    .persuader .btn{
+        margin: 0px 10px 10px 0px;
+        font-size: 16px;
+        line-height: 15px;
+    }
+}

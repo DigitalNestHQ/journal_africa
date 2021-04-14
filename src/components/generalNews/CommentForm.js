@@ -30,31 +30,17 @@ const CommentForm = (props) => {
   if(commentAdded){
     return(
       <>
+      <div className="col-6 p-0">
         <p className="small">
           Comment posted successfully
         </p>
-          <Link to="/" className="btn btn-sm  btn-danger text-white small">Explore more news</Link>
+        <Link to="/" className="btn btn-sm comment-btn-explore text-whte small">Explore more news</Link>
+      </div>
       </>
     )
   }
   return (
     <form className="comment-form p-0 col-lg-8" onSubmit={handleSubmit}>
-      {/* {
-        !isAuthenticated && (
-          <>
-            <label htmlFor="name">Name</label>
-            <input 
-            type="text" 
-            name="name" 
-            placeholder="Enter your name"
-            minLength="2" 
-            onChange={handleChange} 
-            className="form-control" 
-            required
-            />
-          </>
-        )
-      } */}
         <textarea
         name="comment"
         id="comment"
@@ -65,17 +51,23 @@ const CommentForm = (props) => {
         required
         className="form-control"
         ></textarea>
+        {// if the current user is not logged in collect that names
+          !isAuthenticated && (
+          <>
+            <input 
+              type="text" 
+              name="name" 
+              placeholder="Name*"
+              minLength="2" 
+              onChange={handleChange} 
+              className="form-control" 
+              required
+            />
+          </>
+          )
+        }
         <input 
-            type="text" 
-            name="name" 
-            placeholder="Name*"
-            minLength="2" 
-            onChange={handleChange} 
-            className="form-control" 
-            required
-        />
-        <input 
-            type="text" 
+            type="email" 
             name="name" 
             placeholder="Email*"
             minLength="2" 

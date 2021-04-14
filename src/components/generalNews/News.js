@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState, Fragment, useContext } from "react";
 import CommentForm from "./CommentForm";
 import ShareNews from "./ShareNews";
 import ReactHtmlParser, {
@@ -13,10 +13,11 @@ import { getNewsComments, getNewsFeed, getSingleNews } from "../../context/news/
 import Loader from "../loader/Loader";
 import "./allNews.css";
 import NewsComments from "./NewsComments";
-import { FreeReaderPersuader } from "./FreeReaderPersuader";
+import { FreeReaderPersuader, ContinueReadingWithAuth } from "./FreeReaderPersuader";
 import ReaderList from "../homepage/politics/ReaderList";
 import { ContactsAds1 } from "../ContactUs/mainSection/ContactsAds";
 import { formatDate } from "../../_helper/dateFormatter";
+import authContext from "../../context/auth/authContext";
 
 function transform(node, index) {
   if (node.type === "tag" && node.name === "span") {
@@ -50,18 +51,23 @@ const options = {
   transform,
 };
 const GetNews = () => {
+  const userContext = useContext(authContext);
+  const { user } = userContext;
   const [news, setNews] = useState(null);
   const [readersListNews, setReadersListNews] = useState(null);
   const [comments, setComments] = useState(null);
+  const [hasSubscription, setHasSubscription] = useState(user?.subscribe);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const { slug } = useParams();
-
+// console.log(hasSubscription? "true" : "false");
   useEffect(() => {
-    let subscribe = true;
-    if (subscribe) {
+    // let subscribe = true;
+    // if (subscribe) {
+    // return () => (subscribe = null);
+
       getNewsFeed().then((data) => {
-        setReadersListNews(data);
+        setReadersListNews(data.filter((allNews)=>allNews.post_type === 'premium'));
         // console.log(news)
       });
       const getThisNews = () => {
@@ -83,12 +89,11 @@ const GetNews = () => {
         }
       };
       getThisNews();
-    }
-    return () => (subscribe = null);
   }, [slug]);
   let html;
   if (news) {
-    html = `${news.post_description}`;
+    // when the news is premium and the user has a subscription let them reall all, else let them read 2 paragraphs             if the user user is logged in let them read the free news but if not logged in, let them read 2 paragraphs
+    html = `${news.post_type === 'premium' ? (hasSubscription ? news.post_description : news.post_description.slice(0, 2000)) : (user ? news.post_description : news.post_description.slice(0, 2000))}`;
   }
   if (loading) {
     return (
@@ -97,14 +102,13 @@ const GetNews = () => {
       </div>
     );
   }
-  console.log(news);
   return (
     <Fragment>
       <Nav />
 
       {
         news &&
-        <div className="container news">
+        <div className="container news pr-lg-5">
           <div className="row">
             <article className="news-body col-12 col-md-12 col-lg-9 bg-dager">
               <span className="news-posted-date small">{news.category_id} - {formatDate(news.created_at)}</span>
@@ -116,18 +120,19 @@ const GetNews = () => {
                 src={`https://api.tv24africa.com/public/storage/post_image/${news.featured_image}`}
                 alt="news"
                 />
-                </div>
+              </div>
               <div className="text-wrap">{ReactHtmlParser(html, options)}</div>
             </article>
-            <section className="ml-3 ml-md-4 mx-auto ml-lg-0 col-10 col-md-7 col-lg-3 news-reader-list">
+            <section className="d-none d-md-block d-lg-block ml-3 ml-md-4 mx-auto ml-lg-0 col-10 col-md-7 col-lg-3 news-reader-list">
               {readersListNews?.slice(0, 4).map((news) => {
-                const { slug, post_title, id, created_at, post_description} = news;
+                const { slug, post_title, id, created_at, post_description, post_type} = news;
                 return <ReaderList 
                 key={id} 
                 slug={slug} 
                 post_title={post_title}
                 post_description={post_description}
                 created_at={created_at}
+                post_type={post_type}
                 />;
               })}
               <ul className="list-unstyled mb-5">
@@ -137,7 +142,10 @@ const GetNews = () => {
           </div>
           <div className="row free-users-persuader">
             <section className="col-12 col-md-12 col-lg-9">
-              <FreeReaderPersuader />
+              {/* if the user is not logged in, prompt them to login or signup */}
+              {!user && news.post_type === 'free' && (<ContinueReadingWithAuth />)}
+              {/* prompt users without subscription to get 1 */}
+              {news.post_type === 'premium' && !hasSubscription && (<FreeReaderPersuader />)}
               <ShareNews />
               <section className="up-next-container">
                 <article className="previous-article">
@@ -170,7 +178,6 @@ const GetNews = () => {
                           />
                         </div>
                         <p className="news-teaser-heading">{post_title}</p>
-                        {/* <p>Aid agencies are hindering development and undermining efforts to attract investment in...</p> */}
                       </article>
                     )
                   })
@@ -187,13 +194,14 @@ const GetNews = () => {
             </section>
             <section className="ml-3 ml-md-4 mx-auto ml-lg-0 col-10 co-md-3 col-lg-3 news-reader-list">
             {readersListNews?.slice(4, 8).map((news) => {
-              const { slug, post_title, id, created_at, post_description} = news;
+              const { slug, post_title, id, created_at, post_description, post_type} = news;
                 return <ReaderList 
                 key={id} 
                 slug={slug} 
                 post_title={post_title}
                 post_description={post_description}
                 created_at={created_at}
+                post_type={post_type}
                 />;
               })}
               <ul className="list-unstyled mb-5">

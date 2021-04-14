@@ -52,13 +52,14 @@ class PoliticsAndGovernance extends Component {
               <div>
                 {feeds && feeds.length &&
                   feeds.slice(0, 4).map((news) => {
-                    const { slug, post_title, id, created_at, post_description} = news;
+                    const { slug, post_title, id, created_at, post_description, post_type} = news;
                     return <ReaderList 
                             key={id} 
                             slug={slug} 
                             post_title={post_title}
                             post_description={post_description}
                             created_at={created_at}
+                            post_type={post_type}
                           />;
                   })}
               </div>

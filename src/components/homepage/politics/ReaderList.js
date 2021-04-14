@@ -6,7 +6,7 @@ import './readerlist.css'
 import { formatDate } from "../../../_helper/dateFormatter";
 import { HtmlParseOptions } from "../../../_helper/parseNewsHtml";
 
-const ReaderList = ({ slug, post_title, post_description, created_at}) => {
+const ReaderList = ({ slug, post_title, post_description, created_at, post_type}) => {
   const getAllParagraphs = post_description.split("</p>")
   const firstParagraph = getAllParagraphs[0];
   let html;
@@ -16,7 +16,8 @@ const ReaderList = ({ slug, post_title, post_description, created_at}) => {
   return (
     <article className="ews_articlen must-read">
       <section className="post-info d-flex justify-content-between">
-        <button className="must-read-type small">Premium</button>
+        {post_type && (<button className="must-read-type small">Premium</button>)}
+        {/* <button className="must-read-type small">Premium</button> */}
         <span className="must-read-date small">{formatDate(created_at)}</span>
       </section>
       <section className="must-read-text">

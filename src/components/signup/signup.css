@@ -26,6 +26,7 @@ line-height: 22px;
 .signup-form input{
     width: 455px;
     height: 47px;
+    text-align: left !important;
     /* border: 1px solid #000000; */
     /* border: 1px solid #979797 !important; */
     outline: none;
@@ -56,13 +57,13 @@ line-height: 22px;
     color: #000!important;
     text-align: left;
 }
-.showPassword {
+.signup-form .showPassword {
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
     position: relative;
     left: 360px;
-    bottom: 35px
+    bottom: 35px !important;
 }
 .showPassword:hover {
     cursor: pointer;
@@ -185,6 +186,9 @@ line-height: 22px;
         width: 100%;
     }
 
+    .form-check{
+        margin: 20px 0px !important;
+    }
 }
 
 

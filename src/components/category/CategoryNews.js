@@ -64,13 +64,7 @@ const CategoryNews = () => {
     return () => (sub = null);
     // eslint-disable-next-line
   }, [category]);
-
-  useEffect(() => { // if there is no news for the selected category, set all news
-    if(newsCateg?.length < 1){
-      setNewsCateg(news)
-    }
-  }, [news])
-
+  
   if (error) {
     // return <Link to="/error404" />;
     return history.pushState('/error404')
@@ -79,6 +73,7 @@ const CategoryNews = () => {
   if (loading || news.length < 1) {
     return <Loader />;
   }
+
   return (
     <Fragment>
       {/* <TopNav /> */}
@@ -95,7 +90,7 @@ const CategoryNews = () => {
           <section className="discover">
             <div className="left-pane">
               {newsCateg && newsCateg.length > 0 &&
-                news.slice(0, numberOfCategCard).map((aNews) => {
+                newsCateg.slice(0, numberOfCategCard).map((aNews) => {
                   const {
                     post_title,
                     featured_image,
@@ -103,6 +98,7 @@ const CategoryNews = () => {
                     post_type,
                     slug,
                     category_id,
+                    post_description,
                   } = aNews;
                   return (
                     <CategoryCard
@@ -112,12 +108,13 @@ const CategoryNews = () => {
                       slug={slug}
                       category_id={category_id}
                       post_type={post_type}
+                      post_description={post_description}
                       className="card-unit"
                       />
                   );
                 })}
                 {
-                  newsCateg?.length > 1 || numberOfCategCard?.length !== numberOfCategCard && (
+                  (newsCateg?.length > numberOfCategCard)  && (
                     <button 
                       className="premium-tag load-more-btn ml-3 ml-md-3 ml-lg-3 mb-5 mb-md-5 mb-lg-0"
                       onClick={()=>setNumberOfCategCard(numberOfCategCard+3)}>Load More...</button>

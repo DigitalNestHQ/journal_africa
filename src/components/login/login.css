@@ -4,7 +4,6 @@
     background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
     url("../../assets/images/elephant.jpg")center/cover fixed no-repeat;
     height: 100vh;
-    font-family:/* was roboto before*/;
 
 }
 .login-wrap{
@@ -20,8 +19,8 @@
 }
 .form label{
     font-weight: 500;
-font-size: 18px;
-line-height: 22px;
+    font-size: 18px;
+    line-height: 22px;
 }
 .login-form input{
     width: 442px;
@@ -35,7 +34,7 @@ line-height: 22px;
 }
 .login-form input::placeholder{
     font-weight: 200;
-    font-size: 24px;
+    font-size: 14px;
     line-height: 28px;
     color: #000!important;
 }
@@ -43,9 +42,11 @@ line-height: 22px;
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
+    text-transform: capitalize;
     position: relative;
     left: 360px;
-    bottom: 50px
+    bottom: 50px !important;
+    padding: 10px;
 }
 .showPassword:hover {
     cursor: pointer;
@@ -75,7 +76,8 @@ line-height: 22px;
 }
 .login-txt{
     color: #fff;
-    width: 315px;
+    /* width: 315px; */
+    width: 400px;
 }
 .login-txt p {
     font-style: normal;
@@ -163,6 +165,14 @@ line-height: 22px;
     .fpass{
         margin-left: 200px !important;
     }
+
+    .login .page-wrap{
+        height: 80%;
+    }
+
+    .login-wrap{
+        margin-top: 60px;
+    }
 }
 
 @media(max-width: 488px){
@@ -180,6 +190,13 @@ line-height: 22px;
     }
     .fpass{
         margin-left: 9px !important;
+    }
+    .login .page-wrap{
+        height: 95%;
+    }
+
+    .login-wrap{
+        margin-top: 30px;
     }
 }
 

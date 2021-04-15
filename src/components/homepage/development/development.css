@@ -231,7 +231,7 @@ line-height: 16px;
     .development-left-side {
         position: relative;
         top: 20px;
-        right: 8px;
+        right: -7px;
     }
     .side--img{
         height: 126px;
@@ -257,7 +257,7 @@ line-height: 16px;
     .development-left-side {
         position: relative;
         top: 20px;
-        right: 2px;
+        right: -7px;
     }
     
     .side--img{

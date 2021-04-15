@@ -30,43 +30,70 @@ const CommentForm = (props) => {
   if(commentAdded){
     return(
       <>
+      <div className="col-6 p-0">
         <p className="small">
           Comment posted successfully
         </p>
-          <Link to="/" className="btn btn-sm  btn-danger text-white small">Explore more news</Link>
+        <Link to="/" className="btn btn-sm comment-btn-explore text-whte small">Explore more news</Link>
+      </div>
       </>
     )
   }
   return (
-    <form className="comment-form" onSubmit={handleSubmit}>
-      {
-        !isAuthenticated && (
-          <>
-            <label htmlFor="name">Name</label>
-            <input 
-            type="text" 
-            name="name" 
-            placeholder="Enter your name"
-            minLength="2" 
-            onChange={handleChange} 
-            className="form-control" 
-            required
-            />
-          </>
-        )
-      }
-        <label htmlFor="comment">Your Comment</label>
+    <form className="comment-form p-0 col-lg-8" onSubmit={handleSubmit}>
         <textarea
         name="comment"
         id="comment"
         cols="5"
         rows="4"
-        placeholder="Write comment"
+        placeholder="Comment"
         onChange={handleChange}
         required
         className="form-control"
         ></textarea>
-        <input type="submit" value="Add Comment" className="btn-submit" />
+        {// if the current user is not logged in collect that names
+          !isAuthenticated && (
+          <>
+            <input 
+              type="text" 
+              name="name" 
+              placeholder="Name*"
+              minLength="2" 
+              onChange={handleChange} 
+              className="form-control" 
+              required
+            />
+          </>
+          )
+        }
+        <input 
+            type="email" 
+            name="name" 
+            placeholder="Email*"
+            minLength="2" 
+            onChange={handleChange} 
+            className="form-control" 
+            required
+        />
+        <input 
+            type="text" 
+            name="name" 
+            placeholder="Website"
+            minLength="2" 
+            onChange={handleChange} 
+            className="form-control" 
+            required
+        />
+          <div className="checkbox">
+            <label><input type="checkbox" value=""/> Save my name, email, and website in this browser for the next time I comment.</label>
+          </div>
+          <div className="checkbox">
+            <label><input type="checkbox" value=""/> Notify me of follow-up comments by email.</label>
+          </div>
+          <div className="checkbox disabled">
+            <label><input type="checkbox" value=""/> Notify me of new posts by email.</label>
+          </div>
+        <input type="submit" value="Post Comment" className="btn-submit" />
     </form>
   );
 };

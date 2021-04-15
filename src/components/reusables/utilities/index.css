@@ -22,6 +22,9 @@ html, body{
     /* Must read styles */
     --must-read-tag-btn-bg: #787878;
     --nimbus-font: 'Nimbus Sans L Regular';
+
+    /* Readers List */
+    --reader-border-color: #CCCCCC;
     
     /* section background colors  */
     --development-bg-color: #343434;
@@ -101,9 +104,9 @@ html, body{
 
 
 @media (max-width: 930px){
-    div.custom-container{
-        /* padding-right: 25px !important;
-        padding-left: 25px !important; */
+    .custom-container{
+        padding-right: 25px !important;
+        padding-left: 25px !important;
     }
     .custom-categories-heading{
         font-size: 23px !important;

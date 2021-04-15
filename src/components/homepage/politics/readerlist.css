@@ -1,5 +1,6 @@
 .must-read-container{
-    border: 1px solid #ccc;
+    border: 1px solid var(--reader-border-color);
+    
     margin-top: 26px;
     padding: 0px;
     height: 100%;
@@ -19,7 +20,8 @@
 .must-read-type{
     background: var(--must-read-tag-btn-bg);
     color: var(--color-white);
-    padding: 3px 9px;
+    /* padding: 3px 9px; */
+    padding: inherit;
     /* line-height: 1.2; */
 }
 

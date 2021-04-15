@@ -25,16 +25,30 @@
   background-image: url("./herocontact.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom;
+  position: relative;
+  top: 120px;
+  z-index: -100;
+  /* background-position: bottom; */
 }
 
+.hero .africa-auth{
+  padding: 10px 70px 0px 40px !important;
+}
 .hero {
   margin: 0;
   background-color: rgba(255, 0, 0, 0.3);
   color: white;
 }
 
-.hero > h1 {
-  padding: 100px;
+.hero .contact-us-heading{
+  padding: 140px;
+  margin-bottom: 20px;
   text-align: center;
+}
+.hero .contact-us-heading > h1 {
+  position: relative;
+  bottom: 50px;
+  /* padding: 100px; */
+  /* margin-bottom: 20px; */
+  /* text-align: center; */
 }

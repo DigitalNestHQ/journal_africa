@@ -128,7 +128,7 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 412px) {
   .discover_header .category-heading{
     font-size: 20px !important;
     text-align: center;
@@ -140,6 +140,7 @@
     position: relative;
     bottom: 20px;
     margin-left: auto;
+    /* display: none; */
 
   }
 }

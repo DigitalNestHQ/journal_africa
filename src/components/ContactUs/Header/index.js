@@ -7,68 +7,6 @@ import { HandleAuthButton } from "../../reusables/navigation/Nav/HandleAuthButto
 const Header = () => {
   return(
     <header className="contact-header">
-      <nav className="contact-header-nav">
-        <Link to="/">
-          <img src={logo} alt="logo" className="contact-logo logo" />
-        </Link>
-        <ul className="cont_lists">
-          <li className="nav-items">
-            <Link className="nav-links" to="/">
-              HOME
-            </Link>
-          </li>
-          <li className="nav-items">
-            <Link className="nav-links ">
-              VOB
-            </Link>
-          </li>
-          <li className="nav-items">
-            <Link className="nav-links ">
-              DISCOVER AFRICA
-            </Link>
-          </li>
-          <li className="nav-items">
-            <Link className="nav-links "
-              to={{
-                pathname: "/news/categories",
-                search: `?category=Politics`,
-              }}
-            >
-              POLITICS & GOVERNANCE
-            </Link>
-          </li>
-          <li className="nav-items">
-            <Link className="nav-links "
-              to={{
-              pathname: "/news/categories",
-              search: `?category=Business News`,
-            }}
-            >
-              BUSINESS
-            </Link>
-          </li>
-          <li className="nav-items">
-            <Link className="nav-links "
-              to={{
-              pathname: "/news/categories",
-              search: `?category=Entertainment`,
-            }}
-            >
-              ENTERTAINMENT
-            </Link>
-          </li>
-          <li className="nav-items" id="last">
-            <Link className="nav-links " id="last"
-              to={{
-              pathname: "/news/categories",
-              search: `?category=Lifestyle`,
-            }}
-            >
-              LIFESTYLE
-            </Link>
-          </li>
-        </ul>
-      </nav>
       <div className="hero">
         <div className="africa-auth">
           {
@@ -86,7 +24,9 @@ const Header = () => {
             SUBSCRIBE
           </Link>
         </div>
-        <h1>CONTACT US</h1>
+        <div className="contact-us-heading">
+          <h1>CONTACT US</h1>
+        </div>
       </div>
     </header>
   )

@@ -10,13 +10,13 @@ const MainSection = () => (
         <input
           className="contact-input"
           type="text"
-          placeholder="Subject of Your Mail"
+          placeholder="Subject of Your Mail *"
         />
-        <input className="contact-input" type="text" placeholder="Your Name" />
+        <input className="contact-input" type="text" placeholder="Your Name  *" />
         <input
           className="contact-input"
           type="email"
-          placeholder="Your Email"
+          placeholder="Your Email *"
         />
         <input
           className="contact-input"
@@ -26,11 +26,11 @@ const MainSection = () => (
         <textarea
           className="contact-input"
           name="message"
-          placeholder="Your Message"
+          placeholder="Your Message *"
         ></textarea>
         <button type="submit">Send Message</button>
       </form>
-      <div className="contact-ads">
+      <div className="contact-ads d-none d-md-block d-lg-block">
         <ContactAds />
       </div>
     </section>

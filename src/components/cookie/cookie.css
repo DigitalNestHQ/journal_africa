@@ -1,17 +1,18 @@
 .cookie-container{
     max-width: 1440px;
     margin: 0 auto;
-    font-family:/* was roboto before*/;
     padding-top: 150px;
     padding-bottom: 30px;
+    text-align: center;
 }
-.cookie-txt, h3{
+.cookie-txt{
     max-width: 92%;
-    margin: 0 auto;
+    margin: 50px 20px 100px 20px;
     padding-bottom: 10px;
 
 }
 .cookie-container h3{
+    margin-top: 50px;
     text-align: center;
     text-decoration: underline;
     text-decoration-color: #FF0000;
@@ -19,7 +20,7 @@
     font-weight: bold;
     line-height: 28px;
     /* transform: matrix(1, 0, 0, -1, 0, 0); */
-    color: #000
+    color: #000;
 }
 .cookie-container p{
     font-style: normal;
@@ -27,4 +28,10 @@
     font-size: 30px;
     line-height: 35px;
     color: #000
+}
+
+@media(max-width:500px){
+    .cookie-container p{
+        text-align: left;
+    }
 }

@@ -60,27 +60,39 @@ const GetNews = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const { slug } = useParams();
+  const [previousPost, setPreviousPost] = useState(null)
+  const [nextPost, setNextPost] = useState(null)
+  console.log(nextPost);
 // console.log(hasSubscription? "true" : "false");
+  useEffect(() => {
+    if(news){
+        // not dynamic
+        setNextPost(readersListNews?.filter((sameCateNews)=>sameCateNews.category_id === news?.category_id)[1])
+        setPreviousPost(readersListNews?.filter((sameCateNews)=>sameCateNews.category_id === news?.category_id)[0])
+    }
+  },[news])
+
   useEffect(() => {
     // let subscribe = true;
     // if (subscribe) {
     // return () => (subscribe = null);
-
-      getNewsFeed().then((data) => {
-        setReadersListNews(data.filter((allNews)=>allNews.post_type === 'premium'));
-        // console.log(news)
-      });
-      const getThisNews = () => {
-        try {
-          getSingleNews(slug).then((res) => {
-            // only set news when there is a response, using if keeps infinite loader
-            res && setNews(res[0]);
-            setLoading(false);
-
-          })
-          getNewsComments(slug).then((res) => {
-            res && setComments(res.data)
-          })
+    const getThisNews = () => {
+      try {
+        // fetch the news from the cms
+        getSingleNews(slug).then((res) => {
+          // only set news when there is a response, using if keeps infinite loader
+          res && setNews(res[0]);
+          
+        })
+        // get the current news comments
+        getNewsComments(slug).then((res) => {
+          res && setComments(res.data)
+        })
+        // get the readers list news
+        getNewsFeed().then((data) => {
+          setReadersListNews(data?.filter((allNews)=>allNews.post_type === 'premium'));
+          setLoading(false);
+        });
         } catch (error) {
           if (error) {
             setError(error.message);
@@ -88,8 +100,10 @@ const GetNews = () => {
           }
         }
       };
-      getThisNews();
+      getThisNews(); 
+
   }, [slug]);
+  console.log(readersListNews?.filter((sameCateNews)=>sameCateNews.category_id === news?.category_id));
   let html;
   if (news) {
     // when the news is premium and the user has a subscription let them reall all, else let them read 2 paragraphs             if the user user is logged in let them read the free news but if not logged in, let them read 2 paragraphs
@@ -98,10 +112,11 @@ const GetNews = () => {
   if (loading) {
     return (
       <div>
-        <Loader />;
+        <Loader />
       </div>
     );
   }
+  // console.log(readersListNews.map((e, index)=>console.log(e.id, index)));
   return (
     <Fragment>
       <Nav />
@@ -149,19 +164,15 @@ const GetNews = () => {
               <ShareNews />
               <section className="up-next-container">
                 <article className="previous-article">
-                  <Link to="">
+                  <Link to={`/post/${previousPost?.slug}`}>
                     <p className="previous-article-heading">Previous Article</p>
-                    <span className="previous-article-content">
-                      Aid agencies are hindering development and undermining efforts to attract investment in...
-                    </span>
+                    <span className="previous-article-content">{previousPost?.post_title}</span>
                   </Link>
                 </article>
                 <article className="next-article">
-                  <Link to="">
+                  <Link to={`/post/${nextPost?.slug}`}>
                     <p className="next-article-heading">Next Article</p>
-                    <span className="next-article-content">
-                      Aid agencies are hindering development and undermining efforts to attract investment in...
-                    </span>
+                    <span className="next-article-content">{nextPost?.post_title}</span>
                   </Link>
                 </article>
               </section>
@@ -177,22 +188,21 @@ const GetNews = () => {
                             src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
                           />
                         </div>
-                        <p className="news-teaser-heading">{post_title}</p>
+                        <p><Link to={`/post/${slug}`} className="news-teaser-heading">{post_title}</Link></p>
                       </article>
                     )
                   })
                 }
               </section>
 
-
-
-
+                {/* news comments */}
               <NewsComments comments={comments}/>
+              {/* comment form */}
               <CommentForm post_title={news.post_title} post_id={news.id}/>
 
               
             </section>
-            <section className="ml-3 ml-md-4 mx-auto ml-lg-0 col-10 co-md-3 col-lg-3 news-reader-list">
+            <section className="ml-3 ml-md-4 mx-md-auto mx-lg-auto ml-lg-0 col-10 co-md-3 col-lg-3 news-reader-list">
             {readersListNews?.slice(4, 8).map((news) => {
               const { slug, post_title, id, created_at, post_description, post_type} = news;
                 return <ReaderList 

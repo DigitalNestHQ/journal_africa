@@ -117,3 +117,14 @@
   }
   
 }
+
+@media(max-width: 411px) {
+  .main-section-card > div{
+    width: 330px;
+  }
+  .card-caption-content span{
+    position: relative;
+    bottom: 11px;
+  }
+  
+}

@@ -9,7 +9,7 @@ const Header = ({post_type}) => {
     <header className="discover-container">
       <div className="logo-container">
         <Link to="/" >
-        <img src={logo} alt="logo" className="ml-5" style={{"width": "75px"}}/>
+        <img loading="lazy" src={logo} alt="logo" className="ml-5" style={{"width": "75px"}}/>
         </Link>
       </div>
       <div className="discover_header">

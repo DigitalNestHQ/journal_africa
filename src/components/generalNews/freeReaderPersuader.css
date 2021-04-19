@@ -121,7 +121,7 @@
     opacity: 0.7;
 }
 
-.continue-reading-paywall::before{
+.continue-reading-paywall::befor{
     content: "";
     position: absolute;
     padding: 0;

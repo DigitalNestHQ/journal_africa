@@ -54,7 +54,7 @@ class Banner extends Component {
                     <img
                       className="d-block"
                       src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
-                      alt="First slide"
+                      alt="tv24africanews image"
                       width='100%'
                       height='100%'
                     />

@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <header className="discover-container">
       <div className="logo-container">
-        <img src={logo} alt="logo" />
+        <img loading="lazy" src={logo} alt="logo" />
       </div>
       <div className="discover_header">
         <nav className="discover_nav">

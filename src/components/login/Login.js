@@ -9,6 +9,7 @@ import "./login.css";
 
 const Login = (props) => {
   const [showPassword, setShowPassword] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
   const { setAlert } = alertContext;
@@ -35,9 +36,11 @@ const Login = (props) => {
   const { email, password } = user;
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
   const onSubmit = (e) => {
+    setIsLoading(true)
     e.preventDefault();
     if (email === "" || password === "") {
       setAlert("email or password not correct", "danger");
+      setIsLoading(false)
     }
     if(!error) {
       login({
@@ -45,14 +48,17 @@ const Login = (props) => {
         password,
       })
       .then((res)=>{
-        setAlert("login successful", "success");
-        setTimeout(() => {
+        console.log(res.status === 200);
+        if(res.status === 200){
+          setAlert("login successful", "success");
+          setTimeout(() => {
               props.history.push("/");
-            }, 4000)
+          }, 1000)
+        }
       })
       .catch((err)=>{
-        console.log(err)
-        setAlert("Login Failed", "danger");
+        setIsLoading(false)
+        // setAlert("Login Failed", "danger");
 
       })
 
@@ -108,8 +114,9 @@ const Login = (props) => {
                   Forgot your password?
                 </Link>
               </div>
-              <button className="my-2" type="submit">
-                Sign In
+              <button className="my-2" type="submit" disabled={isLoading}>
+                {isLoading ? "Loading..." : "Sign In"}{" "}
+
               </button>
             </form>
             <div className="gosignup">
@@ -118,6 +125,7 @@ const Login = (props) => {
                 <Link className="gsignup" to="/signup">
                   {" "}
                   SIGN UP{" "}
+                  
                 </Link>
               </h5>
             </div>

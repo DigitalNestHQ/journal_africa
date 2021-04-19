@@ -63,7 +63,7 @@ export const Weather = () => {
   return (
     <>
       <span className="weather-text"> <span className="d-none d-md-inline d-lg-inline weather-text">weather:</span> {name} : {main.temp}° <sup>
-        <img 
+        <img loading="lazy" 
             src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`} alt='weather icon'
             className='weather-icon d- d-lg-inline'
             style={{

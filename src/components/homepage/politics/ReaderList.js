@@ -11,7 +11,7 @@ const ReaderList = ({ slug, post_title, post_description, created_at, post_type}
   const firstParagraph = getAllParagraphs[0];
   let html;
   if(post_description){
-    html = `${firstParagraph.slice(0,90)}...`
+    html = `${post_description.slice(0, 707 )}...`
   }
   return (
     <article className="ews_articlen must-read">

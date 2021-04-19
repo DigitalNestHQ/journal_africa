@@ -94,10 +94,10 @@ const Footer = () => {
             <h3 className="ps_p">DOWNLOAD APP</h3>
             <div className="app-store">
               <a href="/playStore">
-                <img src={GooglePlayImg} alt="google play" />{" "}
+                <img loading="lazy" src={GooglePlayImg} alt="google play" />{" "}
               </a>
               <a href="/applestore">
-                <img src={ApplePlayImg} alt="google play" />{" "}
+                <img loading="lazy" src={ApplePlayImg} alt="google play" />{" "}
               </a>
             </div>
             <small className="copyRight_text">&copy;2021 TV24 Media Network</small>

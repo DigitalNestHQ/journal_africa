@@ -9,19 +9,19 @@ export const SignupTeaser = () => {
                 <div className="img">
                     <figure>
 
-                    <img src={dx}></img>
+                    <img loading="lazy" src={dx}></img>
                     </figure>
                 </div>
                 <div className="img">
                     <figure>
 
-                    <img src={dx}></img>
+                    <img loading="lazy" src={dx}></img>
                     </figure>
                 </div>
                 <div className="img">
                     <figure>
 
-                    <img src={dx}></img>
+                    <img loading="lazy" src={dx}></img>
                     </figure>
                 </div>
             </div> */}

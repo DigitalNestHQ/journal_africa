@@ -60,8 +60,6 @@ const AuthState = props => {
                 type: LOGIN_SUCCESS,
                 payload: res.data
             })
-            // console.log(res.data);
-            // console.log(state)
             return res
          } catch (error) {
             dispatch({

@@ -30,7 +30,7 @@ export const Development = (props) =>{
           //   url(https://api.tv24africa.com/public/storage/post_image/${bigFrameNews && bigFrameNews.featured_image})center/cover fixed no-repeat`
           // }}
         >
-          <img className="bigframe--image" src={`https://api.tv24africa.com/public/storage/post_image/${bigFrameNews && bigFrameNews.featured_image}`}></img>
+          <img loading="lazy" className="bigframe--image" src={`https://api.tv24africa.com/public/storage/post_image/${bigFrameNews && bigFrameNews.featured_image}`}></img>
             {/* <p>{bigFrameNews?.post_title}</p> */}
         </div>
         <div className="col-sm-6 development-col-bt">

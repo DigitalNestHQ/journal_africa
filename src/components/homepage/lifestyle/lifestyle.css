@@ -134,6 +134,8 @@
 
 .lifestyle-text .lifestyle-description p{
     margin-top: 10px;
+    height: 100px;
+    overflow: hidden;
 }
 /* reset em */
 .lifestyle-text .lifestyle-description p em{

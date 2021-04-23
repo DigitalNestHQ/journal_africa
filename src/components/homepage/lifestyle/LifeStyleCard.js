@@ -15,8 +15,9 @@ export const LifeStyleCard = ({
     const firstParagraph = getAllParagraphs[0];
     let html;
     if(post_description){
-      html = `${firstParagraph.slice(0, 100)}...`
+      html = `${firstParagraph}...`
     }
+
     return (
         <>
             <div className="col-12 col-md-3 col-lg-3 lifestyle-sq lifestyle-sq-1">

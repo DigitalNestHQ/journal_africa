@@ -115,7 +115,8 @@ a {
     font-size: 19px;
     font-weight: 900;
     margin-bottom: 0;
-    width: 100%
+    width: 100%;
+    cursor: pointer;
 }
 .hd-img-wrap{
     padding: 0px;

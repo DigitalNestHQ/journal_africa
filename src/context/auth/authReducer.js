@@ -20,7 +20,7 @@ export default (state, action) => {
         loading: false
       }
     case REGISTER_SUCCESS:
-      localStorage.setItem("token", null);
+      // localStorage.setItem("token", null);
       return {
         ...state,
         ...action.payload,

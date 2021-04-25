@@ -79,9 +79,7 @@ const CommentForm = (props) => {
   const handleNewLetterCheckBox = () =>{
     return setSubscribeToNewsLetter(!subscribeToNewsLetter)
   }
-  const handlesss = (e)=>{
-    // e.preventDefault()
-  }
+
   return (
     <form className="comment-form p-0 col-lg-8" onSubmit={handleSubmit}>
         <textarea
@@ -118,9 +116,9 @@ const CommentForm = (props) => {
           </>
           )
         }
-          <div className="checkbox disabled">
+          {/* <div className="checkbox disabled">
             <label><input type="checkbox" value="" onChange={()=>handleNewLetterCheckBox()}/> Notify me of new posts by email.</label>
-          </div>
+          </div> */}
         <input type="submit" value="Post Comment" className="btn-submit" />
     </form>
   );

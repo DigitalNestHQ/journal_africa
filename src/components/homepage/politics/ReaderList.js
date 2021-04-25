@@ -37,4 +37,28 @@ const ReaderList = ({ slug, post_title, post_description, created_at, post_type}
     </article>
   );
 };
+
+
+export const PopulateReadersList = ({news, start, end}) => {
+  const premiumNews = news?.filter((singleNews)=>singleNews.post_type === 'premium')
+  return (
+    <div>
+       {
+        premiumNews?.slice(start, end).map((news) => {
+          const { slug, post_title, id, created_at, post_description, post_type} = news;
+          return <ReaderList 
+          key={id} 
+          slug={slug} 
+          post_title={post_title}
+          post_description={post_description}
+          created_at={created_at}
+          post_type={post_type}
+          />;
+        })
+      }
+      
+    </div>
+  )
+}
+
 export default ReaderList;

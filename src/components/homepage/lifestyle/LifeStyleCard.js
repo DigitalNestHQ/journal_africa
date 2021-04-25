@@ -21,7 +21,7 @@ export const LifeStyleCard = ({
     return (
         <>
             <div className="col-12 col-md-3 col-lg-3 lifestyle-sq lifestyle-sq-1">
-              <a href="/" className="tch-anchor">
+              <Link to={`/post/${slug}`} className="tch-anchor">
                  <Card className="lifestyle-crd px-3 px-lg-0">
                   <Card.Img
                     variant="top"
@@ -44,7 +44,7 @@ export const LifeStyleCard = ({
                     </Card.Text>
                   </Card.Body>
                 </Card>
-              </a>
+              </Link>
             </div>
         </>
     )

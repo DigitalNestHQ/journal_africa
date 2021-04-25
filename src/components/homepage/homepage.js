@@ -49,7 +49,6 @@ function Homepage() {
     return (
     <Fragment>
       <Nav />
-        {/* <LargeSizeAds /> */}
         <Banner data={news} />
         <LatestNews data={news} />
         <TeaserSection data={news} />

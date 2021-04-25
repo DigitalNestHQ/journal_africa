@@ -17,10 +17,7 @@ const PoliticsAndGovernanceCard = ({ post_title, slug, featured_image, category_
       <div className=" row mb-3 bt-red">
         <div className="col-12 col-md-6 col-lg-5 hd-img-wrap">
           <Link
-            to={{
-              pathname: "/news/categories",
-              search: `?category=${category_id}`,
-            }}
+            to={`/post/${slug}`}
           >
             <Image
               src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}

@@ -12,6 +12,11 @@
     
 }
 
+
+.read-news-banner{
+    padding-left: 28px;
+}
+
 .news .news-body{
     padding-left: 28px;
 }
@@ -55,14 +60,14 @@
 }
 .text-wrap{
     font-size: 1.1rem;
-    padding-right: 5px;
+    padding-right: 33px;
     line-height: 1.5;
     letter-spacing: -0.3;
     font-weight: 400;
     text-rendering: optimizeLegibility;
     font-family: initial;
     /* background-color: red; */
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
     /* width: min-content; */
 }
 
@@ -120,7 +125,7 @@
 .comment-form{
 }
 .comment--feed{
-    margin-top: 20px;
+    margin-top: 100px;
 }
 .comment--feed .card{
     margin: 25px 0px;
@@ -249,7 +254,7 @@
 
 .share-icons-container span{
     font-weight: 800;
-    font-size: 13px;
+    font-size: 18px;
 }
 .share-news{
     margin-left: 10px;
@@ -291,17 +296,20 @@
     margin-top: 50px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding-right: 10px;
 }
 
 
 .up-next-container .previous-article{
     text-align: left;
+    padding-right: 40px;
 }
 
 .up-next-container .next-article{
     text-align: right;
+    padding-left: 30px;
 }
 
 .next-article-heading,
@@ -336,8 +344,13 @@
 
 
 /* the four teaser news */
+.news-teaser-article-heading{
+    background: var(--color-red-2);
+    color: var(--color-white);
+    padding: 0px 5px;
+}
 .news-teaser-article{
-    margin-top: 30px;
+    margin-top: -40px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -354,12 +367,17 @@
     padding: 8px 12px 8px 0px   ;
     /* padding: 8px 12px; */
     width: 100%;
-    height: 140px;
+    height: 140px !important;
     object-fit: cover;
+}
+
+.news-teaser-article article p{
+    padding-right: 15px;
 }
 
 .news-teaser-heading{
     /* padding-left: 8px; */
-    padding-right: 18px;
+    padding-right: 40px;
     font-size: var(--news-description-size);
+    color: var(--news-description-color);
 }

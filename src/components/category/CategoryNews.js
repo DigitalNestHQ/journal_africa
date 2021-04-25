@@ -16,7 +16,7 @@ import UnableToFetchNews from "../reusables/errorMessages/UnableToFetchNews";
 import {ContactsAds1} from "../ContactUs/mainSection/ContactsAds";
 import Navbar from "../reusables/navigation/Nav/Nav";
 import CategoryNavbar from "./Header/CategoryNavbar";
-import ReaderList from "../homepage/politics/ReaderList";
+import ReaderList, { PopulateReadersList } from "../homepage/politics/ReaderList";
 
 const CategoryNews = () => {
   const [loading, setLoading] = useState(true);
@@ -122,7 +122,7 @@ const CategoryNews = () => {
                 }
             </div>
             <div className="right-pane">
-              {/* <ReaderList data={news}/> */}
+              {/* <ReaderList data={news}/>
               {news && news.length &&
                   news.slice(0, 4).map(({ slug, post_title, id, created_at, post_description}) => {
                     return <ReaderList 
@@ -132,7 +132,8 @@ const CategoryNews = () => {
                             post_description={post_description}
                             created_at={created_at}
                           />;
-                  })}
+                  })} */}
+                  <PopulateReadersList news={news} start={0} end={2}/>
               {/* <h4 className="trend">TRENDS</h4> */}
               <ul>
                 {/* {news && news.length > 0 && news.slice(0, 5).map((news, index) => (
@@ -142,7 +143,7 @@ const CategoryNews = () => {
                 ))} */}
                 <li><ContactsAds1 /></li>
                 <li><ContactsAds1 /></li>
-                <li><ContactsAds1 /></li>
+                {/* <li><ContactsAds1 /></li> */}
               </ul>
             </div>
           </section>

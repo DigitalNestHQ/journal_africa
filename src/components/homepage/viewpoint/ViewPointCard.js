@@ -21,10 +21,7 @@ const ViewPointCard = ({ post_title, featured_image, slug, category_id, post_typ
     }}>
       <Card className="viewpoint-crd">
         <Link
-          to={{
-            pathname: "/news/categories",
-            search: `?category=${category_id}`,
-          }}
+          to={`/post/${slug}`}
         >
           <Card.Img
             variant="top"

@@ -5,10 +5,10 @@ export const ExploreMore = (props) => {
     return (
         <React.Fragment>
             <Link className="explore-tag"
-            style={{whiteSpace: 'nowrap'}}
-                    to={{
-                    pathname: "/news/categories",
-                    search: `?category=${props.category_id}`,
+                style={{whiteSpace: 'nowrap'}}
+                to={{
+                pathname: "/news/categories",
+                search: `?category=${props.category_id}`,
             }}>Explore more...</Link>
         </React.Fragment>
     )

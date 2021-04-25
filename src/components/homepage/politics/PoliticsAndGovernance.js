@@ -22,7 +22,12 @@ class PoliticsAndGovernance extends Component {
         <div className="custom-container container-fluid hl-tp-cont mx-auto">
           <div className="row container-fluid mx-auto">
             <div className="col-12 col-md-12 col-lg-8 ns-txt-wrap">
-            <Link to="/">
+            <Link
+              to={{
+                pathname: "/news/categories",
+                search: `?category=Politics and Governance`
+              }}
+            >
               <label className="politics-category-heading">Politics and Governance</label>
             </Link>
               { getPremiumNews && getPremiumNews.length &&
@@ -70,7 +75,7 @@ class PoliticsAndGovernance extends Component {
               </div>
             </div>
             <div className="explore-more-politics">
-              <ExploreMore />
+              <ExploreMore category_id="Politics and Governance"/>
             </div>
           </div>
         </div>

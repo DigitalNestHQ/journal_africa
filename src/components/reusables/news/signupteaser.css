@@ -49,6 +49,23 @@ img{
     border-radius: 10px;
 }
 
+.signup-teaser input{
+    outline: none;
+    border: 1px solid #595959;
+    padding: 10px 20px;
+    font-size: 17px;
+    width: 400px;
+    text-align: center;
+}
+
+.signup-teaser .sub--btn{
+    background-color: var(--color-red-2);
+    color: var(--color-white);
+    outline: none;
+}
+.signup-teaser .sub--btn:hover{
+    opacity: 0.7;
+}
 
 /* // Large devices (desktops, less than 1200px) */
 @media (max-width: 1199.98px) {

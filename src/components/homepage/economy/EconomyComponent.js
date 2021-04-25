@@ -15,7 +15,7 @@ class EconomyComponent extends Component {
         <Link
           to={{
             pathname: "/news/categories",
-            search: `?category=Lifestyle`,
+            search: `?category=Economy`,
           }}
         >
           <h3 className="economy-category-heading">

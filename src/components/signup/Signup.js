@@ -16,11 +16,9 @@ const Signup = (props) => {
   const { register, error, clearErrors, isAuthenticated } = authContext;
 
   useEffect(() => {
-    // if(isAuthenticated){
-    //   setTimeout(() => {
-    //   props.history.push('/category');
-    //   }, 5000);
-    // }
+    if(localStorage.token){// redirect user back to the home page if logged in
+      props.history.push('/');
+    }
     if (error === "User already exists..") {
       setAlert(error, "danger");
       clearErrors();
@@ -57,12 +55,26 @@ const Signup = (props) => {
         phone,
         email,
         password,
-      });
-      console.log("success");
-      setAlert(
-        "Registration successful, Please enter the token sent to your email",
-        "success"
-      );
+      })
+      .then((response)=>{
+        if(response.data.status === "success"){// only show success alert only if the status is from the backend
+          setAlert(
+            "Registration successful, a link has been sent to your email",
+            "success"
+          );
+          // clear the field
+          setUser({
+            firstname: "",
+            lastname: "",
+            email: "",
+            phone: "",
+            password: ""
+          })
+        }
+      })
+      .catch((error)=>{
+        console.log(error)
+      })
     }
   };
   return (
@@ -78,7 +90,7 @@ const Signup = (props) => {
           </div>
           <div className="form-wrap">
             <h2>Create an account</h2>
-            <Alerts />
+            {/* <Alerts /> */}
             <form className="form signup-form" onSubmit={onSubmit}>
               <div className="row mb-3">
                 <div className="col-sm-6 inp-half">
@@ -132,9 +144,10 @@ const Signup = (props) => {
                   Phone
                 </label>
                 <input
-                  type="text"
+                  type="tel"
                   className="form-control"
                   placeholder="Enter your phone number (e.g +2347030403416)"
+                  pattern="[0-9]{3}[0-9]{8}"
                   name="phone"
                   value={phone}
                   onChange={onChange}
@@ -183,8 +196,9 @@ const Signup = (props) => {
                   </label>
                 </div>
               </div>
+              <Alerts />
               <button className="my-2" type="submit">
-                Continue
+                Sign Up
               </button>
             </form>
             <div className="gosignup">

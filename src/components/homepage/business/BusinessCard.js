@@ -22,6 +22,7 @@ const BusinessCard = ({
   return (
     <div className="col-6 col-md-3 col-lg-3 my-2 mg-sm-scr">
       <Card className="text-white mt-wrap ent-card">
+      <Link to={`/post/${slug}`}>
         <Card.Img
           src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
           alt="Card image"
@@ -35,6 +36,7 @@ const BusinessCard = ({
             </Link>
           </Card.Text>
         </Card.Body>
+        </Link>
       </Card>
     </div>
   );

@@ -16,11 +16,9 @@ const Login = (props) => {
   const { login, error, clearErrors, isAuthenticated } = authContext;
 
   useEffect(() => {
-    // if (isAuthenticated) {
-    //   setTimeout(() => {
-    //     props.history.push("/");
-    //   }, 5000);
-    // }
+    if(localStorage.token){// redirect user back to the home page if logged in
+      props.history.push('/');
+    }
     if (error) {
       setAlert(error, "danger");
       clearErrors();

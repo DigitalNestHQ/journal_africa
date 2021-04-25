@@ -15,6 +15,7 @@ const Subscribe = () => {
         <div className="sub-banner">
           <p className="text-center">
             You have read the news. <br /> Now, Understand it
+            {/* Let's put you ahead with <br /> the news */}
           </p>
         </div>
         <div className="container pay_plan-wrap">

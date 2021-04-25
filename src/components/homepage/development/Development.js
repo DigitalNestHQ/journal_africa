@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { LargeSizeAds } from "../ads/Ads";
 import { ExploreMore } from "../ExploreMore";
 import "./development.css";
 import { DevelopmentCard } from "./DevelopmentCard";
+import largeAds from './../../../assets/images/largeads.png'
 
 export const Development = (props) =>{
   const feeds = props.data;
@@ -10,7 +12,13 @@ export const Development = (props) =>{
     // shuffle the news randomly for the big frame
     const shuffleDiscoveryAfricaNews = Math.floor(Math.random() * 4);
     const bigFrameNews = discoveryAfricaNews[shuffleDiscoveryAfricaNews];
-  return(<>
+  return(
+  <>
+    <div className="custom-container">
+      <div className="mb-5">
+        <LargeSizeAds img={largeAds}/>
+      </div>
+    </div>
     <div className="custom-container development--container">
       <Link
         to={{
@@ -18,7 +26,7 @@ export const Development = (props) =>{
           search: `?category=Development`,
         }}
         >
-        <h3 className="development-category-heading">
+        <h3 className="development-category-heading mb-3">
           Development
         </h3>
       </Link>
@@ -30,7 +38,7 @@ export const Development = (props) =>{
           //   url(https://api.tv24africa.com/public/storage/post_image/${bigFrameNews && bigFrameNews.featured_image})center/cover fixed no-repeat`
           // }}
         >
-          <img className="bigframe--image" src={`https://api.tv24africa.com/public/storage/post_image/${bigFrameNews && bigFrameNews.featured_image}`}></img>
+          <img loading="lazy" className="bigframe--image" src={`https://api.tv24africa.com/public/storage/post_image/${bigFrameNews && bigFrameNews.featured_image}`}></img>
             {/* <p>{bigFrameNews?.post_title}</p> */}
         </div>
         <div className="col-sm-6 development-col-bt">

@@ -8,7 +8,7 @@ const FormHeader = ({redirectTo, linkLabel}) => {
     // <Router>
       <header className="formHeader container-fluid mb-3">
         <div className="logo">
-          <Link to="/"><img src={logo} alt="app logo" /></Link>
+          <Link to="/"><img loading="lazy" src={logo} alt="app logo" /></Link>
         </div>
         <div className="links">
           <Link className="links-item lnk1" to={`/${redirectTo}`}>{linkLabel}</Link>

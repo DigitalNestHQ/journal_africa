@@ -23,7 +23,7 @@ const CategoryNavbar = () => {
               className="navbar-brand logo"
               style={{ color: "#000" }}
             >
-              <img src={logo} alt="logo"/>
+              <img loading="lazy" src={logo} alt="logo"/>
             </Link> */}
             <button
               className="navbar-toggler d-lg-none"

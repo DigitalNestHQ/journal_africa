@@ -1,43 +1,86 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import authContext from "../../context/auth/authContext";
 import "./allNews.css";
 import { postNewComment } from '../../context/news/NewsApi'
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { ExploreMore } from "../homepage/ExploreMore";
+import axios from "axios";
 
 const CommentForm = (props) => {
   const [commentAdded, setCommentAdded] = useState(false)
   const userContext = useContext(authContext);
   const { isAuthenticated, user } = userContext;
+  const [subscribeToNewsLetter, setSubscribeToNewsLetter] = useState(false);
   const history=useHistory()
   const [newComment, setNewComment] = useState({
-    name: isAuthenticated ? `${user.firstname} ${user.lastname}` : " ",
-    comment: '',
+    name: null,
+    comment: null,
+    email: null,
     post_id: props.post_id,
     post_title: props.post_title,
   });
 
+  useEffect(() => {
+    // if there is a logged in user, auto fill their information
+    if(isAuthenticated && user){
+      setNewComment({
+        ...newComment,
+        name: `${user.firstname} ${user.lastname}`,
+        email: user.email
+      })
+    }
+  }, [isAuthenticated, user])
+
   const handleChange = (e) => setNewComment({ ...newComment, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
-    // console.log(newComment)
     e.preventDefault()
     postNewComment(newComment)
-    .then((res)=>setCommentAdded(true))
+    .then((res)=>{
+      if(subscribeToNewsLetter){
+        handleNewLetterSubscription()
+      }
+      setCommentAdded(true)
+    })
     .catch((err)=>alert("err"))
   }
 
+  
   if(commentAdded){
+    setTimeout(() => {
+      setCommentAdded(false)
+    }, 5000);
+
     return(
       <>
-      <div className="col-6 p-0">
-        <p className="small">
-          Comment posted successfully
+      <div className="col-6 p-0 mb-5">
+      {
+        subscribeToNewsLetter ? (
+          <p className="small">
+            You have sucessfully subscribed to our newsletter and your comment has been posted successfully
         </p>
+        ):(
+          <p className="small">
+            Comment posted successfully
+          </p>
+        )
+      }
         <Link to="/" className="btn btn-sm comment-btn-explore text-whte small">Explore more news</Link>
       </div>
       </>
     )
+  }
+  // function that handles news letter subscription
+  const handleNewLetterSubscription = async() =>{
+    const url = "http://api.tv24africa.com/api/v1/newsletter";
+    const response = await axios.post(url, newComment.email)
+  }
+  // function that set the checkbox true or false
+  const handleNewLetterCheckBox = () =>{
+    return setSubscribeToNewsLetter(!subscribeToNewsLetter)
+  }
+  const handlesss = (e)=>{
+    // e.preventDefault()
   }
   return (
     <form className="comment-form p-0 col-lg-8" onSubmit={handleSubmit}>
@@ -63,35 +106,20 @@ const CommentForm = (props) => {
               className="form-control" 
               required
             />
+          <input 
+              type="email" 
+              name="email" 
+              placeholder="Email*"
+              minLength="2" 
+              onChange={handleChange} 
+              className="form-control" 
+              required
+          />
           </>
           )
         }
-        <input 
-            type="email" 
-            name="name" 
-            placeholder="Email*"
-            minLength="2" 
-            onChange={handleChange} 
-            className="form-control" 
-            required
-        />
-        <input 
-            type="text" 
-            name="name" 
-            placeholder="Website"
-            minLength="2" 
-            onChange={handleChange} 
-            className="form-control" 
-            required
-        />
-          <div className="checkbox">
-            <label><input type="checkbox" value=""/> Save my name, email, and website in this browser for the next time I comment.</label>
-          </div>
-          <div className="checkbox">
-            <label><input type="checkbox" value=""/> Notify me of follow-up comments by email.</label>
-          </div>
           <div className="checkbox disabled">
-            <label><input type="checkbox" value=""/> Notify me of new posts by email.</label>
+            <label><input type="checkbox" value="" onChange={()=>handleNewLetterCheckBox()}/> Notify me of new posts by email.</label>
           </div>
         <input type="submit" value="Post Comment" className="btn-submit" />
     </form>

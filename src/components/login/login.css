@@ -70,6 +70,10 @@
     margin: 0 auto;
     border: none;
 }
+
+.login-form button:disabled{
+    opacity: 0.7;
+}
 .form-wrap{
     background-color: #fff;
     padding: 20px;

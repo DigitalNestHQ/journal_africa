@@ -18,6 +18,7 @@ import Business from "./business/Business";
 import { SignupTeaser } from "../reusables/news/SignupTeaser";
 import LatestNews from "./latestnews/LatestNews";
 import Loader from "../loader/Loader";
+import { LargeSizeAds } from "./ads/Ads";
 
 function Homepage() {
   const [news, setNews] = useState(null);
@@ -48,6 +49,7 @@ function Homepage() {
     return (
     <Fragment>
       <Nav />
+        {/* <LargeSizeAds /> */}
         <Banner data={news} />
         <LatestNews data={news} />
         <TeaserSection data={news} />

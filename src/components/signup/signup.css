@@ -3,7 +3,6 @@
     margin: 0 auto;
     background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
     url("../../assets/images/elephant.jpg")center/cover fixed no-repeat;
-    font-family:/* was roboto before*/;
     padding-bottom: 20px;
     mix-blend-mode: multiply;
 }
@@ -146,17 +145,20 @@ line-height: 22px;
 
 .alert{
     color: white; 
-    /* font-size: 12px; */
+    font-size: 14px;
     text-align: center;
+    text-transform: capitalize;
 }
 
 .alert-danger{
-    background-color: red; 
+    /* background-color: red;  */
+    color: red;
 
 }
 
 .alert-success{
-    background-color: green;
+    /* background-color: green; */
+    color: green;
 }
 .danger{
     font-size: 12px;

@@ -13,7 +13,7 @@ const PoliticsAndGovernanceCard = ({ post_title, slug, featured_image, category_
     html = `${firstParagraph.slice(0,90)}...`
   }
   return (
-    <div className="container-fluid news-bg-wrappr politics--cont">
+    <div className="container-fluid news-bg-wrappr politics--cont shadow px-lg-5 pt-lg-3 mb-2">
       <div className=" row mb-3 bt-red">
         <div className="col-12 col-md-6 col-lg-5 hd-img-wrap">
           <Link

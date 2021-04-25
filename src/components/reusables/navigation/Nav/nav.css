@@ -168,6 +168,45 @@
 .hd-bd{
     border-right: none;
 }
+@media(min-width: 950px){
+    .remove--item-3,
+    .remove--item-1{
+        display: none;
+    }
+}
+@media(min-width: 1000px){
+    .remove--item-1{
+        display: block !important;
+    }
+    .remove--item-2{
+        /* display: none; */
+    }
+    .remove--item-3{
+        /* display: none; */
+    }
+}
+@media(min-width: 1190px){
+    .remove--item-1{
+        display: block !important;
+    }
+    .remove--item-2{
+        display: block;
+    }
+    .remove--item-3{
+        display: none;
+    }
+}
+@media(min-width: 1270px){
+    .remove--item-1{
+        display: block !important;
+    }
+    .remove--item-2{
+        display: block;
+    }
+    .remove--item-3{
+        display: block;
+    }
+}
 
 /* logo animation */
 @media (prefers-reduced-motion: no-preference) {

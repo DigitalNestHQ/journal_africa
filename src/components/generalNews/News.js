@@ -62,8 +62,6 @@ const GetNews = () => {
   const { slug } = useParams();
   const [previousPost, setPreviousPost] = useState(null)
   const [nextPost, setNextPost] = useState(null)
-  console.log(nextPost);
-// console.log(hasSubscription? "true" : "false");
   useEffect(() => {
     if(news){
         // not dynamic
@@ -71,11 +69,8 @@ const GetNews = () => {
         setPreviousPost(readersListNews?.filter((sameCateNews)=>sameCateNews.category_id === news?.category_id)[0])
     }
   },[news])
-
+console.log(comments);
   useEffect(() => {
-    // let subscribe = true;
-    // if (subscribe) {
-    // return () => (subscribe = null);
     const getThisNews = () => {
       try {
         // fetch the news from the cms
@@ -107,7 +102,8 @@ const GetNews = () => {
   let html;
   if (news) {
     // when the news is premium and the user has a subscription let them reall all, else let them read 2 paragraphs             if the user user is logged in let them read the free news but if not logged in, let them read 2 paragraphs
-    html = `${news.post_type === 'premium' ? (hasSubscription ? news.post_description : news.post_description.slice(0, 2000)) : (user ? news.post_description : news.post_description.slice(0, 2000))}`;
+    // html = `${news.post_type === 'premium' ? (hasSubscription ? news.post_description : news.post_description.slice(0, 2000)) : (user ? news.post_description : news.post_description.slice(0, 2000))}`;
+    html = `${news.post_type === 'premium' ? (hasSubscription ? news.post_description : news.post_description.slice(0, 2000)) : (news.post_description)}`;
   }
   if (loading) {
     return (
@@ -116,7 +112,6 @@ const GetNews = () => {
       </div>
     );
   }
-  // console.log(readersListNews.map((e, index)=>console.log(e.id, index)));
   return (
     <Fragment>
       <Nav />
@@ -139,7 +134,7 @@ const GetNews = () => {
               <div className="text-wrap">{ReactHtmlParser(html, options)}</div>
             </article>
             <section className="d-none d-md-block d-lg-block ml-3 ml-md-4 mx-auto ml-lg-0 col-10 col-md-7 col-lg-3 news-reader-list">
-              {readersListNews?.slice(0, 4).map((news) => {
+              {readersListNews?.slice(0, 2).map((news) => {
                 const { slug, post_title, id, created_at, post_description, post_type} = news;
                 return <ReaderList 
                 key={id} 
@@ -184,7 +179,7 @@ const GetNews = () => {
                     return(
                       <article>
                         <div className="news-teaser-img-wrap">
-                          <img 
+                          <img loading="lazy" 
                             src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
                           />
                         </div>
@@ -203,7 +198,7 @@ const GetNews = () => {
               
             </section>
             <section className="ml-3 ml-md-4 mx-md-auto mx-lg-auto ml-lg-0 col-10 co-md-3 col-lg-3 news-reader-list">
-            {readersListNews?.slice(4, 8).map((news) => {
+            {readersListNews?.slice(4, 6).map((news) => {
               const { slug, post_title, id, created_at, post_description, post_type} = news;
                 return <ReaderList 
                 key={id} 

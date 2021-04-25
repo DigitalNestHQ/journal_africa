@@ -22,7 +22,7 @@ const LatestNewsCard = ({
             {// only show the post type for premium
         post_type == "premium" && <span className="premium-tag premium_category_indicator--latest-news">{ post_type }</span>
       } 
-      <img className='responsive-img img-fluid' src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}` }></img>
+      <img loading="lazy" className='responsive-img img-fluid' src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}` }></img>
       <Link to={`/post/${slug}`} className="news-link latest-news-title">
           <p className="latest-news-title">{post_title.toLowerCase()}</p>
       </Link>

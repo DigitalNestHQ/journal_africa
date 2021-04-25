@@ -10,7 +10,8 @@ a {
 }
 .hd-img{
     width: 100%;
-    height: 277px;
+    /* height: 277px; */
+    height: 177px;
     display: inline-block;
     margin: auto auto auto 0px;
     border-radius: 20px!important;
@@ -26,6 +27,7 @@ a {
     position: relative;
     left: -2%;
     padding-right: 15px;
+    box-shadow:  1px 1px 1px red;
 }
 .bg-var-blue{
     /* margin-bottom: 10px;
@@ -46,7 +48,8 @@ a {
     font-family: 'Roboto'sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 25px;
+    /* font-size: 25px; */
+    font-size: 22px;
     line-height: 1.4;
     display: flex;
     align-items: flex-end;
@@ -64,7 +67,8 @@ a {
     /* padding-left: 20px; when using slug */
     /* padding-left: auto;  */
     align-items: flex-end;
-    font-size: 18px;
+    /* font-size: 18px; */
+    font-size: 16px;
 }
 
 /* for strong tags */
@@ -156,19 +160,22 @@ a {
 }
 .politics-ads{
     text-align: center;
-    width: 80%;
-    margin: 0 auto;
-    /* height: 230px; */
-    height: 257px;
-    margin-top: 30px;
+    width: 100%;
     font-size: 17px;
     color: red;
-    padding: 100px auto!important;
+    /* margin: 0 auto; */
+    /* height: 230px; */
+    /* margin-top: 30px; */
+    /* padding: 100px auto!important; */
+}
+.politics-ads img{
+    width: 100%;
+    object-fit: cover;
 }
 .politics-ads>span{
     color: red;
     display: inline-block;
-    padding-top: 60px;
+    /* padding-top: 60px; */
     font-size: 50px;
     font-weight: 600;
     font-family: 'Roboto' sans-serif;

@@ -21,7 +21,7 @@ const Navbar = () => {
               className="navbar-brand logo"
               style={{ color: "#fff" }}
             >
-              <img src={logo} alt="logo" />
+              <img loading="lazy" src={logo} alt="logo" />
             </Link>
             <button
               className="navbar-toggler d-lg-none"
@@ -62,7 +62,7 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-1"
+                    className="nav-link ml-lg-1 remove--item-3"
                     activeclassname="activeLink"
                      to={{
                        pathname: "/news/categories",
@@ -98,7 +98,7 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-1"
+                    className="nav-link ml-lg-1 remove--item-2"
                     activeclassname="activeLink"
                      to={{
                        pathname: "/news/categories",
@@ -110,7 +110,7 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-1"
+                    className="nav-link ml-lg-1 remove--item-3"
                     activeclassname="activeLink"
                     to={{
                       pathname: "/news/categories",
@@ -122,7 +122,7 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-1"
+                    className="nav-link ml-lg-1 remove--item-2"
                     activeclassname="activeLink"
                       to={{
                       pathname: "/news/categories",
@@ -134,7 +134,7 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-1"
+                    className="nav-link ml-lg-1 remove--item-1"
                     activeclassname="activeLink"
                       to={{
                       pathname: "/news/categories",

@@ -93,7 +93,7 @@ const AboutComponent = (props) => {
                 Trump Administration Seeks to Stifle Protests Near White House
                 and on National Mall
               </p>
-              {/* <img src={Trump} alt="Donald"/> */}
+              {/* <img loading="lazy" src={Trump} alt="Donald"/> */}
             </div>
           </div>
           <div className="txt-btm container-fluid">

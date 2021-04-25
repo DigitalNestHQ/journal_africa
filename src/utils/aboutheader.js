@@ -12,7 +12,7 @@
 //     <div className="about container-fluid">
 //       <TopNav className="abt-tp-nav"/>
 //       {/* <div className="logo bg-white">
-//         <img src={logo} alt="app logo" />
+//         <img loading="lazy" src={logo} alt="app logo" />
 //       </div> */}
 //       <header className="about-header">
 //         <div className="container-fluid">
@@ -22,7 +22,7 @@
 //               className="navbar-brand logo"
 //               style={{ color: "#fff" }}
 //             >
-//               <img src={logo} alt="logo" />
+//               <img loading="lazy" src={logo} alt="logo" />
 //             </Link> */}
 //             <button
 //               className="navbar-toggler d-lg-none"

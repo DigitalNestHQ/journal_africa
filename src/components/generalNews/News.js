@@ -149,7 +149,7 @@ const GetNews = () => {
                 {!user && news.post_type === 'free' && (<ContinueReadingWithAuth />)}
                 {/* prompt users without subscription to get 1 */}
                 {news.post_type === 'premium' && !hasSubscription && (<FreeReaderPersuader />)}
-                <ShareNews />
+                <ShareNews post_title={news.post_title} post_description={news.post_description} slug={slug} />
                 <section className="up-next-container">
                   <article className="previous-article">
                     <Link to={`/post/${previousPost?.slug}`}>

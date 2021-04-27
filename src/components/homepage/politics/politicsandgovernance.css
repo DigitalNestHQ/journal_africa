@@ -277,6 +277,17 @@ a {
     .news-hd{
         text-align: center;
     }
+    .news-hd h3{
+        font-size: 23px;
+    }
+
+    .news-hd p{
+        font-size: 17px;
+    }
+
+    .bt-red{
+        padding: .8rem;
+    }
 }
 
 /* // Extra small devices (portrait phones, less than 576px) */

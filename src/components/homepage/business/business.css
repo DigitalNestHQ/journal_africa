@@ -100,7 +100,7 @@
     font-size: var(--news-description-size);
     text-align: left;
     color: var(--news-heading);
-    font-weight: 100;
+    font-weight: var(--news-description-weight);
     color: var(--news-description-color)
 }
 .mt-wrap a:hover{

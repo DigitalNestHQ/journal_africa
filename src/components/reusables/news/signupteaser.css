@@ -114,6 +114,11 @@ img{
         width: 220px;
         border-radius: 10px;
     }
+
+    .signup-teaser input{
+        width: 100%;
+    }
+    
 }
 
 /* // Extra small devices (portrait phones, less than 576px) */

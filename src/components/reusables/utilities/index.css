@@ -101,6 +101,12 @@ html, body{
 }
 
 
+@media (max-width: 992px){
+    .podcast_container .navbar {
+        padding-right: 50px;
+    }
+}
+
 
 
 @media (max-width: 930px){

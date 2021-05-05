@@ -30,8 +30,8 @@ import AlertState from "./context/alert/AlertState";
 // middleware
 import setAuthToken from "./utils/setAuthToken";
 import "./App.css";
-import authContext from "./context/auth/authContext.js";
 import Categories from "./components/newscategory/Categories";
+import { PodcastHome } from "./podcast/home/PodcastHome.js";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -52,6 +52,7 @@ function App() {
             <Route path="/allnews" component={AllNewsFeeds} />
             <Route exact path="/news/categories" component={CategoryNews} />
             <Route exact path="/news/1" component={Categories} />
+            <Route exact path="/podcast" component={PodcastHome} />
             <Route
               exact
               path={pageurl.PRIVACYPOLICY}

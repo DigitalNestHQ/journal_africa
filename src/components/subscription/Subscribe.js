@@ -25,7 +25,7 @@ const Subscribe = () => {
             <span className="sub-curency_usd">USD</span>
           </div>
         <div className="row px-5 text-white mb-5">
-          <div class="col-12">
+          <div className="col-12">
             <ul className="ml-0 ml-md-4 ml-lg-4">
               <li>Read beyond the news</li>
               <li>No commitment, cancel anytime</li>

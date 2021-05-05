@@ -32,7 +32,7 @@ const TeaserCard = ({ featured_image, slug, category_id, post_description }) => 
                       pathname: "/news/categories",
                       search: `?category=${category_id}`,
                     }}
-                    class="more-link btn btn-sm more-btn">More
+                    className="more-link btn btn-sm more-btn">More
                   </Link>
                 </section>
                 <Link to={`/post/${slug}`} className="teaser-heading">

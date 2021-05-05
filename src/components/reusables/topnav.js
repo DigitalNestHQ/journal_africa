@@ -59,7 +59,7 @@ function TopNav(props) {
   };
   return (
     <div className="top-nav">
-      {/* <section class="top-nav-wrap"> */}
+      {/* <section className="top-nav-wrap"> */}
 
       <p className="text-white name-sp" style={{ marginBottom: "0px" }}>
         {" "}

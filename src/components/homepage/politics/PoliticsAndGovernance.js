@@ -56,7 +56,7 @@ class PoliticsAndGovernance extends Component {
               {/* <h2>MUST READ</h2> */}
               <div>
                 {feeds && feeds.length &&
-                  feeds.slice(0, 2).map((news) => {
+                  feeds.slice(0, 4).map((news) => {
                     const { slug, post_title, id, created_at, post_description, post_type} = news;
                     return <ReaderList 
                             key={id} 
@@ -65,6 +65,7 @@ class PoliticsAndGovernance extends Component {
                             post_description={post_description}
                             created_at={created_at}
                             post_type={post_type}
+                            description_slice={220}
                           />;
                   })}
               </div>

@@ -172,6 +172,10 @@ button{
     left: 5%;
 }
 
+.caro-item img{
+    object-fit: cover;
+}
+
 @media screen and (min-width: 560px) {
     .flex-container {
         display: flex;

@@ -2,7 +2,6 @@
     max-width: 1440px;
     margin: 0 auto;
     background-color: #FFFFFF;
-    font-family:/* was roboto before*/;
     padding-right: 0;
     padding-left: 0;
 }
@@ -117,6 +116,7 @@
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
+    padding: 10px;
 }
 
 .sub-amount {

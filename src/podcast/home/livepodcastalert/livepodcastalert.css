@@ -1,0 +1,29 @@
+
+.pod_top_section{
+    padding: 20px 30px 10px 30px;
+}
+
+.ongoing_podcast_signal{
+    margin-bottom: 0;
+}
+
+.ongoing_podcast_caption{
+    padding-left: 12px;
+    margin-bottom: 0px;
+}
+
+.live_dot_signal{
+    color: var(--pod-red-1);
+    background: red;
+    border-radius: 50%;
+}
+
+.pod_top_section .watch_btn{
+    background-color: var(--pod-white-1);
+    padding: 1px 9px;
+    border-radius: 50%;
+    margin: 0px 10px;
+    color: var(--pod-red-1);
+    font-weight: 700;
+}
+

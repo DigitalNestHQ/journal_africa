@@ -62,6 +62,7 @@ const Login = (props) => {
 
     }
   };
+
   return (
     <div className="login">
       <div className="page-wrap">
@@ -75,9 +76,6 @@ const Login = (props) => {
           <div className="form-wrap">
             <h2>Sign In</h2>
             {/* add the alert inside a container to solve the UI dropping down */}
-            <div style={{height: '0.7rem'}}>
-              <Alerts />
-            </div>
             <form className="form login-form" onSubmit={onSubmit}>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
@@ -112,9 +110,11 @@ const Login = (props) => {
                   Forgot your password?
                 </Link>
               </div>
+              {/* <div style={{height: '2.7rem'}}> */}
+                <Alerts />
+              {/* </div> */}
               <button className="my-2" type="submit" disabled={isLoading}>
                 {isLoading ? "Loading..." : "Sign In"}{" "}
-
               </button>
             </form>
             <div className="gosignup">

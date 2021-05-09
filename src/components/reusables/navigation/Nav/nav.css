@@ -6,7 +6,7 @@
     width: 100%;
     z-index: 100;
     white-space: nowrap;
-    font-family:  -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important;
+    font-family: "Poppins";
   }
   .activeLink {
     color: #fff!important;
@@ -28,14 +28,6 @@
     }
 
     
-    .navbar-collapse{
-
-        /* width: 120px;
-        display: none;
-        max-width: 120px; */
-    }
-
-
   @media(max-width: 1000px){
 
       .nav-link{
@@ -125,9 +117,6 @@
 }
 
 @media screen and (min-width: 776px) {
-    .nav-item {
-        /* padding-right: 12px; */
-    }
     .nav-sub-i .nav-item{
         padding-right: 0;
     }
@@ -140,15 +129,8 @@
     display: inline-block;
 }
 
-.nav-sub-i a{
-    font-size: 0.79 rem !important;
-}
-
 .nav-mn li{
-    /* font-weight: lighter !important; */
-    font-size: 12px;
-    /* line-height: 21px; */
-    /* font-family: 'Roboto' sans-serif; */
+    font-size: 11.6px;
 }
 .nav-sub-i li{
     font-style: normal;
@@ -177,12 +159,6 @@
 @media(min-width: 1000px){
     .remove--item-1{
         display: block !important;
-    }
-    .remove--item-2{
-        /* display: none; */
-    }
-    .remove--item-3{
-        /* display: none; */
     }
 }
 @media(min-width: 1190px){
@@ -224,10 +200,6 @@
   }
 }
 @media (max-width: 978px) {
-    /* .container, .container-fluid { */
-      /* padding:0;
-      margin:0; */
-    /* } */
     body {
       padding:0;
     }

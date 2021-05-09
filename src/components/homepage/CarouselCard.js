@@ -6,7 +6,13 @@ import "./homepage.css";
 const CarouselCard = ({ post_title, featured_image, id, post_type, slug }) => {
     return (
         <Carousel.Item className="caro-item">
-            <img loading="lazy" className="d-block w-100" src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`} alt="First slide" />
+            <img 
+              loading="lazy" 
+              className="d-block"
+              src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`} 
+              alt="First slide" 
+
+            />
             <Carousel.Caption className="caro-capxn">
               <Link
                 to={`/post/${slug}`}

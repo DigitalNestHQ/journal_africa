@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { pageurl } from "./utils/constants.js";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./components/homepage/Homepage";
@@ -15,6 +15,8 @@ import ContactUs from "./components/ContactUs/index";
 import NewsFeeds from "./components/generalNews/News";
 import AllNewsFeeds from "./components/homepage/AllNews";
 import CategoryNews from "./components/category/CategoryNews";
+import { PodcastHome } from "./podcast/home/PodcastHome.js";
+import { PodCastsView } from "./podcast/podcastspage/PodCastsView.js";
 
 import Error404 from "./components/error404/Error404";
 
@@ -31,7 +33,7 @@ import AlertState from "./context/alert/AlertState";
 import setAuthToken from "./utils/setAuthToken";
 import "./App.css";
 import Categories from "./components/newscategory/Categories";
-import { PodcastHome } from "./podcast/home/PodcastHome.js";
+import { SinglePodCast } from "./podcast/singlepodcast/SinglePodCast.js";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -53,6 +55,8 @@ function App() {
             <Route exact path="/news/categories" component={CategoryNews} />
             <Route exact path="/news/1" component={Categories} />
             <Route exact path="/podcast" component={PodcastHome} />
+            <Route exact path="/podcast/all" component={PodCastsView} />
+            <Route exact path="/podcast/single" component={SinglePodCast} />
             <Route
               exact
               path={pageurl.PRIVACYPOLICY}

@@ -92,11 +92,11 @@
     text-align: left;
     margin: 10px 0px;
     color: var(--news-heading);
-    font-family: var(--nimbus-font);
+    font-family: var(--general-font);
 }
 
 .mt-wrap .business-description{
-    font-family: var(--nimbus-font);
+    font-family: var(--general-font);
     font-size: var(--news-description-size);
     text-align: left;
     color: var(--news-heading);

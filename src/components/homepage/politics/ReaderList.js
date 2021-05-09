@@ -6,12 +6,12 @@ import './readerlist.css'
 import { formatDate } from "../../../_helper/dateFormatter";
 import { HtmlParseOptions } from "../../../_helper/parseNewsHtml";
 
-const ReaderList = ({ slug, post_title, post_description, created_at, post_type}) => {
+const ReaderList = ({ slug, post_title, post_description, description_slice, created_at, post_type}) => {
   const getAllParagraphs = post_description.split("</p>")
   const firstParagraph = getAllParagraphs[0];
   let html;
   if(post_description){
-    html = `${post_description.slice(0, 707 )}...`
+    html = `${post_description.slice(0, description_slice || 707 )}...`
   }
   return (
     <article className="ews_articlen must-read">

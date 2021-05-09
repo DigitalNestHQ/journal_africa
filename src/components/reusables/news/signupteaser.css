@@ -1,36 +1,15 @@
 
-/* .img-con{
-    margin: 20px 0px 15px;
-    padding: 0px 15px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-img{
-    width: 100%;
-}
-.img-con .img{
-    flex: 0 1 50%;
-    margin: 10px 0px;
-    padding: 0px 5px;
-}
-
-.img-con .img section{
-    width: 100%;
-    margin: 0px;
-} */
-
 .signup-teaser{
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
 }
 .signup-teaser .teaser-message{
     font-size: 36px;
-    max-width: 900px;
+    max-width: 930px;
     line-height: 43.2px;
     color: var(--news-description-color);
     font-weight: 400;
@@ -69,9 +48,6 @@ img{
 
 /* // Large devices (desktops, less than 1200px) */
 @media (max-width: 1199.98px) {
-    .signup-teaser{
-        /* background-color: green; */
-    }
     .signup-teaser .teaser-message{
         font-size: 33px;
     }
@@ -85,9 +61,6 @@ img{
 
 /* // Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
-    .signup-teaser{
-        /* background-color: pink; */
-    }
     .signup-teaser .teaser-message{
         font-size: 30px;
     }
@@ -101,9 +74,6 @@ img{
 
 /* // Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
-    .signup-teaser{
-        /* background-color: blue; */
-    }
     .signup-teaser .teaser-message {
         font-size: 22px;
         line-height: 35px;
@@ -123,9 +93,6 @@ img{
 
 /* // Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-    .signup-teaser{
-        /* background-color: red; */
-    }
     .signup-teaser .teaser-message {
         font-size: 22px;
         line-height: 35px;

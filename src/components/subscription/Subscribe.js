@@ -1,11 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
-import { pageurl } from "../../utils/constants";
 import FormHeader from "../reusables/navigation/formsReusables/FormHeader";
+import authContext from "../../context/auth/authContext";
+
 import "./subscribe.css";
+import PaymentButton from "./payment_handler/PaymentButton";
 
 const Subscribe = () => {
+  const userContext = useContext(authContext)
+  const { user } = userContext;
+  const isLoggedIn = user ? true : false
+
+  
+  useEffect(() => {
+    if(localStorage.token){
+      userContext.loadUser()
+    }
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className="container-fluid subscribe-container">
       <header className="subscribe-header">
@@ -47,9 +60,15 @@ const Subscribe = () => {
                     businesses and the economy. Billed Monthly.
                   </Card.Text>
                   <p className="sub-amount">N4,000</p>
-                  <Card.Link className="sub-signup" href="signup">
-                    Register to Subscribe
-                  </Card.Link>
+                  {
+                    isLoggedIn ? (
+                      <PaymentButton profile={user} title="Monthly Subscription" amount={4000} profile={user} description="Monthly Subscription" />
+                    ):(
+                      <Card.Link className="sub-signup" href="/signup">
+                        Register to Subscribe
+                      </Card.Link>
+                    )
+                  }
                 </Card.Body>
               </Card>
             </div>
@@ -64,9 +83,15 @@ const Subscribe = () => {
                     businesses and the economy. Billed Annually.
                   </Card.Text>
                   <p className="sub-amount">N10,000</p>
-                  <Card.Link className="sub-signup" href="/signup">
-                    Register to Subscribe
-                  </Card.Link>
+                  {
+                    isLoggedIn ? (
+                      <PaymentButton profile={user} title="Quarterly Subscription" amount={10000} profile={user} description="Quarterly Subscription"/>
+                    ):(
+                      <Card.Link className="sub-signup" href="/signup">
+                        Register to Subscribe
+                      </Card.Link>
+                    )
+                  }
                 </Card.Body>
               </Card>
             </div>
@@ -81,15 +106,21 @@ const Subscribe = () => {
                     businesses and the economy. Billed Annually.
                   </Card.Text>
                   <p className="sub-amount">N35,000</p>
-                  <Card.Link className="sub-signup" href="/signup">
-                    Register to Subscribe
-                  </Card.Link>
+                  {
+                    isLoggedIn ? (
+                      <PaymentButton profile={user} title="Monthly Subscription" amount={35000} profile={user} description="Annual Subscription"/>
+                    ):(
+                      <Card.Link className="sub-signup" href="/signup">
+                        Register to Subscribe
+                      </Card.Link>
+                    )
+                  }
                 </Card.Body>
               </Card>
             </div>
           </div>
           <div className="trial">
-            <button className="trial-btn">7 Days Trial</button>
+            {/* <button className="trial-btn">7 Days Trial</button> */}
           </div>
         </div>
       </div>

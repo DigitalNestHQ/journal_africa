@@ -5,21 +5,22 @@ import { LargeSizeAds } from '../../homepage/ads/Ads';
 import axios from 'axios';
 
 export const SignupTeaser = () => {
-    const [email, setEmail] = useState({emailAddress:""})
+    const [emailAddress, setEmailAddress] = useState({email:""})
     const [subscribed, setSubscribed] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
 
-
+    
 
     // function that handles news letter subscription
     const handleNewLetterSubscription = async(event) =>{
         event.preventDefault()
         const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        const emailValidation = regex.test(String(email.emailAddress).toLowerCase());
+        const emailValidation = regex.test(String(emailAddress.email).toLowerCase());
         if(emailValidation){
             setIsLoading(true)
             const url = "http://api.tv24africa.com/api/v1/newsletter";
-            const response = await axios.post(url, email)
+            console.log(emailAddress);
+            const response = await axios.post(url, emailAddress)
             if(response.status === 200){
                 setIsLoading(false)
                 setSubscribed(true)
@@ -30,7 +31,7 @@ export const SignupTeaser = () => {
 
             setTimeout(() => {
                 setSubscribed(false)
-                setEmail({emailAddress: ""})
+                setEmailAddress({email: ""})
             }, 2000);
         }else{
             return null
@@ -38,7 +39,7 @@ export const SignupTeaser = () => {
     }
 
 
-  const handleChange = (e) => setEmail({[e.target.name]: e.target.value });
+  const handleChange = (e) => setEmailAddress({[e.target.name]: e.target.value });
     return (
         <React.Fragment>
             <div className="signup-teaser custom-container containt-fluid">
@@ -48,8 +49,8 @@ export const SignupTeaser = () => {
                     <input 
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                         type="email" 
-                        name="emailAddress"
-                        value={email.emailAddress} 
+                        name="email"
+                        value={emailAddress.email} 
                         placeholder="Subscribe to Newsletter" 
                         className="p-1 p-md-0 p-lg-2 form-control-lg" 
                         onChange={handleChange} 

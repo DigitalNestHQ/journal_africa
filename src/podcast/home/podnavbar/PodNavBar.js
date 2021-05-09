@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import "./podcasthome.css";
+import "./podnavbar.css";
+import hambuger from './../../../assets/images/hamburger.png'
 
 
 export const PodNavBar = () => {
@@ -20,11 +21,16 @@ export const PodNavBar = () => {
                         aria-label="Toggle navigation"
                         onClick={()=>setOpenNavbar(!openNavbar)}
                     >
-                        <i className="fas fa-bars text-white small_screen_burger"></i>
+                        <i className="text-white small_screen_burger">
+                            <img src={hambuger}></img>
+                        </i>
                     </button>
                    
                     <div className={`collapse navbar-collapse ${openNavbar ? "d-block" : " d-none"}`} id="navbarSupportedContent">
-                        <i className="fas fa-bars text-white big_screen_burger"></i>
+                        <i className="text-white big_screen_burger">
+                            <img src={hambuger}></img>
+                        </i>
+
                         <ul className="navbar-nav me-uto mb-2 mb-lg-0">
 
                         <li className="nav-item">

@@ -91,19 +91,10 @@ class Banner extends Component {
                 })}
             </Carousel>
           </div>
-          <div className="col-sm-4 mt-3">
+          <div className="col-sm-4">
             { firstFeed &&
               <div className="cnt-1"
                 style={{
-                  // backgroundImage:`url(https://api.tv24africa.com/public/storage/post_image/${firstFeed.featured_image})`,
-                  // background: 'rgba(0,0,0,0.8)',
-                  // backgroundPosition: 'center',
-                  // height: '100%'
-                  // background: `
-                  // linear-gradient(rgba(0, 0, 0, 0.5), 
-                  // rgba(0, 0, 0, 0.6)),
-                  // url(https://api.tv24africa.com/public/storage/post_image/${firstFeed.featured_image}) top/cover fixed no-repeat`,
-                  // color: '#fff'
                     background: `
                     linear-gradient(rgba(0, 0, 0, 0.5), 
                     rgba(0, 0, 0, 0.6)),

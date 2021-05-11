@@ -96,7 +96,7 @@ const AboutComponent = (props) => {
               {/* <img loading="lazy" src={Trump} alt="Donald"/> */}
             </div>
           </div>
-          <div className="txt-btm container-fluid">
+          <div className="txt-btm container-fluid abt-txt" style={{width: "100%", padding: "50px 145px"}}>
             <p>
               TV24 Africa Newspaper will dig deep into important issues capable
               of spurring real social change and reforms with no corporate,
@@ -115,6 +115,8 @@ const AboutComponent = (props) => {
               platforms and mobile applications.
             </p>
           </div>
+        </div>
+        <div style={{width: "34%"}}>
         </div>
         <Footer />
     </Fragment>

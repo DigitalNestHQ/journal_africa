@@ -10,7 +10,6 @@ const Subscribe = () => {
   const userContext = useContext(authContext)
   const { user } = userContext;
   const isLoggedIn = user ? true : false
-
   
   useEffect(() => {
     if(localStorage.token){
@@ -62,7 +61,14 @@ const Subscribe = () => {
                   <p className="sub-amount">N4,000</p>
                   {
                     isLoggedIn ? (
-                      <PaymentButton profile={user} title="Monthly Subscription" amount={4000} profile={user} description="Monthly Subscription" />
+                      <PaymentButton 
+                        packageID="1"
+                        packageName="monthly"
+                        profile={user} 
+                        title="Monthly Subscription" 
+                        amount={4000} 
+                        profile={user} 
+                        description="Monthly Subscription" />
                     ):(
                       <Card.Link className="sub-signup" href="/signup">
                         Register to Subscribe
@@ -85,7 +91,14 @@ const Subscribe = () => {
                   <p className="sub-amount">N10,000</p>
                   {
                     isLoggedIn ? (
-                      <PaymentButton profile={user} title="Quarterly Subscription" amount={10000} profile={user} description="Quarterly Subscription"/>
+                      <PaymentButton 
+                        packageID="2" 
+                        packageName="quarterly" 
+                        profile={user} 
+                        title="Quarterly Subscription" 
+                        amount={10000} 
+                        profile={user} 
+                        description="Quarterly Subscription"/>
                     ):(
                       <Card.Link className="sub-signup" href="/signup">
                         Register to Subscribe
@@ -108,7 +121,14 @@ const Subscribe = () => {
                   <p className="sub-amount">N35,000</p>
                   {
                     isLoggedIn ? (
-                      <PaymentButton profile={user} title="Monthly Subscription" amount={35000} profile={user} description="Annual Subscription"/>
+                      <PaymentButton 
+                        packageID="3" 
+                        packageName="annual" 
+                        profile={user} 
+                        title="Monthly Subscription" 
+                        amount={35000} 
+                        profile={user} 
+                        description="Annual Subscription"/>
                     ):(
                       <Card.Link className="sub-signup" href="/signup">
                         Register to Subscribe

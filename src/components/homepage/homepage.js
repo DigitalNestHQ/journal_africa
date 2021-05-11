@@ -51,12 +51,6 @@ function Homepage() {
     return <Loader />
   }
 
-  axios.get("https://api.tv24africa.com/api/v1/plans")
-  .then((response)=>console.log(response))
-  .catch((error)=>console.log(error))
-
-
-
   return (
     <Fragment>
       <Nav />

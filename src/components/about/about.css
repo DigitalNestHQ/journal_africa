@@ -6,7 +6,7 @@
 .about{
     max-width: 1440px;
     margin: 0 auto;
-    background-color: #0e0303;
+    /* background-color: #0e0303; */
     padding-top: 150px;
 }
 .abt-tp-nav{
@@ -36,7 +36,7 @@ padding-top: 50px;
 .abt-txt p, 
 .txt-btm p{
 font-weight: normal;
-font-size: 24px;
+font-size: 17px;
 line-height: 28px;
 text-align: justify;
 }

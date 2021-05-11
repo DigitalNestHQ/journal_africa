@@ -4,7 +4,6 @@ import React from "react";
 // import Play from "./Play";
 // import Pause from "./Pause";
 import Bar from "./../currentPodcast/Bar";
-import sampleAudio from './../../best.mp3';
 import playImage from "./../../../assets/images/play.png";
 import pauseImage from "./../../../assets/images/pause.png";
 
@@ -28,7 +27,7 @@ function Audio() {
     <div className="players">
     <img src={ playing ? playImage : playImage} className={`play_pod_image ${playing && "rotating-disc"}`} onClick={()=>handlePlayerClick()}/>
       <audio id="audio">
-        <source src={sampleAudio} />
+        <source src="" />
         Your browser does not support the <code>audio</code> element.
       </audio>
       <div className="controls">

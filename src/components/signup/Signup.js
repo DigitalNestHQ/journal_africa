@@ -11,6 +11,8 @@ const Signup = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
 
   const { setAlert } = alertContext;
   const { register, error, clearErrors, isAuthenticated } = authContext;
@@ -49,6 +51,7 @@ const Signup = (props) => {
     } else if (password.length < 6) {
       setAlert("password is too short", "danger");
     } else {
+      setIsLoading(true)
       register({
         firstname,
         lastname,
@@ -58,6 +61,7 @@ const Signup = (props) => {
       })
       .then((response)=>{
         if(response.data.status === "success"){// only show success alert only if the status is from the backend
+          setIsLoading(false)
           setAlert(
             "Registration successful, a link has been sent to your email",
             "success"
@@ -73,6 +77,7 @@ const Signup = (props) => {
         }
       })
       .catch((error)=>{
+        setIsLoading(false)
         console.log(error)
       })
     }
@@ -147,7 +152,6 @@ const Signup = (props) => {
                   type="tel"
                   className="form-control"
                   placeholder="Enter your phone number (e.g +2347030403416)"
-                  pattern="[0-9]{3}[0-9]{8}"
                   name="phone"
                   value={phone}
                   onChange={onChange}
@@ -197,8 +201,8 @@ const Signup = (props) => {
                 </div>
               </div>
               <Alerts />
-              <button className="my-2" type="submit">
-                Sign Up
+              <button className="my-2" type="submit" disabled={isLoading}>
+                {isLoading ? "Loading..." : "Sign Up"}{" "}
               </button>
             </form>
             <div className="gosignup">

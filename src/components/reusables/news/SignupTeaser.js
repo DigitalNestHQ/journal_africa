@@ -8,6 +8,7 @@ export const SignupTeaser = () => {
     const [emailAddress, setEmailAddress] = useState({email:""})
     const [subscribed, setSubscribed] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const [ error_message, setError_message ] = useState(null)
 
     
 
@@ -19,12 +20,14 @@ export const SignupTeaser = () => {
         if(emailValidation){
             setIsLoading(true)
             const url = "http://api.tv24africa.com/api/v1/newsletter";
-            console.log(emailAddress);
             const response = await axios.post(url, emailAddress)
-            if(response.status === 200){
+            console.log(response)
+            if(response.data.status === "success"){
+                setError_message(response.data.message)
                 setIsLoading(false)
                 setSubscribed(true)
-            }else{
+            }else if(response.data.status == "error"){
+                setError_message(response.data.message)
                 setIsLoading(false)
                 setSubscribed(false)
             }
@@ -45,6 +48,7 @@ export const SignupTeaser = () => {
             <div className="signup-teaser custom-container containt-fluid">
                 <h3 className="teaser-message">Get exclusive stories, expert curation and expansive coverage on Africa every day in your inbox</h3>
                 <form onSubmit={handleNewLetterSubscription}>
+                <p>{error_message}</p>
                 <div className="form-inline my-3">
                     <input 
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"

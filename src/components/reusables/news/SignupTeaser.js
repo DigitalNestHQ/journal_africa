@@ -19,7 +19,7 @@ export const SignupTeaser = () => {
         const emailValidation = regex.test(String(emailAddress.email).toLowerCase());
         if(emailValidation){
             setIsLoading(true)
-            const url = "http://api.tv24africa.com/api/v1/newsletter";
+            const url = "https://api.tv24africa.com/api/v1/newsletter";
             const response = await axios.post(url, emailAddress)
             console.log(response)
             if(response.data.status === "success"){

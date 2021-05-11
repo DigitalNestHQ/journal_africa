@@ -65,7 +65,7 @@ export const getSingleNews = async (slug) => {
 export const getNewsComments = async (slug) => {
   try{
     const comments = await axios.get(
-      `http://api.tv24africa.com/api/v1/getcomment/${slug}`, config
+      `https://api.tv24africa.com/api/v1/getcomment/${slug}`, config
       );
       const { data } = comments;
       return data;
@@ -78,7 +78,7 @@ export const getNewsComments = async (slug) => {
 export const postNewComment = async (newComment) =>{
   try{
     console.log(newComment)
-    const res = await axios.post(`http://api.tv24africa.com/api/v1/comment`, newComment, config);
+    const res = await axios.post(`https://api.tv24africa.com/api/v1/comment`, newComment, config);
     return res
   }catch(err){
     console.log('error from new comment', err)

@@ -46,8 +46,8 @@ export const Weather = () => {
   
   async function getWeatherData (latitude, longitude){
     // console.log(latitude, longitude)
-      // const weatherApi = `http://api.openweathermap.org/data/2.5/weather?lat=9.0797&lon=6.0097&units=metric&appid=${REACT_APP_WEATHER_KEY}`;
-      const weatherApi = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${REACT_APP_WEATHER_KEY}`;
+      // const weatherApi = `https://api.openweathermap.org/data/2.5/weather?lat=9.0797&lon=6.0097&units=metric&appid=${REACT_APP_WEATHER_KEY}`;
+      const weatherApi = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${REACT_APP_WEATHER_KEY}`;
       try {
           const weatherResult = await axios.get(weatherApi)
           setUserWeather(weatherResult.data)
@@ -64,7 +64,7 @@ export const Weather = () => {
     <>
       <span className="weather-text"> <span className="d-none d-md-inline d-lg-inline weather-text">weather:</span> {name} : {main.temp}° <sup>
         <img loading="lazy" 
-            src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`} alt='weather icon'
+            src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`} alt='weather icon'
             className='weather-icon d- d-lg-inline'
             style={{
               width: '10%',

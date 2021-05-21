@@ -1,14 +1,8 @@
 .discover-cont{
   display: flex;
   justify-content: center;
-  /* margin-right: 100px;
-  margin-left: 100px; */
   margin-right: 58px;
   margin-left: 131px;
-  /* position: relative; */
-  /* bottom: 40px; */
-  /* margin-top: 3  0px; */
-
 }
 .main-section-card {
   display: flex;
@@ -16,7 +10,6 @@
   border: none;
   padding: 0;
   color: black;
-  /* height: 274px; */
   height: 200px;
   width: 100%;
   margin: auto;
@@ -24,20 +17,15 @@
 }
 
 .image {
-  /* align-self: flex-end; */
   width: 390px;
 
 }
 .card-caption{
-  /* width: 50%; */
   align-self: flex-start;
 
 }
 
 .image > img {
-  /* width: 390px;
-  height: 274px; */
-  /* width: 300px; */
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -46,9 +34,6 @@
 .main-section-card > div {
   padding: 0 17px;
   margin: 0;
-  /* width: 50%; */
-  /* width: 40%; */
-  /* width: 310px; */
   width: 304px;
   height: 177px;
 }
@@ -90,6 +75,7 @@
   color: var(--color-red);
   font-size: 15px;
   text-transform: capitalize;
+  font-weight: 500;
 }
 .card-caption-content p{
   padding-bottom: 12px;

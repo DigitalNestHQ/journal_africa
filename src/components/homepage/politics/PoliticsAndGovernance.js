@@ -18,7 +18,6 @@ class PoliticsAndGovernance extends Component {
       (allNews) => allNews.post_type === "premium"
     );
 
-    console.log(getPremiumNews);
     return (
       <div className="politics">
         <div className="custom-container container-fluid hl-tp-cont mx-auto">

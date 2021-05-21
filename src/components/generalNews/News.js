@@ -67,6 +67,7 @@ const GetNews = () => {
   const [previousPost, setPreviousPost] = useState(null)
   const [nextPost, setNextPost] = useState(null)
 
+
   useEffect(() => { 
     if(news && categoryNews){
       const newsWithCurrentCategory = categoryNews?.filter((sameCateNews)=>sameCateNews.category_id === news?.category_id)
@@ -101,7 +102,7 @@ const GetNews = () => {
       };
       getThisNews(); 
   }, [slug]);
-
+  console.log(news);
   useEffect(() => {
     // get the current news comments
     getNewsComments(slug).then((res) => {

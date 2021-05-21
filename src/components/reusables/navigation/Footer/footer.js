@@ -4,6 +4,7 @@ import GooglePlayImg from "../../../../assets/images/playstoreimg.png";
 import ApplePlayImg from "../../../../assets/images/apple.jpg";
 import { pageurl } from '../../../../utils/constants'
 import "./footer.css";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="footer-wrapper container-fluid">
@@ -13,22 +14,22 @@ const Footer = () => {
             <h3 className="ft-hd-1">About</h3>
             <ul>
               <li>
-                <a href={pageurl.CONTACTUS}>Contact Us</a>
+                <Link to={pageurl.CONTACTUS}>Contact Us</Link>
               </li>
               <li>
-                <a href="/">Terms and conditions</a>
+                <Link to="/privacy-policy">Terms and conditions</Link>
               </li>
               <li>
-                <a href="/">Cookies Policy</a>
+                <Link to="/cookie-policy">Cookies Policy</Link>
               </li>
               <li>
-                <a href="/">Code of Ethics Finder</a>
+                <Link to="/">Code of Ethics Finder</Link>
               </li>
               <li>
-                <a href="/">Membership</a>
+                <Link to="/">Membership</Link>
               </li>
               <li>
-                <a href="/">Advertise with us</a>
+                <Link to="/">Advertise with us</Link>
               </li>
             </ul>
 
@@ -37,45 +38,65 @@ const Footer = () => {
             <h3 className="ft-hd-2">Connect</h3>
             <ul>
               <li>
-                <a href={pageurl.CONTACTUS}>Contact Us</a>
+                <Link to={pageurl.CONTACTUS}>Contact Us</Link>
               </li>
               <li>
-                <a href="/">Submit an article</a>
+                <Link to="/">Submit an article</Link>
               </li>
               <li>
-                <a href="/">Newsletter</a>
+                <Link to="/">Newsletter</Link>
               </li>
               <li>
-                <a href="/">Mobile App</a>
+                <Link to="/">Mobile App</Link>
               </li>
               <li>
-                <a href="/">Site Map</a>
+                <Link to="/">Site Map</Link>
               </li>
               <li>
-                <a href="/">Work with us</a>
+                <Link to="/">Work with us</Link>
               </li>
             </ul>
           </div>
           <div className="col-12 col-md-6 col-lg-2 ft-crd">
-            <h3 className="ft-hd-3">company</h3>
+            <h3 className="ft-hd-3">Section</h3>
             <ul>
               <li>
-                <a href="/">Live Radio Us</a>
+                <Link to="/podcast">Live Radio Us</Link>
               </li>
               <li>
-                <a href="/">Podcast</a>
+                <Link to="/podcast">Podcast</Link>
               </li>
               <li>
-                <a href="/">Discover Africa</a>
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: `?category=Discovery Africa`,
+                  }}
+                >Discover Africa</Link>
               </li>
               <li>
-                <a href="/">Tech Africa</a>
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: `?category=Tech Africa`,
+                  }}
+                >Tech Africa</Link>
               </li>
               <li>
-                <a href="/">Eco Africa</a>
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: `?category=Economy`,
+                  }}
+                >Eco Africa</Link>
               </li>
               <li>
-                <a href="/">Sport Africa</a>
+                <Link 
+                  to={{
+                    pathname: "/news/categories",
+                    search: `?category=Sport Africa`,
+                  }}
+                >Sport Africa</Link>
               </li>
             </ul>
           </div>
@@ -87,12 +108,12 @@ const Footer = () => {
             </p>
             <h3 className="ps_p">DOWNLOAD APP</h3>
             <div className="app-store">
-              <a href="/playStore">
+              <Link to="/playStore">
                 <img loading="lazy" src={GooglePlayImg} alt="google play" />{" "}
-              </a>
-              <a href="/applestore">
+              </Link>
+              <Link to="/applestore">
                 <img loading="lazy" src={ApplePlayImg} alt="google play" />{" "}
-              </a>
+              </Link>
             </div>
             <div className="social_media">
               <Card.Link target="_blank" href="https://www.facebook.com/tv24africanews">

@@ -27,8 +27,6 @@ function Homepage() {
   const { slug } = useParams();
 
   
-  
-
   // your useeffct function will cause memory  leaks
   useEffect(() => {
     AOS.init();

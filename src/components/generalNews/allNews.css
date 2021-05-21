@@ -355,8 +355,12 @@
 }
 
 .news-teaser-heading{
-    /* padding-left: 8px; */
     padding-right: 40px;
     font-size: var(--news-description-size);
     color: var(--news-description-color);
+    font-weight: 400;
+}
+
+.news-teaser-heading:hover{
+    color: #F20808;
 }

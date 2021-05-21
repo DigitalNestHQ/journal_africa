@@ -9,8 +9,8 @@ export const FreeReaderPersuader = () => {
     const subscribeButton = (<Link to="/sign-in" className="btn btn-lg persuader-subscribe-btn"> Subscribe</Link>)
     const authButton = ( 
         <React.Fragment>
-            <Link to="/subscribe" className="btn btn-lg persuader-signup-btn">Click Here To Signup</Link>
-            <Link to="/sign-in" className="btn btn-lg persuader-login-btn">Already Subscribed? Sign In</Link>
+            <Link to="/signup" className="btn btn-lg persuader-signup-btn">Click Here To Signup</Link>
+            <Link to="/login" className="btn btn-lg persuader-login-btn">Already Subscribed? Sign In</Link>
         </React.Fragment> 
     )
     return (
@@ -31,9 +31,9 @@ export const ContinueReadingWithAuth = () => {
         <React.Fragment>
             <div className="continue-reading-paywall">
                 <h5>To Continue Reading,</h5>
-                <Link to="/subscribe" className="btn btn-sm continue-signup-btn text-uppercase">Sign Up</Link>
+                <Link to="/signup" className="btn btn-sm continue-signup-btn text-uppercase">Sign Up</Link>
                 <span>or</span>
-                <Link to="/sign-in" className="btn btn-sm continue-login-btn text-uppercase"> Sign In</Link>
+                <Link to="/login" className="btn btn-sm continue-login-btn text-uppercase"> Sign In</Link>
             </div>
         </React.Fragment>
     )

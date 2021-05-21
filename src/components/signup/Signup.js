@@ -12,6 +12,7 @@ const Signup = (props) => {
   const authContext = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [redirectToSubscribePage, setRedirectToSubscribePage] = useState(false)
 
 
   const { setAlert } = alertContext;
@@ -65,7 +66,11 @@ const Signup = (props) => {
           setAlert(
             "Registration successful, a link has been sent to your email",
             "success"
-          );
+          )
+
+          setTimeout(() => {
+            setRedirectToSubscribePage(true)
+          }, 3000);
           // clear the field
           setUser({
             firstname: "",
@@ -82,6 +87,9 @@ const Signup = (props) => {
       })
     }
   };
+
+  // REDIRECT USER TO THE SUBSCRIPTION PAGE AFTER A SUCCESSFUL REGISTRATION
+  redirectToSubscribePage && props.history.push('/subscribe')
   return (
     <div className="signup">
       <div className="page-wrap">

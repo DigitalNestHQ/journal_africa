@@ -5,11 +5,22 @@ import authContext from "../../context/auth/authContext";
 
 import "./subscribe.css";
 import PaymentButton from "./payment_handler/PaymentButton";
+import axios from "axios";
 
 const Subscribe = () => {
   const userContext = useContext(authContext)
   const { user } = userContext;
-  const isLoggedIn = user ? true : false
+  const isLoggedIn = user ? true : false;
+  const [subscriptionPlans, setSubscriptionPlans] = useState(null)
+
+  useEffect(() => {
+    axios.get('https://api.tv24africa.com/api/v1/plans')
+    .then((response)=>{
+      console.log(response) 
+      setSubscriptionPlans(response.data.plans)
+    })
+    .catch((error)=>console.log(error))
+  }, [])
   
   useEffect(() => {
     if(localStorage.token){
@@ -17,11 +28,11 @@ const Subscribe = () => {
     }
     // eslint-disable-next-line
   }, []);
-
+  console.log(subscriptionPlans);
   return (
     <div className="container-fluid subscribe-container">
       <header className="subscribe-header">
-        <FormHeader redirectTo="login" linkLabel="Sign In"/>
+        <FormHeader redirectTo="login" linkLabel="Sign In" hideSubscribe={true}/>
       </header>
       <div className="cur_crd-wrap">
         <div className="sub-banner">
@@ -41,14 +52,51 @@ const Subscribe = () => {
             <ul className="ml-0 ml-md-4 ml-lg-4">
               <li>Read beyond the news</li>
               <li>No commitment, cancel anytime</li>
-              <li>Explore indept analysis and correct to details contents</li>
+              <li>Explore indepth analysis and correct to details contents</li>
               <li>Listen to live radio and podcast on TV24 Africa website and mobile app</li>
               <li>Access exclusive stories, expert correct and expensive coverage and TV24 Africa website and mobile app</li>
             </ul>
           </div>
         </div>
           <div className="card-flex row">
-            <div className="col-sm-4 col-md-4 col-lg-3 m-5 m-md-5 m-lg-0 sub-crd">
+            {
+              subscriptionPlans && subscriptionPlans.map(({id, name, duration, price})=>{
+                return(
+                  <div className="col-sm-4 col-md-4 col-lg-3 m-5 m-md-5 m-lg-0 sub-crd" key={id}>
+                  <Card>
+                    <Card.Body>
+                      <Card.Title className="sub-crd-title text-center">
+                        {name}
+                      </Card.Title>
+                      <Card.Text className="sub-crd-txt text-center">
+                        {duration} access to 300+ new stories analysing Nigerian
+                        businesses and the economy. Billed {name}.
+                      </Card.Text>
+                      <p className="sub-amount">{price}</p>
+                      {
+                        isLoggedIn ? (
+                          <PaymentButton 
+                            packageID={id} 
+                            packageName={name}
+                            profile={user} 
+                            title={name}
+                            amount={price} 
+                            profile={user} 
+                            description={name}
+                            />
+                        ):(
+                          <Card.Link className="sub-signup" href="/signup">
+                            Register to Subscribe
+                          </Card.Link>
+                        )
+                      }
+                    </Card.Body>
+                  </Card>
+                </div>
+                )
+              })
+            }
+            {/* <div className="col-sm-4 col-md-4 col-lg-3 m-5 m-md-5 m-lg-0 sub-crd">
               <Card>
                 <Card.Body>
                   <Card.Title className="sub-crd-title text-center">
@@ -137,7 +185,7 @@ const Subscribe = () => {
                   }
                 </Card.Body>
               </Card>
-            </div>
+            </div> */}
           </div>
           <div className="trial">
             {/* <button className="trial-btn">7 Days Trial</button> */}

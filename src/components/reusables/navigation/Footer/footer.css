@@ -24,9 +24,21 @@
   border: 1px solid #ccc;
   border-radius: 10px;
 }
+.social_media{
+  text-align: right;
+}
 
+@media(max-width: 600px){
+  .social_media{
+    text-align: left;
+    padding: 20px;
+  }
+}
 .copyRight_text{
   padding: 20px;
+  text-align: center;
+  display: block;
+  margin-top: 20px;
 }
 
 footer a,

@@ -6,8 +6,22 @@
 .about{
     max-width: 1440px;
     margin: 0 auto;
-    /* background-color: #0e0303; */
-    padding-top: 150px;
+    padding-top: 110px;
+}
+
+.about .bg-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media(max-width: 900px){
+    .about .bg-header{
+        align-items: flex-end;
+    }
+    
+    .about-txt{
+        padding-bottom: 30px;
+    }
 }
 .abt-tp-nav{
     width: 100%;
@@ -20,14 +34,14 @@
 background: linear-gradient(rgba(22, 7, 233, 0.541), rgba(51, 65, 126, 0.61)),
     url("../../assets/images/discoverbanner.jpg")top/cover fixed no-repeat;
 color: #fff;
-height: 120px;
+height: 200px;
 width: 100%;
 margin: 0 auto;
 padding: 0;
 text-align: center;
 }
 .bg-header p{
-    font-weight: bold;
+font-weight: bold;
 font-size: 36px;
 line-height: 42px;
 padding-top: 50px;
@@ -48,47 +62,85 @@ text-align: justify;
     border: 1px solid red;
 }
 .about-right{
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
-    url("../../assets/images/trump1.jpg")center/cover no-repeat;
+
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)), drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     width: 30%;
     height: 755px;
     border-radius: 30px;
-    padding: 30px;
+    /* padding: 5px; */
+    margin-top: 30px;
+}
+
+.about-right .ts-overlay{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.about-right .ts-overlay .ts-card-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: ;
 }
 .abt-main{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+@media(max-width: 900px){
+    .abt-main{
+        padding: 10px !important;
+    }
+}
 .about-left{
     width: 63%;
     flex: 1 1 .5px;
     padding: 30px;
 }
+
+.about-left .ts-overlay{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.about-left .ts-overlay button{
+    background: #FFFFFF;
+    color: #E90A0A;
+    border: none;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
 .s-card{
     width: 294px;
     height: 330px;
+}
+@media(max-width: 900px){
+    .about-right{
+        display: none;
+    }
 }
 .about-right button{
     padding: 10px;
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 30px;
-    background: #FF0000;
+    font-size: 20px;
+    background: #F83D3D;
     color: #fff;
     border-radius: 20px;
     border: none;
     text-align: center;
-    margin-left: 60px;
+    margin: 0 auto;
+    display: block;
 }
 .about-right p{
     font-weight: 700;
     font-size: 25px;
     line-height: 30px;
     color: #fff;
-    padding-top: 450px;
+    /* padding-top: 450px; */
 }
 @media screen and (max-width: 772px){
     .bg-header p{
@@ -103,12 +155,15 @@ text-align: justify;
     .about-left{
         width: 90%;
         margin: 0 auto;
-        padding: 30px;
+        padding: 30px 20px;
+    }
+    .txt-btm{
+        padding: 40px;
+        margin: 0 auto;
     }
     .abt-txt p, 
     .txt-btm p{
     font-size: 18px;
-    line-height: 22px;
     }
     .about-right{
         width: 90%;

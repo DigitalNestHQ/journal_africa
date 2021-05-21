@@ -15,8 +15,10 @@ class PoliticsAndGovernance extends Component {
       (news) => news.category_id === "Politics and Governance"
     );
     const getPremiumNews = getPoliticsNews && getPoliticsNews.filter(
-      (newsHD) => newsHD.post_type === "free"
+      (allNews) => allNews.post_type === "premium"
     );
+
+    console.log(getPremiumNews);
     return (
       <div className="politics">
         <div className="custom-container container-fluid hl-tp-cont mx-auto">
@@ -55,8 +57,8 @@ class PoliticsAndGovernance extends Component {
             <div className="col-12 col-md-10 col-lg-4 mx-auto must-read-container">
               {/* <h2>MUST READ</h2> */}
               <div>
-                {feeds && feeds.length &&
-                  feeds.slice(0, 4).map((news) => {
+                {getPremiumNews && getPremiumNews.length &&
+                  getPremiumNews.slice(0, 4).map((news) => {
                     const { slug, post_title, id, created_at, post_description, post_type} = news;
                     return <ReaderList 
                             key={id} 

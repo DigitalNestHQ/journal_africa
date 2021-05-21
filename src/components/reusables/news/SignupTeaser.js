@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './signupteaser.css';
 import largeAds from "./../../../assets/images/largeads.png";
 import { LargeSizeAds } from '../../homepage/ads/Ads';
 import axios from 'axios';
+import Alerts from '../../alert/Alerts';
+import AlertContext from '../../../context/alert/alertContext';
 
 export const SignupTeaser = () => {
     const [emailAddress, setEmailAddress] = useState({email:""})
     const [subscribed, setSubscribed] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
-    const [ error_message, setError_message ] = useState(null)
-
+    const alertContext = useContext(AlertContext);
+    const { setAlert } = alertContext;
     
 
     // function that handles news letter subscription
@@ -23,11 +25,11 @@ export const SignupTeaser = () => {
             const response = await axios.post(url, emailAddress)
             console.log(response)
             if(response.data.status === "success"){
-                setError_message(response.data.message)
+                setAlert(response.data.message, "success");
                 setIsLoading(false)
                 setSubscribed(true)
             }else if(response.data.status == "error"){
-                setError_message(response.data.message)
+                setAlert(response.data.message, "danger");
                 setIsLoading(false)
                 setSubscribed(false)
             }
@@ -48,7 +50,6 @@ export const SignupTeaser = () => {
             <div className="signup-teaser custom-container containt-fluid">
                 <h3 className="teaser-message">Get exclusive stories, expert curation and expansive coverage on Africa every day in your inbox</h3>
                 <form onSubmit={handleNewLetterSubscription}>
-                <p>{error_message}</p>
                 <div className="form-inline my-3">
                     <input 
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -61,6 +62,7 @@ export const SignupTeaser = () => {
                         required
                     />
                 </div>
+                <Alerts />
                     <button 
                         className="teaser--btn" 
                         type="submit" 

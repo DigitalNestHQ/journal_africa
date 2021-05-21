@@ -8,7 +8,7 @@ const PrivacyPolicy = () => {
   return (
     <Fragment>
       <Nav />
-      <div className="policy container-fluid">
+      <div className="policy container">
         <h3>Website Terms and Conditions of Use</h3>
         <ol>
           <li>

@@ -28,6 +28,7 @@ export const Weather = () => {
       const success = (position) => {
         // store permission to localstorage
         localStorage.setItem('location-allowed', true);
+        console.log(position);
         getWeatherData(position.coords.latitude, position.coords.longitude)
       }
       // return when error occur
@@ -45,12 +46,12 @@ export const Weather = () => {
     }
   
   async function getWeatherData (latitude, longitude){
-    // console.log(latitude, longitude)
-      // const weatherApi = `https://api.openweathermap.org/data/2.5/weather?lat=9.0797&lon=6.0097&units=metric&appid=${REACT_APP_WEATHER_KEY}`;
+    console.log(latitude, longitude)
+      // const weatherApi = `https://api.openweathermap.org/data/2.5/weather?lat=8.1386&lon=5.1026&units=metric&appid=${REACT_APP_WEATHER_KEY}`;
       const weatherApi = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${REACT_APP_WEATHER_KEY}`;
       try {
-          const weatherResult = await axios.get(weatherApi)
-          setUserWeather(weatherResult.data)
+          // const weatherResult = await axios.get(weatherApi)
+          // setUserWeather(weatherResult.data)
       } catch (error) {
           console.log(error)
       }

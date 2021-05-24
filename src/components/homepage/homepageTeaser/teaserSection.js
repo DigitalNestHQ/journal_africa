@@ -16,7 +16,6 @@ const TeaserSection = (props) => {
   // select 1 from each category
   const selectedTeasers = [discoverAfricaTeaser[0], ecoAfricaTeaser[0], techAfricaTeaser[0], sportAfricaTeaser[0]] || [{}]
 
-  console.log(props.data);
   AOS.init();
   if(typeof selectedTeasers[0] === "undefined"){return null}
   return (

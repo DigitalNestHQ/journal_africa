@@ -6,7 +6,7 @@ import './freeReaderPersuader.css';
 export const FreeReaderPersuader = () => {
     const userContext = useContext(authContext);
     const { user } = userContext;
-    const subscribeButton = (<Link to="/sign-in" className="btn btn-lg persuader-subscribe-btn"> Subscribe</Link>)
+    const subscribeButton = (<Link to="/subscribe" className="btn btn-lg persuader-subscribe-btn"> Subscribe</Link>)
     const authButton = ( 
         <React.Fragment>
             <Link to="/signup" className="btn btn-lg persuader-signup-btn">Click Here To Signup</Link>
@@ -18,7 +18,10 @@ export const FreeReaderPersuader = () => {
             <div className="persuader">
                 <h5>Read beyond the news</h5>
                 <p className="small">Subscribe to our premium contents</p>
+                {/* IF THE READER IS LOGGED IN SHOW THEM THE SUBSCRIBBED BUTTON IF THEY ARE NOT SUBSCRIBED */}
                 {user && (subscribeButton)}
+
+                {/* SHOW THE USER THE AUTHENTICATION BUTTON IF THEY ARE NOT SUBSCRIBED */}
                 {!user && (authButton)}
 
             </div>

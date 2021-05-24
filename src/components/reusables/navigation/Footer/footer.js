@@ -14,7 +14,7 @@ const Footer = () => {
             <h3 className="ft-hd-1">About</h3>
             <ul>
               <li>
-                <Link to={pageurl.CONTACTUS}>Contact Us</Link>
+                <Link to={pageurl.ABOUT}>About Us</Link>
               </li>
               <li>
                 <Link to="/privacy-policy">Terms and conditions</Link>

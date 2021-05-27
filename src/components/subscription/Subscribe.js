@@ -6,17 +6,18 @@ import authContext from "../../context/auth/authContext";
 import "./subscribe.css";
 import PaymentButton from "./payment_handler/PaymentButton";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Subscribe = () => {
   const userContext = useContext(authContext)
   const { user } = userContext;
   const isLoggedIn = user ? true : false;
   const [subscriptionPlans, setSubscriptionPlans] = useState(null)
+  const [currency, setCurrency] = useState("NGN")
 
   useEffect(() => {
     axios.get('https://api.tv24africa.com/api/v1/plans')
     .then((response)=>{
-      console.log(response) 
       setSubscriptionPlans(response.data.plans)
     })
     .catch((error)=>console.log(error))
@@ -28,11 +29,10 @@ const Subscribe = () => {
     }
     // eslint-disable-next-line
   }, []);
-  console.log(subscriptionPlans);
   return (
     <div className="container-fluid subscribe-container">
       <header className="subscribe-header">
-        <FormHeader redirectTo="login" linkLabel="Sign In" hideSubscribe={true}/>
+        <FormHeader hideSubscribe={true}/>
       </header>
       <div className="cur_crd-wrap">
         <div className="sub-banner">
@@ -44,8 +44,9 @@ const Subscribe = () => {
         <div className="container pay_plan-wrap">
           <h2>Pay from Nigeria</h2>
           <div className="sub-curency">
-            <span className="sub-curency_ngn">NGN</span>
-            <span className="sub-curency_usd">USD</span>
+            {/* select which currency to pay */}
+            <span className="sub-curency_ngn" onClick={()=>setCurrency("NGN")}>NGN</span>
+            <span className="sub-curency_usd" onClick={()=>setCurrency("USD")}>USD</span>
           </div>
         <div className="row px-5 text-white mb-5">
           <div className="col-12">
@@ -60,7 +61,7 @@ const Subscribe = () => {
         </div>
           <div className="card-flex row">
             {
-              subscriptionPlans && subscriptionPlans.map(({id, name, duration, price})=>{
+              subscriptionPlans && subscriptionPlans.map(({id, name, duration, price_ngn, price_usd})=>{
                 return(
                   <div className="col-sm-4 col-md-4 col-lg-3 m-5 m-md-5 m-lg-0 sub-crd" key={id}>
                   <Card>
@@ -72,7 +73,10 @@ const Subscribe = () => {
                         {duration} access to 300+ new stories analysing Nigerian
                         businesses and the economy. Billed {name}.
                       </Card.Text>
-                      <p className="sub-amount">{price}</p>
+                      <p className="sub-amount">
+                        {/* render the price based on the selected currency */}
+                        {currency == "USD" ? `$${price_usd}` : currency == "NGN" ? `#${price_ngn}` : null}
+                      </p>
                       {
                         isLoggedIn ? (
                           <PaymentButton 
@@ -80,14 +84,15 @@ const Subscribe = () => {
                             packageName={name}
                             profile={user} 
                             title={name}
-                            amount={price} 
+                            amount={currency == "USD" ? price_usd : currency == "NGN" ? price_ngn : null} 
                             profile={user} 
                             description={name}
+                            currency={currency}
                             />
                         ):(
-                          <Card.Link className="sub-signup" href="/signup">
-                            Register to Subscribe
-                          </Card.Link>
+                          <Link className="sub-signup" to="/login">
+                            Login to Subscribe
+                          </Link>
                         )
                       }
                     </Card.Body>
@@ -96,96 +101,6 @@ const Subscribe = () => {
                 )
               })
             }
-            {/* <div className="col-sm-4 col-md-4 col-lg-3 m-5 m-md-5 m-lg-0 sub-crd">
-              <Card>
-                <Card.Body>
-                  <Card.Title className="sub-crd-title text-center">
-                    Monthly Subscription
-                  </Card.Title>
-                  <Card.Text className="sub-crd-txt text-center">
-                    1-month access to 35+ new stories analysing Nigerian
-                    businesses and the economy. Billed Monthly.
-                  </Card.Text>
-                  <p className="sub-amount">N4,000</p>
-                  {
-                    isLoggedIn ? (
-                      <PaymentButton 
-                        packageID="1"
-                        packageName="monthly"
-                        profile={user} 
-                        title="Monthly Subscription" 
-                        amount={4000} 
-                        profile={user} 
-                        description="Monthly Subscription" />
-                    ):(
-                      <Card.Link className="sub-signup" href="/signup">
-                        Register to Subscribe
-                      </Card.Link>
-                    )
-                  }
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col-sm-4 col-md-4 col-lg-3 m-5 m-md-5 m-lg-0 sub-crd">
-              <Card>
-                <Card.Body>
-                  <Card.Title className="sub-crd-title text-center">
-                    Quarterly Subscription
-                  </Card.Title>
-                  <Card.Text className="sub-crd-txt text-center">
-                    12-month access to 300+ new stories analysing Nigerian
-                    businesses and the economy. Billed Annually.
-                  </Card.Text>
-                  <p className="sub-amount">N10,000</p>
-                  {
-                    isLoggedIn ? (
-                      <PaymentButton 
-                        packageID="2" 
-                        packageName="quarterly" 
-                        profile={user} 
-                        title="Quarterly Subscription" 
-                        amount={10000} 
-                        profile={user} 
-                        description="Quarterly Subscription"/>
-                    ):(
-                      <Card.Link className="sub-signup" href="/signup">
-                        Register to Subscribe
-                      </Card.Link>
-                    )
-                  }
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col-sm-4 col-md-4 col-lg-3 m-5 m-md-5 m-lg-0 sub-crd">
-              <Card>
-                <Card.Body>
-                  <Card.Title className="sub-crd-title text-center">
-                    Annual Subscription
-                  </Card.Title>
-                  <Card.Text className="sub-crd-txt text-center">
-                    12-month access to 300+ new stories analysing Nigerian
-                    businesses and the economy. Billed Annually.
-                  </Card.Text>
-                  <p className="sub-amount">N35,000</p>
-                  {
-                    isLoggedIn ? (
-                      <PaymentButton 
-                        packageID="3" 
-                        packageName="annual" 
-                        profile={user} 
-                        title="Monthly Subscription" 
-                        amount={35000} 
-                        profile={user} 
-                        description="Annual Subscription"/>
-                    ):(
-                      <Card.Link className="sub-signup" href="/signup">
-                        Register to Subscribe
-                      </Card.Link>
-                    )
-                  }
-                </Card.Body>
-              </Card>
-            </div> */}
           </div>
           <div className="trial">
             {/* <button className="trial-btn">7 Days Trial</button> */}

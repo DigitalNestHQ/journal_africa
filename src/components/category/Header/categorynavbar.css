@@ -12,6 +12,7 @@
     display: inline-block;
     font-style: normal;
     font-weight: bold;
+    text-transform: capitalize;
     font-size: 11px;
 }
 .top-nav p span:first-child{

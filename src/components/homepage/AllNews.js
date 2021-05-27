@@ -1,9 +1,7 @@
-import React, { Component, useEffect, useState } from "react";
-import { useParams} from "react-router-dom";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { getNewsFeed } from "../../context/news/NewsApi";
 import NewsCard from "../generalNews/NewsCard";
-// import '../sport/sport.css';
 
 class AllNews extends Component {
   static propTypes = {
@@ -22,7 +20,6 @@ class AllNews extends Component {
 
   render() {
     const { feeds } = this.state;
-    // console.log(feeds)
     return (
       <div className="sprt-itm-wra">
         {feeds.length > 0 &&

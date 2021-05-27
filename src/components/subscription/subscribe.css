@@ -86,7 +86,19 @@
 .sub-curency_usd {
     font-weight: 500;
     font-size: 24px;
-    line-height: 28px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.sub-curency_ngn:hover{
+    background: #ccc;
+    height: 100%;
+    padding-right: 4px;
+}
+.sub-curency_usd:hover {
+    background: #ccc;
+    height: 100%;
+    padding-left: 4px;
 }
 
 .subscribe-container .card-body{

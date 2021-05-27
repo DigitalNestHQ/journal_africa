@@ -89,7 +89,7 @@ const Signup = (props) => {
   };
 
   // REDIRECT USER TO THE SUBSCRIPTION PAGE AFTER A SUCCESSFUL REGISTRATION
-  redirectToSubscribePage && props.history.push('/subscribe')
+  // redirectToSubscribePage && props.history.push('/subscribe')
   return (
     <div className="signup">
       <div className="page-wrap">

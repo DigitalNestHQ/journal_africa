@@ -1,16 +1,18 @@
 import React from "react";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
-import checkoutLogo from './../../../assets/images/50x50 (2).ico'
 import axios from "axios";
 
 export default function PaymentButton(props) {
-    const { title, amount, profile, description, currency, packageID, packageName } = props;
+    const { title, currency, amount, profile, description, packageID, packageName } = props;
     const { id, firstname, lastname, email, phone } = profile || {}
+
+
+    console.log(amount)
     const config = {
         public_key: process.env.REACT_APP_PAYMENT_PUBLIC_KEY,
         tx_ref: Date.now(),
         amount: amount,
-        currency: "NGN",
+        currency: currency,
         payment_options: "card,mobilemoney,ussd",
         customer: {
         email: email,

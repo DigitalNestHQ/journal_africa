@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../../../../assets/images/TV24Ergb.png";
 import "./formHeader.css"
 
-const FormHeader = ({redirectTo, linkLabel,hideSubscribe}) => {
+const FormHeader = ({redirectTo, linkLabel, hideSubscribe}) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   useEffect(() => {
     localStorage.token ? setIsLoggedIn(true) : setIsLoggedIn(false)

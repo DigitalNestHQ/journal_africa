@@ -8,7 +8,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 class LatestNews extends Component {
   render() {
     const feeds = this.props.data;
-    // console.log(feeds)
+
     if(feeds.length === 0){
       return (
         <>

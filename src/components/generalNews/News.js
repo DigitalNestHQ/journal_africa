@@ -60,13 +60,18 @@ const GetNews = () => {
   const [news, setNews] = useState(null);
   const [categoryNews, setCategoryNews] = useState(null);
   const [comments, setComments] = useState(null);
-  const [hasSubscription, setHasSubscription] = useState(user?.subscribe);
+  const [hasSubscription, setHasSubscription] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const { slug } = useParams();
   const [previousPost, setPreviousPost] = useState(null)
   const [nextPost, setNextPost] = useState(null)
 
+  useEffect(() => {// set the user subscription status
+    if(user){
+      setHasSubscription(user.hasSubscribed)
+    }
+  }, [user])
 
   useEffect(() => { 
     if(news && categoryNews){
@@ -102,7 +107,8 @@ const GetNews = () => {
       };
       getThisNews(); 
   }, [slug]);
-  console.log(news);
+
+
   useEffect(() => {
     // get the current news comments
     getNewsComments(slug).then((res) => {
@@ -171,7 +177,7 @@ const GetNews = () => {
                   {// only show the news that are in the same category with the current news and remove the current news from the displayed ones
                     categoryNews?.filter((newsList)=>newsList.id !== news.id).slice(0,4).map(({featured_image, post_title, slug})=>{
                       return(
-                        <article>
+                        <article key={post_title}>
                           <div className="news-teaser-img-wrap">
                             <img loading="lazy" 
                               src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}

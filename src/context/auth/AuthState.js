@@ -84,9 +84,10 @@ const AuthState = props => {
 
         try {
             const res = await axios.get('https://api.tv24africa.com/api/v1/user', config);
+            const userProfile = {...res.data.data, hasSubscribed: res.data.subscription_status}
             dispatch({
                 type: USER_LOADED,
-                payload: res.data.data,
+                payload: userProfile,
             })
         } catch (err) {
             dispatch({

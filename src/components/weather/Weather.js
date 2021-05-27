@@ -16,7 +16,6 @@ export const Weather = () => {
       return;
     }
   }, [])
-  // console.log(userWeather)
 
   if(!localStorage.getItem('location-allowed')){ // if there is no permission
     return (
@@ -37,15 +36,14 @@ export const Weather = () => {
       
       // check if the browser supports geolocation
       if (navigator.geolocation) {
-       return navigator.geolocation.getCurrentPosition(success, error);
+        return navigator.geolocation.getCurrentPosition(success, error, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
       } else {
         alert('Your browser does not support location tracking, or permission is denied.');
       }
-  
+      
     }
   
   async function getWeatherData (latitude, longitude){
-    // console.log(latitude, longitude)
       // const weatherApi = `https://api.openweathermap.org/data/2.5/weather?lat=9.0797&lon=6.0097&units=metric&appid=${REACT_APP_WEATHER_KEY}`;
       const weatherApi = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${REACT_APP_WEATHER_KEY}`;
       try {

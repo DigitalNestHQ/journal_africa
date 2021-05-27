@@ -46,7 +46,6 @@ const Login = (props) => {
         password,
       })
       .then((res)=>{
-        console.log(res.status === 200);
         if(res.status === 200){
           setAlert("login successful", "success");
           setTimeout(() => {

@@ -19,6 +19,8 @@ export default (state, action) => {
         user: action.payload,
         loading: false
       }
+    
+    
     case REGISTER_SUCCESS:
       // localStorage.setItem("token", null);
       return {

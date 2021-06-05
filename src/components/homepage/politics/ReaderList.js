@@ -11,13 +11,12 @@ const ReaderList = ({ slug, post_title, post_description, description_slice, cre
   const firstParagraph = getAllParagraphs[0];
   let html;
   if(post_description){
-    html = `${post_description.slice(0, description_slice || 707 )}...`
+    html = `${post_description.slice(0, description_slice || 220 )}...`
   }
   return (
     <article className="ews_articlen must-read">
       <section className="post-info d-flex justify-content-between">
         {post_type && (<button className="must-read-type small">{post_type}</button>)}
-        {/* <button className="must-read-type small">Premium</button> */}
         <span className="must-read-date small">{formatDate(created_at)}</span>
       </section>
       <section className="must-read-text">

@@ -58,7 +58,7 @@ export const PodCastsPageNavBar = () => {
                         </li>
                         <li className="nav-item d-lg-none">
                             <a className="nav-link active" aria-current="page" href="#">
-                            Discovery Africa
+                            Discover Africa
                             </a>
                         </li>
                         <li className="nav-item d-lg-none">

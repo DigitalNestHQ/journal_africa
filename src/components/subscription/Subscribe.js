@@ -42,13 +42,13 @@ const Subscribe = () => {
           </p>
         </div>
         <div className="container pay_plan-wrap">
-          <h2>Pay from Nigeria</h2>
+          <h2>Pay from {currency === "NGN" ? "Nigeria" : "US"}</h2>
           <div className="sub-curency">
             {/* select which currency to pay */}
             <span className="sub-curency_ngn" onClick={()=>setCurrency("NGN")}>NGN</span>
             <span className="sub-curency_usd" onClick={()=>setCurrency("USD")}>USD</span>
           </div>
-        <div className="row px-5 text-white mb-5">
+        {/* <div className="row px-5 text-white mb-5">
           <div className="col-12">
             <ul className="ml-0 ml-md-4 ml-lg-4">
               <li>Read beyond the news</li>
@@ -58,7 +58,7 @@ const Subscribe = () => {
               <li>Access exclusive stories, expert correct and expensive coverage and TV24 Africa website and mobile app</li>
             </ul>
           </div>
-        </div>
+        </div> */}
           <div className="card-flex row">
             {
               subscriptionPlans && subscriptionPlans.map(({id, name, duration, price_ngn, price_usd})=>{

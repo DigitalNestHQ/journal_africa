@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Carousel } from "react-bootstrap";
+import { Card, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./homepage.css";
 import "./ads/ads.css";
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 // ads
 import { LargeSizeAds } from "./ads/Ads";
 import bannerAds from './../../assets/images/bannerads.png';
@@ -30,22 +29,6 @@ class Banner extends Component {
     const getPremiumNews = feeds && feeds.filter((feed)=>feed.post_type=='premium') // extract premium news
     const firstFeed = Array.isArray(getPremiumNews) && getPremiumNews.length ? getPremiumNews[6] : {};
     const secondFeed = Array.isArray(getPremiumNews) && getPremiumNews.length ? getPremiumNews[1] : {};
-
-    if(feeds?.length == 0){// if there is no feeds display loader
-      return(
-        <div className="custom-container container-fluid flex-container banner">
-          <div className="col-sm-12 py-3 carousel-ct">
-            <div className="mt-3 carosel" style={{ fontSize: 20, lineHeight: 2 }}>
-              <SkeletonTheme color="#EEE" highlightColor="#CCC">
-                  <p>
-                  <Skeleton count={10} duration={7} />
-                  </p>
-              </SkeletonTheme>
-            </div>
-          </div>
-        </div>
-      )
-    }
 
     return (
       <React.Fragment>
@@ -92,7 +75,7 @@ class Banner extends Component {
             </Carousel>
           </div>
           <div className="col-sm-4">
-            { firstFeed &&
+            {/* { firstFeed &&
               <div className="cnt-1"
                 style={{
                     background: `
@@ -118,8 +101,71 @@ class Banner extends Component {
                   </Link>
                 </div>
               </div>
+            } */}
+
+            {
+              firstFeed && (
+                <div className="cnt-1">
+                <Link to={`/post/${firstFeed.slug}`}>
+                <Card className="text-white mt-wrap h-100">
+                  <Card.Img
+                    src={`https://api.tv24africa.com/public/storage/post_image/${firstFeed.featured_image}`}
+                    alt="Card image"
+                    className="h-100"
+                  />
+                  <Card.ImgOverlay className="s-overlay cnt-txt-wrap">
+                    <Link
+                    to={{
+                      pathname: "/news/categories",
+                      search: `?category=${firstFeed.category_id}`,
+                    }}
+                  >
+                      <button className="text-decoration-none inline-block p-2  cap-anco feed-btn text-left mt-5">
+                      {firstFeed.category_id}
+                    </button>
+                  </Link>
+                    <Card.Text className="ts-card-txt">
+                      <Link to={`/post/${firstFeed.slug}`}>
+                    <p className="text-left text-capitalize pb-4">{firstFeed.slug}</p>
+                  </Link>
+                    </Card.Text>
+                  </Card.ImgOverlay>
+                </Card>
+              </Link></div>
+              )
             }
             {
+              secondFeed && (
+                <div className="cnt-2">
+                <Link to={`/post/${secondFeed.slug}`}>
+                <Card className="text-white mt-wrap h-100">
+                  <Card.Img
+                    src={`https://api.tv24africa.com/public/storage/post_image/${secondFeed.featured_image}`}
+                    alt="Card image"
+                    className="h-100"
+                  />
+                  <Card.ImgOverlay className="ts-overlay cnt-txt-wrap">
+                  <Link
+                    to={{
+                      pathname: "/news/categories",
+                      search: `?category=${secondFeed.category_id}`,
+                    }}
+                  >
+                      <button className="text-decoration-none inline-block p-2  cap-anco feed-btn text-left mt-5">
+                      {secondFeed.category_id}
+                    </button>
+                  </Link>
+                    <Card.Text className="ts-card-txt">
+                      <Link to={`/post/${secondFeed.slug}`}>
+                    <p className="text-left text-capitalize pb-4">{secondFeed.slug}</p>
+                  </Link>
+                    </Card.Text>
+                  </Card.ImgOverlay>
+                </Card>
+              </Link></div>
+              )
+            }
+            {/* {
               secondFeed &&
                 <div className="cnt-2"
                 style={{
@@ -146,7 +192,7 @@ class Banner extends Component {
                   </Link>
                 </div>
               </div>
-            }
+            } */}
 
           </div>
         </div>

@@ -284,11 +284,13 @@
 .up-next-container .previous-article{
     text-align: left;
     padding-right: 40px;
+    width: 50%;
 }
 
 .up-next-container .next-article{
     text-align: right;
     padding-left: 30px;
+    width: 50%;
 }
 
 .next-article-heading,

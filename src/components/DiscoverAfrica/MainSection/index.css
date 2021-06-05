@@ -8,14 +8,14 @@ section.discover {
   padding: 50px 0;
 }
 .left-pane {
-  width: 68%;
+  width: 60%;
 }
 
 .right-pane {
   background-color: white;
   padding: 6px 18px;
   text-align: left;
-  width: 26%;
+  width: 34%;
   border: 1px solid var(--reader-border-color);
   /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25); */
 }
@@ -80,9 +80,12 @@ section.discover {
   section.discover {
     /* flex-direction: column; */
   }
+  .discover-cont{
+    margin: 0px 30px;
+  }
 
   .left-pane {
-    width: 70%;
+    /* width: 70%; */
   }
   .main-section-card {
     /* display: inline; */
@@ -90,16 +93,17 @@ section.discover {
   
 
   .right-pane {
-    width: 30%;
+    /* width: 30%; */
   }
 }
   @media screen and (max-width: 900px){ 
   section.discover{
     flex-direction: column;
    }
+
   .right-pane,
   .left-pane{
-    width: 100%;
+    width: 80%;
   }
   .trend{
     margin: 10px 0px 20px 0px;

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { ExploreMore } from "../ExploreMore";
 
 // THE FIRST FRONTEND GUY MADE SEVERAL CONFUSING NAMING CONVENTION 
+
 // THIS COMPONENT HAS BEEN CHANGED TO POLITICS COMPONENT
 
 class PoliticsAndGovernance extends Component {
@@ -56,7 +57,7 @@ class PoliticsAndGovernance extends Component {
               {/* <h2>MUST READ</h2> */}
               <div>
                 {getPremiumNews && getPremiumNews.length &&
-                  getPremiumNews.slice(0, 4).map((news) => {
+                  getPremiumNews.slice(0, 3).map((news) => {
                     const { slug, post_title, id, created_at, post_description, post_type} = news;
                     return <ReaderList 
                             key={id} 

@@ -56,7 +56,7 @@ export const SignupTeaser = () => {
                         type="email" 
                         name="email"
                         value={emailAddress.email} 
-                        placeholder="Subscribe to Newsletter" 
+                        placeholder="Your Email Address Here" 
                         className="p-1 p-md-0 p-lg-2 form-control-lg" 
                         onChange={handleChange} 
                         required

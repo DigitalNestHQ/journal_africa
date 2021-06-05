@@ -1,7 +1,10 @@
 .footer-wrapper{
   background-color: #000;
   padding: 30px;
+  position: relative;
+  top: 100px;
 }
+
 .ft-crd{
   border: none;
   background-color: inherit;
@@ -23,6 +26,14 @@
 }
 .social_media{
   text-align: right;
+}
+
+.copyRight_text{
+  font-size: 15px;
+}
+
+.copyRight_text a{
+  color: blue;
 }
 
 @media(max-width: 600px){

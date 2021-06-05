@@ -20,16 +20,13 @@ const Footer = () => {
                 <Link to="/privacy-policy">Terms and conditions</Link>
               </li>
               <li>
+                <Link to="/">Code of Ethics</Link>
+              </li>
+              <li>
                 <Link to="/cookie-policy">Cookies Policy</Link>
               </li>
               <li>
-                <Link to="/">Code of Ethics Finder</Link>
-              </li>
-              <li>
-                <Link to="/">Membership</Link>
-              </li>
-              <li>
-                <Link to="/">Advertise with us</Link>
+                <Link to="/faq">FAQs</Link>
               </li>
             </ul>
 
@@ -41,28 +38,25 @@ const Footer = () => {
                 <Link to={pageurl.CONTACTUS}>Contact Us</Link>
               </li>
               <li>
-                <Link to="/">Submit an article</Link>
+                <Link to="/">Advertise</Link>
               </li>
               <li>
                 <Link to="/">Newsletter</Link>
               </li>
               <li>
-                <Link to="/">Mobile App</Link>
+                <Link to="/">Write for us</Link>
               </li>
               <li>
                 <Link to="/">Site Map</Link>
               </li>
-              <li>
-                <Link to="/">Work with us</Link>
-              </li>
             </ul>
           </div>
           <div className="col-12 col-md-6 col-lg-2 ft-crd">
-            <h3 className="ft-hd-3">Section</h3>
+            <h3 className="ft-hd-3">Sections</h3>
             <ul>
-              <li>
+              {/* <li>
                 <Link to="/podcast">Live Radio Us</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/podcast">Podcast</Link>
               </li>
@@ -72,7 +66,7 @@ const Footer = () => {
                     pathname: "/news/categories",
                     search: `?category=Discovery Africa`,
                   }}
-                >Discover Africa</Link>
+                >Places</Link>
               </li>
               <li>
                 <Link
@@ -80,7 +74,7 @@ const Footer = () => {
                     pathname: "/news/categories",
                     search: `?category=Tech Africa`,
                   }}
-                >Tech Africa</Link>
+                >Lifestyle</Link>
               </li>
               <li>
                 <Link
@@ -88,7 +82,7 @@ const Footer = () => {
                     pathname: "/news/categories",
                     search: `?category=Economy`,
                   }}
-                >Eco Africa</Link>
+                >Culture</Link>
               </li>
               <li>
                 <Link 
@@ -96,15 +90,14 @@ const Footer = () => {
                     pathname: "/news/categories",
                     search: `?category=Sport Africa`,
                   }}
-                >Sport Africa</Link>
+                >People</Link>
               </li>
             </ul>
           </div>
           <div className="col-12 col-md-6 col-lg-4 app-cont mt-1 mt-lg-5">
             <p className="pl-3 pl-lg-0">
-              TV24 Africa Newspaper is Africa’s top online publication
-              delivering breaking news and in-depth analysis in business,
-              politics, entertainment, sports, lifestyle and many more.
+              TV24 Africa Newspaper is Africa’s top Political, Economic, Development and Lifestyle online publication
+              that tells the real Africa Story.
             </p>
             <h3 className="ps_p">DOWNLOAD APP</h3>
             <div className="app-store">
@@ -131,7 +124,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-            <small className="copyRight_text">&copy;2021 TV24 Media Network</small>
+            <small className="copyRight_text">&copy;2021 TV24 Newspaper Limited, <a href="https://news.tv24africa.com">a subsidiary of News Media Africa Limited</a></small>
       </footer>
     </div>
   );

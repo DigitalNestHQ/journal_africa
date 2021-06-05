@@ -142,8 +142,9 @@ button{
     }
 }
 .cnt-txt-wrap {
-    width: 84%;
+    width: 100%;
     padding: 2px 0 0px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
 }
 
 .cnt-txt-wrap a{
@@ -173,7 +174,7 @@ button{
 }
 
 .caro-item img{
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 
 @media screen and (min-width: 560px) {

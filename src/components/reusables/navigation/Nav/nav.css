@@ -9,6 +9,15 @@
     font-family: "Poppins";
     z-index: 999;
   }
+
+
+
+.navbar-toggler{
+    padding-left: 25px;
+    margin-top: 15px;
+    /* padding-right: 30px; */
+}
+
   .activeLink {
     color: #fff!important;
   }
@@ -28,7 +37,12 @@
         margin-left: 25px;
     }
 
-    
+    @media(min-width: 1000px){
+           /* new */
+        .nav-mn{
+            margin-left: 90px;
+        }
+    }
   @media(max-width: 1000px){
 
       .nav-link{
@@ -38,7 +52,9 @@
 
   .Navigation .nav-item .nav-link{
     margin-right: -2px !important;
+    font-size: 15px;
   }
+
   .Navigation .nav-item .nav-link:hover{
     color: #e7332b;
   }
@@ -203,6 +219,12 @@
 @media (max-width: 978px) {
     body {
       padding:0;
+    }
+    .nav-wrapper{
+        height: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
     }
 
     .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {

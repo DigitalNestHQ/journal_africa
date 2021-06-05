@@ -69,7 +69,7 @@ function TopNav(props) {
               <span>Welcome {user.firstname} {user.lastname}</span> <span className="p-1">{getDate()}</span>
             </>
           ) :(
-              <><span>Welcome to Tv24Africa</span> <span className="p-1">{getDate()}</span></>
+              <><span>Welcome to TV24Africa</span> <span className="p-1">{getDate()}</span></>
           )
         }
         {" "}

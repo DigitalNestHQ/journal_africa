@@ -3,6 +3,10 @@
     margin: 0 auto;
     background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
     url("../../assets/images/elephant.jpg")center/cover fixed no-repeat;
+    
+    background: linear-gradient(rgba(234, 46, 46, 0.5), rgba(234, 46, 46, 0.6)),
+    url("../../assets/images/elephant.jpg")center/cover fixed no-repeat;
+    
     height: 100vh;
 }
 .login-wrap{

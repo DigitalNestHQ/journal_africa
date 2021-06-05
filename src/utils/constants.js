@@ -13,8 +13,11 @@ export const pageurl = {
     COOKIEPOLICY: "/cookie-policy",
     ENTERTAINMENT: "/entertainment",
     SUBSCRIBE: "/subscribe",
+    SUBSCRIBESUCCESS: "/subscribed",
     LIFESTYLE: "/lifestyles",
     FAQ: "/faq",
     DISCOVERAFRICA: "/africa",
     ERROR404: "/error404",
+    PODCAST:"/podcast",
+    ADVERTISING:"/advertising"
   };

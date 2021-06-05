@@ -14,7 +14,7 @@ const Navbar = () => {
     <div className="Navigation">
       <TopNav />
       <header>
-        <div className="container-fluid">
+        <div className="container-fluid nav-wrapper">
           <nav className="navbar d-print navbar-expand-lg navbar-light navigation py-2 px-1 ">
             <Link
               to={pageurl.HOMEPAGE}
@@ -35,8 +35,8 @@ const Navbar = () => {
               {" "}
               <i style={{ color: "#E7332B" }} className="fas fa-bars" />
             </button>
-            <div className="collapse navbar-collapse" id="collapsibleNavId">
-              <ul className="navbar-nav ml- mt-2 mt-lg-0 nav-mn">
+            <div className="collapse navbar-collapse justify-content-space-between" id="collapsibleNavId">
+              <ul className="navbar-nav ml- mt-2 mt-lg-0 nav-mn d-flex justify-cntent-center" style={{width:"100%"}}>
                 <li className="nav-item">
                   <Link
                     className="nav-link ml-lg-1"
@@ -57,19 +57,19 @@ const Navbar = () => {
                       search: `?category=Politics and Governance`,
                     }}
                   >
-                    POLITICS/GOVERNANCE
+                    POLITICS
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-1 remove--item-3"
+                    className="nav-link ml-lg-1 remov--item-3"
                     activeclassname="activeLink"
                      to={{
                        pathname: "/news/categories",
                        search: `?category=Business and Finance`,
                       }}
                   >
-                    BUSINESS/FINANCE
+                    BUSINESS
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -86,6 +86,18 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
+                    className="nav-link ml-lg-1 remov--item-2"
+                    activeclassname="activeLink"
+                     to={{
+                       pathname: "/news/categories",
+                       search: `?category=Politics and Governance`,
+                      }}
+                  >
+                    GOVERNANCE
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     to={{
@@ -96,45 +108,23 @@ const Navbar = () => {
                     ECONOMY
                   </Link>
                 </li>
-                <li className="nav-item">
+               
+                {/* <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-1 remove--item-2"
-                    activeclassname="activeLink"
-                     to={{
-                       pathname: "/news/categories",
-                       search: `?category=Lifestyle`,
-                      }}
-                  >
-                    LIFESTYLE
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    className="nav-link ml-lg-1 remove--item-3"
+                    className="nav-link ml-lg-1 remov--item-3"
                     activeclassname="activeLink"
                     to={{
                       pathname: "/news/categories",
                       search: `?category=Discovery Africa`,
                     }}
                   >
-                    DISCOVERY AFRICA
+                    DISCOVER AFRICA
                   </Link>
-                </li>
+                </li> */}
+
                 <li className="nav-item">
                   <Link
-                    className="nav-link ml-lg-1 remove--item-2"
-                    activeclassname="activeLink"
-                      to={{
-                      pathname: "/news/categories",
-                      search: `?category=Tech Africa`,
-                    }}
-                  >
-                    TECH AFRICA
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    className="nav-link ml-lg-1 remove--item-1"
+                    className="nav-link ml-lg-1 remov--item-1"
                     activeclassname="activeLink"
                       to={{
                       pathname: "/news/categories",
@@ -142,6 +132,16 @@ const Navbar = () => {
                     }}
                   >
                     VIEWPOINT
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link
+                    className="nav-link ml-lg-1 remov--item-2"
+                    activeclassname="activeLink"
+                      to={pageurl.PODCAST}
+                  >
+                    PODCAST
                   </Link>
                 </li>
               </ul>
@@ -162,11 +162,13 @@ const Navbar = () => {
                 <li className="nav-item hd-bd">
                   <Link
                     to="/subscribe"
-                    className="nav-link nav-sub mt-3 mt-lg-0 subscribe-custom-btn"
+                    className="nav-link nav-sub mt-3 mt-lg-0 ml-lg-1 subscribe-custom-btn"
                   >
                     subscribe
                   </Link>
-                  <i className="fas fa-search"></i>
+                  <span className="ml-2">
+                    <i className="fas fa-search"></i> 
+                  </span>
                 </li>
               </ul>
             </div>

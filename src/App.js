@@ -34,6 +34,9 @@ import setAuthToken from "./utils/setAuthToken";
 import "./App.css";
 import Categories from "./components/newscategory/Categories";
 import { SinglePodCast } from "./podcast/singlepodcast/SinglePodCast.js";
+import { SuccessPage } from "./components/homepage/homepageSubscribeSection/SuccessPage.js";
+import Faq from "./components/faq/Faq.js";
+import { Advertising } from "./components/advertising/Advertising.js";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -47,6 +50,9 @@ function App() {
             {/* <Route exact path="/news/home" component={NewHomePage} /> */}
             <Route exact path={pageurl.HOMEPAGE} component={HomePage} />
             <Route exact path={pageurl.SUBSCRIBE} component={Subscribe} />
+            <Route exact path={pageurl.FAQ} component={Faq} />
+            <Route exact path={pageurl.ADVERTISING} component={Advertising} />
+            <Route exact path={pageurl.SUBSCRIBESUCCESS} component={SuccessPage} />
             <Route exact path={pageurl.CATEGORY} component={Category} />
             <Route exact path={pageurl.ABOUT} component={AboutUs} />
             <Route exact path={pageurl.SPORT} component={Sports} />
@@ -54,7 +60,7 @@ function App() {
             <Route path="/allnews" component={AllNewsFeeds} />
             <Route exact path="/news/categories" component={CategoryNews} />
             <Route exact path="/news/1" component={Categories} />
-            <Route exact path="/podcast" component={PodcastHome} />
+            <Route exact path={pageurl.PODCAST} component={PodcastHome} />
             <Route exact path="/podcast/all" component={PodCastsView} />
             <Route exact path="/podcast/single" component={SinglePodCast} />
             <Route

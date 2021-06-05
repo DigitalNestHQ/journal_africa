@@ -68,9 +68,9 @@ const Login = (props) => {
         <FormHeader redirectTo="signup" linkLabel="Sign Up" />
         <div className="container-fluid login-wrap">
           <div className="login-txt">
-            <span>Telling</span>
-            {/* <p>The Untold African Story</p> */}
-            <p style={{fontSize: "56px", lineHeight: '1.2'}}> In-depth and correct to details analysis of original African stories</p>
+            <p style={{fontSize: "56px", lineHeight: '1.2'}}>
+               Telling The Untold Africa Story
+               </p>
           </div>
           <div className="form-wrap">
             <h2>Sign In</h2>

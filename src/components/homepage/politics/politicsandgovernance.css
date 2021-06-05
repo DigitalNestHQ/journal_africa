@@ -164,6 +164,10 @@ a {
     width: 100%;
     font-size: 17px;
     color: red;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .politics-ads img{
     width: 100%;

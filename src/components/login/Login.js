@@ -8,16 +8,17 @@ import AuthContext from "../../context/auth/authContext";
 import "./login.css";
 
 const Login = (props) => {
-  const [showPassword, setShowPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
   const { setAlert } = alertContext;
   const { login, error, clearErrors, isAuthenticated } = authContext;
 
   useEffect(() => {
-    if(localStorage.token){// redirect user back to the home page if logged in
-      props.history.push('/');
+    if (localStorage.token) {
+      // redirect user back to the home page if logged in
+      props.history.push("/");
     }
     if (error) {
       setAlert(error, "danger");
@@ -34,31 +35,29 @@ const Login = (props) => {
   const { email, password } = user;
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
   const onSubmit = (e) => {
-    setIsLoading(true)
+    setIsLoading(true);
     e.preventDefault();
     if (email === "" || password === "") {
       setAlert("email or password not correct", "danger");
-      setIsLoading(false)
+      setIsLoading(false);
     }
-    if(!error) {
+    if (!error) {
       login({
         email,
         password,
       })
-      .then((res)=>{
-        if(res.status === 200){
-          setAlert("login successful", "success");
-          setTimeout(() => {
+        .then((res) => {
+          if (res.status === 200) {
+            setAlert("login successful", "success");
+            setTimeout(() => {
               props.history.push("/");
-          }, 1000)
-        }
-      })
-      .catch((err)=>{
-        setIsLoading(false)
-        // setAlert("Login Failed", "danger");
-
-      })
-
+            }, 1000);
+          }
+        })
+        .catch((err) => {
+          setIsLoading(false);
+          // setAlert("Login Failed", "danger");
+        });
     }
   };
 
@@ -68,9 +67,9 @@ const Login = (props) => {
         <FormHeader redirectTo="signup" linkLabel="Sign Up" />
         <div className="container-fluid login-wrap">
           <div className="login-txt">
-            <p style={{fontSize: "56px", lineHeight: '1.2'}}>
-               Telling The Untold Africa Story
-               </p>
+            <p style={{ fontSize: "56px", lineHeight: "1.2" }}>
+              Telling The Untold Africa Story
+            </p>
           </div>
           <div className="form-wrap">
             <h2>Sign In</h2>
@@ -104,13 +103,18 @@ const Login = (props) => {
                   required
                   onChange={onChange}
                 />
-                <span className="showPassword"onClick={()=>setShowPassword(!showPassword)}>{showPassword ? "hide" : "show"}</span>
+                <span
+                  className="showPassword"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? "hide" : "show"}
+                </span>
                 <Link className="fpass" to="/forgotPassword">
                   Forgot your password?
                 </Link>
               </div>
               {/* <div style={{height: '2.7rem'}}> */}
-                <Alerts />
+              <Alerts />
               {/* </div> */}
               <button className="my-2" type="submit" disabled={isLoading}>
                 {isLoading ? "Loading..." : "Sign In"}{" "}
@@ -122,7 +126,6 @@ const Login = (props) => {
                 <Link className="gsignup" to="/signup">
                   {" "}
                   SIGN UP{" "}
-                  
                 </Link>
               </h5>
             </div>

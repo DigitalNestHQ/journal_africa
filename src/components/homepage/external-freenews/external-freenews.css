@@ -1,0 +1,35 @@
+.wordpress-link-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.wordpress-link-section h2 {
+  font-size: 1.3em;
+  text-transform: capitalize;
+  color: var(--color-red-2);
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+}
+
+.wordpress-link-section .wordpress-btn {
+  color: #ddd;
+  border: none;
+  background: var(--color-red-2);
+  padding: 3px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 7px;
+  cursor: pointer;
+  border-radius: 18px;
+  font-weight: 700;
+}
+
+@media (min-width: 900px) {
+  .wordpress-link-section {
+    margin-top: 0;
+  }
+}

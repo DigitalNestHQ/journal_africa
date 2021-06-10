@@ -19,51 +19,52 @@ import { SignupTeaser } from "../reusables/news/SignupTeaser";
 import LatestNews from "./latestnews/LatestNews";
 import Loader from "../loader/Loader";
 import { HomepagePodcast } from "./homepage-podcast/HomepagePodcast";
+import ExternalNews from "./external-freenews/ExternalNews";
 
 function Homepage() {
   const [news, setNews] = useState(null);
   const [error, setError] = useState(null);
   const { slug } = useParams();
 
-  
   // your useeffct function will cause memory  leaks
   useEffect(() => {
     AOS.init();
     let subscribe = true;
     if (subscribe) {
       getNewsFeed()
-      .then((data) => {
-        setNews(data);
-      })
-      .catch((err) => {
+        .then((data) => {
+          setNews(data);
+        })
+        .catch((err) => {
           setError(err);
           console.log(err);
         });
-        return () => (subscribe = null);
+      return () => (subscribe = null);
     }
-    
+
     //eslint-disable-next-line
   }, [slug, setNews]);
-  if(!news){
-    return <Loader />
+  if (!news) {
+    return <Loader />;
   }
 
   return (
     <Fragment>
       <Nav />
-        <Banner data={news} />
-        <LatestNews data={news} />
-        <TeaserSection data={news} />
-        <PoliticsAndGovernance data={news}/>
-        <Business data={news}/>
-        <Development data={news}/>
-        <EconomyComponent data={news}/>
-        <Tech data={news}/>
-        <ViewPoint data={news}/>
-        <Entertainment data={news}/>
-        <HomepagePodcast />
-        <SignupTeaser />
-        {/* <SubscribeForm /> */}
+      <Banner data={news} />
+      <ExternalNews data={news} />
+      <LatestNews data={news} />
+      <TeaserSection data={news} />
+      <PoliticsAndGovernance data={news} />
+      <Business data={news} />
+      <Development data={news} />
+      <EconomyComponent data={news} />
+      <Tech data={news} />
+      <ViewPoint data={news} />
+      <Entertainment data={news} />
+      <HomepagePodcast />
+      <SignupTeaser />
+      {/* <SubscribeForm /> */}
       <Footer />
     </Fragment>
   );

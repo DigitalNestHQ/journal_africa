@@ -14,6 +14,7 @@ import DiscoverAfrica from "./components/DiscoverAfrica/index";
 import ContactUs from "./components/ContactUs/index";
 import NewsFeeds from "./components/generalNews/News";
 import AllNewsFeeds from "./components/homepage/AllNews";
+import { CodeOfEthics } from "./components/ethicscode/CodeOfEthics";
 import CategoryNews from "./components/category/CategoryNews";
 import { PodcastHome } from "./podcast/home/PodcastHome.js";
 import { PodCastsView } from "./podcast/podcastspage/PodCastsView.js";
@@ -23,7 +24,7 @@ import Error404 from "./components/error404/Error404";
 // import { NewHomePage } from "./components/newDesign/NewHomePage"
 
 // css override
-import './../src/components/reusables/utilities/index.css'
+import "./../src/components/reusables/utilities/index.css";
 
 // states
 import AuthState from "./context/auth/AuthState";
@@ -52,10 +53,15 @@ function App() {
             <Route exact path={pageurl.SUBSCRIBE} component={Subscribe} />
             <Route exact path={pageurl.FAQ} component={Faq} />
             <Route exact path={pageurl.ADVERTISING} component={Advertising} />
-            <Route exact path={pageurl.SUBSCRIBESUCCESS} component={SuccessPage} />
+            <Route
+              exact
+              path={pageurl.SUBSCRIBESUCCESS}
+              component={SuccessPage}
+            />
             <Route exact path={pageurl.CATEGORY} component={Category} />
             <Route exact path={pageurl.ABOUT} component={AboutUs} />
             <Route exact path={pageurl.SPORT} component={Sports} />
+            <Route exact path={pageurl.CODEOFETHICS} component={CodeOfEthics} />
             <Route exact path="/post/:slug" component={NewsFeeds} />
             <Route path="/allnews" component={AllNewsFeeds} />
             <Route exact path="/news/categories" component={CategoryNews} />

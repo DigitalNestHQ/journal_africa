@@ -1,48 +1,69 @@
-.footer-wrapper{
+.footer-wrapper {
   background-color: #000;
   padding: 30px;
   position: relative;
   top: 100px;
 }
 
-.ft-crd{
+.ft-crd {
   border: none;
   background-color: inherit;
 }
-.app-store{
+.app-store {
   width: auto;
   border-radius: 10px;
   /* height: 5px; */
   display: flex;
   align-items: center;
   padding: 13px;
-  
 }
-.app-store a img{
-  width: 100px;
+.app-store a img {
+  width: 100%;
   margin: 20px 5px;
   border: 1px solid #ccc;
   border-radius: 10px;
 }
-.social_media{
-  text-align: right;
+.social_media {
+  margin-top: 1rem;
 }
 
-.copyRight_text{
+footer .fab {
+  font-weight: 100;
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+/* .footer .social_media .fa-facebook {
+  color: #3b5998;
+}
+
+.footer .social_media .fa-twitter {
+  color: #00acee;
+}
+
+.footer .social_media .fa-instagram {
+  color: #4c68d7;
+}
+
+.footer .social_media .fa-youtube {
+  color: #ff0000;
+} */
+
+.copyRight_text {
   font-size: 15px;
 }
 
-.copyRight_text a{
+.copyRight_text a {
   color: blue;
 }
 
-@media(max-width: 600px){
-  .social_media{
+@media (max-width: 600px) {
+  .social_media {
     text-align: left;
     padding: 20px;
   }
 }
-.copyRight_text{
+.copyRight_text {
   padding: 20px;
   text-align: left;
   display: block;
@@ -52,24 +73,20 @@
 footer a,
 footer i,
 footer .ps_p,
-footer p{
+footer p {
   color: white;
   text-transform: capitalize;
 }
-footer .fab{
-  font-weight: bold;
-  font-weight: 100;
-}
-footer{
+
+footer {
   /* font-family: 'Gothic A1', sans-serif; */
   font-style: normal;
 }
-footer h3:not(.ps_p){
-  background-color: #FF0606;
-
+footer h3:not(.ps_p) {
+  background-color: #ff0606;
 }
-footer h3, 
-.ps_p{
+footer h3,
+.ps_p {
   color: white;
   text-transform: uppercase;
   height: 28px;
@@ -84,43 +101,43 @@ footer h3,
   line-height: 22px;
 }
 .footer .col-sm-3 ul,
-.footer .col-sm-3 p{
-  padding-top: 10px
+.footer .col-sm-3 p {
+  padding-top: 10px;
 }
-footer ul{
+footer ul {
   list-style-type: none;
   /* position: relative; */
-} 
-footer ul li a{
+}
+footer ul li a {
   text-decoration: none;
 }
-footer ul li{
+footer ul li {
   font-size: 18px;
   line-height: 22px;
   font-weight: 600;
-  border-top: .8px solid transparent;
-  border-bottom: .8px solid transparent;
+  border-top: 0.8px solid transparent;
+  border-bottom: 0.8px solid transparent;
 }
-footer ul li:hover{
-  border-top: .8px solid lightblue;
-  border-bottom: .8px solid lightblue;
+footer ul li:hover {
+  border-top: 0.8px solid lightblue;
+  border-bottom: 0.8px solid lightblue;
   padding: 2px 2px 0;
   display: inline-block;
   white-space: nowrap;
 }
-footer ul li a:hover{
+footer ul li a:hover {
   text-decoration: none;
-  color: wheat
+  color: wheat;
 }
-footer small{
+footer small {
   color: #fff;
   font-size: 20px;
-  text-align: center
+  text-align: center;
 }
 
 .ft-hd-2,
 .ft-hd-1,
-.ft-hd-3{
+.ft-hd-3 {
   text-align: left;
   margin-left: -0.1rem;
   margin-top: 1rem;
@@ -129,80 +146,83 @@ footer small{
   padding-right: 15px;
   padding-left: 5px;
 }
-footer p{
+footer p {
   font-weight: 400;
   font-size: 18px;
   line-height: 25px;
 }
 
-@media(max-width:900px){
-  .copyRight_text{
+.copyRight_text {
+  margin-top: 2rem;
+}
+
+.copyRight_text .subs-link {
+  color: var(--color-red-2);
+}
+
+@media (max-width: 900px) {
+  .copyRight_text {
     text-align: center;
   }
 }
 
-@media(min-width: 768px){
-  .ps_p{
+@media (min-width: 768px) {
+  .ps_p {
     margin: 0px !important;
   }
 
   .app-store,
-  .copyRight_text{
+  .copyRight_text {
     padding: 0px !important;
   }
 }
 
-footer ul li{
+footer ul li {
   font-weight: 100;
   font-size: 18px;
   line-height: 27px;
 }
 
-@media(max-width: 390px){
-  .app-store a img{
+@media (max-width: 390px) {
+  .app-store a img {
     width: 130px;
   }
 }
 
-
-
-@media screen and (max-width: 772px){
-  .footer-wrapper{
+@media screen and (max-width: 772px) {
+  .footer-wrapper {
     background-color: #000;
     padding: 30px 0px;
   }
-  .ft-mob{
+  .ft-mob {
     max-width: 95%;
     margin: 0 auto;
   }
-    footer ul li,
-    footer p{
+  footer ul li,
+  footer p {
     line-height: 47px;
   }
 
-  .ps_p{
+  .ps_p {
     margin-left: 12px !important;
   }
 
-  .app-cont{
+  .app-cont {
     padding: 0px !important;
   }
 
-  .app-store{
+  .app-store {
     padding: 8px;
   }
 
-  .copyRight_text{
+  .copyRight_text {
     padding: 10px;
   }
 
-  footer p{
+  footer p {
     line-height: 25px;
   }
-  footer ul li{
+  footer ul li {
     line-height: 27px;
   }
-
-
 }
-

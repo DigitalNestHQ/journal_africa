@@ -8,7 +8,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 class LatestNews extends Component {
   render() {
     const feeds = this.props.data;
-    // console.log(feeds)
+
     if(feeds.length === 0){
       return (
         <>
@@ -35,7 +35,7 @@ class LatestNews extends Component {
     return (
       <div className="custom-container latest-news-wrap container-fluid my-4">
         <Link to="/">
-          <label className="categories-heading">Latest Stories For Me</label>
+          <label className="categories-heading">Personalised Stories For Me</label>
         </Link>
         <div className="container-fluid row pol-news-card-wrap">
           {feeds && feeds.length > 0 &&

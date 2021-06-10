@@ -1,0 +1,26 @@
+.success-page{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.success-page i{
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.success-page h1{
+    color: var(--color-red);
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+.success-page p{
+    font-weight: 600;
+    margin-bottom: 2rem;
+}

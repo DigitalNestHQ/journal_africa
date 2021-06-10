@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { ExploreMore } from "../ExploreMore";
 
 // THE FIRST FRONTEND GUY MADE SEVERAL CONFUSING NAMING CONVENTION 
+
 // THIS COMPONENT HAS BEEN CHANGED TO POLITICS COMPONENT
 
 class PoliticsAndGovernance extends Component {
@@ -14,8 +15,8 @@ class PoliticsAndGovernance extends Component {
     const getPoliticsNews = feeds && feeds.filter(
       (news) => news.category_id === "Politics and Governance"
     );
-    const getPremiumNews = getPoliticsNews && getPoliticsNews.filter(
-      (newsHD) => newsHD.post_type === "free"
+    const getPremiumNews = feeds && feeds.filter(
+      (allNews) => allNews.post_type === "premium"
     );
     return (
       <div className="politics">
@@ -30,8 +31,8 @@ class PoliticsAndGovernance extends Component {
             >
               <label className="politics-category-heading">Politics and Governance</label>
             </Link>
-              { getPremiumNews && getPremiumNews.length &&
-                getPremiumNews.slice(0, 3).map((news) => {
+              { getPoliticsNews && getPoliticsNews.length &&
+                getPoliticsNews.slice(0, 3).map((news) => {
                   const {
                     post_title,
                     id,
@@ -55,8 +56,8 @@ class PoliticsAndGovernance extends Component {
             <div className="col-12 col-md-10 col-lg-4 mx-auto must-read-container">
               {/* <h2>MUST READ</h2> */}
               <div>
-                {feeds && feeds.length &&
-                  feeds.slice(0, 2).map((news) => {
+                {getPremiumNews && getPremiumNews.length &&
+                  getPremiumNews.slice(0, 3).map((news) => {
                     const { slug, post_title, id, created_at, post_description, post_type} = news;
                     return <ReaderList 
                             key={id} 
@@ -65,6 +66,7 @@ class PoliticsAndGovernance extends Component {
                             post_description={post_description}
                             created_at={created_at}
                             post_type={post_type}
+                            description_slice={220}
                           />;
                   })}
               </div>

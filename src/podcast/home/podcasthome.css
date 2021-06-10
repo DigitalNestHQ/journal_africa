@@ -1,0 +1,29 @@
+:root{
+    --pod-black-1: #000000;
+    --pod-white-1: #FFFFFF;
+    --pod-red-1: #FF0000;
+}
+
+.podcast_container{
+    background-color: var(--pod-black-1);
+    color: var(--pod-white-1);
+    min-height: 100vh;
+}
+
+.podcast{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.podcast_container .container-fluid{
+    padding: 0;
+}
+
+
+
+
+
+

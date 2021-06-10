@@ -1,0 +1,114 @@
+
+.big_screen_burger,
+.small_screen_burger{
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.podcast_container .navbar{
+    border-bottom: 2px solid #FFFFFF;
+    width: 100%;
+    padding: 20px 30px;
+    padding-right: 100px;
+}
+
+.podcast_container .navbar-collapse{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.podcast_container ul{
+    padding-left: 100px;
+    transition: 0.4s ease;
+
+
+}
+.podcast_container a.nav-link{
+    height: fit-content;
+    padding: 0px 30px;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-left: 15px;    
+    position: relative;
+    white-space: nowrap;
+}
+
+.podcast_container a.nav-link::before{
+    content: "";
+    background-color: #FFFFFF;
+    position: absolute;
+    height: 100%;
+    width: 3px;
+    right: 0;
+    top: 0;
+    margin: 0px -10px;
+}
+
+.podcast_container .nav-link.subscription_btn{
+    background-color: var(--color-red-2);
+    border: 1px solid var(--color-red-2);
+}
+
+.podcast_container .nav-link.podcast_login_navlink{
+    padding-left: 70px;
+}
+
+
+.podcast_container .nav-link.subscription_btn::before,
+.podcast_container .nav-link.podcast_login_navlink::before{
+    display: none;
+}
+
+@media(max-width: 1200px){
+    .podcast_container .navbar .container-fluid{
+        justify-content: flex-start;
+    }
+
+    .podcast_container ul{
+        padding-left: 0px;
+    }
+
+    .podcast_container .nav-link.podcast_login_navlink{
+        padding-left: 3px;
+    }
+    
+    .navbar-brand{
+        /* display: none; */
+    }
+
+}
+
+
+@media(max-width: 990px){
+
+    .big_screen_burger{
+        display: none;
+    }
+
+    .podcast_container .navbar-collapse{
+        width: 100%;
+        /* display: none; */
+        /* justify-content: space-between; */
+    }
+    
+    .podcast_container a.nav-link {
+        padding: 0px 0px;
+        line-height: 3;
+        margin-left: 0px;
+    }
+    .podcast_container a.nav-link::before{
+        display: none;
+    }
+
+    .podcast_container .nav-link.podcast_login_navlink {
+        margin-left: 0px;
+    }
+
+    .podcast_container .nav-link.subscription_btn{
+        padding: 0px 10px;
+    }
+
+}

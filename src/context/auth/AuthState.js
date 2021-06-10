@@ -33,7 +33,7 @@ const AuthState = props => {
             }
         }
         try {
-            const res = await axios.post('http://api.tv24africa.com/api/v1/register', formData, config);
+            const res = await axios.post('https://api.tv24africa.com/api/v1/register', formData, config);
             dispatch({
                 type: REGISTER_SUCCESS,
                 payload: res.data
@@ -55,7 +55,7 @@ const AuthState = props => {
             }
         }
         try {
-            const res = await axios.post('http://api.tv24africa.com/api/v1/login', formData, config);
+            const res = await axios.post('https://api.tv24africa.com/api/v1/login', formData, config);
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data
@@ -83,11 +83,11 @@ const AuthState = props => {
         }
 
         try {
-            const res = await axios.get('http://api.tv24africa.com/api/v1/user', config);
-            console.log('loaduser', res.data.data)
+            const res = await axios.get('https://api.tv24africa.com/api/v1/user', config);
+            const userProfile = {...res.data.data, hasSubscribed: res.data.subscription_status}
             dispatch({
                 type: USER_LOADED,
-                payload: res.data.data,
+                payload: userProfile,
             })
         } catch (err) {
             dispatch({

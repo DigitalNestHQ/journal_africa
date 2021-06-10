@@ -1,6 +1,5 @@
 .top-nav{
     background: #4F4D4D;
-    font-family:/* was roboto before*/;
     /* border-bottom: .8px solid #fff; */
     height: 40px;
     padding-bottom: 7px;
@@ -14,6 +13,7 @@
     font-style: normal;
     font-weight: bold;
     font-size: 11px;
+    text-transform: capitalize;
 }
 .top-nav p span:first-child{
     padding: 5px 5px 3px 5px;
@@ -31,7 +31,6 @@
     padding-right: 5px;
 }
 .navbar a{
-    font-family:/* was roboto before*/;
     font-weight: 700;
 }
 .fa-search{
@@ -160,8 +159,8 @@
 
 @media(min-width: 900px){
     .d-print{
-        width: 1290px;
-        max-width: 1290px;
+        width: 1200px;
+        max-width: 1200px;
     }
 }
 

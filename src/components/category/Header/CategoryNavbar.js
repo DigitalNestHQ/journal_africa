@@ -18,13 +18,13 @@ const CategoryNavbar = () => {
       <header>
         <div className="container-fluid">
           <nav className="navbar category-navbar navbar-expand-lg navbar-light navigation py-2 px-1 ">
-            {/* <Link
+            <Link
               to={pageurl.HOMEPAGE}
               className="navbar-brand logo"
               style={{ color: "#000" }}
             >
               <img loading="lazy" src={logo} alt="logo"/>
-            </Link> */}
+            </Link>
             <button
               className="navbar-toggler d-lg-none"
               type="button"
@@ -59,7 +59,7 @@ const CategoryNavbar = () => {
                       search: `?category=Politics and Governance`,
                     }}
                   >
-                    POLITICS/GOVERNANCE
+                    POLITICS
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -71,7 +71,7 @@ const CategoryNavbar = () => {
                        search: `?category=Business and Finance`,
                       }}
                   >
-                    BUSINESS/FINANCE
+                    BUSINESS
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -119,7 +119,7 @@ const CategoryNavbar = () => {
                       search: `?category=Discovery Africa`,
                     }}
                   >
-                    DISCOVERY AFRICA
+                    DISCOVER AFRICA
                   </Link>
                 </li>
                 <li className="nav-item">

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { pageurl } from "../../utils/constants";
 import FormHeader from "../reusables/navigation/formsReusables/FormHeader";
 import Alerts from "../alert/Alerts";
@@ -11,13 +11,17 @@ const Signup = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [redirectToSubscribePage, setRedirectToSubscribePage] = useState(false)
+  const history = useHistory()
+
 
   const { setAlert } = alertContext;
   const { register, error, clearErrors, isAuthenticated } = authContext;
 
   useEffect(() => {
     if(localStorage.token){// redirect user back to the home page if logged in
-      props.history.push('/');
+      history.push('/');
     }
     if (error === "User already exists..") {
       setAlert(error, "danger");
@@ -49,6 +53,7 @@ const Signup = (props) => {
     } else if (password.length < 6) {
       setAlert("password is too short", "danger");
     } else {
+      setIsLoading(true)
       register({
         firstname,
         lastname,
@@ -58,10 +63,16 @@ const Signup = (props) => {
       })
       .then((response)=>{
         if(response.data.status === "success"){// only show success alert only if the status is from the backend
+          setIsLoading(false)
+          history.push(pageurl.SUBSCRIBESUCCESS) // redirect user to the success page
           setAlert(
             "Registration successful, a link has been sent to your email",
             "success"
-          );
+          )
+
+          setTimeout(() => {
+            setRedirectToSubscribePage(true)
+          }, 3000);
           // clear the field
           setUser({
             firstname: "",
@@ -73,20 +84,27 @@ const Signup = (props) => {
         }
       })
       .catch((error)=>{
+        setIsLoading(false)
         console.log(error)
       })
     }
   };
+
+  // REDIRECT USER TO THE SUBSCRIPTION PAGE AFTER A SUCCESSFUL REGISTRATION
+  // redirectToSubscribePage && props.history.push('/subscribe')
   return (
     <div className="signup">
       <div className="page-wrap">
         <FormHeader redirectTo="login" linkLabel="Login"/>
         <div className="container-fluid signup-wrap">
           <div className="signup-txt">
-            <p>The original African story every day in your inbox</p>
-            <span>
-              Register today to receive an email from our Editor in Chief.
-            </span>
+            <h1>When you sign up to TV24 Africa News, you are signing up for premium services that includes:</h1>
+            <ul>
+              <li>Exclusive reports, expert curation and expansive coverage of the real Africa story</li>
+              <li>Podcast and livestream of trending and topical issues in Africa</li>
+              <li>Access to all content on the TV24 Africa News website and mobile apps</li>
+            </ul>
+            <span>No commitment, cancel your subscription anytime</span>
           </div>
           <div className="form-wrap">
             <h2>Create an account</h2>
@@ -147,7 +165,6 @@ const Signup = (props) => {
                   type="tel"
                   className="form-control"
                   placeholder="Enter your phone number (e.g +2347030403416)"
-                  pattern="[0-9]{3}[0-9]{8}"
                   name="phone"
                   value={phone}
                   onChange={onChange}
@@ -184,21 +201,16 @@ const Signup = (props) => {
                     className="form-check-label tclabel"
                     for="invalidCheck2"
                   >
-                    I agree to the Tv4Africa Terms and{" "}
+                    I agree to the TV4Africa {" "}
                     <Link className="link_terms" to={pageurl.COOKIEPOLICY}>
-                      Conditions
-                    </Link>{" "}
-                    and{" "}
-                    <Link className="link_privacy" to={pageurl.PRIVACYPOLICY}>
-                      {" "}
-                      Privacy Policy
+                    Terms and Conditions
                     </Link>{" "}
                   </label>
                 </div>
               </div>
               <Alerts />
-              <button className="my-2" type="submit">
-                Sign Up
+              <button className="my-2" type="submit" disabled={isLoading}>
+                {isLoading ? "Loading..." : "Sign Up"}{" "}
               </button>
             </form>
             <div className="gosignup">

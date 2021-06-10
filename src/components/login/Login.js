@@ -46,7 +46,6 @@ const Login = (props) => {
         password,
       })
       .then((res)=>{
-        console.log(res.status === 200);
         if(res.status === 200){
           setAlert("login successful", "success");
           setTimeout(() => {
@@ -62,22 +61,20 @@ const Login = (props) => {
 
     }
   };
+
   return (
     <div className="login">
       <div className="page-wrap">
         <FormHeader redirectTo="signup" linkLabel="Sign Up" />
         <div className="container-fluid login-wrap">
           <div className="login-txt">
-            <span>Telling</span>
-            {/* <p>The Untold African Story</p> */}
-            <p style={{fontSize: "56px", lineHeight: '1.2'}}> In-depth and correct to details analysis of original African stories</p>
+            <p style={{fontSize: "56px", lineHeight: '1.2'}}>
+               Telling The Untold Africa Story
+               </p>
           </div>
           <div className="form-wrap">
             <h2>Sign In</h2>
             {/* add the alert inside a container to solve the UI dropping down */}
-            <div style={{height: '0.7rem'}}>
-              <Alerts />
-            </div>
             <form className="form login-form" onSubmit={onSubmit}>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
@@ -112,9 +109,11 @@ const Login = (props) => {
                   Forgot your password?
                 </Link>
               </div>
+              {/* <div style={{height: '2.7rem'}}> */}
+                <Alerts />
+              {/* </div> */}
               <button className="my-2" type="submit" disabled={isLoading}>
                 {isLoading ? "Loading..." : "Sign In"}{" "}
-
               </button>
             </form>
             <div className="gosignup">

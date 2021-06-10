@@ -2,8 +2,9 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import GooglePlayImg from "../../../../assets/images/playstoreimg.png";
 import ApplePlayImg from "../../../../assets/images/apple.jpg";
-import { pageurl } from '../../../../utils/constants'
+import { pageurl } from "../../../../utils/constants";
 import "./footer.css";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="footer-wrapper container-fluid">
@@ -11,98 +12,146 @@ const Footer = () => {
         <div className="row ft-mob">
           <div className="col-12 col-md-6 col-lg-3 mb-3">
             <h3 className="ft-hd-1">About</h3>
-            <p>
-              TV24 Africa Newspaper is Africa’s top online publication
-              delivering breaking news and in-depth analysis in business,
-              politics, entertainment, sports, lifestyle and many more.
-            </p>
-            <Card.Link href="#">
-              <i className="fab fa-facebook"></i>
-            </Card.Link>
-            <Card.Link href="#">
-              <i className="fab fa-twitter"></i>
-            </Card.Link>
-            <Card.Link href="#">
-              <i className="fab fa-instagram"></i>
-            </Card.Link>
-            <Card.Link href="#">
-              <i className="fab fa-youtube"></i>
-            </Card.Link>
-          </div>
-          <div className="col-12 col-md-6 col-lg-3">
-            <h3 className="ft-hd-2">categories</h3>
-            <ul>
-              <li>
-                <a href={pageurl.CONTACTUS}>Contact Us</a>
-              </li>
-              <li>
-                <a href="/">Apps</a>
-              </li>
-              <li>
-                <a href="/">Newsletters</a>
-              </li>
-              <li>
-                <a href="/">Channel Finder</a>
-              </li>
-              <li>
-                <a href="/">TV Schedule</a>
-              </li>
-              <li>
-                <a href="/">Podcasts</a>
-              </li>
-              <li>
-                <a href="/contact">Submit a Tip</a>
-              </li>
-              <li>
-                <a href="/works">Our Channels</a>
-              </li>
-            </ul>
-          </div>
-          <div className="col-12 col-md-6 col-lg-2 ft-crd">
-            <h3 className="ft-hd-3">company</h3>
             <ul>
               <li>
                 <a href={pageurl.ABOUT}>About Us</a>
               </li>
               <li>
-                <a href="/">Code of Ethics</a>
+                <a href="/privacy-policy">Terms and conditions</a>
               </li>
               <li>
-                <a href={pageurl.PRIVACYPOLICY}>Terms and Conditions</a>
+                <a href={pageurl.CODEOFETHICS}>Code of Ethics</a>
               </li>
               <li>
-                <a href={pageurl.PRIVACYPOLICY}>Privacy Policy</a>
+                <a href={pageurl.COOKIEPOLICY}>Cookies Policy</a>
               </li>
               <li>
-                <a href={pageurl.COOKIEPOLICY}>Cookie Policy</a>
+                <Link to={pageurl.FAQ}>FAQs</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="col-12 col-md-6 col-lg-3">
+            <h3 className="ft-hd-2">Connect</h3>
+            <ul>
+              <li>
+                <a href={pageurl.CONTACTUS}>Contact Us</a>
               </li>
               <li>
-                <a href="/">Cookie Preferences</a>
+                <a href={pageurl.ADVERTISING}>Advertise</a>
               </li>
               <li>
-                <a href="/contact">Community Guidelines</a>
+                <Link to="/">Newsletter</Link>
               </li>
               <li>
-                <a href={pageurl.CONTACTUS}>Work for us</a>
+                <Link to="/">Write for us</Link>
               </li>
               <li>
-                <a href="/hr">HR quality</a>
+                <Link to="/">Site Map</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="col-12 col-md-6 col-lg-2 ft-crd">
+            <h3 className="ft-hd-3">Sections</h3>
+            <ul>
+              {/* <li>
+                <Link to="/podcast">Live Radio Us</Link>
+              </li> */}
+              <li>
+                <Link to="/podcast">Podcast</Link>
+              </li>
+              <li>
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: `?category=Discovery Africa`,
+                  }}
+                >
+                  Places
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: `?category=Tech Africa`,
+                  }}
+                >
+                  Lifestyle
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: `?category=Economy`,
+                  }}
+                >
+                  Culture
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: `?category=Sport Africa`,
+                  }}
+                >
+                  People
+                </Link>
               </li>
             </ul>
           </div>
           <div className="col-12 col-md-6 col-lg-4 app-cont">
-            <h3 className="ps_p">DOWNLOAD APP</h3>
+            {/* <p className="pl-3 pl-lg-0">
+              TV24 Africa Newspaper is Africa’s top Political, Economic,
+              Development and Lifestyle online publication that tells the real
+              Africa Story.
+            </p> */}
+            <h3 className="ft-hd-3">DOWNLOAD APP</h3>
             <div className="app-store">
-              <a href="/playStore">
+              <Link to="/playStore" style={{ width: "160px" }}>
                 <img loading="lazy" src={GooglePlayImg} alt="google play" />{" "}
-              </a>
-              <a href="/applestore">
+              </Link>
+              <Link
+                to="/applestore"
+                style={{ width: "160px" }}
+                className="ml-lg-3"
+              >
                 <img loading="lazy" src={ApplePlayImg} alt="google play" />{" "}
-              </a>
+              </Link>
             </div>
-            <small className="copyRight_text">&copy;2021 TV24 Media Network</small>
+            {/* <h3 className="ft-hd-3">Follow us</h3> */}
+            <div className="social_media">
+              <Card.Link
+                target="_blank"
+                href="https://www.facebook.com/tv24africanews"
+              >
+                <i className="fab fa-facebook"></i>
+              </Card.Link>
+              <Card.Link
+                target="_blank"
+                href="https://twitter.com/tv24africanews"
+              >
+                <i className="fab fa-twitter"></i>
+              </Card.Link>
+              <Card.Link
+                target="_blank"
+                href="https://www.instagram.com/tv24africanews/"
+              >
+                <i className="fab fa-instagram"></i>
+              </Card.Link>
+              <Card.Link target="_blank" href="#">
+                <i className="fab fa-youtube"></i>
+              </Card.Link>
+            </div>
           </div>
         </div>
+        <small className="copyRight_text">
+          &copy;2021 TV24 Africa Newspaper Limited,{" "}
+          <a href="https://news.tv24africa.com" class="subs-link">
+            a subsidiary of News Media Africa Limited
+          </a>
+        </small>
       </footer>
     </div>
   );

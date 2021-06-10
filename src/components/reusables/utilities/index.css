@@ -1,5 +1,10 @@
-html, body{
-    font-family: var(--nimbus-font);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html, body, *{
+    /* font-family: var(--general-font); */
+    font-family: "Poppins";
+
+
 }
 
 :root{
@@ -21,7 +26,8 @@ html, body{
     
     /* Must read styles */
     --must-read-tag-btn-bg: #787878;
-    --nimbus-font: 'Nimbus Sans L Regular';
+    /* --general-font: 'Nimbus Sans L Regular'; */
+    --general-font: 'Poppins';
 
     /* Readers List */
     --reader-border-color: #CCCCCC;
@@ -100,6 +106,12 @@ html, body{
 .custom-card-body{
 }
 
+
+@media (max-width: 992px){
+    .podcast_container .navbar {
+        padding-right: 50px;
+    }
+}
 
 
 

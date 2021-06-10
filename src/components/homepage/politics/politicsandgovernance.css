@@ -57,12 +57,12 @@ a {
 }
 
 .politics-summary{
-    font-family: var(--nimbus-font);
+    font-family: var(--general-font);
 }
 .news-hd p{
     /* color: #000; */
     font-style: normal;
-    font-weight: 550;
+    font-weight: 400;
     line-height: 1.3;
     /* padding-left: 20px; when using slug */
     /* padding-left: auto;  */
@@ -78,10 +78,10 @@ a {
 
 .news-hd ol li{
     list-style: none;
-    font-family: var(--nimbus-font);
-    font-size: 18px;
+    font-family: var(--general-font);
+    font-size: 16px;
     font-style: normal;
-    font-weight: 550;
+    font-weight: 400;
     line-height: 1.3;
 }
 
@@ -164,10 +164,10 @@ a {
     width: 100%;
     font-size: 17px;
     color: red;
-    /* margin: 0 auto; */
-    /* height: 230px; */
-    /* margin-top: 30px; */
-    /* padding: 100px auto!important; */
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .politics-ads img{
     width: 100%;
@@ -176,7 +176,6 @@ a {
 .politics-ads>span{
     color: red;
     display: inline-block;
-    /* padding-top: 60px; */
     font-size: 50px;
     font-weight: 600;
     font-family: 'Roboto' sans-serif;
@@ -276,6 +275,17 @@ a {
     }
     .news-hd{
         text-align: center;
+    }
+    .news-hd h3{
+        font-size: 23px;
+    }
+
+    .news-hd p{
+        font-size: 17px;
+    }
+
+    .bt-red{
+        padding: .8rem;
     }
 }
 

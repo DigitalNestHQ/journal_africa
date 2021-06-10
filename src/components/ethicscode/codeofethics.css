@@ -1,0 +1,49 @@
+.code-of-ethics {
+  position: relative;
+  top: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.code-of-ethics-heading {
+  padding: 2px 0;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  text-align: center;
+  width: 80%;
+}
+
+.code-of-ethics-heading h1 {
+  font-size: 25px;
+  line-height: 21px;
+  padding: 1em 0.5em;
+  border-top: 4px solid #eee;
+  border-bottom: 4px solid #eee;
+}
+
+.code-of-ethics-information {
+  width: 80%;
+  margin: 2rem 0;
+  line-height: 1.7;
+}
+
+.code-of-ethics-information ol {
+  list-style-position: inside;
+}
+
+.code-of-ethics-information li {
+  margin-top: 1.5rem;
+}
+
+.submission-instruction {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.submission-instruction h1 {
+  font-size: 25px;
+  line-height: 1.5;
+}

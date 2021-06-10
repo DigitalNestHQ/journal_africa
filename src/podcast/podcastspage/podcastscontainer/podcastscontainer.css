@@ -1,0 +1,38 @@
+.view_podcast_container{
+    width: fit-content;
+    min-height: 100vh;
+    padding: 60px 200px;
+    transition: 0.3s ease;
+}
+
+
+@media(max-width: 1200px){
+    .view_podcast_container{
+        padding: 100px 200px 100px 50px;
+    }
+
+    .pod_long_description {
+        padding: 15px;
+    }
+}
+
+@media(max-width:900px){
+    .view_podcast_container{
+        padding: 50px 20px;
+        width: 100%;
+    }
+
+    .pod_long_description {
+        padding: 15px;
+    }
+}
+
+
+@media (max-width: 333px){
+    .view_podcast_container{
+        padding: 50px 20px;
+    }
+    .view_podcast_container {
+        padding: 50px 15px;
+    }
+}

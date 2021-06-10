@@ -72,7 +72,7 @@ const CommentForm = (props) => {
   }
   // function that handles news letter subscription
   const handleNewLetterSubscription = async() =>{
-    const url = "http://api.tv24africa.com/api/v1/newsletter";
+    const url = "https://api.tv24africa.com/api/v1/newsletter";
     const response = await axios.post(url, newComment.email)
   }
   // function that set the checkbox true or false

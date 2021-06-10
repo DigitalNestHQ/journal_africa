@@ -25,7 +25,7 @@ export class ViewPoint extends Component {
         </Link>
           <div className="container-flui mt-3 mb-4 row viewpoint-card-wrap">
             {viewpointNews && viewpointNews.length > 0 &&
-              viewpointNews.map((news) => {
+              viewpointNews.slice(0, 4).map((news) => {
                 const {
                   post_title,
                   id,

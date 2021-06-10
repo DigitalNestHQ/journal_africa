@@ -1,15 +1,32 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Nav from "../reusables/navigation/Nav/Nav";
 import { Card, Button } from "react-bootstrap";
 import Image3 from "../../assets/images/calabar-carnival-3.jpg";
 import Image4 from "../../assets/images/travel1.jpg";
+
 // import Trump from "../../assets/images/trump1.jpg";
 // import logo from "../../assets/images/TV24E.png";
 // import { Link } from "react-router-dom";
 import Footer from "../reusables/navigation/Footer/Footer";
 import "./about.css";
+import { getNewsFeed } from "../../context/news/NewsApi";
+import { Link } from "react-router-dom";
 
 const AboutComponent = (props) => {
+  const [news, setNews] = useState(null);
+  const [bigFrame, setBigFrame] = useState(null)
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getNewsFeed()
+    .then((data) => {
+      setNews(data);
+      setBigFrame(data[1]);
+    })
+  .catch((err) => {
+    setError(err);
+  });
+  }, [])
   return (
     <Fragment>
         <Nav />
@@ -44,59 +61,58 @@ const AboutComponent = (props) => {
               </div>
               <div className="about-crds">
                 <div className="row">
-                  <div className="col-sm-6 s-card">
-                    <Card className="text-white mt-wrap h-100">
-                      <Card.Img
-                        src={Image4}
-                        alt="Card image"
-                        className="h-100"
-                      />
-                      <Card.ImgOverlay className="m-t text-center ts-overlay">
-                        <Button variant="outline-danger" className="butn">
-                          Travel
-                        </Button>
-                        <Card.Text className="ts-card-txt">
-                          Travelstart is Africa's leading online travel agency.
-                          Based in sunny Cape Town, we have offices across
-                          Africa and the Middle East where hundreds of
-                          Travelstarters
-                        </Card.Text>
-                      </Card.ImgOverlay>
-                    </Card>
-                  </div>
-                  <div className="col-sm-6 s-card">
-                    <Card className="text-white mt-wrap h-100">
-                      <Card.Img
-                        src={Image3}
-                        alt="Card image"
-                        className="h-100 bg-none"
-                      />
-                      <Card.ImgOverlay className="m-t text-center ts-overlay">
-                        <Button variant="outline-danger" className="butn">
-                          Event
-                        </Button>
-                        <Card.Text className="ts-card-txt">
-                          Calabar Carnival festival in Nigeria, also tagged
-                          "Africa's Biggest Street Party", was created as part
-                          of the vision of making the Cross River State,
-                          Nigeria, the ...
-                        </Card.Text>
-                      </Card.ImgOverlay>
-                    </Card>
-                  </div>
+                  {
+                    news && news.slice(4, 6).map(({category_id, featured_image, post_title, slug})=>{
+                      return(
+                        <div className="col-sm-6 s-card">
+                          <Link to={`/post/${slug}`}>
+                            <Card className="text-white mt-wrap h-100">
+                              <Card.Img
+                                src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
+                                alt="Card image"
+                                className="h-100"
+                              />
+                              <Card.ImgOverlay className="m-t text-center ts-overlay">
+                                <Button variant="outline-danger" className="butn">
+                                  {category_id}
+                                </Button>
+                                <Card.Text className="ts-card-txt">
+                                  {post_title}...
+                                </Card.Text>
+                              </Card.ImgOverlay>
+                            </Card>
+                          </Link>
+                      </div>
+                      )
+                    })
+                  }
                 </div>
               </div>
             </div>
             <div className="about-right">
-              <button>TRENDS</button>
+               <Link to={`/post/${bigFrame?.slug}`}>
+                            <Card className="text-white mt-wrap h-100">
+                              <Card.Img
+                                src={`https://api.tv24africa.com/public/storage/post_image/${bigFrame?.featured_image}`}
+                                alt="Card image"
+                                className="h-100"
+                              />
+                              <Card.ImgOverlay className="m-t text-center ts-overlay">
+                                <Card.Text className="ts-card-txt">
+                                  <button>TRENDS</button>
+                                  {bigFrame?.post_title}...
+                                </Card.Text>
+                              </Card.ImgOverlay>
+                            </Card>
+                          </Link>
+              {/* <img src={bigFrame?.featured_image}></img>
+              <p>{bigFrame.featured_image}</p>
               <p classNAme="text-white">
-                Trump Administration Seeks to Stifle Protests Near White House
-                and on National Mall
-              </p>
-              {/* <img loading="lazy" src={Trump} alt="Donald"/> */}
+                {bigFrame?.post_title}
+              </p> */}
             </div>
           </div>
-          <div className="txt-btm container-fluid">
+          <div className="txt-btm container pl-lg-5 abt-txt">
             <p>
               TV24 Africa Newspaper will dig deep into important issues capable
               of spurring real social change and reforms with no corporate,
@@ -115,6 +131,8 @@ const AboutComponent = (props) => {
               platforms and mobile applications.
             </p>
           </div>
+        </div>
+        <div style={{width: "34%"}}>
         </div>
         <Footer />
     </Fragment>

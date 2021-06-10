@@ -12,6 +12,7 @@
     display: inline-block;
     font-style: normal;
     font-weight: bold;
+    text-transform: capitalize;
     font-size: 11px;
 }
 .top-nav p span:first-child{
@@ -29,9 +30,6 @@
 .nav-sub-i a i{
     padding-right: 5px;
 }
-.navbar a{
-    font-weight: 700;
-}
 .fa-search{
     padding-left: 7px;
 }
@@ -44,7 +42,7 @@
     display: inline-block;
     padding: 3px 6px 3px 5px;
     margin-top: 5px!important;
-    font-weight: 400!important;
+    font-weight: 400;
 }
 .category-collapse{
     justify-content: center;
@@ -178,12 +176,20 @@
 @media (max-width: 990px){
     .category-navbar {
         width: 89%;
-        justify-content: flex-end;
     }
 }
 
 @media (max-width: 900px){
     .category-navbar {
+        width: 100%;
+    }
+
+    .discover-cont{
+        margin-left: 20px;
+    }
+
+    .right-pane{
+        margin-top: 60px;
         width: 100%;
     }
 }

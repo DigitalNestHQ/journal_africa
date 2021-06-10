@@ -102,7 +102,7 @@
     font-size: var(--news-heading-size);
     font-weight: var(--news-heading-weight);
     color: var(--color-red);
-    font-family: var(--nimbus-font);
+    font-family: var(--general-font);
     line-height: 21px;
     text-align: left;
     text-transform: lowercase;
@@ -116,6 +116,10 @@
     font-weight: var(--news-description-weight);
     color: var(--news-description-color);
     text-transform: capitalize;
+}
+
+.viewpoint-description strong{
+    font-weight: var(--news-description-weight);
 }
 
 .viewpoint-text .card-text .viewpoint-description p{

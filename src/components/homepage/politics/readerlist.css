@@ -16,12 +16,17 @@
     border-bottom:  1px solid #ccc;
 }
 
+.must-read strong{
+    font-weight: normal;
+}
+
 .must-read-type{
     background: var(--must-read-tag-btn-bg);
     color: var(--color-white);
     /* padding: 3px 9px; */
     padding: inherit;
     /* line-height: 1.2; */
+    text-transform: capitalize;
 }
 
 .must-read .must-read-date {

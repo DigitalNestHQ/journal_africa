@@ -73,6 +73,8 @@ const GetNews = () => {
   const [previousPost, setPreviousPost] = useState(null);
   const [nextPost, setNextPost] = useState(null);
 
+  console.log(news);
+
   useEffect(() => {
     // set the user subscription status
     if (user) {
@@ -170,12 +172,10 @@ const GetNews = () => {
               <div className="text-wrap">{ReactHtmlParser(html, options)}</div>
               <div className="mt-5 news-paywall-area">
                 {/* if the user is not logged in, prompt them to login or signup */}
-                {!user && news.post_type === "free" && (
-                  <ContinueReadingWithAuth />
-                )}
+                {!user && news.post_type === "free" && <FreeReaderPersuader />}
                 {/* prompt users without subscription to get 1 */}
                 {news.post_type === "premium" && !hasSubscription && (
-                  <FreeReaderPersuader />
+                  <ContinueReadingWithAuth />
                 )}
                 <ShareNews
                   post_title={news.post_title}

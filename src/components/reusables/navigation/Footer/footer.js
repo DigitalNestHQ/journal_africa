@@ -26,7 +26,7 @@ const Footer = () => {
                 <a href={pageurl.COOKIEPOLICY}>Cookies Policy</a>
               </li>
               <li>
-                <Link to={pageurl.FAQ}>FAQs</Link>
+                <a href={pageurl.FAQ}>FAQs</a>
               </li>
             </ul>
           </div>

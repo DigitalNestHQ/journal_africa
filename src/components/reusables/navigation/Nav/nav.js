@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  Link,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../../../assets/images/TV24Ergb.png";
 import { pageurl } from "../../../../utils/constants";
 import TopNav from "../../Topnav";
@@ -35,8 +33,14 @@ const Navbar = () => {
               {" "}
               <i style={{ color: "#E7332B" }} className="fas fa-bars" />
             </button>
-            <div className="collapse navbar-collapse justify-content-space-between" id="collapsibleNavId">
-              <ul className="navbar-nav ml- mt-2 mt-lg-0 nav-mn d-flex justify-cntent-center" style={{width:"100%"}}>
+            <div
+              className="collapse navbar-collapse justify-content-space-between"
+              id="collapsibleNavId"
+            >
+              <ul
+                className="navbar-nav ml- mt-2 mt-lg-0 nav-mn d-flex justify-cntent-center"
+                style={{ width: "100%" }}
+              >
                 <li className="nav-item">
                   <Link
                     className="nav-link ml-lg-1"
@@ -54,7 +58,7 @@ const Navbar = () => {
                     // to={pageurl.GOVERNANCE}
                     to={{
                       pathname: "/news/categories",
-                      search: `?category=Politics and Governance`,
+                      search: `?category=Politics`,
                     }}
                   >
                     POLITICS
@@ -64,22 +68,22 @@ const Navbar = () => {
                   <Link
                     className="nav-link ml-lg-1 remov--item-3"
                     activeclassname="activeLink"
-                     to={{
-                       pathname: "/news/categories",
-                       search: `?category=Business and Finance`,
-                      }}
+                    to={{
+                      pathname: "/news/categories",
+                      search: `?category=Business`,
+                    }}
                   >
                     BUSINESS
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link
-                  className="nav-link ml-lg-1"
-                  activeclassname="activeLink"
-                  to={{
-                    pathname: "/news/categories",
-                    search: `?category=Development`,
-                  }}
+                    className="nav-link ml-lg-1"
+                    activeclassname="activeLink"
+                    to={{
+                      pathname: "/news/categories",
+                      search: `?category=Development`,
+                    }}
                   >
                     DEVELOPMENT
                   </Link>
@@ -88,10 +92,10 @@ const Navbar = () => {
                   <Link
                     className="nav-link ml-lg-1 remov--item-2"
                     activeclassname="activeLink"
-                     to={{
-                       pathname: "/news/categories",
-                       search: `?category=Politics and Governance`,
-                      }}
+                    to={{
+                      pathname: "/news/categories",
+                      search: `?category=Governance`,
+                    }}
                   >
                     GOVERNANCE
                   </Link>
@@ -108,7 +112,7 @@ const Navbar = () => {
                     ECONOMY
                   </Link>
                 </li>
-               
+
                 {/* <li className="nav-item">
                   <Link
                     className="nav-link ml-lg-1 remov--item-3"
@@ -123,41 +127,35 @@ const Navbar = () => {
                 </li> */}
 
                 <li className="nav-item">
-                  <Link
+                  <a
                     className="nav-link ml-lg-1 remov--item-1"
-                    activeclassname="activeLink"
-                      to={{
-                      pathname: "/news/categories",
-                      search: `?category=View Point`,
-                    }}
+                    href="https://news.tv24africa.com/"
                   >
-                    VIEWPOINT
-                  </Link>
+                    NEWS DAILY
+                  </a>
                 </li>
 
                 <li className="nav-item">
-                  <Link
+                  <a
                     className="nav-link ml-lg-1 remov--item-2"
-                    activeclassname="activeLink"
-                      to={pageurl.PODCAST}
+                    href={pageurl.PODCAST}
                   >
                     PODCAST
-                  </Link>
+                  </a>
                 </li>
               </ul>
               <ul className="navbar-nav mr- pr-  mt-2 mt-lg-0 nav-sub-i">
                 <li className="nav-item hd-bd">
-                {
-                  localStorage.token ? HandleAuthButton() :(
+                  {localStorage.token ? (
+                    HandleAuthButton()
+                  ) : (
                     <Link
-                    to="/login"
-                    className="nav-link mt-3 mt-lg-0 px- text-white nav-sub-tp"
-                  >
-                    <i className="fas fa-sign-in-alt"></i> SIGN IN
-                  </Link>
-                  )          
-                  
-                }
+                      to="/login"
+                      className="nav-link mt-3 mt-lg-0 px- text-white nav-sub-tp"
+                    >
+                      <i className="fas fa-sign-in-alt"></i> SIGN IN
+                    </Link>
+                  )}
                 </li>
                 <li className="nav-item hd-bd">
                   <Link
@@ -167,7 +165,7 @@ const Navbar = () => {
                     subscribe
                   </Link>
                   <span className="ml-2">
-                    <i className="fas fa-search"></i> 
+                    <i className="fas fa-search"></i>
                   </span>
                 </li>
               </ul>

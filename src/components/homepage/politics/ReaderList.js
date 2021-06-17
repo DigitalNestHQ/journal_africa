@@ -11,6 +11,7 @@ const ReaderList = ({
   description_slice,
   created_at,
   post_type,
+  redirect_to_wordpress,
 }) => {
   const getAllParagraphs = post_description.split("</p>");
   const firstParagraph = getAllParagraphs[0];
@@ -28,12 +29,26 @@ const ReaderList = ({
       </section>
       <section className="must-read-text">
         <span className="must-read-heading">
-          <a href={`/post/${slug}`}>{post_title}</a>
+          <a
+            href={
+              redirect_to_wordpress
+                ? `https://news.tv24africa.com/${post_title.replace(/ /g, "-")}`
+                : `/post/${slug}`
+            }
+          >
+            {post_title}
+          </a>
         </span>
       </section>
       <section className="must-read-text-2">
         <span className="must-read-description">
-          <a href={`/post/${slug}`}>
+          <a
+            href={
+              redirect_to_wordpress
+                ? `https://news.tv24africa.com/${post_title.replace(/ /g, "-")}`
+                : `/post/${slug}`
+            }
+          >
             {ReactHtmlParser(html, HtmlParseOptions)}
           </a>
         </span>

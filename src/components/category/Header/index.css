@@ -1,11 +1,9 @@
-
-
 .logo-container {
   background-color: white;
   padding: 20px 30px;
 }
 .discover-container {
-  background-color: #000!important;
+  background-color: #000 !important;
   height: 360;
   color: white;
   box-sizing: border-box;
@@ -26,7 +24,6 @@
   flex-wrap: wrap;
   margin-top: 10px;
 }
-
 
 .discover .discover_header {
   display: flex;
@@ -61,6 +58,7 @@
   text-align: center;
   font-size: 30px;
   padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .africa-auth {
@@ -88,21 +86,21 @@
 
 /* // Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
-  x{
-      background-color: pink;
+  x {
+    background-color: pink;
   }
 }
 
 /* // Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
-  x{
-      background-color: blue;
+  x {
+    background-color: blue;
   }
-  .discover-container h1{
+  .discover-container h1 {
     font-size: 22px;
     text-align: center;
   }
-  
+
   .africa-auth {
     text-align: right;
     padding: 0px 50px 0px 40px !important;
@@ -113,11 +111,11 @@
   }
 }
 @media screen and (max-width: 540px) {
-  .discover-container h1{
+  .discover-container h1 {
     font-size: 22px;
     text-align: center;
   }
-  
+
   .africa-auth {
     text-align: right;
     /* padding: 0px 50px 0px 40px !important; */
@@ -129,11 +127,11 @@
 }
 
 @media screen and (max-width: 412px) {
-  .discover_header .category-heading{
+  .discover_header .category-heading {
     font-size: 20px !important;
     text-align: center;
   }
-  
+
   .africa-auth {
     text-align: right;
     padding: 0px 0px 0px 0px !important;
@@ -141,6 +139,5 @@
     bottom: 20px;
     margin-left: auto;
     /* display: none; */
-
   }
 }

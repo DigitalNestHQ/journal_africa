@@ -16,12 +16,13 @@ class Sports extends Component {
   }
   render() {
     const { categories } = this.state;
-    console.log(categories)
+    // console.log(categories)
     return (
       <div className="sprt-itm-wrap">
         {categories.length > 0 &&
           categories.map((categ) => {
-            const { post_description, post_type, post_title, featured_image } = categ;
+            const { post_description, post_type, post_title, featured_image } =
+              categ;
             return (
               <SportCard
                 post_description={post_description}

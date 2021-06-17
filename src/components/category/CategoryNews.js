@@ -13,10 +13,12 @@ import Loader from "../loader/Loader";
 import "./newscategory.css";
 import { Button, Card } from "react-bootstrap";
 import UnableToFetchNews from "../reusables/errorMessages/UnableToFetchNews";
-import {ContactsAds1} from "../ContactUs/mainSection/ContactsAds";
+import { ContactsAds1 } from "../ContactUs/mainSection/ContactsAds";
 import Navbar from "../reusables/navigation/Nav/Nav";
 import CategoryNavbar from "./Header/CategoryNavbar";
-import ReaderList, { PopulateReadersList } from "../homepage/politics/ReaderList";
+import ReaderList, {
+  PopulateReadersList,
+} from "../homepage/politics/ReaderList";
 
 const CategoryNews = () => {
   const [loading, setLoading] = useState(true);
@@ -24,7 +26,7 @@ const CategoryNews = () => {
   const [error, setError] = useState(null);
   const [news, setNews] = useState([]);
   const [numberOfCategCard, setNumberOfCategCard] = useState(10);
-  const history = useHistory()
+  const history = useHistory();
 
   // method1
   const { search } = useLocation();
@@ -64,10 +66,10 @@ const CategoryNews = () => {
     return () => (sub = null);
     // eslint-disable-next-line
   }, [category]);
-  
+
   if (error) {
     // return <Link to="/error404" />;
-    return history.pushState('/error404')
+    return history.pushState("/error404");
   }
 
   if (loading || news.length < 1) {
@@ -81,15 +83,15 @@ const CategoryNews = () => {
 
       <CategoryNavbar />
 
-      <Header post_type={newsCateg && newsCateg[0]?.category_id}/>
+      <Header post_type={newsCateg && newsCateg[0]?.category_id} />
       {/* {<h1 className="text-center text-title">{newsCateg && newsCateg[0].category_id}</h1>} */}
       {/* <h1 className="text-center text-title">Welcome Here</h1> */}
-      {
-        newsCateg && newsCateg ?
+      {newsCateg && newsCateg ? (
         <div className="discover-cont">
           <section className="discover">
             <div className="left-pane">
-              {newsCateg && newsCateg.length > 0 &&
+              {newsCateg &&
+                newsCateg.length > 0 &&
                 newsCateg.slice(0, numberOfCategCard).map((aNews) => {
                   const {
                     post_title,
@@ -110,16 +112,17 @@ const CategoryNews = () => {
                       post_type={post_type}
                       post_description={post_description}
                       className="card-unit"
-                      />
+                    />
                   );
                 })}
-                {
-                  (newsCateg?.length > numberOfCategCard)  && (
-                    <button 
-                      className="premium-tag load-more-btn ml-3 ml-md-3 ml-lg-3 mb-5 mb-md-5 mb-lg-0"
-                      onClick={()=>setNumberOfCategCard(numberOfCategCard+3)}>Load More...</button>
-                  )
-                }
+              {newsCateg?.length > numberOfCategCard && (
+                <button
+                  className="premium-tag load-more-btn ml-3 ml-md-3 ml-lg-3 mb-5 mb-md-5 mb-lg-0"
+                  onClick={() => setNumberOfCategCard(numberOfCategCard + 3)}
+                >
+                  Load More...
+                </button>
+              )}
             </div>
             <div className="right-pane">
               {/* <ReaderList data={news}/>
@@ -133,7 +136,7 @@ const CategoryNews = () => {
                             created_at={created_at}
                           />;
                   })} */}
-                  <PopulateReadersList news={news} start={0} end={2}/>
+              <PopulateReadersList news={news} start={0} end={2} />
               {/* <h4 className="trend">TRENDS</h4> */}
               <ul>
                 {/* {news && news.length > 0 && news.slice(0, 5).map((news, index) => (
@@ -141,19 +144,23 @@ const CategoryNews = () => {
                     <Link to={`/post/${news.slug}`}>{news.slug}</Link>
                   </li>
                 ))} */}
-                <li><ContactsAds1 /></li>
-                <li><ContactsAds1 /></li>
+                <li>
+                  <ContactsAds1 />
+                </li>
+                <li>
+                  <ContactsAds1 />
+                </li>
                 {/* <li><ContactsAds1 /></li> */}
               </ul>
             </div>
           </section>
         </div>
-        :
+      ) : (
         <div>
           <UnableToFetchNews />
         </div>
-      }
-      <Footer/>
+      )}
+      <Footer />
     </Fragment>
   );
 };

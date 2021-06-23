@@ -27,6 +27,7 @@ import { ContactsAds1 } from "../ContactUs/mainSection/ContactsAds";
 import { formatDate } from "../../_helper/dateFormatter";
 import authContext from "../../context/auth/authContext";
 import { LargeSizeAds } from "../homepage/ads/Ads";
+import { addView } from "./postView";
 
 function transform(node, index) {
   if (node.type === "tag" && node.name === "span") {
@@ -97,7 +98,14 @@ const GetNews = () => {
   }, [news, categoryNews]);
 
   useEffect(() => {
-    // get the readers list news
+    if (news) {
+      // Add post view
+      addView(news.id);
+    }
+  }, [news]);
+
+  useEffect(() => {
+    // get the readers list   news
     getNewsFeed().then((data) => {
       setCategoryNews(data);
       setLoading(false);

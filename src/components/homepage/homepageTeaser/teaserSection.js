@@ -10,26 +10,28 @@ import { Link } from "react-router-dom";
 const TeaserSection = (props) => {
   const teasers = props.data;
   // get all the category to be displayed
-  const discoverAfricaTeaser = teasers.filter(
+  const discoverAfrica = teasers.filter(
     (post) => post.category_id === "Discover Africa"
   );
-  console.log(discoverAfricaTeaser);
-  const ecoAfricaTeaser = teasers.filter(
-    (post) => post.category_id === "Economy"
+
+  const culture = discoverAfrica.filter(
+    (post) => post.sub_category === "Culture"
   );
-  const techAfricaTeaser = teasers.filter(
-    (post) => post.category_id === "Tech Africa"
+
+  const places = discoverAfrica.filter(
+    (post) => post.sub_category === "Places"
   );
-  const sportAfricaTeaser = teasers.filter(
-    (post) => post.category_id === "Sport Africa"
+  const lifestyle = discoverAfrica.filter(
+    (post) => post.sub_category === "Lifestyle"
   );
-  // select 1 from each category
-  const selectedTeasers = [
-    discoverAfricaTeaser[0],
-    ecoAfricaTeaser[0],
-    techAfricaTeaser[0],
-    sportAfricaTeaser[0],
-  ] || [{}];
+
+  const people = discoverAfrica.filter(
+    (post) => post.sub_category === "People"
+  );
+
+  console.log(discoverAfrica);
+  // Select 1 news from each category
+  const selectedTeasers = [culture[0], places[0], lifestyle[0]] || [{}];
 
   AOS.init();
   if (typeof selectedTeasers[0] === "undefined") {
@@ -66,6 +68,7 @@ const TeaserSection = (props) => {
                   id,
                   slug,
                   category_id,
+                  sub_category,
                   post_description,
                 }) => {
                   // selectedTeasers.slice(7,11).map((teaser) => {
@@ -76,6 +79,7 @@ const TeaserSection = (props) => {
                       featured_image={featured_image}
                       slug={slug}
                       category_id={category_id}
+                      sub_category={sub_category}
                       post_description={post_description}
                     />
                   );

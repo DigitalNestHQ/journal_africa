@@ -8,6 +8,7 @@ const TeaserCard = ({
   featured_image,
   slug,
   category_id,
+  sub_category,
   post_description,
 }) => {
   let html;
@@ -33,7 +34,7 @@ const TeaserCard = ({
                   }}
                 >
                   <h5 className="p-0" id="news-category-label">
-                    {category_id}
+                    {sub_category}
                   </h5>
                 </Link>
                 <Link

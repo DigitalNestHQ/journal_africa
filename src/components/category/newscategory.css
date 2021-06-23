@@ -1,4 +1,7 @@
-
-.text-title{
-    padding-top: 60px;
+.right-pane {
+  width: 300px;
+  /* margin-left: 20px; */
+}
+.text-title {
+  padding-top: 60px;
 }

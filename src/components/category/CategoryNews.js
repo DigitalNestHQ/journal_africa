@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from "react";
-import TopNav from "../reusables/Topnav";
 import Header from "./Header/index";
 import Footer from "../reusables/navigation/Footer/Footer";
 // feeds api
@@ -8,17 +7,13 @@ import { getNewsFeed } from "../../context/news/NewsApi";
 
 import CategoryCard from "./CategoryCard";
 import { getCategories } from "../../context/news/NewsApi";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import Loader from "../loader/Loader";
 import "./newscategory.css";
-import { Button, Card } from "react-bootstrap";
 import UnableToFetchNews from "../reusables/errorMessages/UnableToFetchNews";
 import { ContactsAds1 } from "../ContactUs/mainSection/ContactsAds";
-import Navbar from "../reusables/navigation/Nav/Nav";
 import CategoryNavbar from "./Header/CategoryNavbar";
-import ReaderList, {
-  PopulateReadersList,
-} from "../homepage/politics/ReaderList";
+import { PopulateReadersList } from "../homepage/politics/ReaderList";
 
 const CategoryNews = () => {
   const [loading, setLoading] = useState(true);

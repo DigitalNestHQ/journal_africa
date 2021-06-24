@@ -38,6 +38,7 @@ import { SinglePodCast } from "./podcast/singlepodcast/SinglePodCast.js";
 import { SuccessPage } from "./components/homepage/homepageSubscribeSection/SuccessPage.js";
 import Faq from "./components/faq/Faq.js";
 import { Advertising } from "./components/advertising/Advertising.js";
+import SubcategoryNews from "./components/category/SubcategoryNews.js";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -65,6 +66,11 @@ function App() {
             <Route exact path="/post/:slug" component={NewsFeeds} />
             <Route path="/allnews" component={AllNewsFeeds} />
             <Route exact path="/news/categories" component={CategoryNews} />
+            <Route
+              exact
+              path="/news/sub-categories"
+              component={SubcategoryNews}
+            />
             <Route exact path="/news/1" component={Categories} />
             <Route exact path={pageurl.PODCAST} component={PodcastHome} />
             <Route exact path="/podcast/all" component={PodCastsView} />

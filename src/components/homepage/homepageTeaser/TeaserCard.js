@@ -29,8 +29,8 @@ const TeaserCard = ({
               <section className="link-wrap">
                 <Link
                   to={{
-                    pathname: "/news/categories",
-                    search: `?category=${category_id}`,
+                    pathname: "/news/sub-categories",
+                    search: `?subcategory=${sub_category}`,
                   }}
                 >
                   <h5 className="p-0" id="news-category-label">
@@ -39,8 +39,8 @@ const TeaserCard = ({
                 </Link>
                 <Link
                   to={{
-                    pathname: "/news/categories",
-                    search: `?category=${category_id}`,
+                    pathname: "/news/sub-categories",
+                    search: `?subcategory=${sub_category}`,
                   }}
                   className="more-link btn btn-sm more-btn"
                 >

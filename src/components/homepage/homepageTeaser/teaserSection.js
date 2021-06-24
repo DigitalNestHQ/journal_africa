@@ -29,9 +29,12 @@ const TeaserSection = (props) => {
     (post) => post.sub_category === "People"
   );
 
-  console.log(discoverAfrica);
   // Select 1 news from each category
-  const selectedTeasers = [culture[0], places[0], lifestyle[0]] || [{}];
+  const selectedTeasers = [culture[0], places[0], lifestyle[0], people[0]] || [
+    {},
+  ];
+
+  console.log(selectedTeasers);
 
   AOS.init();
   if (typeof selectedTeasers[0] === "undefined") {

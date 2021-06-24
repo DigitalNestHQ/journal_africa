@@ -62,8 +62,8 @@ const Footer = () => {
               <li>
                 <Link
                   to={{
-                    pathname: "/news/categories",
-                    search: `?category=Discovery Africa`,
+                    pathname: "/news/sub-categories",
+                    search: `?subcategory=Places`,
                   }}
                 >
                   Places
@@ -72,8 +72,8 @@ const Footer = () => {
               <li>
                 <Link
                   to={{
-                    pathname: "/news/categories",
-                    search: `?category=Tech Africa`,
+                    pathname: "/news/sub-categories",
+                    search: `?subcategory=Lifestyle`,
                   }}
                 >
                   Lifestyle
@@ -82,8 +82,8 @@ const Footer = () => {
               <li>
                 <Link
                   to={{
-                    pathname: "/news/categories",
-                    search: `?category=Economy`,
+                    pathname: "/news/sub-categories",
+                    search: `?subcategory=Culture`,
                   }}
                 >
                   Culture
@@ -92,8 +92,8 @@ const Footer = () => {
               <li>
                 <Link
                   to={{
-                    pathname: "/news/categories",
-                    search: `?category=Sport Africa`,
+                    pathname: "/news/sub-categories",
+                    search: `?subcategory=People`,
                   }}
                 >
                   People

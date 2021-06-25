@@ -47,8 +47,8 @@
   line-height: 0;
 }
 
-.teaser-news-description {
-  font-size: var(--news-description-size);
+.teaser-news-description > * {
+  font-size: var(--news-description-size) !important;
   font-weight: var(--news-description-weight);
 }
 

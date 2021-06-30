@@ -77,17 +77,17 @@ function TopNav(props) {
       </p>
       <ul className="soc-nav mr-" style={{ marginBottom: "0px" }}>
         <li>
-          <a href="/">
+          <a href="https://www.facebook.com/tv24africanews">
             <i className="fab fa-facebook"></i>
           </a>
         </li>
         <li>
-          <a href="/">
+          <a href="https://twitter.com/tv24africanews">
             <i className="fab fa-twitter"></i>
           </a>
         </li>
         <li>
-          <a href="/">
+          <a href="https://www.instagram.com/tv24africanews/">
             <i className="fab fa-instagram"></i>
           </a>
         </li>

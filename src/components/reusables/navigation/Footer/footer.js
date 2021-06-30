@@ -43,7 +43,7 @@ const Footer = () => {
                 <Link to="/">Newsletter</Link>
               </li>
               <li>
-                <Link to="/">Write for us</Link>
+                <a href={pageurl.WRITEFORUS}>Write for us</a>
               </li>
               <li>
                 <Link to="/">Site Map</Link>
@@ -148,7 +148,7 @@ const Footer = () => {
         </div>
         <small className="copyRight_text">
           &copy;2021 TV24 Africa Newspaper Limited,{" "}
-          <a href="https://news.tv24africa.com" class="subs-link">
+          <a href="https://news.tv24africa.com" className="subs-link">
             a subsidiary of News Media Africa Limited
           </a>
         </small>

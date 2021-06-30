@@ -43,9 +43,9 @@ const PoliticsAndGovernance = (props) => {
             >
               <label className="politics-category-heading">Politics</label>
             </Link>
-            {getPoliticsNews &&
-              getPoliticsNews.length &&
-              getPoliticsNews.slice(0, 3).map((news) => {
+            {getPremiumNews &&
+              getPremiumNews.length &&
+              getPremiumNews.slice(0, 3).map((news) => {
                 const {
                   post_title,
                   id,

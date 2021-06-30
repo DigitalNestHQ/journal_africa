@@ -21,6 +21,7 @@ import NewsComments from "./NewsComments";
 import {
   FreeReaderPersuader,
   ContinueReadingWithAuth,
+  ContinueReadingWithSubscription,
 } from "./FreeReaderPersuader";
 import { PopulateReadersList } from "../homepage/politics/ReaderList";
 import { ContactsAds1 } from "../ContactUs/mainSection/ContactsAds";
@@ -73,8 +74,6 @@ const GetNews = () => {
   const { slug } = useParams();
   const [previousPost, setPreviousPost] = useState(null);
   const [nextPost, setNextPost] = useState(null);
-
-  console.log(news);
 
   useEffect(() => {
     // set the user subscription status
@@ -181,9 +180,14 @@ const GetNews = () => {
               <div className="mt-5 news-paywall-area">
                 {/* if the user is not logged in, prompt them to login or signup */}
                 {!user && news.post_type === "free" && <FreeReaderPersuader />}
+
                 {/* prompt users without subscription to get 1 */}
-                {news.post_type === "premium" && !hasSubscription && (
+                {news.post_type === "premium" && !user && (
                   <ContinueReadingWithAuth />
+                )}
+
+                {news.post_type === "premium" && user && !hasSubscription && (
+                  <ContinueReadingWithSubscription />
                 )}
                 <ShareNews
                   post_title={news.post_title}

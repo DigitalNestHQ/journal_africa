@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import authContext from "../../context/auth/authContext";
+import { pageurl } from "../../utils/constants";
 import "./freeReaderPersuader.css";
 
 export const FreeReaderPersuader = () => {
@@ -55,6 +56,22 @@ export const ContinueReadingWithAuth = () => {
         >
           {" "}
           Sign In
+        </Link>
+      </div>
+    </React.Fragment>
+  );
+};
+
+export const ContinueReadingWithSubscription = () => {
+  return (
+    <React.Fragment>
+      <div className="continue-reading-paywall">
+        <h5>To Continue Reading,</h5>
+        <Link
+          to={pageurl.SUBSCRIBE}
+          className="btn btn-sm continue-signup-btn text-uppercase"
+        >
+          Subscibe
         </Link>
       </div>
     </React.Fragment>

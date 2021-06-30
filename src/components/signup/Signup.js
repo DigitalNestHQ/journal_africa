@@ -10,18 +10,18 @@ import AuthContext from "../../context/auth/authContext";
 const Signup = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
-  const [showPassword, setShowPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [redirectToSubscribePage, setRedirectToSubscribePage] = useState(false)
-  const history = useHistory()
-
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [redirectToSubscribePage, setRedirectToSubscribePage] = useState(false);
+  const history = useHistory();
 
   const { setAlert } = alertContext;
   const { register, error, clearErrors, isAuthenticated } = authContext;
 
   useEffect(() => {
-    if(localStorage.token){// redirect user back to the home page if logged in
-      history.push('/');
+    if (localStorage.token) {
+      // redirect user back to the home page if logged in
+      history.push("/");
     }
     if (error === "User already exists..") {
       setAlert(error, "danger");
@@ -29,7 +29,7 @@ const Signup = (props) => {
     }
     // eslint-disable-next-line
   }, [error, isAuthenticated, props]);
-  
+
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
@@ -53,7 +53,7 @@ const Signup = (props) => {
     } else if (password.length < 6) {
       setAlert("password is too short", "danger");
     } else {
-      setIsLoading(true)
+      setIsLoading(true);
       register({
         firstname,
         lastname,
@@ -61,32 +61,33 @@ const Signup = (props) => {
         email,
         password,
       })
-      .then((response)=>{
-        if(response.data.status === "success"){// only show success alert only if the status is from the backend
-          setIsLoading(false)
-          history.push(pageurl.SUBSCRIBESUCCESS) // redirect user to the success page
-          setAlert(
-            "Registration successful, a link has been sent to your email",
-            "success"
-          )
+        .then((response) => {
+          if (response.data.status === "success") {
+            // only show success alert only if the status is from the backend
+            setIsLoading(false);
+            history.push(pageurl.SIGNUPSUCCESSFUL); // redirect user to the success page
+            setAlert(
+              "Registration successful, a link has been sent to your email",
+              "success"
+            );
 
-          setTimeout(() => {
-            setRedirectToSubscribePage(true)
-          }, 3000);
-          // clear the field
-          setUser({
-            firstname: "",
-            lastname: "",
-            email: "",
-            phone: "",
-            password: ""
-          })
-        }
-      })
-      .catch((error)=>{
-        setIsLoading(false)
-        console.log(error)
-      })
+            setTimeout(() => {
+              setRedirectToSubscribePage(true);
+            }, 3000);
+            // clear the field
+            setUser({
+              firstname: "",
+              lastname: "",
+              email: "",
+              phone: "",
+              password: "",
+            });
+          }
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          console.log(error);
+        });
     }
   };
 
@@ -95,14 +96,25 @@ const Signup = (props) => {
   return (
     <div className="signup">
       <div className="page-wrap">
-        <FormHeader redirectTo="login" linkLabel="Login"/>
+        <FormHeader redirectTo="login" linkLabel="Login" />
         <div className="container-fluid signup-wrap">
           <div className="signup-txt">
-            <h1>When you sign up to TV24 Africa News, you are signing up for premium services that includes:</h1>
+            <h1>
+              When you sign up to TV24 Africa News, you are signing up for
+              premium services that includes:
+            </h1>
             <ul>
-              <li>Exclusive reports, expert curation and expansive coverage of the real Africa story</li>
-              <li>Podcast and livestream of trending and topical issues in Africa</li>
-              <li>Access to all content on the TV24 Africa News website and mobile apps</li>
+              <li>
+                Exclusive reports, expert curation and expansive coverage of the
+                real Africa story
+              </li>
+              <li>
+                Podcast and livestream of trending and topical issues in Africa
+              </li>
+              <li>
+                Access to all content on the TV24 Africa News website and mobile
+                apps
+              </li>
             </ul>
             <span>No commitment, cancel your subscription anytime</span>
           </div>
@@ -186,7 +198,12 @@ const Signup = (props) => {
                   required
                   minLength="6"
                 />
-                <span className="showPassword"onClick={()=>setShowPassword(!showPassword)}>{showPassword ? "hide" : "show"}</span>
+                <span
+                  className="showPassword"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? "hide" : "show"}
+                </span>
               </div>
               <div className="mb-2 my-0">
                 <div className="form-check">
@@ -201,9 +218,9 @@ const Signup = (props) => {
                     className="form-check-label tclabel"
                     for="invalidCheck2"
                   >
-                    I agree to the TV4Africa {" "}
+                    I agree to the TV4Africa{" "}
                     <Link className="link_terms" to={pageurl.COOKIEPOLICY}>
-                    Terms and Conditions
+                      Terms and Conditions
                     </Link>{" "}
                   </label>
                 </div>

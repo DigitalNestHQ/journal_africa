@@ -9,7 +9,6 @@ export async function addView(newsID) {
       "https://api.tv24africa.com/api/v1/add/view",
       data
     );
-    console.log(response);
   } catch (error) {
     console.log(error);
   }

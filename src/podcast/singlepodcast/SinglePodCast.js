@@ -19,10 +19,10 @@ export const SinglePodCast = () => {
               </section>
               <section className="full_podcast_caption">
                 <div className="pod_share">
-                  <i class="fab fa-facebook-f"></i>
-                  <i class="fab fa-twitter"></i>
-                  <i class="fab fa-linkedin"></i>
-                  <i class="fas fa-envelope"></i>
+                  <i className="fab fa-facebook-f"></i>
+                  <i className="fab fa-twitter"></i>
+                  <i className="fab fa-linkedin"></i>
+                  <i className="fas fa-envelope"></i>
                 </div>
                 <p>
                   We meet Dr. Timothy Sloan, a pastor of a black church in

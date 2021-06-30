@@ -1,4 +1,4 @@
-.advertising {
+.write-for-us {
   position: relative;
   top: 200px;
   width: 100%;
@@ -8,16 +8,15 @@
   align-items: center;
 }
 
-.advertising-heading {
+.write-for-us-heading {
   padding: 2px 0;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
   text-align: center;
   width: 80%;
-  text-transform: uppercase;
 }
 
-.advertising-heading h1 {
+.write-for-us-heading h1 {
   font-size: 25px;
   line-height: 21px;
   padding: 1em 0.5em;
@@ -25,22 +24,20 @@
   border-bottom: 4px solid #eee;
 }
 
-.advertising-information {
+.write-for-us-information {
   width: 80%;
   margin-top: 2rem;
 }
 
-.advertising-information ol {
+.write-for-us-information ol {
   list-style-position: inside;
   line-height: 2;
 }
 
-.submission-instruction {
+.write-for-us-information h5 {
   margin-top: 3rem;
-  margin-bottom: 5rem;
 }
 
-.submission-instruction h1 {
-  font-size: 25px;
-  line-height: 1.5;
+.write-for-us-information p {
+  line-height: 2;
 }

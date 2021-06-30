@@ -33,11 +33,13 @@ export class ViewPoint extends Component {
                   slug,
                   category_id,
                   post_description,
+                  post_type,
                 } = news;
                 return (
                   <ViewPointCard
                     key={id}
                     post_title={post_title}
+                    post_type={post_type}
                     featured_image={featured_image}
                     slug={slug}
                     category_id={category_id}

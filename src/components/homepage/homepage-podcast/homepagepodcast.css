@@ -45,6 +45,7 @@
 
 .homepage-podcast--description span {
   color: var(--color-red-2);
+  color: black;
 }
 
 .homepage-podcast--description .audio-svg-icon {

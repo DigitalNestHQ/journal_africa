@@ -13,12 +13,13 @@ const Login = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
   const { setAlert } = alertContext;
+
   const { login, error, clearErrors, isAuthenticated } = authContext;
 
   useEffect(() => {
     if (localStorage.token) {
-      // redirect user back to the home page if logged in
-      props.history.push("/");
+      // redirect user back to previous page if logged in
+      props.history.goBack();
     }
     if (error) {
       setAlert(error, "danger");
@@ -50,7 +51,7 @@ const Login = (props) => {
           if (res.status === 200) {
             setAlert("login successful", "success");
             setTimeout(() => {
-              props.history.push("/");
+              props.history.goBack();
             }, 1000);
           }
         })

@@ -32,7 +32,7 @@ export const PodcastCard = () => {
                 In line with the COVID-19 Health Protection Regulations, 2021
                 signed last week by Presi...
               </p>
-              <strong>10min read</strong>
+              {/* <strong>10min read</strong> */}
             </div>
           </div>
 
@@ -59,7 +59,7 @@ export const PodcastCard = () => {
                 The Top 10 Magazine, a monthly magazine with focus on
                 celebrating top 10 leading lights from every
               </p>
-              <strong>2min read</strong>
+              {/* <strong>2min read</strong> */}
             </div>
           </div>
           {/* </Link> */}

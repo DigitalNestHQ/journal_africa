@@ -25,7 +25,17 @@ const SubcategoryNews = () => {
   const { search } = useLocation();
   const x = new URLSearchParams(search);
   const subcategory = x.get("subcategory");
-  console.log(newsCateg);
+
+  useEffect(() => {
+    // check if the url changes
+    const unlisten = history.listen(() => {
+      // referesh page if it changes
+      window.location.reload();
+    });
+    return () => {
+      unlisten();
+    };
+  }, []);
 
   useEffect(() => {
     let sub = true;
@@ -47,7 +57,6 @@ const SubcategoryNews = () => {
       } catch (error) {
         if (error) {
           setError(error.message);
-          console.log(error);
         }
       }
     }

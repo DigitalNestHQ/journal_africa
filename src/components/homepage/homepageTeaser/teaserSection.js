@@ -34,8 +34,6 @@ const TeaserSection = (props) => {
     {},
   ];
 
-  console.log(selectedTeasers);
-
   AOS.init();
   if (typeof selectedTeasers[0] === "undefined") {
     return null;

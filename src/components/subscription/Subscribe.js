@@ -43,7 +43,7 @@ const Subscribe = () => {
           </p>
         </div>
         <div className="container pay_plan-wrap">
-          <h2>Pay from {currency === "NGN" ? "Nigeria" : "US"}</h2>
+          <h2>Pay in {currency === "NGN" ? "Naira" : "US Dollars"}</h2>
           <div className="sub-curency">
             {/* select which currency to pay */}
             <span

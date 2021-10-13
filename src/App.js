@@ -38,6 +38,8 @@ import { SinglePodCast } from "./podcast/singlepodcast/SinglePodCast.js";
 import { SuccessPage } from "./components/homepage/homepageSubscribeSection/SuccessPage.js";
 import Faq from "./components/faq/Faq.js";
 import { Advertising } from "./components/advertising/Advertising.js";
+import SubcategoryNews from "./components/category/SubcategoryNews.js";
+import { WriteForUs } from "./components/writeforus/WriteForUs.js";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -55,16 +57,22 @@ function App() {
             <Route exact path={pageurl.ADVERTISING} component={Advertising} />
             <Route
               exact
-              path={pageurl.SUBSCRIBESUCCESS}
+              path={pageurl.SIGNUPSUCCESSFUL}
               component={SuccessPage}
             />
             <Route exact path={pageurl.CATEGORY} component={Category} />
             <Route exact path={pageurl.ABOUT} component={AboutUs} />
             <Route exact path={pageurl.SPORT} component={Sports} />
             <Route exact path={pageurl.CODEOFETHICS} component={CodeOfEthics} />
+            <Route exact path={pageurl.WRITEFORUS} component={WriteForUs} />
             <Route exact path="/post/:slug" component={NewsFeeds} />
             <Route path="/allnews" component={AllNewsFeeds} />
             <Route exact path="/news/categories" component={CategoryNews} />
+            <Route
+              exact
+              path="/news/sub-categories"
+              component={SubcategoryNews}
+            />
             <Route exact path="/news/1" component={Categories} />
             <Route exact path={pageurl.PODCAST} component={PodcastHome} />
             <Route exact path="/podcast/all" component={PodCastsView} />

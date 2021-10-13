@@ -21,12 +21,14 @@ import NewsComments from "./NewsComments";
 import {
   FreeReaderPersuader,
   ContinueReadingWithAuth,
+  ContinueReadingWithSubscription,
 } from "./FreeReaderPersuader";
 import { PopulateReadersList } from "../homepage/politics/ReaderList";
 import { ContactsAds1 } from "../ContactUs/mainSection/ContactsAds";
 import { formatDate } from "../../_helper/dateFormatter";
 import authContext from "../../context/auth/authContext";
 import { LargeSizeAds } from "../homepage/ads/Ads";
+import { addView } from "./postView";
 
 function transform(node, index) {
   if (node.type === "tag" && node.name === "span") {
@@ -95,7 +97,14 @@ const GetNews = () => {
   }, [news, categoryNews]);
 
   useEffect(() => {
-    // get the readers list news
+    if (news) {
+      // Add post view
+      addView(news.id);
+    }
+  }, [news]);
+
+  useEffect(() => {
+    // get the readers list   news
     getNewsFeed().then((data) => {
       setCategoryNews(data);
       setLoading(false);
@@ -170,12 +179,15 @@ const GetNews = () => {
               <div className="text-wrap">{ReactHtmlParser(html, options)}</div>
               <div className="mt-5 news-paywall-area">
                 {/* if the user is not logged in, prompt them to login or signup */}
-                {!user && news.post_type === "free" && (
+                {!user && news.post_type === "free" && <FreeReaderPersuader />}
+
+                {/* prompt users without subscription to get 1 */}
+                {news.post_type === "premium" && !user && (
                   <ContinueReadingWithAuth />
                 )}
-                {/* prompt users without subscription to get 1 */}
-                {news.post_type === "premium" && !hasSubscription && (
-                  <FreeReaderPersuader />
+
+                {news.post_type === "premium" && user && !hasSubscription && (
+                  <ContinueReadingWithSubscription />
                 )}
                 <ShareNews
                   post_title={news.post_title}

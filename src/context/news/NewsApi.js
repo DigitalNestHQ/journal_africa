@@ -3,10 +3,10 @@ const token = localStorage.getItem("token");
 const config = {
   headers: {
     Authorization: `Bearer ${token}`,
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'mode': 'no-cors',
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "Access-Control-Allow-Origin": "*",
+    mode: "no-cors",
   },
 };
 
@@ -60,28 +60,30 @@ export const getSingleNews = async (slug) => {
   }
 };
 
-
 // get news comments
 export const getNewsComments = async (slug) => {
-  try{
+  try {
     const comments = await axios.get(
-      `https://api.tv24africa.com/api/v1/getcomment/${slug}`, config
-      );
-      const { data } = comments;
-      return data;
-  } catch(err){
+      `https://api.tv24africa.com/api/v1/getcomment/${slug}`,
+      config
+    );
+    const { data } = comments;
+    return data;
+  } catch (err) {
     console.log(err);
   }
-}
+};
 
-
-export const postNewComment = async (newComment) =>{
-  try{
-    console.log(newComment)
-    const res = await axios.post(`https://api.tv24africa.com/api/v1/comment`, newComment, config);
-    return res
-  }catch(err){
-    console.log('error from new comment', err)
-    return err
+export const postNewComment = async (newComment) => {
+  try {
+    const res = await axios.post(
+      `https://api.tv24africa.com/api/v1/comment`,
+      newComment,
+      config
+    );
+    return res;
+  } catch (err) {
+    console.log("error from new comment", err);
+    return err;
   }
-}
+};

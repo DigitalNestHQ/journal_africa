@@ -1,48 +1,46 @@
-
-.advertising{
-    position: relative;
-    top: 200px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.advertising {
+  position: relative;
+  top: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.advertising-heading{
-    padding: 2px 0;
-    border-top: 1px solid #999;
-    border-bottom: 1px solid #999;
-    text-align: center;
-    width: 80%;
+.advertising-heading {
+  padding: 2px 0;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  text-align: center;
+  width: 80%;
+  text-transform: uppercase;
 }
 
-.advertising-heading h1{
-    font-size: 25px;
-    line-height: 21px;
-    padding: 1em .5em;
-    border-top: 4px solid #eee;
-    border-bottom: 4px solid #eee;
+.advertising-heading h1 {
+  font-size: 25px;
+  line-height: 21px;
+  padding: 1em 0.5em;
+  border-top: 4px solid #eee;
+  border-bottom: 4px solid #eee;
 }
 
-.advertising-information{
-    width: 80%;
-    margin-top: 2rem;
+.advertising-information {
+  width: 80%;
+  margin-top: 2rem;
 }
 
-.advertising-information ol{
-    list-style-position: inside;
-    line-height: 2;
+.advertising-information ol {
+  list-style-position: inside;
+  line-height: 2;
 }
 
-
-.submission-instruction{
-    margin-top: 3rem;
-    margin-bottom: 5rem;
+.submission-instruction {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
 }
 
-.submission-instruction h1{
-    font-size: 25px;
-    line-height: 1.5;
+.submission-instruction h1 {
+  font-size: 25px;
+  line-height: 1.5;
 }

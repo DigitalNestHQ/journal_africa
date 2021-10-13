@@ -52,7 +52,7 @@ function Homepage() {
     <Fragment>
       <Nav />
       <Banner data={news} />
-      <ExternalNews data={news} />
+      {/* <ExternalNews data={news} /> */}
       <LatestNews data={news} />
       <TeaserSection data={news} />
       <PoliticsAndGovernance data={news} />

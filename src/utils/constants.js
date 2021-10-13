@@ -13,7 +13,7 @@ export const pageurl = {
   COOKIEPOLICY: "/cookie-policy",
   ENTERTAINMENT: "/entertainment",
   SUBSCRIBE: "/subscribe",
-  SUBSCRIBESUCCESS: "/subscribed",
+  SIGNUPSUCCESSFUL: "/success",
   LIFESTYLE: "/lifestyles",
   FAQ: "/faq",
   DISCOVERAFRICA: "/africa",
@@ -21,4 +21,5 @@ export const pageurl = {
   PODCAST: "/podcast",
   ADVERTISING: "/advertising",
   CODEOFETHICS: "/code-of-ethics",
+  WRITEFORUS: "/write-for-us",
 };

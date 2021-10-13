@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-import {
-  Link,
-} from "react-router-dom";
-import logo from "../../../assets/images/TV24Ergb.png"
+import { Link } from "react-router-dom";
+import logo from "../../../assets/images/TV24Ergb.png";
 // ../assets/images/TV24Ergb.png";
 // import "./nav.css";
 import "./categorynavbar.css";
@@ -23,7 +21,7 @@ const CategoryNavbar = () => {
               className="navbar-brand logo"
               style={{ color: "#000" }}
             >
-              <img loading="lazy" src={logo} alt="logo"/>
+              <img loading="lazy" src={logo} alt="logo" />
             </Link>
             <button
               className="navbar-toggler d-lg-none"
@@ -37,7 +35,10 @@ const CategoryNavbar = () => {
               {" "}
               <i style={{ color: "#E7332B" }} className="fas fa-bars" />
             </button>
-            <div className="collapse navbar-collapse category-collapse" id="collapsibleNavId">
+            <div
+              className="collapse navbar-collapse category-collapse"
+              id="collapsibleNavId"
+            >
               <ul className="navbar-nav ml- mt-2 mt-lg-0 nav-mn">
                 <li className="nav-item">
                   <Link
@@ -56,7 +57,7 @@ const CategoryNavbar = () => {
                     // to={pageurl.GOVERNANCE}
                     to={{
                       pathname: "/news/categories",
-                      search: `?category=Politics and Governance`,
+                      search: `?category=Politics`,
                     }}
                   >
                     POLITICS
@@ -66,22 +67,22 @@ const CategoryNavbar = () => {
                   <Link
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
-                     to={{
-                       pathname: "/news/categories",
-                       search: `?category=Business and Finance`,
-                      }}
+                    to={{
+                      pathname: "/news/categories",
+                      search: `?category=Business`,
+                    }}
                   >
                     BUSINESS
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link
-                  className="nav-link ml-lg-1"
-                  activeclassname="activeLink"
-                  to={{
-                    pathname: "/news/categories",
-                    search: `?category=Development`,
-                  }}
+                    className="nav-link ml-lg-1"
+                    activeclassname="activeLink"
+                    to={{
+                      pathname: "/news/categories",
+                      search: `?category=Development`,
+                    }}
                   >
                     DEVELOPMENT
                   </Link>
@@ -102,12 +103,12 @@ const CategoryNavbar = () => {
                   <Link
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
-                     to={{
-                       pathname: "/news/categories",
-                       search: `?category=Lifestyle`,
-                      }}
+                    to={{
+                      pathname: "/news/categories",
+                      search: `?category=Finance`,
+                    }}
                   >
-                    LIFESTYLE
+                    FINANCE
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -116,7 +117,7 @@ const CategoryNavbar = () => {
                     activeclassname="activeLink"
                     to={{
                       pathname: "/news/categories",
-                      search: `?category=Discovery Africa`,
+                      search: `?category=Discover Africa`,
                     }}
                   >
                     DISCOVER AFRICA
@@ -126,7 +127,7 @@ const CategoryNavbar = () => {
                   <Link
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
-                      to={{
+                    to={{
                       pathname: "/news/categories",
                       search: `?category=Tech Africa`,
                     }}
@@ -135,31 +136,39 @@ const CategoryNavbar = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link
+                  <a
                     className="nav-link ml-lg-1"
-                    activeclassname="activeLink"
-                      to={{
-                      pathname: "/news/categories",
-                      search: `?category=View Point`,
-                    }}
+                    href="https://news.tv24africa.com/"
                   >
-                    VIEWPOINT
-                  </Link>
+                    NEWS DAILY
+                  </a>
                 </li>
               </ul>
               <ul className="navbar-nav mr- pr-  mt-2 mt-lg-0 nav-sub-i">
-                {/* <li className="nav-item hd-bd">
-                {
-                  localStorage.token ? HandleAuthButton() :(
-                    <Link
+                {/* {localStorage.token ? (
+                  HandleAuthButton()
+                ) : (
+                  <Link
                     to="/login"
-                    className="nav-link mt-3 mt-lg-0 px- text-white nav-sub-tp"
+                    className="nav-link mt-3 mt-lg-0 px-4 text-white nav-sub-tp"
                   >
                     <i className="fas fa-sign-in-alt"></i> SIGN IN
                   </Link>
-                  )          
-                  
-                }
+                )}
+                <Link id="subscribe" to="/subscribe">
+                  SUBSCRIBE
+                </Link> */}
+                <li className="nav-item hd-bd">
+                  {localStorage.token ? (
+                    HandleAuthButton()
+                  ) : (
+                    <Link
+                      to="/login"
+                      className="nav-link mt-3 mt-lg-0 px- text-white nav-sub-tp"
+                    >
+                      <i className="fas fa-sign-in-alt"></i> SIGN IN
+                    </Link>
+                  )}
                 </li>
                 <li className="nav-item hd-bd">
                   <Link
@@ -168,8 +177,8 @@ const CategoryNavbar = () => {
                   >
                     subscribe
                   </Link>
-                  <i className="fas fa-search"></i>
-                </li> */}
+                  {/* <i className="fas fa-search"></i> */}
+                </li>
               </ul>
             </div>
           </nav>

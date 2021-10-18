@@ -12,7 +12,7 @@ const Navbar = () => {
     <div className="Navigation">
       <TopNav />
       <header>
-        <div className="container-fluid nav-wrapper">
+        <div className="container-fluid nav-wrapper lg-nav-wrapper">
           <nav
             className="navbar d-print navbar-expand-lg navbar-light navigation py-2 px-1"
             style={{
@@ -21,33 +21,12 @@ const Navbar = () => {
               flexDirection: 'row-reverse',
             }}
           >
-            <Link
-              to="/subscribe"
-              className="nav-link  "
-              style={{
-                fontSize: '.85rem',
-                padding: '5px 8px',
-                background: '#DC143C',
-                borderRadius: '5px',
-                marginRight: '30px',
-                marginTop: '15px',
-                textTransform: 'uppercase',
-              }}
-            >
+            <Link to="/subscribe" className="nav-link mobile-subscribe-btn">
               subscribe
             </Link>
 
             <Link to="/">
-              <h6
-                style={{
-                  color: 'white',
-                  margin: '0',
-                  fontSize: '1.15em',
-                  marginTop: '15px',
-                }}
-              >
-                TV24 Africa News
-              </h6>
+              <h6 className="mobile-heading">TV24 Africa News</h6>
             </Link>
 
             <button
@@ -196,7 +175,7 @@ const Navbar = () => {
                     </Link>
                   )}
                 </li>
-                {/* <li className="nav-item hd-bd">
+                <li className="nav-item hd-bd mobile-subscribe-link">
                   <Link
                     to="/subscribe"
                     className="nav-link nav-sub mt-3 mt-lg-0 ml-lg-1 subscribe-custom-btn"
@@ -206,7 +185,7 @@ const Navbar = () => {
                   <span className="ml-2">
                     <i className="fas fa-search"></i>
                   </span>
-                </li> */}
+                </li>
               </ul>
             </div>
             {/* end of nav links */}

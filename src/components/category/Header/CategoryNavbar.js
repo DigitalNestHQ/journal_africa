@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import logo from "../../../assets/images/TV24Ergb.png";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../../assets/images/TV24Ergb.png';
 // ../assets/images/TV24Ergb.png";
 // import "./nav.css";
-import "./categorynavbar.css";
+import './categorynavbar.css';
 // import { HandleAuthButton } from "./HandleAuthButton";
-import TopNav from "../../reusables/Topnav";
-import { pageurl } from "../../../utils/constants";
-import { HandleAuthButton } from "../../reusables/navigation/Nav/HandleAuthButton";
+import TopNav from '../../reusables/topnav';
+import { pageurl } from '../../../utils/constants';
+import { HandleAuthButton } from '../../reusables/navigation/Nav/HandleAuthButton';
 
 const CategoryNavbar = () => {
   return (
@@ -19,7 +19,7 @@ const CategoryNavbar = () => {
             <Link
               to={pageurl.HOMEPAGE}
               className="navbar-brand logo"
-              style={{ color: "#000" }}
+              style={{ color: '#000' }}
             >
               <img loading="lazy" src={logo} alt="logo" />
             </Link>
@@ -32,8 +32,8 @@ const CategoryNavbar = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              {" "}
-              <i style={{ color: "#E7332B" }} className="fas fa-bars" />
+              {' '}
+              <i style={{ color: '#E7332B' }} className="fas fa-bars" />
             </button>
             <div
               className="collapse navbar-collapse category-collapse"
@@ -56,7 +56,7 @@ const CategoryNavbar = () => {
                     activeclassname="activeLink"
                     // to={pageurl.GOVERNANCE}
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Politics`,
                     }}
                   >
@@ -68,7 +68,7 @@ const CategoryNavbar = () => {
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Business`,
                     }}
                   >
@@ -80,7 +80,7 @@ const CategoryNavbar = () => {
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Development`,
                     }}
                   >
@@ -92,7 +92,7 @@ const CategoryNavbar = () => {
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Economy`,
                     }}
                   >
@@ -104,7 +104,7 @@ const CategoryNavbar = () => {
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Finance`,
                     }}
                   >
@@ -116,7 +116,7 @@ const CategoryNavbar = () => {
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Discover Africa`,
                     }}
                   >
@@ -128,7 +128,7 @@ const CategoryNavbar = () => {
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Tech Africa`,
                     }}
                   >

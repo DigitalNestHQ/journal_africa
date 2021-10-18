@@ -1,54 +1,54 @@
-import React, { useEffect, useState, Fragment, useContext } from "react";
-import CommentForm from "./CommentForm";
-import ShareNews from "./ShareNews";
-import bannerAds from "./../../assets/images/bannerads.png";
+import React, { useEffect, useState, Fragment, useContext } from 'react';
+import CommentForm from './CommentForm';
+import ShareNews from './ShareNews';
+import bannerAds from './../../assets/images/bannerads.png';
 import ReactHtmlParser, {
   processNodes,
   convertNodeToElement,
-} from "react-html-parser";
-import Nav from "../reusables/navigation/Nav/Nav";
-import Footer from "../reusables/navigation/Footer/Footer";
-import { useParams } from "react-router-dom";
-import { Button } from "react-bootstrap";
+} from 'react-html-parser';
+import Nav from '../reusables/navigation/Nav/nav';
+import Footer from '../reusables/navigation/Footer/footer';
+import { useParams } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import {
   getNewsComments,
   getNewsFeed,
   getSingleNews,
-} from "../../context/news/NewsApi";
-import Loader from "../loader/Loader";
-import "./allNews.css";
-import NewsComments from "./NewsComments";
+} from '../../context/news/NewsApi';
+import Loader from '../loader/Loader';
+import './allNews.css';
+import NewsComments from './NewsComments';
 import {
   FreeReaderPersuader,
   ContinueReadingWithAuth,
   ContinueReadingWithSubscription,
-} from "./FreeReaderPersuader";
-import { PopulateReadersList } from "../homepage/politics/ReaderList";
-import { ContactsAds1 } from "../ContactUs/mainSection/ContactsAds";
-import { formatDate } from "../../_helper/dateFormatter";
-import authContext from "../../context/auth/authContext";
-import { LargeSizeAds } from "../homepage/ads/Ads";
-import { addView } from "./postView";
+} from './FreeReaderPersuader';
+import { PopulateReadersList } from '../homepage/politics/ReaderList';
+import { ContactsAds1 } from '../ContactUs/mainSection/ContactsAds';
+import { formatDate } from '../../_helper/dateFormatter';
+import authContext from '../../context/auth/authContext';
+import { LargeSizeAds } from '../homepage/ads/Ads';
+import { addView } from './postView';
 
 function transform(node, index) {
-  if (node.type === "tag" && node.name === "span") {
+  if (node.type === 'tag' && node.name === 'span') {
     return null;
   }
-  if (node.type === "tag" && node.name === "ul") {
-    node.name = "ol";
+  if (node.type === 'tag' && node.name === 'ul') {
+    node.name = 'ol';
     return convertNodeToElement(node, index, transform);
   }
 
-  if (node.type === "tag" && node.name === "b") {
+  if (node.type === 'tag' && node.name === 'b') {
     return <i key={index}>{processNodes(node.children, transform)}</i>;
   }
-  if (node.type === "tag" && node.name === "a") {
-    node.attribs.target = "_blank";
+  if (node.type === 'tag' && node.name === 'a') {
+    node.attribs.target = '_blank';
 
     return convertNodeToElement(node, index, transform);
   }
 
-  if (node.type === "tag" && node.name === "button") {
+  if (node.type === 'tag' && node.name === 'button') {
     return (
       <Button variant="contained" color="primary" key={index}>
         {processNodes(node.children, transform)}
@@ -70,7 +70,7 @@ const GetNews = () => {
   const [comments, setComments] = useState(null);
   const [hasSubscription, setHasSubscription] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const { slug } = useParams();
   const [previousPost, setPreviousPost] = useState(null);
   const [nextPost, setNextPost] = useState(null);
@@ -140,7 +140,7 @@ const GetNews = () => {
     // when the news is premium and the user has a subscription let them reall all, else let them read 2 paragraphs             if the user user is logged in let them read the free news but if not logged in, let them read 2 paragraphs
     // html = `${news.post_type === 'premium' ? (hasSubscription ? news.post_description : news.post_description.slice(0, 2000)) : (user ? news.post_description : news.post_description.slice(0, 2000))}`;
     html = `${
-      news.post_type === "premium"
+      news.post_type === 'premium'
         ? hasSubscription
           ? news.post_description
           : news.post_description.slice(0, 1000)
@@ -165,7 +165,7 @@ const GetNews = () => {
           <div className="row mt-5">
             <article className="news-body col-12 col-md-12 col-lg-9 bg-dager">
               <span className="news-posted-date small">
-                {news.category_id} - {formatDate(news.created_at)} -{" "}
+                {news.category_id} - {formatDate(news.created_at)} -{' '}
                 {news.post_type?.toUpperCase()}
               </span>
               <h2 className="post_title">{news.post_title}</h2>
@@ -179,14 +179,14 @@ const GetNews = () => {
               <div className="text-wrap">{ReactHtmlParser(html, options)}</div>
               <div className="mt-5 news-paywall-area">
                 {/* if the user is not logged in, prompt them to login or signup */}
-                {!user && news.post_type === "free" && <FreeReaderPersuader />}
+                {!user && news.post_type === 'free' && <FreeReaderPersuader />}
 
                 {/* prompt users without subscription to get 1 */}
-                {news.post_type === "premium" && !user && (
+                {news.post_type === 'premium' && !user && (
                   <ContinueReadingWithAuth />
                 )}
 
-                {news.post_type === "premium" && user && !hasSubscription && (
+                {news.post_type === 'premium' && user && !hasSubscription && (
                   <ContinueReadingWithSubscription />
                 )}
                 <ShareNews

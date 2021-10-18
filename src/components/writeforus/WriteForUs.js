@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { pageurl } from "../../utils/constants";
-import Footer from "../reusables/navigation/Footer/Footer";
-import Navbar from "../reusables/navigation/Nav/Nav";
-import "./writeforus.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { pageurl } from '../../utils/constants';
+import Footer from '../reusables/navigation/Footer/footer';
+import Navbar from '../reusables/navigation/Nav/nav';
+import './writeforus.css';
 
 export const WriteForUs = () => {
   return (
@@ -62,14 +62,14 @@ export const WriteForUs = () => {
             opinion articles, eye witness reports etc,
             <br /> please submit them here
             <a href="https://news.tv24africa.com/submityourstory">
-              {" "}
+              {' '}
               news.tv24africa.com/submityourstory
             </a>
           </p>
           <p>
             For promotional pieces, please send a mail to
             <b> advertising@tv24africa.com </b>
-            For more information,{" "}
+            For more information,{' '}
           </p>
 
           <p>

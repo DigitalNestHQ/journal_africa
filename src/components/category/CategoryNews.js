@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import Header from "./Header/index";
-import Footer from "../reusables/navigation/Footer/Footer";
+import Footer from "../reusables/navigation/Footer/footer";
 // feeds api
 import { getNewsFeed } from "../../context/news/NewsApi";
 // import queryString from "query-string";

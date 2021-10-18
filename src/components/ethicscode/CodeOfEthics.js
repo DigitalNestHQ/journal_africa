@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { pageurl } from "../../utils/constants";
-import Footer from "../reusables/navigation/Footer/Footer";
-import Navbar from "../reusables/navigation/Nav/Nav";
+import Footer from "../reusables/navigation/Footer/footer";
+import Navbar from "../reusables/navigation/Nav/nav";
 import "./codeofethics.css";
 
 export const CodeOfEthics = () => {

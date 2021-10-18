@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import logo from "../../../../assets/images/TV24Ergb.png";
-import { pageurl } from "../../../../utils/constants";
-import TopNav from "../../Topnav";
-import "./nav.css";
-import "../../header.css";
-import { HandleAuthButton } from "./HandleAuthButton";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../../../assets/images/TV24Ergb.png';
+import { pageurl } from '../../../../utils/constants';
+import TopNav from '../../topnav';
+import './nav.css';
+import '../../header.css';
+import { HandleAuthButton } from './HandleAuthButton';
 
 const Navbar = () => {
   return (
@@ -17,7 +17,7 @@ const Navbar = () => {
             <Link
               to={pageurl.HOMEPAGE}
               className="navbar-brand logo"
-              style={{ color: "#fff" }}
+              style={{ color: '#fff' }}
             >
               <img loading="lazy" src={logo} alt="logo" />
             </Link>
@@ -30,8 +30,8 @@ const Navbar = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              {" "}
-              <i style={{ color: "#E7332B" }} className="fas fa-bars" />
+              {' '}
+              <i style={{ color: '#E7332B' }} className="fas fa-bars" />
             </button>
             <div
               className="collapse navbar-collapse justify-content-space-between"
@@ -39,7 +39,7 @@ const Navbar = () => {
             >
               <ul
                 className="navbar-nav ml- mt-2 mt-lg-0 nav-mn d-flex justify-cntent-center"
-                style={{ width: "100%" }}
+                style={{ width: '100%' }}
               >
                 <li className="nav-item">
                   <Link
@@ -57,7 +57,7 @@ const Navbar = () => {
                     activeclassname="activeLink"
                     // to={pageurl.GOVERNANCE}
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Politics`,
                     }}
                   >
@@ -69,7 +69,7 @@ const Navbar = () => {
                     className="nav-link ml-lg-1 remov--item-3"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Business`,
                     }}
                   >
@@ -81,7 +81,7 @@ const Navbar = () => {
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Development`,
                     }}
                   >
@@ -93,7 +93,7 @@ const Navbar = () => {
                     className="nav-link ml-lg-1 remov--item-2"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Governance`,
                     }}
                   >
@@ -105,7 +105,7 @@ const Navbar = () => {
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Economy`,
                     }}
                   >

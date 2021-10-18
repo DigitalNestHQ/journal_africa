@@ -35,6 +35,8 @@ const CategoryNavbar = () => {
               {' '}
               <i style={{ color: '#E7332B' }} className="fas fa-bars" />
             </button>
+
+            {/* nav-links */}
             <div
               className="collapse navbar-collapse category-collapse"
               id="collapsibleNavId"
@@ -181,6 +183,7 @@ const CategoryNavbar = () => {
                 </li>
               </ul>
             </div>
+            {/* end of nav-links */}
           </nav>
         </div>
       </header>

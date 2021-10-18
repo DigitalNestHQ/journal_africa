@@ -13,14 +13,43 @@ const Navbar = () => {
       <TopNav />
       <header>
         <div className="container-fluid nav-wrapper">
-          <nav className="navbar d-print navbar-expand-lg navbar-light navigation py-2 px-1 ">
+          <nav
+            className="navbar d-print navbar-expand-lg navbar-light navigation py-2 px-1"
+            style={{
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexDirection: 'row-reverse',
+            }}
+          >
             <Link
-              to={pageurl.HOMEPAGE}
-              className="navbar-brand logo"
-              style={{ color: '#fff' }}
+              to="/subscribe"
+              className="nav-link  "
+              style={{
+                fontSize: '.85rem',
+                padding: '5px 8px',
+                background: '#DC143C',
+                borderRadius: '5px',
+                marginRight: '30px',
+                marginTop: '15px',
+                textTransform: 'uppercase',
+              }}
             >
-              <img loading="lazy" src={logo} alt="logo" />
+              subscribe
             </Link>
+
+            <Link to="/">
+              <h6
+                style={{
+                  color: 'white',
+                  margin: '0',
+                  fontSize: '1.15em',
+                  marginTop: '15px',
+                }}
+              >
+                TV24 Africa News
+              </h6>
+            </Link>
+
             <button
               className="navbar-toggler d-lg-none"
               type="button"
@@ -29,10 +58,20 @@ const Navbar = () => {
               aria-controls="collapsibleNavId"
               aria-expanded="false"
               aria-label="Toggle navigation"
+              style={{ margin: '0' }}
             >
               {' '}
-              <i style={{ color: '#E7332B' }} className="fas fa-bars" />
+              <i
+                style={{
+                  color: '#E7332B',
+                  justifySelf: 'flex-start',
+                  marginTop: '15px',
+                }}
+                className="fas fa-bars"
+              />
             </button>
+
+            {/* nav links */}
             <div
               className="collapse navbar-collapse justify-content-space-between"
               id="collapsibleNavId"
@@ -157,7 +196,7 @@ const Navbar = () => {
                     </Link>
                   )}
                 </li>
-                <li className="nav-item hd-bd">
+                {/* <li className="nav-item hd-bd">
                   <Link
                     to="/subscribe"
                     className="nav-link nav-sub mt-3 mt-lg-0 ml-lg-1 subscribe-custom-btn"
@@ -167,9 +206,10 @@ const Navbar = () => {
                   <span className="ml-2">
                     <i className="fas fa-search"></i>
                   </span>
-                </li>
+                </li> */}
               </ul>
             </div>
+            {/* end of nav links */}
           </nav>
         </div>
       </header>

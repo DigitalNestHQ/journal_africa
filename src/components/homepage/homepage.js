@@ -42,7 +42,7 @@ function Homepage() {
       return () => (subscribe = null);
     }
 
-    //eslint-disable-next-line
+    // eslint-disable-next-line
   }, [slug, setNews]);
   if (!news) {
     return <Loader />;

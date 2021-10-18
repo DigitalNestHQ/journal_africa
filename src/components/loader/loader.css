@@ -4,11 +4,8 @@
   left: 0;
   top: 0;
   background-color: #b4afaf;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  display: grid;
+  place-content: center;
 }
 
 .loader {
@@ -16,10 +13,8 @@
     top: 50%;
     left: 50%;
     transform: translateY(-50% -50%); */
-  width: 50px;
-  height: 50px;
-  border: 5px solid #f83d3d;
-  border-radius: 50%;
+  width: 150px;
+  height: 150px;
   animation: loader infinite 5s linear;
 }
 

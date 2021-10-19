@@ -1,9 +1,9 @@
-import ReactHtmlParser from "react-html-parser";
-import React from "react";
-import { Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import "./teaser.css";
-import { HtmlParseOptions } from "../../../_helper/parseNewsHtml";
+import ReactHtmlParser from 'react-html-parser';
+import React from 'react';
+import { Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './teaser.css';
+import { HtmlParseOptions } from '../../../_helper/parseNewsHtml';
 const TeaserCard = ({
   featured_image,
   slug,
@@ -22,14 +22,14 @@ const TeaserCard = ({
           <Card.Img
             variant="top"
             src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
-            style={{ height: "258px", objectFit: "cover" }}
+            style={{ height: '258px', objectFit: 'cover' }}
           />
           <Card.Body>
             <Card.Text className="teaser-text">
               <section className="link-wrap">
                 <Link
                   to={{
-                    pathname: "/news/sub-categories",
+                    pathname: '/news/sub-categories',
                     search: `?subcategory=${sub_category}`,
                   }}
                 >
@@ -39,7 +39,7 @@ const TeaserCard = ({
                 </Link>
                 <Link
                   to={{
-                    pathname: "/news/sub-categories",
+                    pathname: '/news/sub-categories',
                     search: `?subcategory=${sub_category}`,
                   }}
                   className="more-link btn btn-sm more-btn"
@@ -48,7 +48,7 @@ const TeaserCard = ({
                 </Link>
               </section>
               <Link to={`/post/${slug}`} className="teaser-heading">
-                {slug.toLowerCase().slice(0, 250)}love
+                {slug.toLowerCase().slice(0, 250)}
               </Link>
             </Card.Text>
             <Card.Text className="teaser-news-description">

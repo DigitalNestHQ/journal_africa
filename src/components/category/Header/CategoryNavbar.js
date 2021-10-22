@@ -13,6 +13,14 @@ const CategoryNavbar = () => {
   // state for showing navLinks or not - the setShow method is then attached to the onCLick handler for all navLinks
   const [showNav, setShowNav] = useState(false);
 
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  // track the screen width on firstMount so we can use it to show or hide the nav links
+  useEffect(() => {
+    // eslint-disable-next-line no-restricted-globals
+    setScreenWidth(screen.width);
+  }, []);
+
   return (
     <div className="Navigation">
       <TopNav />
@@ -20,7 +28,9 @@ const CategoryNavbar = () => {
         <div className="container-fluid">
           <nav
             className="navbar category-navbar navbar-expand-lg navbar-light navigation py-2 px-1 "
-            style={{ flexDirection: 'row-reverse' }}
+            style={{
+              flexDirection: 'row-reverse',
+            }}
           >
             <Link
               to="/subscribe"
@@ -46,7 +56,7 @@ const CategoryNavbar = () => {
             </button>
 
             {/* nav-links */}
-            {showNav && (
+            {(showNav || screenWidth >= 375) && (
               <div
                 className="collapse navbar-collapse category-collapse"
                 id="collapsibleNavId"
@@ -165,27 +175,35 @@ const CategoryNavbar = () => {
                     </a>
                   </li>
                 </ul>
-                <ul className="navbar-nav mr- pr-  mt-2 mt-lg-0 nav-sub-i">
+                <ul
+                  className="navbar-nav mr- pr-  mt-2 mt-lg-0 nav-sub-i"
+                  style={{ marginLeft: '30px' }}
+                >
                   {/* {localStorage.token ? (
-                  HandleAuthButton()
-                ) : (
-                  <Link
-                    to="/login"
-                    className="nav-link mt-3 mt-lg-0 px-4 text-white nav-sub-tp"
-                  >
-                    <i className="fas fa-sign-in-alt"></i> SIGN IN
-                  </Link>
-                )}
-                <Link id="subscribe" to="/subscribe">
-                  SUBSCRIBE
-                </Link> */}
+                    HandleAuthButton()
+                  ) : (
+                    <Link
+                      to="/login"
+                      className="nav-link mt-3 mt-lg-0 px-4 text-white nav-sub-tp "
+                    >
+                      <i className="fas fa-sign-in-alt"></i> SIGN IN
+                    </Link>
+                  )} */}
+                  <li className="nav-item hd-bd mobile-subscribe-link">
+                    <Link
+                      to="/subscribe"
+                      className="nav-link nav-sub mt-3 mt-lg-0 ml-lg-1 subscribe-custom-btn"
+                    >
+                      subscribe
+                    </Link>
+                  </li>
                   <li className="nav-item hd-bd">
                     {localStorage.token ? (
                       HandleAuthButton()
                     ) : (
                       <Link
                         to="/login"
-                        className="nav-link mt-3 mt-lg-0 px- text-white nav-sub-tp"
+                        className="nav-link mt-3 mt-lg-0 px- text-white nav-sub-tp ml-lg-2"
                       >
                         <i className="fas fa-sign-in-alt"></i> SIGN IN
                       </Link>

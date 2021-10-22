@@ -70,7 +70,11 @@ function TopNav(props) {
       </p>
       {/* the weather repost component goes here */}{' '}
       <div>
-        <img src={logoImg} alt="TV24 Africa logo" style={{ height: '50px' }} />
+        <img
+          src={logoImg}
+          alt="TV24 Africa logo"
+          style={{ height: '50px', marginRight: '10px' }}
+        />
       </div>
       {/* social links */}
       <ul className="soc-nav mr-" style={{ marginBottom: '0px' }}>

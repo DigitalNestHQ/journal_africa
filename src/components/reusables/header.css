@@ -4,7 +4,8 @@
   height: 60px !important;
   padding-bottom: 7px;
   padding-top: 5px;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: space-between;
   display: flex;
   white-space: nowrap;
 }
@@ -15,6 +16,9 @@
   font-weight: bold;
   font-size: 11px;
   text-transform: capitalize;
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: left;
 }
 
 @media (min-width: 776px) {
@@ -76,7 +80,7 @@
 .top-nav p {
   font-size: 11px;
   padding: 10px;
-  text-align: center;
+  text-align: left;
 }
 .soc-nav i {
   color: #fff;

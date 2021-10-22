@@ -246,10 +246,11 @@ const GetNews = () => {
                         })
                     }
                   </section>
+
                   {/* news comments */}
-                  <NewsComments comments={comments} />
+                  {/* <NewsComments comments={comments} /> */}
                   {/* comment form */}
-                  <CommentForm post_title={news.post_title} post_id={news.id} />
+                  {/* <CommentForm post_title={news.post_title} post_id={news.id} /> */}
                 </div>
               </div>
             </article>

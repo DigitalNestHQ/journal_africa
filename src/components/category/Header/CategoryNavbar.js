@@ -13,13 +13,15 @@ const CategoryNavbar = () => {
   // state for showing navLinks or not - the setShow method is then attached to the onCLick handler for all navLinks
   const [showNav, setShowNav] = useState(false);
 
-  const [screenWidth, setScreenWidth] = useState(0);
-
   // track the screen width on firstMount so we can use it to show or hide the nav links
   useEffect(() => {
     // eslint-disable-next-line no-restricted-globals
-    setScreenWidth(screen.width);
+    if (screen.width >= '768') {
+      setShowNav(true);
+    }
   }, []);
+
+  console.log(showNav);
 
   return (
     <div className="Navigation">
@@ -56,7 +58,7 @@ const CategoryNavbar = () => {
             </button>
 
             {/* nav-links */}
-            {(showNav || screenWidth >= 375) && (
+            {showNav && (
               <div
                 className="collapse navbar-collapse category-collapse"
                 id="collapsibleNavId"

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, Fragment } from "react";
-import Nav from "../reusables/navigation/Nav/Nav";
-import Footer from "../reusables/navigation/Footer/Footer";
+import Nav from "../reusables/navigation/Nav/nav";
+import Footer from "../reusables/navigation/Footer/footer";
 import { Card } from "react-bootstrap";
 import Hyunda from "../../assets/images/Hyunda.jpg";
 import Opec from "../../assets/images/opec.jpg";

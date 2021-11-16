@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
-import Nav from "../reusables/navigation/Nav/Nav";
-import Footer from "../reusables/navigation/Footer/Footer";
+import React, { Fragment } from 'react';
+import Nav from '../reusables/navigation/Nav/nav';
+import Footer from '../reusables/navigation/Footer/footer';
 
-import "./privacyPolicy.css";
+import './privacyPolicy.css';
 
 const PrivacyPolicy = () => {
   return (
@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
           <li>
             <span>Terms</span>
             <p>
-              {" "}
+              {' '}
               By accessing the website “www.tv24africa.com” or any if is
               subdomains, you are agreeing to be bound by these website Terms
               and Conditions of Use, all applicable laws, and regulations, and
@@ -53,7 +53,7 @@ const PrivacyPolicy = () => {
                 materials on any other server.
               </li>
               <li>
-                {" "}
+                {' '}
                 This license shall automatically terminate if you violate any of
                 these restrictions and may be terminated by tv24africa.com at
                 any time. Upon terminating your viewing of these materials or
@@ -82,7 +82,7 @@ const PrivacyPolicy = () => {
               </li>
               <li>
                 Post or distribute any material that infringes and/or violates
-                any right of a third party or any law.{" "}
+                any right of a third party or any law.{' '}
               </li>
               <li>
                 Post or distribute any vulgar, obscene, discourteous, or
@@ -97,7 +97,7 @@ const PrivacyPolicy = () => {
               <li>
                 Post material or make statements that do not generally pertain
                 to the designated topic or theme of any chat room or bulletin
-                board{" "}
+                board{' '}
               </li>
               <li>
                 We reserve the right to remove or edit content from the Forum at
@@ -108,7 +108,7 @@ const PrivacyPolicy = () => {
           <li>
             <span>Disclaimer</span>
             <p>
-              {" "}
+              {' '}
               The materials on TV24africa website are provided “as is”.
               TV24africa makes no warranties, expressed or implied, and hereby
               disclaims and negates all other warranties, including without
@@ -126,7 +126,7 @@ const PrivacyPolicy = () => {
           <li>
             <span>Limitations</span>
             <p>
-              {" "}
+              {' '}
               In no event shall TV24Africa or its suppliers be liable for any
               damages (including, without limitation, damages for loss of data
               or profit, or due to business interruption,) arising out of the
@@ -169,7 +169,7 @@ const PrivacyPolicy = () => {
             <span>Site Terms of Use Modifications</span>
             <ol className="ol-text-format">
               <li>
-                {" "}
+                {' '}
                 TV24Africa may revise these terms of use for its website at any
                 time without notice. Please check these terms periodically for
                 changes. Your continued use of this website following the
@@ -197,7 +197,7 @@ const PrivacyPolicy = () => {
           <li>
             <span>Privacy Policy</span>
             <p>
-              {" "}
+              {' '}
               Privacy Policy Your privacy is very important to us. Accordingly,
               we have developed this Policy in order for you to understand how
               we collect, use, communicate, and disclose and make use of
@@ -301,7 +301,7 @@ const PrivacyPolicy = () => {
           <li className="pol-list-rm">
             <span>11.4 Content that you send to us </span>
             <p>
-              {" "}
+              {' '}
               <b>1.1</b> On our platforms, you may be asked to participate by
               sending (by various means) content that you wish to share with us,
               such as a video or photo (hereinafter referred to as the

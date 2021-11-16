@@ -36,6 +36,10 @@
   height: 177px;
 }
 
+.main-section-card > div + div {
+  position: relative;
+}
+
 .card-caption-title {
   color: #ff0000;
   font-weight: 700;

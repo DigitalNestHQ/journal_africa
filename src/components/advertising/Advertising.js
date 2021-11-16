@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { pageurl } from "../../utils/constants";
-import Footer from "../reusables/navigation/Footer/Footer";
-import Navbar from "../reusables/navigation/Nav/Nav";
-import "./advertising.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { pageurl } from '../../utils/constants';
+import Footer from '../reusables/navigation/Footer/footer';
+import Navbar from '../reusables/navigation/Nav/nav';
+import './advertising.css';
 
 export const Advertising = () => {
   return (
@@ -56,7 +56,7 @@ export const Advertising = () => {
               dimensions unless otherwise noted.
             </p>
             <p>
-              For more information,{" "}
+              For more information,{' '}
               <Link to={pageurl.CONTACTUS}>contact us.</Link>
             </p>
           </div>

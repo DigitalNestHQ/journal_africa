@@ -1,7 +1,9 @@
-import React, { useContext, useEffect } from "react";
-import authContext from "../../context/auth/authContext";
-import { Weather } from "../weather/Weather";
-import "./header.css";
+import React, { useContext, useEffect } from 'react';
+import authContext from '../../context/auth/authContext';
+import { Weather } from '../weather/Weather';
+import './header.css';
+
+import logoImg from 'assets/images/logo white.png';
 
 function TopNav(props) {
   const userContext = useContext(authContext);
@@ -21,61 +23,61 @@ function TopNav(props) {
     const day = date.getDate();
     let monthString;
     if (month === 1) {
-      monthString = "January";
+      monthString = 'January';
     } else if (month === 2) {
-      monthString = "February";
+      monthString = 'February';
     } else if (month === 3) {
-      monthString = "March";
+      monthString = 'March';
     } else if (month === 4) {
-      monthString = "April";
+      monthString = 'April';
     } else if (month === 5) {
-      monthString = "May";
+      monthString = 'May';
     } else if (month === 6) {
-      monthString = "June";
+      monthString = 'June';
     } else if (month === 7) {
-      monthString = "July";
+      monthString = 'July';
     } else if (month === 8) {
-      monthString = "August";
+      monthString = 'August';
     } else if (month === 9) {
-      monthString = "September";
+      monthString = 'September';
     } else if (month === 10) {
-      monthString = "October";
+      monthString = 'October';
     } else if (month === 11) {
-      monthString = "November";
+      monthString = 'November';
     } else if (month === 12) {
-      monthString = "December";
+      monthString = 'December';
     }
     return `${monthString} ${day}, ${year}`;
   };
   return (
     <div className="top-nav">
       {/* <section className="top-nav-wrap"> */}
-
-      <p className="text-white name-sp" style={{ marginBottom: "0px" }}>
-        {" "}
+      <p className="text-white name-sp" style={{ marginBottom: '0px' }}>
+        {' '}
         {user && user ? (
           <>
             <span>
               Welcome {user.firstname} {user.lastname}
-            </span>{" "}
+            </span>{' '}
             <span className="p-1">{getDate()}</span>
           </>
         ) : (
           <>
-            <span>Welcome to TV24 Africa News</span>{" "}
+            <span>Welcome to TV24 Africa News</span>{' '}
             <span className="p-1">{getDate()}</span>
           </>
-        )}{" "}
+        )}{' '}
       </p>
-      {/* the weather repost component goes here */}
-      <p className="text-white name-sp mlauto weather-nav">
-        <span className="weather-wrap">
-          {" "}
-          <Weather />{" "}
-        </span>
-        {/* <span className="weather-wrap"> Weather: FCT : 32° <sup></sup></span> */}
-      </p>
-      <ul className="soc-nav mr-" style={{ marginBottom: "0px" }}>
+      {/* the weather repost component goes here */}{' '}
+      <div>
+        <img
+          src={logoImg}
+          alt="TV24 Africa logo"
+          style={{ height: '50px', marginRight: '10px' }}
+        />
+      </div>
+      {/* social links */}
+      <ul className="soc-nav mr-" style={{ marginBottom: '0px' }}>
         <li>
           <a href="https://www.facebook.com/tv24africanews">
             <i className="fab fa-facebook"></i>

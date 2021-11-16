@@ -1,45 +1,45 @@
-import React from "react";
-import { pageurl } from "./utils/constants.js";
-import { Route, Switch } from "react-router-dom";
-import HomePage from "./components/homepage/Homepage";
-import AboutUs from "./components/about/AboutComponent";
-import Category from "./components/newscategory/Categories";
-import PrivacyPolicy from "./components/privacyPolicy/PrivacyPolicy";
-import CookiePolicy from "./components/cookie/CookiePolicy";
-import Login from "./components/login/Login";
-import Signup from "./components/signup/Signup";
-import Sports from "./components/sport/Sport";
-import Subscribe from "./components/subscription/Subscribe";
-import DiscoverAfrica from "./components/DiscoverAfrica/index";
-import ContactUs from "./components/ContactUs/index";
-import NewsFeeds from "./components/generalNews/News";
-import AllNewsFeeds from "./components/homepage/AllNews";
-import { CodeOfEthics } from "./components/ethicscode/CodeOfEthics";
-import CategoryNews from "./components/category/CategoryNews";
-import { PodcastHome } from "./podcast/home/PodcastHome.js";
-import { PodCastsView } from "./podcast/podcastspage/PodCastsView.js";
+import React from 'react';
+import { pageurl } from './utils/constants.js';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from './components/homepage/homepage';
+import AboutUs from './components/about/AboutComponent';
+import Category from './components/newscategory/categories';
+import PrivacyPolicy from './components/privacyPolicy/PrivacyPolicy';
+import CookiePolicy from './components/cookie/CookiePolicy';
+import Login from './components/login/Login';
+import Signup from './components/signup/Signup';
+import Sports from './components/sport/Sport';
+import Subscribe from './components/subscription/Subscribe';
+import DiscoverAfrica from './components/DiscoverAfrica/index';
+import ContactUs from './components/ContactUs/index';
+import NewsFeeds from './components/generalNews/News';
+import AllNewsFeeds from './components/homepage/AllNews';
+import { CodeOfEthics } from './components/ethicscode/CodeOfEthics';
+import CategoryNews from './components/category/CategoryNews';
+import { PodcastHome } from './podcast/home/PodcastHome.js';
+import { PodCastsView } from './podcast/podcastspage/PodCastsView.js';
 
-import Error404 from "./components/error404/Error404";
+import Error404 from './components/error404/error404';
 
 // import { NewHomePage } from "./components/newDesign/NewHomePage"
 
 // css override
-import "./../src/components/reusables/utilities/index.css";
+import './../src/components/reusables/utilities/index.css';
 
 // states
-import AuthState from "./context/auth/AuthState";
-import AlertState from "./context/alert/AlertState";
+import AuthState from './context/auth/AuthState';
+import AlertState from './context/alert/AlertState';
 
 // middleware
-import setAuthToken from "./utils/setAuthToken";
-import "./App.css";
-import Categories from "./components/newscategory/Categories";
-import { SinglePodCast } from "./podcast/singlepodcast/SinglePodCast.js";
-import { SuccessPage } from "./components/homepage/homepageSubscribeSection/SuccessPage.js";
-import Faq from "./components/faq/Faq.js";
-import { Advertising } from "./components/advertising/Advertising.js";
-import SubcategoryNews from "./components/category/SubcategoryNews.js";
-import { WriteForUs } from "./components/writeforus/WriteForUs.js";
+import setAuthToken from './utils/setAuthToken';
+import './App.css';
+import Categories from './components/newscategory/categories';
+import { SinglePodCast } from './podcast/singlepodcast/SinglePodCast.js';
+import { SuccessPage } from './components/homepage/homepageSubscribeSection/SuccessPage.js';
+import Faq from './components/faq/Faq.js';
+import { Advertising } from './components/advertising/Advertising.js';
+import SubcategoryNews from './components/category/SubcategoryNews.js';
+import { WriteForUs } from './components/writeforus/WriteForUs.js';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);

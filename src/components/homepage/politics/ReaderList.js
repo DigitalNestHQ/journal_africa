@@ -1,8 +1,8 @@
-import React from "react";
-import ReactHtmlParser from "react-html-parser";
-import "./readerlist.css";
-import { formatDate } from "../../../_helper/dateFormatter";
-import { HtmlParseOptions } from "../../../_helper/parseNewsHtml";
+import React from 'react';
+import ReactHtmlParser from 'react-html-parser';
+import './readerlist.css';
+import { formatDate } from '../../../_helper/dateFormatter';
+import { HtmlParseOptions } from '../../../_helper/parseNewsHtml';
 
 const ReaderList = ({
   slug,
@@ -13,26 +13,30 @@ const ReaderList = ({
   post_type,
   redirect_to_wordpress,
 }) => {
-  const getAllParagraphs = post_description.split("</p>");
+  const getAllParagraphs = post_description.split('</p>');
   const firstParagraph = getAllParagraphs[0];
   let html;
   if (post_description) {
     html = `${post_description.slice(0, description_slice || 220)}...`;
   }
+
   return (
     <article className="ews_articlen must-read">
       <section className="post-info d-flex justify-content-between">
         {post_type && (
           <button className="must-read-type small">{post_type}</button>
         )}
-        <span className="must-read-date small">{formatDate(created_at)}</span>
+        <span className="must-read-date small">
+          {/* replace the empty space btw date & time with 'T' so safari is happier. works fine in chrome and firefox too. */}
+          {formatDate(`${created_at.replace(/ /g, 'T')}`)}
+        </span>
       </section>
       <section className="must-read-text">
         <span className="must-read-heading">
           <a
             href={
               redirect_to_wordpress
-                ? `https://news.tv24africa.com/${post_title.replace(/ /g, "-")}`
+                ? `https://news.tv24africa.com/${post_title.replace(/ /g, '-')}`
                 : `/post/${slug}`
             }
           >
@@ -45,7 +49,7 @@ const ReaderList = ({
           <a
             href={
               redirect_to_wordpress
-                ? `https://news.tv24africa.com/${post_title.replace(/ /g, "-")}`
+                ? `https://news.tv24africa.com/${post_title.replace(/ /g, '-')}`
                 : `/post/${slug}`
             }
           >
@@ -59,7 +63,7 @@ const ReaderList = ({
 
 export const PopulateReadersList = ({ news, start, end }) => {
   const premiumNews = news?.filter(
-    (singleNews) => singleNews.post_type === "premium"
+    (singleNews) => singleNews.post_type === 'premium'
   );
   return (
     <div>

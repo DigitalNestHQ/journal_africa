@@ -1,26 +1,34 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import logo from "../../../../assets/images/TV24Ergb.png";
-import { pageurl } from "../../../../utils/constants";
-import TopNav from "../../Topnav";
-import "./nav.css";
-import "../../header.css";
-import { HandleAuthButton } from "./HandleAuthButton";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../../../assets/images/TV24Ergb.png';
+import { pageurl } from '../../../../utils/constants';
+import TopNav from '../../topnav';
+import './nav.css';
+import '../../header.css';
+import { HandleAuthButton } from './HandleAuthButton';
 
 const Navbar = () => {
   return (
     <div className="Navigation">
       <TopNav />
       <header>
-        <div className="container-fluid nav-wrapper">
-          <nav className="navbar d-print navbar-expand-lg navbar-light navigation py-2 px-1 ">
-            <Link
-              to={pageurl.HOMEPAGE}
-              className="navbar-brand logo"
-              style={{ color: "#fff" }}
-            >
-              <img loading="lazy" src={logo} alt="logo" />
+        <div className="container-fluid nav-wrapper lg-nav-wrapper">
+          <nav
+            className="navbar d-print navbar-expand-lg navbar-light navigation py-2 px-1"
+            style={{
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexDirection: 'row-reverse',
+            }}
+          >
+            <Link to="/subscribe" className="nav-link mobile-subscribe-btn">
+              subscribe
             </Link>
+
+            <Link to="/">
+              <h6 className="mobile-heading">TV24 Africa News</h6>
+            </Link>
+
             <button
               className="navbar-toggler d-lg-none"
               type="button"
@@ -29,17 +37,27 @@ const Navbar = () => {
               aria-controls="collapsibleNavId"
               aria-expanded="false"
               aria-label="Toggle navigation"
+              style={{ margin: '0' }}
             >
-              {" "}
-              <i style={{ color: "#E7332B" }} className="fas fa-bars" />
+              {' '}
+              <i
+                style={{
+                  color: '#E7332B',
+                  justifySelf: 'flex-start',
+                  marginTop: '15px',
+                }}
+                className="fas fa-bars"
+              />
             </button>
+
+            {/* nav links */}
             <div
               className="collapse navbar-collapse justify-content-space-between"
               id="collapsibleNavId"
             >
               <ul
                 className="navbar-nav ml- mt-2 mt-lg-0 nav-mn d-flex justify-cntent-center"
-                style={{ width: "100%" }}
+                style={{ width: '100%' }}
               >
                 <li className="nav-item">
                   <Link
@@ -57,7 +75,7 @@ const Navbar = () => {
                     activeclassname="activeLink"
                     // to={pageurl.GOVERNANCE}
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Politics`,
                     }}
                   >
@@ -69,7 +87,7 @@ const Navbar = () => {
                     className="nav-link ml-lg-1 remov--item-3"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Business`,
                     }}
                   >
@@ -81,7 +99,7 @@ const Navbar = () => {
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Development`,
                     }}
                   >
@@ -93,7 +111,7 @@ const Navbar = () => {
                     className="nav-link ml-lg-1 remov--item-2"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Governance`,
                     }}
                   >
@@ -105,7 +123,7 @@ const Navbar = () => {
                     className="nav-link ml-lg-1"
                     activeclassname="activeLink"
                     to={{
-                      pathname: "/news/categories",
+                      pathname: '/news/categories',
                       search: `?category=Economy`,
                     }}
                   >
@@ -157,7 +175,7 @@ const Navbar = () => {
                     </Link>
                   )}
                 </li>
-                <li className="nav-item hd-bd">
+                <li className="nav-item hd-bd mobile-subscribe-link">
                   <Link
                     to="/subscribe"
                     className="nav-link nav-sub mt-3 mt-lg-0 ml-lg-1 subscribe-custom-btn"
@@ -170,6 +188,7 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
+            {/* end of nav links */}
           </nav>
         </div>
       </header>

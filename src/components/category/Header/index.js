@@ -6,7 +6,7 @@ import { HandleAuthButton } from "../../reusables/navigation/Nav/HandleAuthButto
 
 const Header = ({ post_type }) => {
   return (
-    <header className="discover-container">
+    <header className="discover-container"  style={{ border: "1px solid red"}}>
       <div className="logo-container">
         <Link to="/">
           <img
@@ -14,7 +14,7 @@ const Header = ({ post_type }) => {
             src={logo}
             alt="logo"
             className="ml-5"
-            style={{ width: "75px" }}
+            style={{ width: "75px", border: "1px solid red"}}
           />
         </Link>
       </div>

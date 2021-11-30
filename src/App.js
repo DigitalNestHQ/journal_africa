@@ -23,7 +23,7 @@ import Error404 from './components/error404/error404';
 
 // import { NewHomePage } from "./components/newDesign/NewHomePage"
 
-// css override
+// css override 
 import './../src/components/reusables/utilities/index.css';
 
 // states
@@ -40,6 +40,7 @@ import Faq from './components/faq/Faq.js';
 import { Advertising } from './components/advertising/Advertising.js';
 import SubcategoryNews from './components/category/SubcategoryNews.js';
 import { WriteForUs } from './components/writeforus/WriteForUs.js';
+import MobileNav from 'components/reusables/navigation/Nav/MobileNav.js';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -49,8 +50,8 @@ function App() {
     <div className="App">
       <AuthState>
         <AlertState>
+          
           <Switch>
-            {/* <Route exact path="/news/home" component={NewHomePage} /> */}
             <Route exact path={pageurl.HOMEPAGE} component={HomePage} />
             <Route exact path={pageurl.SUBSCRIBE} component={Subscribe} />
             <Route exact path={pageurl.FAQ} component={Faq} />

@@ -21,6 +21,7 @@ import Loader from '../loader/Loader';
 import { HomepagePodcast } from './homepage-podcast/HomepagePodcast';
 import ExternalNews from './external-freenews/ExternalNews';
 
+
 function Homepage() {
   const [news, setNews] = useState(null);
   const [error, setError] = useState(null);
@@ -52,7 +53,6 @@ function Homepage() {
     <Fragment>
       <Nav />
       <Banner data={news} />
-      {/* <ExternalNews data={news} /> */}
       <LatestNews data={news} />
       <TeaserSection data={news} />
       <PoliticsAndGovernance data={news} />
@@ -64,7 +64,6 @@ function Homepage() {
       <Entertainment data={news} />
       <HomepagePodcast />
       <SignupTeaser />
-      {/* <SubscribeForm /> */}
       <Footer />
     </Fragment>
   );

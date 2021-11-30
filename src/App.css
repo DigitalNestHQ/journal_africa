@@ -18,3 +18,9 @@
     margin: 0 auto;
   }
 } */
+
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}

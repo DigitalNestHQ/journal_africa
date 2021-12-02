@@ -9,10 +9,17 @@ import { Link } from "react-router-dom";
 
 const TeaserSection = (props) => {
   const teasers = props.data;
+
+
+
   // get all the category to be displayed
   const discoverAfrica = teasers.filter(
     (post) => post.category_id === "Discover Africa"
   );
+
+  const categs = discoverAfrica.map((category) => category.sub_category)
+
+  console.log(categs);
 
   const culture = discoverAfrica.filter(
     (post) => post.sub_category === "Culture"
@@ -40,11 +47,6 @@ const TeaserSection = (props) => {
   }
   return (
     <React.Fragment>
-      <div className="custom-container container-fluid">
-        <div className="col-12 mb-5">
-          <LargeSizeAds img={largeAds} />
-        </div>
-      </div>
       <div
         className="teaser mt-3 mb-3 mx-auto"
         data-aos="fade-up"
@@ -72,8 +74,6 @@ const TeaserSection = (props) => {
                   sub_category,
                   post_description,
                 }) => {
-                  // selectedTeasers.slice(7,11).map((teaser) => {
-                  // const { featured_image, id, slug, category_id } = selectedTeaser;
                   return (
                     <TeaserCard
                       key={id}

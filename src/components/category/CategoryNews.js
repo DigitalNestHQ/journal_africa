@@ -73,8 +73,6 @@ const CategoryNews = () => {
 
   return (
     <Fragment>
-      {/* <TopNav /> */}
-      {/* <Navbar /> */}
 
       <CategoryNavbar />
 

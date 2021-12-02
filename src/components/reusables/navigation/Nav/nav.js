@@ -116,7 +116,7 @@ const Navbar = () => {
               </li>
             </ul>
           ) : (
-            ''
+            ""
           )}
           {width > breakpoint ? (
             <div className="cta-buttons">

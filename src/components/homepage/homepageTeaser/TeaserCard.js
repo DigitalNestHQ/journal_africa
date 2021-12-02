@@ -16,7 +16,7 @@ const TeaserCard = ({
     html = `${post_description.slice(0, 80)}...`;
   }
   return (
-    <section className="teaser col-6 col-md-3 col-lg-3">
+    <section className="teaser col-md-3 col-lg-3">
       <Card>
         <Link to={`/post/${slug}`} className="text-left">
           <Card.Img
@@ -26,7 +26,7 @@ const TeaserCard = ({
           />
           <Card.Body>
             <Card.Text className="teaser-text">
-              <section className="link-wrap">
+              {/* <section className="link-wrap">
                 <Link
                   to={{
                     pathname: '/news/sub-categories',
@@ -46,14 +46,14 @@ const TeaserCard = ({
                 >
                   More
                 </Link>
-              </section>
+              </section> */}
               <Link to={`/post/${slug}`} className="teaser-heading">
                 {slug.toLowerCase().slice(0, 250)}
               </Link>
             </Card.Text>
-            <Card.Text className="teaser-news-description">
+            {/* <Card.Text className="teaser-news-description">
               {ReactHtmlParser(html, HtmlParseOptions)}
-            </Card.Text>
+            </Card.Text> */}
           </Card.Body>
         </Link>
       </Card>

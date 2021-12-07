@@ -133,7 +133,7 @@ const Navbar = () => {
             </div>
           ) : (
             <button className="hamburger" onClick={handleMenuClick}>
-              <img src={menu ? close : hamburger} alt="X" />
+              <img src={menu ? close : hamburger} alt="X"/>
             </button>
           )}
         </div>

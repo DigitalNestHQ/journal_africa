@@ -7,17 +7,8 @@
 }
 
 .App {
-  /* width: 100vw; */
-  /* max-width: 1500px; */
   margin: 0 auto;
-  /* overflow-x: hidden !important; */
 }
-
-/* @media screen and (min-width: 1440px) {
-  .App {
-    margin: 0 auto;
-  }
-} */
 
 body {
   overflow-x: hidden;

@@ -87,3 +87,13 @@ export const postNewComment = async (newComment) => {
     return err;
   }
 };
+
+// useEffect(() => {
+//   async function getWordpressNews() {
+//     const wordpressNews = await axios.get(
+//       "https://api.tv24africa.com/api/v1/wordpress/posts"
+//     );
+//     setWordpressNews(wordpressNews.data.data);
+//   }
+//   getWordpressNews();
+// }, []);

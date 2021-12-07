@@ -36,9 +36,9 @@ const LatestNews = ({ data }) => {
                     <Card.Img
                       variant="top"
                       src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
-                      className="mb-3"
+                      className="mb-3 card-img-latest"
                     />
-                    <Card.Body>
+                    <Card.Body className="l-card-body">
                       <Card.Text>{categ.slug}</Card.Text>
                     </Card.Body>
                   </Card>

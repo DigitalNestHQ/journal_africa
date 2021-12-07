@@ -9,14 +9,14 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Footer from '../reusables/navigation/Footer/footer'
 import './homepage.css'
-import Development from './development/Development'
-import EconomyComponent from './economy/EconomyComponent'
+import FactCheck from './development/FactCheck'
+import Economy from './economy/EconomyComponent'
 import ViewPoint from './viewpoint/ViewPoint'
 import Business from './business/Business'
 import { SignupTeaser } from '../reusables/news/SignupTeaser'
 import LatestNews from './latestnews/LatestNews'
 import Loader from '../loader/Loader'
-import { HomepagePodcast } from './homepage-podcast/HomepagePodcast'
+import HomepagePodcast from './homepage-podcast/HomepagePodcast'
 import newsContext from '../../context/news/NewsContext'
 
 function Homepage() {
@@ -50,15 +50,15 @@ function Homepage() {
       <Nav />
       <Banner data={news} sportCount={sportCount} economyCount={economyCount} />
       <LatestNews data={news} />
-      <TeaserSection data={news} />
-      <PoliticsAndGovernance data={news} />
+      <TeaserSection data={news} sportCount={sportCount}/>
       <Business data={news} />
-      <Development data={news} />
-      <EconomyComponent data={news} />
+      <FactCheck data={news} />
+      <Economy data={news} />
+      <PoliticsAndGovernance data={news} />
       <Tech data={news} />
-      <ViewPoint data={news} />
-      <Entertainment data={news} />
-      <HomepagePodcast />
+      <HomepagePodcast data={news} />
+      {/* <ViewPoint data={news} />
+      <Entertainment data={news} /> */}
       <SignupTeaser />
       <Footer />
     </Fragment>

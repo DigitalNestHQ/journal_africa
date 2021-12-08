@@ -50,17 +50,17 @@ function Homepage() {
       <Nav />
       <Banner data={news} sportCount={sportCount} economyCount={economyCount} />
       <LatestNews data={news} />
-      <TeaserSection data={news} sportCount={sportCount}/>
+      <TeaserSection data={news} sportCount={sportCount} />
       <Business data={news} />
       <FactCheck data={news} />
       <Economy data={news} />
       <PoliticsAndGovernance data={news} />
       <Tech data={news} />
       <HomepagePodcast data={news} />
-      {/* <ViewPoint data={news} />
-      <Entertainment data={news} /> */}
       <SignupTeaser />
       <Footer />
+      {/* <ViewPoint data={news} />
+      <Entertainment data={news} /> */}
     </Fragment>
   )
 }

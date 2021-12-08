@@ -97,6 +97,10 @@
   border-bottom: 3px solid #c4c4c4;
   line-height: 30px;
   padding-bottom: 0.75rem;
+  color: #000;
+}
+.fact-check-list-item:hover {
+  color: #000;
 }
 .fact-list-img-container {
   width: 100px;

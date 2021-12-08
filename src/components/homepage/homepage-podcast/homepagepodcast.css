@@ -18,3 +18,10 @@
 .more-pod:hover {
   color: #fff;
 }
+.fa-microphone-alt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 45px;
+  background-color: transparent;
+}

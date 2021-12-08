@@ -15,3 +15,7 @@ body {
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
+
+a:hover {
+  text-decoration: none;
+}

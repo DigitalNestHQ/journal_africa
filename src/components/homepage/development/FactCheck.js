@@ -13,16 +13,16 @@ export const FactCheck = ({ data }) => {
       <div className="fact-check-wrapper">
         <div className="fact-content-grid">
           <div className="right-check">
-            <div className="fact-heading">
+            <Link to="/" className="fact-heading">
               <h5 className="fact-check-heading">Fact Check Africa</h5>
               <i class="fas fa-arrow-right"></i>
-            </div>
+            </Link>
             <div className="fact-img-container">
               <img src={Calabar} alt="calabar" className="f-c-img" />
             </div>
             <div className="fact-content-list">
               {data.slice(34, 37).map((item) => (
-                <div className="fact-check-list-item">
+                <Link to="/" className="fact-check-list-item">
                   <div className="fact-list-img-container left-text">
                     <img
                       src={`https://api.tv24africa.com/public/storage/post_image/${item.featured_image}`}
@@ -31,21 +31,21 @@ export const FactCheck = ({ data }) => {
                     />
                   </div>
                   <p className="f-c-text">{item.slug}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
           <div className="left-check">
-            <div className="fact-heading">
+            <Link to="/" className="fact-heading">
               <h5 className="fact-check-heading">In-depth Africa</h5>
               <i class="fas fa-arrow-right"></i>
-            </div>
+            </Link>
             <div className="fact-img-container">
               <img src={Calabar} alt="calabar" className="f-c-img" />
             </div>
             <div className="fact-content-list">
               {data.slice(37, 40).map((item) => (
-                <div className="fact-check-list-item right-text">
+                <Link to="/" className="fact-check-list-item right-text">
                   <div className="fact-list-img-container">
                     <img
                       src={`https://api.tv24africa.com/public/storage/post_image/${item.featured_image}`}
@@ -54,7 +54,7 @@ export const FactCheck = ({ data }) => {
                     />
                   </div>
                   <p className="f-c-text">{item.slug.substring(0, 100)}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

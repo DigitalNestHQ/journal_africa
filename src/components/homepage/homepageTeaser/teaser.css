@@ -14,6 +14,13 @@
   gap: 2rem;
 }
 
+.africa-discover-link {
+  color: #fff;
+}
+.africa-discover-link:hover {
+  color: #fff;
+}
+
 @media (max-width: 993px) {
   .content-grid {
     grid-template-columns: 1fr;
@@ -56,12 +63,6 @@
   }
 }
 
-@media (min-width: 770px) {
-  .a-img-container {
-    height: 10rem;
-  }
-}
-
 .sub-categ-card {
   display: block;
 }
@@ -70,6 +71,12 @@
   height: 15.625rem;
   width: 100%;
   display: block;
+}
+
+@media (min-width: 770px) {
+  .a-img-container {
+    height: 10rem;
+  }
 }
 
 .f-img {
@@ -151,25 +158,16 @@
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
 }
 
-@media (max-width: 560px) {
-  .policy-card {
-    padding: 0.5rem;
-    gap: 1rem;
-  }
-  .left-heading {
-    font-size: 14px;
-  }
-  .left-content p {
-    font-size: 11px;
-  }
+.policy-government-link,
+.lastest-card-link {
+  color: #000000;
 }
 
-@media (max-width: 450px) {
-  .policy-card {
-    padding: 0.5rem;
-    gap: 1rem;
-    flex-direction: column;
-  }
+.policy-government-link:hover {
+  color: #000000;
+}
+.lastest-card-link :hover {
+  color: #000000;
 }
 
 .left-content {
@@ -215,7 +213,7 @@
   object-fit: cover;
 }
 .latest-content {
-  margin: 4rem 0;
+  margin: 1rem 0;
   display: block;
   width: 100%;
 }
@@ -250,4 +248,25 @@
   font-size: 0.8rem;
   text-align: left;
   line-height: 1.5;
+}
+
+@media (max-width: 560px) {
+  .policy-card {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+  .left-heading {
+    font-size: 14px;
+  }
+  .left-content p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 450px) {
+  .policy-card {
+    padding: 0.5rem;
+    gap: 1rem;
+    flex-direction: column;
+  }
 }

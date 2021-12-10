@@ -34,6 +34,11 @@ import newsContext from '../../context/news/NewsContext'
 import { LargeSizeAds } from '../homepage/ads/Ads'
 import { addView } from './postView'
 import { Row, Col, Card } from 'react-bootstrap'
+import cybertruck from '../../assets/images/cybertruck1.jpg'
+import Moment from 'react-moment'
+import { HtmlParseOptions } from '../../_helper/parseNewsHtml'
+import { useViewPort } from '../../components/hooks/Viewport'
+import '../category/newscategory.css'
 
 function transform(node, index) {
   if (node.type === 'tag' && node.name === 'span') {
@@ -90,6 +95,9 @@ const GetNews = () => {
 
   let loggedin = false
   let subscription = false
+
+  const { width } = useViewPort()
+  const breakpoint = 1150
 
   // useEffect(() => {
   //   // set the user subscription status
@@ -451,7 +459,48 @@ const GetNews = () => {
                   </div>
                 )}
               </div>
-              <div className="s-n-right-content">Right</div>
+              {width > breakpoint ? (
+                <div className="cat-left-content s-n-right-content">
+                  <h5 className="cat-left-heading">Trending Posts</h5>
+                  <div className="trend-img-container">
+                    <img src={cybertruck} alt="tesla" className="trend-img" />
+                  </div>
+                  <div className="trending-posts">
+                    {!loading && news.length === 0 ? (
+                      <h5 className="text-dark">No trending news available</h5>
+                    ) : (
+                      news.slice(14, 17).map((eachCard) => (
+                        <Link
+                          to={`/post/${eachCard.slug}`}
+                          className="trending-card"
+                          key={eachCard.id}
+                        >
+                          <p className="trend-date">
+                            <Moment format="MMMM Do YYYY">
+                              {eachCard.updated_at}
+                            </Moment>
+                          </p>
+                          <h6 className="trend-title">{eachCard.slug}</h6>
+                          <p className="trend-text">
+                            {ReactHtmlParser(
+                              `${eachCard.post_description.substring(
+                                0,
+                                120,
+                              )}...`,
+                              HtmlParseOptions,
+                            )}
+                          </p>
+                        </Link>
+                      ))
+                    )}
+                  </div>
+                  <div className="trend--img-container">
+                    <img src={cybertruck} alt="tesla" className="trend-img" />
+                  </div>
+                </div>
+              ) : (
+                ''
+              )}
             </div>
           </main>
         </div>

@@ -27,7 +27,7 @@ const Navbar = () => {
       <header className="navigation-header">
         <div className="header-wrapper">
           <div className="img-container">
-            <img src={logo} alt="logo" className="logo" />
+            <img src={logo} alt="logo" className="logo" id="image-sizing"/>
           </div>
           {width > breakpoint ? (
             <ul className="nav-links">
@@ -38,7 +38,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: `?category=Discovery Africa`,
+                    search: '?category=Discover Africa',
                   }}
                 >
                   discover africa
@@ -48,7 +48,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: `?category=Politics`,
+                    search: '?category=Politics',
                   }}
                 >
                   politics and governance
@@ -58,7 +58,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: `?category=Business`,
+                    search: '?category=Business',
                   }}
                 >
                   business and economy
@@ -68,7 +68,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: `?category=Economy`,
+                    search: '?category=Economy',
                   }}
                 >
                   fact check africa
@@ -78,7 +78,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: `?category=Development`,
+                    search: '?category=Development',
                   }}
                 >
                   policy and development
@@ -88,7 +88,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: `?category=Governance`,
+                    search: '?category=Governance',
                   }}
                 >
                   commentary
@@ -98,7 +98,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: `?category=Gender`,
+                    search: '?category=Gender',
                   }}
                 >
                   gender and human rights
@@ -108,7 +108,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: `?category=Podcast`,
+                    search: '?category=Podcast',
                   }}
                 >
                   podcast
@@ -133,7 +133,7 @@ const Navbar = () => {
             </div>
           ) : (
             <button className="hamburger" onClick={handleMenuClick}>
-              <img src={menu ? close : hamburger} alt="X"/>
+              <img src={menu ? close : hamburger} alt="X" id="image-sizing"/>
             </button>
           )}
         </div>

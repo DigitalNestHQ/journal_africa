@@ -10,7 +10,7 @@ const Economy = (props) => {
 
   const businessNews =
     props.data && props.data.filter((news) => news.category_id === 'Development')
-  console.log(businessNews)
+
 
   const handlePrem = (e) => {
     if (!isAuth) {

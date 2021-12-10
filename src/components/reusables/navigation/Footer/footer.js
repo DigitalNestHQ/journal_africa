@@ -114,25 +114,25 @@ const Footer = () => {
               <li className="download-list-item">
                 <Link to="/" className="download-link">
                   {' '}
-                  <i class="fab fa-instagram"></i>{' '}
+                  <i className="fab fa-instagram"></i>{' '}
                 </Link>
               </li>
               <li className="download-list-item">
                 <Link to="/" className="download-link">
                   {' '}
-                  <i class="fab fa-facebook"></i>{' '}
+                  <i className="fab fa-facebook"></i>{' '}
                 </Link>
               </li>
               <li className="download-list-item">
                 <Link to="/" className="download-link">
                   {' '}
-                  <i class="fab fa-twitter"></i>{' '}
+                  <i className="fab fa-twitter"></i>{' '}
                 </Link>
               </li>
               <li className="download-list-item">
                 <Link to="/" className="download-link">
                   {' '}
-                  <i class="fab fa-youtube"></i>{' '}
+                  <i className="fab fa-youtube"></i>{' '}
                 </Link>
               </li>
             </ul>

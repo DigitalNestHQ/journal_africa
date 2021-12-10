@@ -35,6 +35,8 @@ export const getCategories = async (category) => {
     console.log(err);
   }
 };
+
+
 export const getNewsFeed = async () => {
   try {
     const feeds = await axios.get(
@@ -47,6 +49,8 @@ export const getNewsFeed = async () => {
     console.log(err);
   }
 };
+
+
 export const getSingleNews = async (slug) => {
   try {
     const feed = await axios.get(
@@ -59,6 +63,9 @@ export const getSingleNews = async (slug) => {
     console.log(err);
   }
 };
+
+
+
 
 // get news comments
 export const getNewsComments = async (slug) => {

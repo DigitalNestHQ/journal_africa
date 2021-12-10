@@ -40,6 +40,8 @@ const MobileNav = ({ menu, handleMenuClick }) => {
   //     }
   //   })
 
+  console.log(active);
+
   return (
     <div className={`mobile-menu ${menu ? 'display' : 'hide'}`}>
       <div className="mobile-link-container" id="list">
@@ -68,7 +70,7 @@ const MobileNav = ({ menu, handleMenuClick }) => {
             <Link
               to={{
                 pathname: '/news/categories',
-                search: `?category=Discovery Africa`,
+                search: `?category=Discover Africa`,
               }}
               className={`${
                 active === 2 ? 'mobile-link-active' : 'mobile-link-inactive'

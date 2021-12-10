@@ -155,7 +155,7 @@
   align-items: center;
   gap: 2rem;
   margin-bottom: 1.2rem;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .policy-government-link,
@@ -207,7 +207,7 @@
   display: block;
 }
 .l-img {
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
   display: block;
   width: 100%;
   object-fit: cover;
@@ -221,12 +221,10 @@
   display: block;
   border-radius: 0.7rem;
   margin-bottom: 1.3rem;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
   padding: 0.7rem 1rem;
 }
-.latest-card:last-child {
-  margin-bottom: 0;
-}
+
 .latest-heading {
   display: block;
   width: 100%;

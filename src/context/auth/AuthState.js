@@ -68,7 +68,14 @@ const AuthState = (props) => {
         config,
       )
 
+      const userProfile = {
+        ...res.data.data,
+        hasSubscribed: res.data.subscription_status,
+      }
+
       console.log(res.data);
+      console.log(userProfile);
+
 
       dispatch({
         type: LOGIN_SUCCESS,
@@ -106,6 +113,7 @@ const AuthState = (props) => {
         ...res.data.data,
         hasSubscribed: res.data.subscription_status,
       }
+      
       dispatch({
         type: USER_LOADED,
         payload: userProfile,

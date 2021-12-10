@@ -86,8 +86,9 @@ const TeaserSection = ({ data }) => {
                     <Link
                       to={`/post/${eachCard.slug}`}
                       className="policy-government-link"
+                      key={eachCard.id}
                     >
-                      <div className="policy-card" key={eachCard.id}>
+                      <div className="policy-card">
                         <div className="p-img-container">
                           <img
                             src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
@@ -127,8 +128,8 @@ const TeaserSection = ({ data }) => {
                 </div>
                 <div className="latest-content">
                   {data.slice(13, 17).map((eachCard) => (
-                    <Link to={`/post/${eachCard.slug}`} className="lastest-card-link">
-                      <div className="latest-card" key={eachCard.id}>
+                    <Link to={`/post/${eachCard.slug}`} className="lastest-card-link" key={eachCard.id}>
+                      <div className="latest-card">
                         <p className="latest-date">
                           <Moment format="MMMM Do YYYY">
                             {eachCard.updated_at}

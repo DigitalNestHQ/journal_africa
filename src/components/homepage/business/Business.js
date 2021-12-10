@@ -14,7 +14,7 @@ const Business = (props) => {
 
   const businessNews =
     props.data && props.data.filter((news) => news.category_id === 'Business')
-  console.log(businessNews)
+  
 
   const handlePrem = (e) => {
     if (!isAuth) {

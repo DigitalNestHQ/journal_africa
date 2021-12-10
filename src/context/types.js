@@ -13,3 +13,5 @@ export const SET_QUERY = 'SET_QUERY';
 export const GET_NEWS = 'GET_NEWS';
 export const GET_NEWS_ERROR = 'GET_NEWS_ERROR';
 export const SET_LOADING = 'SET_LOADING';
+export const GET_CATEG_NEWS = 'GET_CATEG_NEWS'
+export const GET_SINGLE_NEWS = 'GET_SINGLE_NEWS';

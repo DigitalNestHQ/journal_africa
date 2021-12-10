@@ -1,4 +1,10 @@
-import { GET_NEWS, GET_NEWS_ERROR, SET_LOADING } from '../types'
+import {
+  GET_NEWS,
+  GET_NEWS_ERROR,
+  SET_LOADING,
+  GET_CATEG_NEWS,
+  GET_SINGLE_NEWS,
+} from '../types'
 
 const newsReducer = (state, action) => {
   switch (action.type) {
@@ -6,6 +12,19 @@ const newsReducer = (state, action) => {
       return {
         ...state,
         news: action.payload,
+        loading: false,
+      }
+
+    case GET_CATEG_NEWS:
+      return {
+        ...state,
+        categoryNews: action.payload,
+        loading: false,
+      }
+    case GET_SINGLE_NEWS:
+      return {
+        ...state,
+        singleNews: action.payload,
         loading: false,
       }
 

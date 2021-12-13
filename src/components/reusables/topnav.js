@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, Fragment } from 'react'
+import React, { useContext, useState, Fragment } from 'react'
 import authContext from '../../context/auth/authContext'
 // import { Weather } from '../weather/Weather'
 import './header.css'
@@ -6,31 +6,24 @@ import './header.css'
 
 function TopNav() {
   const userContext = useContext(authContext)
-  const { user } = userContext
+  const { user, isAuthenticated } = userContext
 
   let options = { year: 'numeric', month: 'long', day: 'numeric' }
 
   const [date] = useState(new Date().toLocaleDateString('en-US', options))
 
-  // const authContext = useContext(AuthContext);
-
-  useEffect(() => {
-    userContext.loadUser()
-    // eslint-disable-next-line
-  }, [])
-
-  // const authLinks = (
-  //   <Fragment>
-  //     <li className="welcome-item">
-  //       <span className="welcome">
-  //         Welcome {user.firstname} {user.lastname}
-  //       </span>
-  //     </li>
-  //     <li className="welcome-item">
-  //       <span>{date}</span>
-  //     </li>
-  //   </Fragment>
-  // )
+  const authLinks = (
+    <Fragment>
+      <li className="welcome-item-w">
+        <span className="welcome">
+          {user && `Welcome ${user.data.firstname} ${user.data.lastname}`}
+        </span>
+      </li>
+      <li className="welcome-item">
+        <span>{date}</span>
+      </li>
+    </Fragment>
+  )
 
   const guestLinks = (
     <Fragment>
@@ -46,21 +39,8 @@ function TopNav() {
   return (
     <nav className="top-nav">
       <div className="text-white name-sp">
-        <ul className="welcome-list">{guestLinks}</ul>
+        <ul className="welcome-list">{isAuthenticated ? authLinks :  guestLinks}</ul>
       </div>
-
-      {/* the weather repost component goes here */}
-
-      {/* <div>
-        <img
-          src={logoImg}
-          alt="TV24 Africa logo"
-          style={{ height: '50px', marginRight: '10px' }}
-        />
-      </div> */}
-
-      {/* social links */}
-
       <ul className="soc-nav">
         <li>
           <a

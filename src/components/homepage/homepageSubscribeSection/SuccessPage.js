@@ -16,7 +16,7 @@ export const SuccessPage = (props) => {
           activation link to enable you sign in and continue reading TV24 Africa
           News after subscribing to your desired subscription plan.
         </p>
-        <Link to={pageurl.SUBSCRIBE}>Continue</Link>
+        <Link to={pageurl.SIGNIN}>Continue</Link>
       </div>
     </React.Fragment>
   );

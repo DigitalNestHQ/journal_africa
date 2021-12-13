@@ -9,7 +9,7 @@ const FormHeader = ({ redirectTo, linkLabel, hideSubscribe }) => {
     localStorage.token ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, []);
   return (
-    <header className="formHeader container-fluid mb-3">
+    <header className="formHeader container-fluid mb-3" style={{ border: "1px solid red"}}>
       <div className="logo">
         <Link to="/">
           <img loading="lazy" src={logo} alt="app logo" />

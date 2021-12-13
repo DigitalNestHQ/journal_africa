@@ -2,7 +2,7 @@ import React, { useReducer } from 'react'
 import axios from 'axios'
 import AuthContext from './authContext'
 import authReducer from './authReducer'
-import setAuthToken from '../../utils/setAuthToken'
+import setHeaderToken from '../../utils/setHeaderToken'
 
 import {
   REGISTER_SUCCESS,
@@ -13,20 +13,47 @@ import {
   AUTH_ERROR,
   CLEAR_ERRORS,
   LOGOUT,
+  SET_LOADING,
 } from '../types'
 
 const AuthState = (props) => {
   const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
-    loading: true,
+    loading: false,
     error: null,
     user: null,
+    message: null,
   }
 
   const [state, dispatch] = useReducer(authReducer, initialState)
+
+  // load user
+  const loadUser = async () => {
+    // get user details from the database
+    if (localStorage.token) {
+      setHeaderToken(localStorage.token)
+    }
+    try {
+      const res = await axios.get('https://api.tv24africa.com/api/v1/user')
+      // const userProfile = {
+      //   ...res.data.data,
+      //   hasSubscribed: res.data.subscription_status,
+      // }
+      dispatch({
+        type: USER_LOADED,
+        payload: res.data,
+      })
+    } catch (err) {
+      dispatch({
+        type: AUTH_ERROR,
+        payload: err,
+      })
+    }
+  }
   // Register User
   const register = async (formData) => {
+    setLoading()
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -38,15 +65,13 @@ const AuthState = (props) => {
         formData,
         config,
       )
-      
-      console.log(res.data);
+
+      console.log(res.data)
 
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
       })
-      // loadUser();
-      return res
     } catch (error) {
       dispatch({
         type: REGISTER_FAIL,
@@ -56,6 +81,7 @@ const AuthState = (props) => {
   }
   // Login User
   const login = async (formData) => {
+    setLoading()
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -73,14 +99,15 @@ const AuthState = (props) => {
         hasSubscribed: res.data.subscription_status,
       }
 
-      console.log(res.data);
-      console.log(userProfile);
-
+      console.log(res.data)
+      console.log(userProfile)
 
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
       })
+
+      loadUser()
       return res
     } catch (error) {
       dispatch({
@@ -89,44 +116,12 @@ const AuthState = (props) => {
       })
     }
   }
-  // load user
-  const loadUser = async () => {
-    // get user details from the database
-    if (!localStorage.token) {
-      // setAuthToken(localStorage.token)
-      return null
-    }
-    const token = localStorage.getItem('token')
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    }
 
-    try {
-      const res = await axios.get(
-        'https://api.tv24africa.com/api/v1/user',
-        config,
-      )
-      const userProfile = {
-        ...res.data.data,
-        hasSubscribed: res.data.subscription_status,
-      }
-      
-      dispatch({
-        type: USER_LOADED,
-        payload: userProfile,
-      })
-    } catch (err) {
-      dispatch({
-        type: AUTH_ERROR,
-        payload: err.message,
-      })
-    }
-  }
   // logout user
   const logOut = () => dispatch({ type: LOGOUT })
+
+  //setLoading
+  const setLoading = () => dispatch({ type: SET_LOADING })
 
   // clear errors
   const clearErrors = () =>
@@ -142,6 +137,7 @@ const AuthState = (props) => {
         loading: state.loading,
         error: state.error,
         user: state.user,
+        message: state.message,
         loadUser,
         register,
         login,

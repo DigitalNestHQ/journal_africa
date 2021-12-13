@@ -14,7 +14,6 @@ const Banner = ({ data, sportCount, economyCount }) => {
     (post) => post.category_id === 'Discover Africa',
   )
   const sportAfrica = free.filter((post) => post.category_id === 'Sport Africa')
-  console.log(sportAfrica);
   const economyAfrica = free.filter((post) => post.category_id === 'Economy')
   const economy = economyAfrica[economyCount]
   const sport = sportAfrica[sportCount]

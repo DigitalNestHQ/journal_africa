@@ -7,45 +7,41 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   CLEAR_ERRORS,
-} from "../types";
+  SET_LOADING,
+} from '../types'
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default (state, action) => {
+const authReducer = (state, action) => {
   switch (action.type) {
     case USER_LOADED:
-      return{
+      return {
         ...state,
         isAuthenticated: true,
         user: action.payload,
-        loading: false
+        loading: false,
       }
-    
-    
     case REGISTER_SUCCESS:
-      // localStorage.setItem("token", null);
       return {
         ...state,
         ...action.payload,
-        isAuthenticated:false,
+        isAuthenticated: false,
         loading: false,
-        message: action.payload.data.message
-      };
+        message: action.payload.status,
+      }
     case LOGIN_SUCCESS:
-      localStorage.setItem("token", action.payload.token);
+      localStorage.setItem('token', action.payload.token)
       return {
         ...state,
         ...action.payload,
         isAuthenticated: true,
         loading: false,
-        message: action.payload.data.message,
-        user: action.payload.data
-      };
+        message: action.payload.message,
+      }
 
     case REGISTER_FAIL:
     case AUTH_ERROR:
     case LOGIN_FAIL:
     case LOGOUT:
-      localStorage.removeItem("token");
+      localStorage.removeItem('token')
       return {
         ...state,
         token: null,
@@ -53,14 +49,21 @@ export default (state, action) => {
         loading: false,
         user: null,
         error: action.payload,
-      };
-      
+      }
+
     case CLEAR_ERRORS:
       return {
         ...state,
-        error: null
+        error: null,
+      }
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: true,
       }
     default:
-      return state;
+      return state
   }
-};
+}
+
+export default authReducer

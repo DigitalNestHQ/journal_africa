@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../../../assets/images/TV24Ergb.png'
 import hamburger from '../../../../assets/images/hamburger.svg'
@@ -8,17 +8,25 @@ import { pageurl } from '../../../../utils/constants'
 import TopNav from '../../topnav'
 import './nav.css'
 import '../../header.css'
-import { HandleAuthButton } from './HandleAuthButton'
+import authContext from '../../../../context/auth/authContext'
+
 import MobileNav from './MobileNav'
 
 const Navbar = () => {
+  const userContext = useContext(authContext)
   const { width } = useViewPort()
   const breakpoint = 1250
   const [menu, setMenu] = useState(false)
- 
- 
+  const { isAuthenticated, logOut } = userContext
+
   const handleMenuClick = () => {
-    setMenu(prev => !prev)
+    setMenu((prev) => !prev)
+  }
+
+  const logout = (e) => {
+    e.preventDefault()
+    logOut()
+    console.log('logged out')
   }
 
   return (
@@ -27,7 +35,7 @@ const Navbar = () => {
       <header className="navigation-header">
         <div className="header-wrapper">
           <div className="img-container">
-            <img src={logo} alt="logo" className="logo" id="image-sizing"/>
+            <img src={logo} alt="logo" className="logo" id="image-sizing" />
           </div>
           {width > breakpoint ? (
             <ul className="nav-links">
@@ -116,15 +124,19 @@ const Navbar = () => {
               </li>
             </ul>
           ) : (
-            ""
+            ''
           )}
           {width > breakpoint ? (
             <div className="cta-buttons">
               <ul className="cta-list">
                 <li className="cta-item">
-                  <Link to="/login">
-                    <i className="fas fa-sign-in-alt"></i> sign in
-                  </Link>
+                  {isAuthenticated ? (
+                    <a href="#!" onClick={logout}>
+                      <span className="hide-sm">Sign out</span>
+                    </a>
+                  ) : (
+                    <Link to="/login">sign in</Link>
+                  )}
                 </li>
                 <li className="cta-item subscribe text-center">
                   <Link to="/subscribe">subscribe</Link>
@@ -133,12 +145,16 @@ const Navbar = () => {
             </div>
           ) : (
             <button className="hamburger" onClick={handleMenuClick}>
-              <img src={menu ? close : hamburger} alt="X" id="image-sizing"/>
+              <img src={menu ? close : hamburger} alt="X" id="image-sizing" />
             </button>
           )}
         </div>
       </header>
-      {width < breakpoint ? <MobileNav menu={menu} handleMenuClick={handleMenuClick}/> : ''}
+      {width < breakpoint ? (
+        <MobileNav menu={menu} handleMenuClick={handleMenuClick} />
+      ) : (
+        ''
+      )}
     </div>
   )
 }

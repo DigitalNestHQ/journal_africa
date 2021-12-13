@@ -1,140 +1,150 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { pageurl } from "../../utils/constants";
-import FormHeader from "../reusables/navigation/formsReusables/FormHeader";
-import Alerts from "../alert/Alerts";
-import AlertContext from "../../context/alert/alertContext";
-import AuthContext from "../../context/auth/authContext";
-import "./login.css";
+import React, { useState, useContext, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+// import { pageurl } from '../../utils/constants'
+import Alerts from '../alert/Alerts'
+import AlertContext from '../../context/alert/alertContext'
+import AuthContext from '../../context/auth/authContext'
+import logo from '../../assets/images/logo white.png'
+import './login.css'
+import '../signup/signup.css'
 
-const Login = (props) => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const alertContext = useContext(AlertContext);
-  const authContext = useContext(AuthContext);
-  const { setAlert } = alertContext;
+const Login = () => {
+  const [showPassword, setShowPassword] = useState(false)
+  const history = useHistory()
+  const alertContext = useContext(AlertContext)
+  const authContext = useContext(AuthContext)
+  const { setAlert } = alertContext
 
-  const { login, error, clearErrors, isAuthenticated } = authContext;
+  const { login, error, clearErrors, isAuthenticated, loading } = authContext
 
   useEffect(() => {
-    if (localStorage.token) {
-      // redirect user back to previous page if logged in
-      props.history.goBack();
+    if (isAuthenticated) {
+      setTimeout(() => {
+        history.push('/')
+      }, 1000)
     }
-    if (error) {
-      setAlert(error, "danger");
-      clearErrors();
+    if (error === 'invalid_credentials') {
+      setAlert(error, 'danger')
+      clearErrors()
+    }
+
+    return () => {
+      clearTimeout(() => history.push('/'), 1000)
     }
     // eslint-disable-next-line
-  }, [error]);
+  }, [error, isAuthenticated, history])
 
   const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
+    email: '',
+    password: '',
+  })
 
-  const { email, password } = user;
-  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
+  const { email, password } = user
+
+  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value })
+
   const onSubmit = (e) => {
-    setIsLoading(true);
-    e.preventDefault();
-    if (email === "" || password === "") {
-      setAlert("email or password not correct", "danger");
-      setIsLoading(false);
+    e.preventDefault()
+    if (email === '' || password === '') {
+      setAlert('email or password not correct', 'danger')
     }
-    if (!error) {
-      login({
-        email,
-        password,
-      })
-        .then((res) => {
-          if (res.status === 200) {
-            setAlert("login successful", "success");
-            setTimeout(() => {
-              props.history.goBack();
-            }, 1000);
-          }
-        })
-        .catch((err) => {
-          setIsLoading(false);
-          // setAlert("Login Failed", "danger");
-        });
-    }
-  };
+    login({
+      email,
+      password,
+    })
+  }
 
   return (
-    <div className="login">
-      <div className="page-wrap">
-        <FormHeader redirectTo="signup" linkLabel="Sign Up" />
-        <div className="container-fluid login-wrap">
-          <div className="login-txt">
-            <p style={{ fontSize: "56px", lineHeight: "1.2" }}>
-              Telling The Untold Africa Story
-            </p>
+    <header className="login">
+      <div className="register-signup-wrapper login-wrapper">
+        <nav className="register-nav">
+          <div className="reg-nav-img-container">
+            <img src={logo} alt="logo" className="reg-logo" />
           </div>
-          <div className="form-wrap">
-            <h2>Sign In</h2>
-            {/* add the alert inside a container to solve the UI dropping down */}
-            <form className="form login-form" onSubmit={onSubmit}>
-              <div className="mb-3">
-                <label htmlFor="email" className="form-label">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Enter your email address"
-                  name="email"
-                  value={email}
-                  required
-                  onChange={onChange}
-                />
-              </div>
-
-              <div className="mb-3">
-                <label htmlFor="password" className="form-label">
-                  Password
-                </label>
-                <input
-                  type={`${showPassword ? "text" : "password"}`}
-                  className="form-control password-input"
-                  placeholder="Enter your password"
-                  name="password"
-                  value={password}
-                  required
-                  onChange={onChange}
-                />
-                <span
-                  className="showPassword"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? "hide" : "show"}
-                </span>
-                <Link className="fpass" to="/forgotPassword">
-                  Forgot your password?
-                </Link>
-              </div>
-              {/* <div style={{height: '2.7rem'}}> */}
+          <ul className="reg-nav-list">
+            <li className="reg-nav-list-item">
+              <Link className="reg-signup" to="/signup">
+                sign up
+              </Link>
+            </li>
+            <li className="reg-nav-list-item">
+              <Link className="reg-subscribe" to="/subscribe">
+                subscribe
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <div className="log-showcase">
+          <div className="reg-content-grid">
+            <div className="reg-benefits">
+              <h1 className="african-story">
+                {' '}
+                Telling the untold African Story
+              </h1>
+            </div>
+            <div className="reg-form-outer-container">
+              <h5 className="reg-form-header">Sign In</h5>
               <Alerts />
-              {/* </div> */}
-              <button className="my-2" type="submit" disabled={isLoading}>
-                {isLoading ? "Loading..." : "Sign In"}{" "}
-              </button>
-            </form>
-            <div className="gosignup">
-              <h5>
-                Don't have an account?{" "}
-                <Link className="gsignup" to="/signup">
-                  {" "}
-                  SIGN UP{" "}
+              <form onSubmit={onSubmit}>
+                <div className="form-group">
+                  <label htmlFor="email" className="reg-label">
+                    Email
+                  </label>
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Enter email..."
+                    className="form-control reg-input"
+                    value={email}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+                <div className="form-group password-input">
+                  <label htmlFor="password" className="reg-label">
+                    Password
+                  </label>
+                  <input
+                    type={`${showPassword ? 'text' : 'password'}`}
+                    name="password"
+                    placeholder="Enter Password"
+                    className="form-control reg-input"
+                    value={password}
+                    onChange={onChange}
+                    minLength="6"
+                    required
+                  />
+                  <span
+                    className="show-password"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? 'hide' : 'show'}
+                  </span>
+                </div>
+                <input
+                  type="submit"
+                  value={`${loading ? 'Please wait...' : 'Continue'}`}
+                  className="btn btn-red btn-block mb-3"
+                  disabled={loading}
+                />
+              </form>
+              <div className="forgot-password">
+                <Link to="/" className="forgot-password-link">
+                  Forgot password?
                 </Link>
-              </h5>
+              </div>
+              <div className="already-have-account">
+                <p className="m-0">Don't have an Account?</p>
+                <Link to="/signup" className="reg-sign-in">
+                  Sign up
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+    </header>
+  )
+}
 
-export default Login;
+export default Login

@@ -74,7 +74,7 @@ const options = {
 
 const GetNews = () => {
   const userContext = useContext(authContext)
-  const { user } = userContext
+  const { user, isAuthenticated } = userContext
   const newsFeedContext = useContext(newsContext)
   const {
     news,
@@ -92,8 +92,6 @@ const GetNews = () => {
   // const [loading, setLoading] = useState(true)
   // const [error, setError] = useState('')
   const { slug } = useParams()
-
-  let loggedin = false
   let subscription = false
 
   const { width } = useViewPort()
@@ -105,20 +103,6 @@ const GetNews = () => {
   //     setHasSubscription(user.hasSubscribed)
   //   }
   // }, [user])
-
-  // useEffect(() => {
-  //   if (news && categoryNews) {
-  //     const newsWithCurrentCategory = categoryNews?.filter(
-  //       (sameCateNews) => sameCateNews.category_id === news?.category_id,
-  //     )
-  //     const removeCurrentNews = newsWithCurrentCategory?.filter(
-  //       (otherNews) => otherNews.id !== news?.id,
-  //     )
-  //     const randomNews = Math.floor(Math.random() * removeCurrentNews?.length)
-  //     randomNews && setNextPost(removeCurrentNews[randomNews])
-  //     removeCurrentNews && setPreviousPost(removeCurrentNews[0])
-  //   }
-  // }, [news, categoryNews])
 
   const getAdjacentPosts = (slug) => {
     if (singleNews.length === 0) return ''
@@ -149,6 +133,7 @@ const GetNews = () => {
   useEffect(() => {
     getSingleNews(slug)
     getNews()
+    //eslint-disable-next-line
   }, [slug])
 
   // useEffect(() => {
@@ -218,18 +203,14 @@ const GetNews = () => {
       return news.id !== singleNews[0].id
     },
   )
-  // const randomNews = Math.floor(
-  //   Math.random() * currentCategoryNewsWithoutSingleNews.length,
-  // )
-  // const nextArticle = currentCategoryNewsWithoutSingleNews[randomNews]
-  // const prevArticle = currentCategoryNewsWithoutSingleNews[0]
 
   const { previous, next } = getAdjacentPosts(slug)
 
   console.log(previous, next)
 
-  console.log(currentCategoryNews)
-  console.log(singleNews[0])
+  // console.log(currentCategoryNews)
+  // console.log(singleNews[0])
+  console.log(user)
 
   return (
     <Fragment>
@@ -377,9 +358,9 @@ const GetNews = () => {
                     </div>
 
                     <div className="check-mate">
-                      {!loggedin ? (
+                      {!isAuthenticated ? (
                         <NotLoggedIn />
-                      ) : loggedin && !subscription ? (
+                      ) : isAuthenticated && !user.subscription_status ? (
                         <LoggedInNotSubscribed />
                       ) : (
                         ''

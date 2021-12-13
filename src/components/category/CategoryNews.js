@@ -48,6 +48,8 @@ const CategoryNews = () => {
     return <Loader />
   }
 
+  const free = categoryNews.filter((post) => post.post_type === 'premium')
+
   console.log(categoryNews)
   console.log(typeof category)
 
@@ -81,6 +83,11 @@ const CategoryNews = () => {
                       to={`/post/${eachCard.slug}`}
                     >
                       <div className="cat-content-list-item-img-cont">
+                        <p className="premium-badge">
+                          {eachCard.post_type === 'premium'
+                            ? `${eachCard.post_type}`
+                            : ''}
+                        </p>
                         <img
                           src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
                           alt="img"
@@ -125,6 +132,11 @@ const CategoryNews = () => {
                           className="trending-card"
                           key={eachCard.id}
                         >
+                          <p className="premium-badge-left">
+                            {eachCard.post_type === 'premium'
+                              ? `${eachCard.post_type}`
+                              : ''}
+                          </p>
                           <p className="trend-date">
                             <Moment format="MMMM Do YYYY">
                               {eachCard.updated_at}

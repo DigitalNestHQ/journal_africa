@@ -6,19 +6,9 @@ import ReactHtmlParser from 'react-html-parser'
 import { Row, Col, Card } from 'react-bootstrap'
 import './politicsandgovernance.css'
 
-const Commentary = (props) => {
-  let isAuth = false
+const Commentary = ({ data }) => {
+  const businessNews = data.filter((news) => news.category_id === 'Business')
 
-  const businessNews =
-    props.data && props.data.filter((news) => news.category_id === 'Business')
-
-
-  const handlePrem = (e) => {
-    if (!isAuth) {
-      e.preventDefault()
-      alert('Subscribe')
-    }
-  }
   return (
     <section className="commentary-section business-section">
       <div className="business-wrapper">
@@ -27,23 +17,20 @@ const Commentary = (props) => {
           <Row xs={1} lg={4} className="g-4">
             {businessNews.slice(3, 7).map((categ, idx) => (
               <Col className="bus-col" key={categ.id}>
-                <Link
-                  to={`/post/${categ.slug}`}
-                  className="bus-link"
-                  onClick={(e) => {
-                    if (categ.post_type === 'premium') {
-                      handlePrem(e)
-                    }
-                  }}
-                >
+                <Link to={`/post/${categ.slug}`} className="bus-link">
                   <Card className="com-card">
                     <Card.Img
                       variant="top"
                       src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
                       className="mb-3 card-img-business"
                     />
+                    <p className="premium-badge">
+                      {categ.post_type === 'premium'
+                        ? `${categ.post_type}`
+                        : ''}
+                    </p>
                     <Card.Body className="bus-card-body">
-                      <Card.Subtitle className="mb-3">
+                      <Card.Subtitle className="mb-3 font-bold">
                         {categ.slug}
                       </Card.Subtitle>
                       <Card.Text>

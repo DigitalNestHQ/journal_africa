@@ -25,7 +25,7 @@ export const SignupTeaser = () => {
         setAlert(response.data.message, 'success')
         setIsLoading(false)
         setSubscribed(true)
-      } else if (response.data.status == 'error') {
+      } else if (response.data.status === 'error') {
         setAlert(response.data.message, 'danger')
         setIsLoading(false)
         setSubscribed(false)

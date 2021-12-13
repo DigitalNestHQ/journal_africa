@@ -6,36 +6,18 @@ import ReactHtmlParser from 'react-html-parser'
 import { Row, Col, Card } from 'react-bootstrap'
 import './lifestyle.css'
 
-const Business = (props) => {
-  let isAuth = false
+const Business = ({ data }) => {
+  const businessNews = data.filter((news) => news.category_id === 'Business')
 
-  const businessNews =
-    props.data && props.data.filter((news) => news.category_id === 'Business')
-
-
-  const handlePrem = (e) => {
-    if (!isAuth) {
-      e.preventDefault()
-      alert('Subscribe')
-    }
-  }
   return (
     <section className="business-section">
       <div className="business-wrapper">
-        <h5 className="business-heading">Gender and Human Rights</h5>
+        <h5 className="business-header">Gender and Human Rights</h5>
         <div className="business-content">
           <Row xs={1} lg={2} className="g-4">
             {businessNews.slice(3, 5).map((categ, idx) => (
               <Col className="com-col" key={categ.id}>
-                <Link
-                  to={`/post/${categ.slug}`}
-                  className="bus-link"
-                  onClick={(e) => {
-                    if (categ.post_type === 'premium') {
-                      handlePrem(e)
-                    }
-                  }}
-                >
+                <Link to={`/post/${categ.slug}`} className="bus-link">
                   <Card className="bus-card">
                     <Card.Img
                       variant="top"
@@ -55,23 +37,20 @@ const Business = (props) => {
           <Row xs={1} lg={3} className="g-4">
             {businessNews.slice(3, 6).map((categ, idx) => (
               <Col className="bus-col" key={categ.id}>
-                <Link
-                  to={`/post/${categ.slug}`}
-                  className="bus-link"
-                  onClick={(e) => {
-                    if (categ.post_type === 'premium') {
-                      handlePrem(e)
-                    }
-                  }}
-                >
+                <Link to={`/post/${categ.slug}`} className="bus-link">
                   <Card className="bus-card">
                     <Card.Img
                       variant="top"
                       src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
                       className="mb-3 card-img-business"
                     />
+                    <p className="premium-badge">
+                      {categ.post_type === 'premium'
+                        ? `${categ.post_type}`
+                        : ''}
+                    </p>
                     <Card.Body className="com-card-body">
-                      <Card.Subtitle className="mb-3">
+                      <Card.Subtitle className="mb-3 font-bold">
                         {categ.slug}
                       </Card.Subtitle>
                       <Card.Text>

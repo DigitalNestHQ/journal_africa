@@ -6,18 +6,10 @@ import ReactHtmlParser from 'react-html-parser'
 import { Row, Col, Card } from 'react-bootstrap'
 
 const Economy = (props) => {
-  let isAuth = false
-
   const businessNews =
-    props.data && props.data.filter((news) => news.category_id === 'Development')
+    props.data &&
+    props.data.filter((news) => news.category_id === 'Development')
 
-
-  const handlePrem = (e) => {
-    if (!isAuth) {
-      e.preventDefault()
-      alert('Subscribe')
-    }
-  }
   return (
     <section className="business-section">
       <div className="business-wrapper">
@@ -26,23 +18,20 @@ const Economy = (props) => {
           <Row xs={1} lg={3} className="g-4">
             {businessNews.slice(0, 3).map((categ, idx) => (
               <Col className="bus-col" key={categ.id}>
-                <Link
-                  to={`/post/${categ.slug}`}
-                  className="bus-link"
-                  onClick={(e) => {
-                    if (categ.post_type === 'premium') {
-                      handlePrem(e)
-                    }
-                  }}
-                >
+                <Link to={`/post/${categ.slug}`} className="bus-link">
                   <Card className="bus-card">
                     <Card.Img
                       variant="top"
                       src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
                       className="mb-3 card-img-business"
                     />
+                    <p className="premium-badge">
+                      {categ.post_type === 'premium'
+                        ? `${categ.post_type}`
+                        : ''}
+                    </p>
                     <Card.Body className="bus-card-body">
-                      <Card.Subtitle className="text-danger mb-3">
+                      <Card.Subtitle className="text-danger mb-3 font-bold">
                         {categ.slug}
                       </Card.Subtitle>
                       <Card.Text>
@@ -73,4 +62,3 @@ const Economy = (props) => {
 }
 
 export default Economy
-

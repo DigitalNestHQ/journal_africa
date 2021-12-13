@@ -1,18 +1,13 @@
 import React from 'react'
-import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { Link } from 'react-router-dom'
 import cybertruck from '../../../assets/images/cybertruck1.jpg'
-import { HtmlParseOptions } from '../../../_helper/parseNewsHtml'
-import ReactHtmlParser from 'react-html-parser'
-import Moment from 'react-moment'
 import { useViewPort } from '../../../components/hooks/Viewport'
 import './teaser.css'
+import TeaserCard from './TeaserCard'
+import TeaserPolitics from './TeaserPolitics'
 
 const TeaserSection = ({ data }) => {
-  const { width } = useViewPort()
-  const breakpoint = 991
-  // get all the category to be displayed
   const politics = data.filter((post) => post.category_id === 'Politics')
   const discoverAfrica = data.filter(
     (post) => post.category_id === 'Discover Africa',
@@ -28,11 +23,11 @@ const TeaserSection = ({ data }) => {
   )
 
   const people = discoverAfrica.filter((post) => post.sub_category === 'People')
+  const { width } = useViewPort()
+  const breakpoint = 991
 
   // Select 1 news from each category
   const selectedTeasers = [culture[0], places[0], lifestyle[0], people[0]]
-
-  AOS.init()
 
   if (selectedTeasers.length === 0) {
     return null
@@ -88,22 +83,7 @@ const TeaserSection = ({ data }) => {
                       className="policy-government-link"
                       key={eachCard.id}
                     >
-                      <div className="policy-card">
-                        <div className="p-img-container">
-                          <img
-                            src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
-                            alt={eachCard.sub_category}
-                            className="p-img"
-                          />
-                        </div>
-                        <div className="left-content">
-                          <h6 className="left-heading">{eachCard.slug}</h6>
-                          {ReactHtmlParser(
-                            `${eachCard.post_description.substring(0, 100)}...`,
-                            HtmlParseOptions,
-                          )}
-                        </div>
-                      </div>
+                      <TeaserPolitics eachCard={eachCard} />
                     </Link>
                   ))}
                 </div>
@@ -128,21 +108,12 @@ const TeaserSection = ({ data }) => {
                 </div>
                 <div className="latest-content">
                   {data.slice(13, 17).map((eachCard) => (
-                    <Link to={`/post/${eachCard.slug}`} className="lastest-card-link" key={eachCard.id}>
-                      <div className="latest-card">
-                        <p className="latest-date">
-                          <Moment format="MMMM Do YYYY">
-                            {eachCard.updated_at}
-                          </Moment>
-                        </p>
-                        <h6 className="latest-title">{eachCard.slug}</h6>
-                        <p className="latest-text">
-                          {ReactHtmlParser(
-                            `${eachCard.post_description.substring(0, 100)}...`,
-                            HtmlParseOptions,
-                          )}
-                        </p>
-                      </div>
+                    <Link
+                      to={`/post/${eachCard.slug}`}
+                      className="lastest-card-link"
+                      key={eachCard.id}
+                    >
+                      <TeaserCard eachCard={eachCard} />
                     </Link>
                   ))}
                 </div>

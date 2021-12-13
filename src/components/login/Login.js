@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-// import { pageurl } from '../../utils/constants'
 import Alerts from '../alert/Alerts'
 import AlertContext from '../../context/alert/alertContext'
 import AuthContext from '../../context/auth/authContext'
@@ -134,7 +133,7 @@ const Login = () => {
                 </Link>
               </div>
               <div className="already-have-account">
-                <p className="m-0">Don't have an Account?</p>
+                <p className="m-0 reg-dont-account">Don't have an Account?</p>
                 <Link to="/signup" className="reg-sign-in">
                   Sign up
                 </Link>

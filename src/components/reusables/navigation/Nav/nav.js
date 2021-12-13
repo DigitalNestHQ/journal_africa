@@ -151,7 +151,7 @@ const Navbar = () => {
         </div>
       </header>
       {width < breakpoint ? (
-        <MobileNav menu={menu} handleMenuClick={handleMenuClick} />
+        <MobileNav menu={menu} handleMenuClick={handleMenuClick} isAuthenticated={isAuthenticated} logout={logout}/>
       ) : (
         ''
       )}

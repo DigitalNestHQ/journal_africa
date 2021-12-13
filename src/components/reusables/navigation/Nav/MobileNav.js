@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { pageurl } from '../../../../utils/constants'
 import { Link } from 'react-router-dom'
 import './nav.css'
 
-const MobileNav = ({ menu, handleMenuClick }) => {
+const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
   const [active, setActive] = useState(1)
   //   const outsideRef = useRef('')
 
@@ -39,8 +39,6 @@ const MobileNav = ({ menu, handleMenuClick }) => {
   //       document.getElementById('main').removeEventListener('mousedown', handleOutsideClick)
   //     }
   //   })
-
-  console.log(active);
 
   return (
     <div className={`mobile-menu ${menu ? 'display' : 'hide'}`}>
@@ -212,9 +210,13 @@ const MobileNav = ({ menu, handleMenuClick }) => {
         <div className="mobile-cta-buttons">
           <ul className="mobile-cta-list">
             <li className="mobile-cta-item">
-              <Link to="/login">
-                <i className="fas fa-sign-in-alt"></i> sign in
-              </Link>
+              {isAuthenticated ? (
+                <a href="#!" onClick={logout}>
+                  <span className="hide-sm">Sign out</span>
+                </a>
+              ) : (
+                <Link to="/login">sign in</Link>
+              )}
             </li>
             <li className="mobile-cta-item subscribe text-center">
               <Link to="/subscribe">subscribe</Link>

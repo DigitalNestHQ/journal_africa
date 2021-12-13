@@ -11,7 +11,18 @@
   color: #fff;
   margin-bottom: 1.4rem;
   line-height: 30px;
-  border-bottom: 3px solid #fff;
+  position: relative;
+  font-weight: bold;
+}
+.commentary-heading::after {
+  content: ' ';
+  height: 3px;
+  width: 930px;
+  background-color: #c4c4c4;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .business-content {
   width: 100%;
@@ -77,5 +88,25 @@
     margin: unset;
     width: 100%;
     padding: 0;
+  }
+}
+@media (max-width: 1250px) {
+  .commentary-heading::after {
+    width: 830px;
+  }
+}
+@media (max-width: 1160px) {
+  .commentary-heading::after {
+    width: 730px;
+  }
+}
+@media (max-width: 1050px) {
+  .commentary-heading::after {
+    width: 630px;
+  }
+}
+@media (max-width: 905px) {
+  .commentary-heading::after {
+    width: 0;
   }
 }

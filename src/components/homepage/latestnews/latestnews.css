@@ -69,3 +69,24 @@
     margin-top: 2.5rem;
   }
 }
+
+.premium-badge {
+  text-transform: uppercase;
+  position: absolute;
+  color: #fff;
+  background: red;
+  top: 3%;
+  left: 2%;
+  padding: 0 0.3rem;
+  z-index: 100;
+}
+.premium-badge-left {
+  text-transform: uppercase;
+  position: absolute;
+  color: #fff;
+  background: red;
+  top: 3%;
+  right: 2%;
+  padding: 0 0.3rem;
+  z-index: 100;
+}

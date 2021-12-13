@@ -1,38 +1,35 @@
-import React, { useEffect, useState, Fragment, useContext } from 'react'
-import CommentForm from './CommentForm'
-import ShareNews from './ShareNews'
+import React, { useEffect, Fragment, useContext } from 'react'
+// import CommentForm from './CommentForm'
+// import ShareNews from './ShareNews'
 import bannerAds from './../../assets/images/bannerads.png'
 import ReactHtmlParser, {
   processNodes,
   convertNodeToElement,
 } from 'react-html-parser'
-import { marked } from 'marked'
+// import { marked } from 'marked'
 import Nav from '../reusables/navigation/Nav/nav'
 import Footer from '../reusables/navigation/Footer/footer'
 import { useParams, Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
-import {
-  getNewsComments,
-  getNewsFeed,
-  getSingleNews,
-} from '../../context/news/NewsApi'
+// import {
+//   getNewsComments,
+//   getNewsFeed,
+//   getSingleNews,
+// } from '../../context/news/NewsApi'
 import Loader from '../loader/Loader'
 import './allNews.css'
-import NewsComments from './NewsComments'
+// import NewsComments from './NewsComments'
 import {
-  FreeReaderPersuader,
-  ContinueReadingWithAuth,
-  ContinueReadingWithSubscription,
   NotLoggedIn,
   LoggedInNotSubscribed,
 } from './FreeReaderPersuader'
-import { PopulateReadersList } from '../homepage/politics/ReaderList'
-import { ContactsAds1 } from '../ContactUs/mainSection/ContactsAds'
-import { formatDate } from '../../_helper/dateFormatter'
+// import { PopulateReadersList } from '../homepage/politics/ReaderList'
+// import { ContactsAds1 } from '../ContactUs/mainSection/ContactsAds'
+// import { formatDate } from '../../_helper/dateFormatter'
 import authContext from '../../context/auth/authContext'
 import newsContext from '../../context/news/NewsContext'
 import { LargeSizeAds } from '../homepage/ads/Ads'
-import { addView } from './postView'
+// import { addView } from './postView'
 import { Row, Col, Card } from 'react-bootstrap'
 import cybertruck from '../../assets/images/cybertruck1.jpg'
 import Moment from 'react-moment'
@@ -80,29 +77,13 @@ const GetNews = () => {
     news,
     loading,
     singleNews,
-    error,
     getNews,
     getSingleNews,
   } = newsFeedContext
-
-  // const [news, setNews] = useState(null)
-  // const [categoryNews, setCategoryNews] = useState(null)
-  const [comments, setComments] = useState(null)
-  const [hasSubscription, setHasSubscription] = useState(null)
-  // const [loading, setLoading] = useState(true)
-  // const [error, setError] = useState('')
+  // const [comments, setComments] = useState(null)
   const { slug } = useParams()
-  let subscription = false
-
   const { width } = useViewPort()
   const breakpoint = 1150
-
-  // useEffect(() => {
-  //   // set the user subscription status
-  //   if (user) {
-  //     setHasSubscription(user.hasSubscribed)
-  //   }
-  // }, [user])
 
   const getAdjacentPosts = (slug) => {
     if (singleNews.length === 0) return ''
@@ -144,50 +125,11 @@ const GetNews = () => {
   // }, [news])
 
   // useEffect(() => {
-  //   // get the readers list   news
-  //   getNewsFeed().then((data) => {
-  //     setCategoryNews(data)
-  //     setLoading(false)
-  //   })
-  // }, [])
-
-  // useEffect(() => {
-  //   const getThisNews = () => {
-  //     try {
-  //       // fetch the news from the cms
-  //       getSingleNews(slug).then((res) => {
-  //         // only set news when there is a response, using if keeps infinite loader
-  //         res && setNews(res[0])
-  //       })
-  //     } catch (error) {
-  //       if (error) {
-  //         setError(error.message)
-  //       }
-  //     }
-  //   }
-  //   getThisNews()
-  // }, [slug])
-
-  // useEffect(() => {
   //   // get the current news comments
   //   getNewsComments(slug).then((res) => {
   //     res && setComments(res.data)
   //   })
   // }, [])
-
-  // let html
-  // if (news) {
-  //   // when the news is premium and the user has a subscription let them reall all, else let them read 2 paragraphs if the user user is logged in let them read the free news but if not logged in, let them read 2 paragraphs
-  //   // html = `${news.post_type === 'premium' ? (hasSubscription ? news.post_description : news.post_description.slice(0, 2000)) : (user ? news.post_description : news.post_description.slice(0, 2000))}`;
-
-  //   html = `${
-  //     news.post_type === 'premium'
-  //       ? hasSubscription
-  //         ? news.post_description
-  //         : news.post_description.slice(0, 1000)
-  //       : news.post_description
-  //   }`
-  // }
 
   if (loading || singleNews === null || news === null) {
     return <Loader />
@@ -206,130 +148,9 @@ const GetNews = () => {
 
   const { previous, next } = getAdjacentPosts(slug)
 
-  console.log(previous, next)
-
-  // console.log(currentCategoryNews)
-  // console.log(singleNews[0])
-  console.log(user)
-
   return (
     <Fragment>
       <Nav />
-      {/* {news && ( */}
-      {/* <div className="container news pr-lg-5"> */}
-      {/* <div className="col-s12 read-news-banner">
-            <LargeSizeAds img={bannerAds} />
-          </div> */}
-      {/* <div className="row mt-5"> */}
-      {/* <article className="news-body col-12 col-md-12 col-lg-9 bg-dager"> */}
-      {/* <span className="news-posted-date small">
-                {news.category_id} - {formatDate(news.created_at)} -{' '}
-                {news.post_type?.toUpperCase()}
-              </span> */}
-      {/* <h2 className="post_title">{news.post_title}</h2> */}
-      {/* <div className="img-news-con">
-                <img
-                  className="post_img"
-                  src={`https://api.tv24africa.com/public/storage/post_image/${news.featured_image}`}
-                  alt="news"
-                />
-              </div> */}
-      {/* <div className="text-wrap">{ReactHtmlParser(html, options)}</div> */}
-      {/* <div className="mt-5 news-paywall-area"> */}
-      {/* if the user is not logged in, prompt them to login or signup */}
-      {/* {!user && news.post_type === 'free' && <FreeReaderPersuader />} */}
-
-      {/* prompt users without subscription to get 1 */}
-      {/* {news.post_type === 'premium' && !user && (
-                  <ContinueReadingWithAuth />
-                )} */}
-
-      {/* {news.post_type === 'premium' && user && !hasSubscription && (
-                  <ContinueReadingWithSubscription />
-                )} */}
-      {/* <ShareNews
-                  post_title={news.post_title}
-                  post_description={news.post_description}
-                  slug={slug}
-                /> */}
-      {/* <section className="up-next-container"> */}
-      {/* <article className="previous-article">
-                    <a href={`/post/${previousPost?.slug}`}>
-                      <p className="previous-article-heading">
-                        Previous Article
-                      </p>
-                      <span className="previous-article-content">
-                        {previousPost?.post_title}
-                      </span>
-                    </a>
-                  </article> */}
-      {/* <article className="next-article">
-                    <a href={`/post/${nextPost?.slug}`}>
-                      <p className="next-article-heading">Next Article</p>
-                      <span className="next-article-content">
-                        {nextPost?.post_title}
-                      </span>
-                    </a>
-                  </article> */}
-      {/* </section> */}
-      {/* <div className="free-users-persuader"> */}
-      {/* <button className="news-teaser-article-heading">
-                    Related Articles
-                  </button> */}
-      {/* <section className="news-teaser-article"> */}
-      {/* {
-                      // only show the news that are in the same category with the current news and remove the current news from the displayed ones
-                      categoryNews
-                        ?.filter((newsList) => newsList.id !== news.id)
-                        .slice(0, 4)
-                        .map(({ featured_image, post_title, slug }) => {
-                          return (
-                            <article key={post_title}>
-                              <div className="news-teaser-img-wrap">
-                                <img
-                                  loading="lazy"
-                                  src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
-                                  alt="img"
-                                />
-                              </div>
-                              <p>
-                                <a
-                                  href={`/post/${slug}`}
-                                  className="news-teaser-heading"
-                                >
-                                  {post_title}
-                                </a>
-                              </p>
-                            </article>
-                          )
-                        })
-                    } */}
-      {/* </section> */}
-
-      {/* news comments */}
-      {/* <NewsComments comments={comments} /> */}
-      {/* comment form */}
-      {/* <CommentForm post_title={news.post_title} post_id={news.id} /> */}
-      {/* </div> */}
-      {/* </div> */}
-      {/* </article> */}
-      {/* <section className="d-none d-md-block d-lg-block ml-3 ml-md-4 mx-auto ml-lg-0 col-10 col-md-7 col-lg-3 news-reader-list">
-              <PopulateReadersList news={categoryNews} start={0} end={2} />
-              <ul className="list-unstyled mb-5">
-                <li>
-                  <ContactsAds1 />
-                </li>
-              </ul>
-              <PopulateReadersList news={categoryNews} start={4} end={6} />
-              <ul className="list-unstyled mb-5">
-                <li>
-                  <ContactsAds1 />
-                </li>
-              </ul>
-            </section> */}
-      {/* </div> */}
-      {/* </div> */}
-      {/* // )} */}
       <div className="single-news-section">
         <div className="single-news-section-wrapper">
           <div className="s-n-ads-container">
@@ -354,9 +175,37 @@ const GetNews = () => {
                     </div>
 
                     <div className="main-content">
-                      {ReactHtmlParser(singleNews[0].post_description, options)}
+                      {ReactHtmlParser(
+                        `${
+                          singleNews[0].post_type === 'premium' &&
+                          isAuthenticated
+                            ? user.subscription_status
+                              ? singleNews[0].post_description
+                              : singleNews[0].post_description.substring(
+                                  0,
+                                  1500,
+                                )
+                            : singleNews[0].post_type === 'free' &&
+                              isAuthenticated
+                            ? singleNews[0].post_description
+                            : singleNews[0].post_description.substring(0, 1500)
+                        }`,
+                        options,
+                      )}
                     </div>
-
+                    {singleNews[0].post_type === 'premium' &&
+                    isAuthenticated ? (
+                      user.subscription_status ? (
+                        <div></div>
+                      ) : (
+                        <div className="blur-content"></div>
+                      )
+                    ) : singleNews[0].post_type === 'free' &&
+                      isAuthenticated ? (
+                      <div></div>
+                    ) : (
+                      <div className="blur-content"></div>
+                    )}
                     <div className="check-mate">
                       {!isAuthenticated ? (
                         <NotLoggedIn />
@@ -425,6 +274,11 @@ const GetNews = () => {
                                       src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
                                       className="mb-3 card-img-related"
                                     />
+                                    <p className="premium-badge-left">
+                                      {categ.post_type === 'premium'
+                                        ? `${categ.post_type}`
+                                        : ''}
+                                    </p>
                                     <Card.Body className="l-card-body">
                                       <Card.Text>{categ.slug}</Card.Text>
                                     </Card.Body>
@@ -456,6 +310,11 @@ const GetNews = () => {
                           className="trending-card"
                           key={eachCard.id}
                         >
+                          <p className="premium-badge-left">
+                            {eachCard.post_type === 'premium'
+                              ? `${eachCard.post_type}`
+                              : ''}
+                          </p>
                           <p className="trend-date">
                             <Moment format="MMMM Do YYYY">
                               {eachCard.updated_at}

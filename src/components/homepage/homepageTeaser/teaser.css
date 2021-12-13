@@ -1,11 +1,14 @@
 .discover {
   margin-left: 0;
   margin-right: 0;
+  padding: 10px 12px;
+  margin-top: 2rem;
 }
 .discover-wrapper {
-  max-width: 1386px;
-  margin-right: auto;
+  max-width: 78.125rem;
+  margin: 0 auto;
   display: block;
+  padding: 1rem;
 }
 
 .content-grid {
@@ -21,29 +24,14 @@
   color: #fff;
 }
 
-@media (max-width: 993px) {
-  .content-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-
 .africa-now {
   width: 100%;
   display: block;
 }
 
 .africa {
-  max-width: 720px;
-  margin-left: auto;
-}
-
-@media (max-width: 993px) {
-  .africa {
-    max-width: unset;
-    margin-left: unset;
-    width: 100%;
-  }
+  width: 100%;
+  display: block;
 }
 
 .africa-header {
@@ -56,13 +44,6 @@
   gap: 1rem;
 }
 
-@media (max-width: 770px) {
-  .africa-cards {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-}
-
 .sub-categ-card {
   display: block;
 }
@@ -71,12 +52,6 @@
   height: 15.625rem;
   width: 100%;
   display: block;
-}
-
-@media (min-width: 770px) {
-  .a-img-container {
-    height: 10rem;
-  }
 }
 
 .f-img {
@@ -121,22 +96,10 @@
 .policy {
   width: 100%;
   display: block;
-  padding: 1rem 0 1rem 1rem;
 }
 .policy-container {
-  max-width: 720px;
-  margin-left: auto;
-}
-
-@media (max-width: 993px) {
-  .policy-container {
-    max-width: unset;
-    margin-left: unset;
-    width: 100%;
-  }
-  .policy {
-    padding: 1rem;
-  }
+  width: 100%;
+  display: block;
 }
 
 .policy-heading {
@@ -156,6 +119,7 @@
   gap: 2rem;
   margin-bottom: 1.2rem;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .policy-government-link,
@@ -223,6 +187,7 @@
   margin-bottom: 1.3rem;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
   padding: 0.7rem 1rem;
+  position: relative;
 }
 
 .latest-heading {
@@ -247,6 +212,9 @@
   text-align: left;
   line-height: 1.5;
 }
+.left-heading {
+  font-weight: bold;
+}
 
 @media (max-width: 560px) {
   .policy-card {
@@ -266,5 +234,41 @@
     padding: 0.5rem;
     gap: 1rem;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 993px) {
+  .africa {
+    max-width: unset;
+    margin-left: unset;
+    width: 100%;
+  }
+  .policy-container {
+    max-width: unset;
+    margin-left: unset;
+    width: 100%;
+  }
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .discover-wrapper {
+    max-width: unset;
+    margin: unset;
+    padding: unset;
+    width: 100%;
+  }
+}
+
+@media (max-width: 770px) {
+  .africa-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 770px) {
+  .a-img-container {
+    height: 10rem;
   }
 }

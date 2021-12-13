@@ -1,6 +1,6 @@
 .register {
   width: 100%;
-  height: 110vh;
+  height: 120vh;
   position: relative;
   background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
     url('../../assets/images/elephant.jpg') center/cover fixed no-repeat;
@@ -86,6 +86,7 @@
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
   gap: 2.5rem;
+  width: 100%;
 }
 .reg-benefits {
   display: block;
@@ -194,7 +195,39 @@
     margin: unset;
     padding: unset;
   }
+  .reg-content-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+  .reg-benefits {
+    display: none;
+    width: unset;
+  }
+  .form-group-flex {
+    display: block;
+  }
+  .reg-form-first {
+    margin-bottom: 1.3rem;
+  }
+  .reg-showcase {
+    margin-top: 2.3rem;
+  }
+  .register {
+    height: 200vh;
+  }
 }
+
+@media (max-width: 400px) {
+  .register-nav {
+    flex-direction: column;
+    justify-content: stretch;
+    gap: 2rem;
+  }
+  .already-have-account {
+    flex-direction: column;
+  }
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

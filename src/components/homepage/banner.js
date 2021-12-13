@@ -4,17 +4,15 @@ import { useViewPort } from '../hooks/Viewport'
 import { Link } from 'react-router-dom'
 import './homepage.css'
 import './ads/ads.css'
-// ads
 import { LargeSizeAds } from './ads/Ads'
 import bannerAds from './../../assets/images/bannerads.png'
 
 const Banner = ({ data, sportCount, economyCount }) => {
-  const free = data.filter((post) => post.post_type === 'free')
-  const discoverAfrica = free.filter(
+  const discoverAfrica = data.filter(
     (post) => post.category_id === 'Discover Africa',
   )
-  const sportAfrica = free.filter((post) => post.category_id === 'Sport Africa')
-  const economyAfrica = free.filter((post) => post.category_id === 'Economy')
+  const sportAfrica = data.filter((post) => post.category_id === 'Sport Africa')
+  const economyAfrica = data.filter((post) => post.category_id === 'Economy')
   const economy = economyAfrica[economyCount]
   const sport = sportAfrica[sportCount]
   const { width } = useViewPort()
@@ -39,8 +37,14 @@ const Banner = ({ data, sportCount, economyCount }) => {
                 wrap={true}
                 slide={false}
               >
-                {discoverAfrica.slice(6, 11).map((categ) => {
-                  const { featured_image, id, slug, category_id } = categ
+                {discoverAfrica.slice(0, 6).map((categ) => {
+                  const {
+                    featured_image,
+                    id,
+                    slug,
+                    category_id,
+                    post_type,
+                  } = categ
                   return (
                     <Carousel.Item className="caro-item" key={id}>
                       <img
@@ -48,6 +52,9 @@ const Banner = ({ data, sportCount, economyCount }) => {
                         src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
                         alt="tv24africanews"
                       />
+                      <p className="premium-badge">
+                        {post_type === 'premium' ? `${post_type}` : ''}
+                      </p>
                       <Carousel.Caption className="caro-capxn">
                         <Link
                           to={{
@@ -70,65 +77,83 @@ const Banner = ({ data, sportCount, economyCount }) => {
                 })}
               </Carousel>
             </Col>
-            {width > breakpoint ? <Col lg={4} className="left-grid">
-              {economy && (
-                <div className="cnt-1">
-                  <Card className="text-white h-100">
-                    <Card.Img
-                      src={`https://api.tv24africa.com/public/storage/post_image/${economy.featured_image}`}
-                      alt="Card image"
-                      className="h-100 w-100"
-                    />
-                    <Card.ImgOverlay className="cnt-txt-wrap">
-                      <Link
-                        to={{
-                          pathname: '/news/categories',
-                          search: `?category=${economy.category_id}`,
-                        }}
-                        className="card-tag text-decoration-none p-2 cap-anco text-left"
-                      >
-                        {economy.category_id}
-                      </Link>
+            {width > breakpoint ? (
+              <Col lg={4} className="left-grid">
+                {economy ? (
+                  <div className="cnt-1">
+                    <Card className="text-white h-100">
+                      <Card.Img
+                        src={`https://api.tv24africa.com/public/storage/post_image/${economy.featured_image}`}
+                        alt="Card image"
+                        className="h-100 w-100"
+                      />
+                      <p className="premium-badge-left">
+                        {economy.post_type === 'premium'
+                          ? `${economy.post_type}`
+                          : ''}
+                      </p>
+                      <Card.ImgOverlay className="cnt-txt-wrap">
+                        <Link
+                          to={{
+                            pathname: '/news/categories',
+                            search: `?category=${economy.category_id}`,
+                          }}
+                          className="card-tag text-decoration-none p-2 cap-anco text-left"
+                        >
+                          {economy.category_id}
+                        </Link>
 
-                      <Link
-                        to={`/post/${economy.slug}`}
-                        className="card-msg text-left text-capitalize text-white"
-                      >
-                        {economy.slug}
-                      </Link>
-                    </Card.ImgOverlay>
-                  </Card>
-                </div>
-              )}
-              {sport && (
-                <div className="cnt-2">
-                  <Card className="text-white h-100">
-                    <Card.Img
-                      src={`https://api.tv24africa.com/public/storage/post_image/${sport.featured_image}`}
-                      alt="Card image"
-                      className="h-100 w-100"
-                    />
-                    <Card.ImgOverlay className="cnt-txt-wrap">
-                      <Link
-                        to={{
-                          pathname: '/news/categories',
-                          search: `?category=${sport.category_id}`,
-                        }}
-                        className="card-tag text-decoration-none p-2 cap-anco text-left"
-                      >
-                        {sport.category_id}
-                      </Link>
-                      <Link
-                        to={`/post/${sport.slug}`}
-                        className="card-msg text-left text-white"
-                      >
-                        {sport.slug}
-                      </Link>
-                    </Card.ImgOverlay>
-                  </Card>
-                </div>
-              )}
-            </Col> : ''}
+                        <Link
+                          to={`/post/${economy.slug}`}
+                          className="card-msg text-left text-capitalize text-white"
+                        >
+                          {economy.slug}
+                        </Link>
+                      </Card.ImgOverlay>
+                    </Card>
+                  </div>
+                ) : (
+                  ''
+                )}
+                {sport ? (
+                  <div className="cnt-2">
+                    <Card className="text-white h-100">
+                      <Card.Img
+                        src={`https://api.tv24africa.com/public/storage/post_image/${sport.featured_image}`}
+                        alt="Card image"
+                        className="h-100 w-100"
+                      />
+                      <p className="premium-badge-left">
+                        {sport.post_type === 'premium'
+                          ? `${sport.post_type}`
+                          : ''}
+                      </p>
+                      <Card.ImgOverlay className="cnt-txt-wrap">
+                        <Link
+                          to={{
+                            pathname: '/news/categories',
+                            search: `?category=${sport.category_id}`,
+                          }}
+                          className="card-tag text-decoration-none p-2 cap-anco text-left"
+                        >
+                          {sport.category_id}
+                        </Link>
+                        <Link
+                          to={`/post/${sport.slug}`}
+                          className="card-msg text-left text-white"
+                        >
+                          {sport.slug}
+                        </Link>
+                      </Card.ImgOverlay>
+                    </Card>
+                  </div>
+                ) : (
+                  ''
+                )}
+              </Col>
+            ) : (
+              ''
+            )}
           </Row>
         </div>
       </div>

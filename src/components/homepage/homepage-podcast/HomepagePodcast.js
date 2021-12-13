@@ -5,22 +5,12 @@ import { Row, Col, Card } from 'react-bootstrap'
 import '../politics/politicsandgovernance.css'
 import './homepagepodcast.css'
 
-const HomepagePodcast = (props) => {
-  let isAuth = false
-
-  const businessNews =
-    props.data && props.data.filter((news) => news.category_id === 'Business')
-
-  const handlePrem = (e) => {
-    if (!isAuth) {
-      e.preventDefault()
-      alert('Subscribe')
-    }
-  }
+const HomepagePodcast = ({ data }) => {
+  const businessNews = data.filter((news) => news.category_id === 'Business')
   return (
     <section className="business-section">
       <div className="business-wrapper">
-        <h5 className="business-heading">Podcast</h5>
+        <h5 className="business-header text-center">Podcast</h5>
         <div className="business-content">
           <Row xs={1} lg={4} className="g-4">
             {businessNews.slice(3, 7).map((categ, idx) => (
@@ -28,11 +18,6 @@ const HomepagePodcast = (props) => {
                 <Link
                   to={`/post/${categ.slug}`}
                   className="bus-link"
-                  onClick={(e) => {
-                    if (categ.post_type === 'premium') {
-                      handlePrem(e)
-                    }
-                  }}
                 >
                   <Card className="com-card">
                     <Card.Img
@@ -42,7 +27,7 @@ const HomepagePodcast = (props) => {
                     />
                     <i class="fas fa-microphone-alt"></i>
                     <Card.Body className="pod-card-body">
-                      <Card.Subtitle className="pod-title mb-3">
+                      <Card.Subtitle className="pod-title mb-3 font-bold">
                         {categ.slug}
                       </Card.Subtitle>
                     </Card.Body>

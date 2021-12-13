@@ -56,6 +56,7 @@
   align-items: center;
   gap: 1.5rem;
   color: #000;
+  position: relative;
 }
 .cate-content-list:hover {
   color: #000;
@@ -67,6 +68,7 @@
 .cat-content-list-item-img-cont {
   width: 14rem;
   height: 8rem;
+  position: relative;
 }
 
 .cat-content-list-item-img {
@@ -114,6 +116,7 @@
   padding: 0.7rem 1rem;
   color: #000;
   background-color: #fff;
+  position: relative;
 }
 .trending-card:hover {
   color: #000;

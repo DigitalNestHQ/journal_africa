@@ -1,24 +1,11 @@
 .top-nav {
   background: #4f4d4d;
-  padding: 16px 136px 16px 16px;
+  padding: 12px 136px 12px 12px;
   align-items: center;
   justify-content: space-between;
   display: flex;
   white-space: nowrap;
 }
-
-@media (max-width: 1475px) {
-  .top-nav {
-    padding: 16px 66px 16px 16px;
-  }
-}
-
-@media (max-width: 1400px) {
-  .top-nav {
-    padding: 16px;
-  }
-}
-
 .name-sp {
   color: #fff;
   font-style: normal;
@@ -65,5 +52,16 @@ ul {
 @media screen and (max-width: 1250px) {
   .soc-nav {
     display: none;
+  }
+}
+@media (max-width: 1475px) {
+  .top-nav {
+    padding: 12px 66px 12px 12px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .top-nav {
+    padding: 12px;
   }
 }

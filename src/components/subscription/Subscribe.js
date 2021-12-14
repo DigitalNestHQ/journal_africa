@@ -1,35 +1,35 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
-import FormHeader from "../reusables/navigation/formsReusables/FormHeader";
-import authContext from "../../context/auth/authContext";
+import React, { useContext, useEffect, useState } from 'react'
+import { Card } from 'react-bootstrap'
+import FormHeader from '../reusables/navigation/formsReusables/FormHeader'
+import authContext from '../../context/auth/authContext'
 
-import "./subscribe.css";
-import PaymentButton from "./payment_handler/PaymentButton";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import './subscribe.css'
+import PaymentButton from './payment_handler/PaymentButton'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Subscribe = () => {
-  const userContext = useContext(authContext);
-  const { user } = userContext;
-  const isLoggedIn = user ? true : false;
-  const [subscriptionPlans, setSubscriptionPlans] = useState(null);
-  const [currency, setCurrency] = useState("NGN");
+  const userContext = useContext(authContext)
+  const { user } = userContext
+  const isLoggedIn = user ? true : false
+  const [subscriptionPlans, setSubscriptionPlans] = useState(null)
+  const [currency, setCurrency] = useState('NGN')
 
   useEffect(() => {
     axios
-      .get("https://api.tv24africa.com/api/v1/plans")
+      .get('https://api.tv24africa.com/api/v1/plans')
       .then((response) => {
-        setSubscriptionPlans(response.data.plans);
+        setSubscriptionPlans(response.data.plans)
       })
-      .catch((error) => console.log(error));
-  }, []);
+      .catch((error) => console.log(error))
+  }, [])
 
   useEffect(() => {
     if (localStorage.token) {
-      userContext.loadUser();
+      userContext.loadUser()
     }
     // eslint-disable-next-line
-  }, []);
+  }, [])
   return (
     <div className="container-fluid subscribe-container">
       <header className="subscribe-header">
@@ -43,18 +43,18 @@ const Subscribe = () => {
           </p>
         </div>
         <div className="container pay_plan-wrap">
-          <h2>Pay in {currency === "NGN" ? "Naira" : "US Dollars"}</h2>
+          <h2>Pay in {currency === 'NGN' ? 'Naira' : 'US Dollars'}</h2>
           <div className="sub-curency">
             {/* select which currency to pay */}
             <span
               className="sub-curency_ngn"
-              onClick={() => setCurrency("NGN")}
+              onClick={() => setCurrency('NGN')}
             >
               NGN
             </span>
             <span
               className="sub-curency_usd"
-              onClick={() => setCurrency("USD")}
+              onClick={() => setCurrency('USD')}
             >
               USD
             </span>
@@ -90,9 +90,9 @@ const Subscribe = () => {
                           </Card.Text>
                           <p className="sub-amount">
                             {/* render the price based on the selected currency */}
-                            {currency == "USD"
+                            {currency == 'USD'
                               ? `$${price_usd}`
-                              : currency == "NGN"
+                              : currency == 'NGN'
                               ? `#${price_ngn}`
                               : null}
                           </p>
@@ -103,13 +103,12 @@ const Subscribe = () => {
                               profile={user}
                               title={name}
                               amount={
-                                currency == "USD"
+                                currency === 'USD'
                                   ? price_usd
-                                  : currency == "NGN"
+                                  : currency === 'NGN'
                                   ? price_ngn
                                   : null
                               }
-                              profile={user}
                               description={name}
                               currency={currency}
                             />
@@ -121,8 +120,8 @@ const Subscribe = () => {
                         </Card.Body>
                       </Card>
                     </div>
-                  );
-                }
+                  )
+                },
               )}
           </div>
           <div className="trial">
@@ -131,7 +130,7 @@ const Subscribe = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Subscribe;
+export default Subscribe

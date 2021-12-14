@@ -1,8 +1,8 @@
 import React, { useState, useEffect, Fragment, useContext } from 'react'
 // import Header from './Header/index'
 import Footer from '../reusables/navigation/Footer/footer'
-// import CategoryCard from './CategoryCard'
-import { useHistory, useLocation, Link } from 'react-router-dom'
+import CategoryCard from './CategoryCard'
+import { useLocation, Link } from 'react-router-dom'
 import Loader from '../loader/Loader'
 import './newscategory.css'
 // import UnableToFetchNews from '../reusables/errorMessages/UnableToFetchNews'
@@ -21,9 +21,8 @@ import { useViewPort } from '../../components/hooks/Viewport'
 
 const CategoryNews = () => {
   const context = useContext(newsContext)
-  const { news, loading, error, categoryNews, getNews, getCategory } = context
+  const { news, loading, categoryNews, getNews, getCategory } = context
   const [numberOfCategCard, setNumberOfCategCard] = useState(5)
-  const history = useHistory()
   const { search } = useLocation()
   const x = new URLSearchParams(search)
   const category = x.get('category')
@@ -40,18 +39,9 @@ const CategoryNews = () => {
     //eslint-disable-next-line
   }, [category])
 
-  if (error) {
-    return history.push('/error404')
-  }
-
   if (loading || categoryNews === null || news === null) {
     return <Loader />
   }
-
-  const free = categoryNews.filter((post) => post.post_type === 'premium')
-
-  console.log(categoryNews)
-  console.log(typeof category)
 
   return (
     <Fragment>
@@ -78,33 +68,16 @@ const CategoryNews = () => {
                 ) : (
                   categoryNews.slice(0, numberOfCategCard).map((eachCard) => (
                     <Link
-                      className="cate-content-list"
+                      className="category-card-links"
                       key={eachCard.id}
                       to={`/post/${eachCard.slug}`}
                     >
-                      <div className="cat-content-list-item-img-cont">
-                        <p className="premium-badge">
-                          {eachCard.post_type === 'premium'
-                            ? `${eachCard.post_type}`
-                            : ''}
-                        </p>
-                        <img
-                          src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
-                          alt="img"
-                          className="cat-content-list-item-img"
-                        />
-                      </div>
-                      <div className="cat-content-list-item-detail">
-                        <h6 className="cat-content-list-item-detail-heading">
-                          {eachCard.slug}
-                        </h6>
-                        <div className="cat-content-list-item-detail-text">
-                          {ReactHtmlParser(
-                            `${eachCard.post_description.substring(0, 135)}...`,
-                            HtmlParseOptions,
-                          )}
-                        </div>
-                      </div>
+                      <CategoryCard
+                        featured_image={eachCard.featured_image}
+                        post_type={eachCard.post_type}
+                        slug={eachCard.slug}
+                        post_description={eachCard.post_description}
+                      />
                     </Link>
                   ))
                 )}

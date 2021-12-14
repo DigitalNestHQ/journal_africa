@@ -8,6 +8,8 @@ import {
   LOGOUT,
   CLEAR_ERRORS,
   SET_LOADING,
+  EMAIL_SUBSCRIPTION,
+  EMAIL_SUBSCRIPTION_FAIL,
 } from '../types'
 
 const authReducer = (state, action) => {
@@ -35,6 +37,14 @@ const authReducer = (state, action) => {
         isAuthenticated: true,
         loading: false,
         message: action.payload.message,
+      }
+
+    case EMAIL_SUBSCRIPTION:
+      return {
+        ...state,
+        ...action.payload,
+        loading: false,
+        emailSubMessage: action.payload,
       }
 
     case REGISTER_FAIL:

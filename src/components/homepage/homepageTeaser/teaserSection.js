@@ -43,23 +43,30 @@ const TeaserSection = ({ data }) => {
                 <h5 className="africa-header">Discover Africa</h5>
                 <div className="africa-cards">
                   {selectedTeasers.map((eachCard) => (
-                    <Link
-                      to={`/post/${eachCard.slug}`}
-                      className="africa-discover-link"
-                      key={eachCard.id}
-                    >
-                      <div className="sub-categ-card">
-                        <div className="a-img-container">
-                          <img
-                            src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
-                            alt={eachCard.sub_category}
-                            className="f-img"
-                          />
-                        </div>
-                        <p className="dest">{eachCard.sub_category}</p>
-                        <p className="a-text">{eachCard.slug}</p>
+                    <div className="sub-categ-card" key={eachCard.id}>
+                      <div className="a-img-container">
+                        <img
+                          src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
+                          alt={eachCard.sub_category}
+                          className="f-img"
+                        />
                       </div>
-                    </Link>
+                      <Link
+                        to={{
+                          pathname: '/news/sub-categories',
+                          search: `?subcategory=${eachCard.sub_category}`,
+                        }}
+                        className="dest"
+                      >
+                        {eachCard.sub_category}
+                      </Link>
+                      <Link
+                        to={`/post/${eachCard.slug}`}
+                        className="a-text africa-discover-link"
+                      >
+                        {eachCard.slug}
+                      </Link>
+                    </div>
                   ))}
                 </div>
                 <Link

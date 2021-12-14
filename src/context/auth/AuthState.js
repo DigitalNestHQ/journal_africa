@@ -14,6 +14,8 @@ import {
   CLEAR_ERRORS,
   LOGOUT,
   SET_LOADING,
+  EMAIL_SUBSCRIPTION,
+  EMAIL_SUBSCRIPTION_FAIL,
 } from '../types'
 
 const AuthState = (props) => {
@@ -24,6 +26,7 @@ const AuthState = (props) => {
     error: null,
     user: null,
     message: null,
+    emailSubMessage: null,
   }
 
   const [state, dispatch] = useReducer(authReducer, initialState)
@@ -65,9 +68,6 @@ const AuthState = (props) => {
         formData,
         config,
       )
-
-      console.log(res.data)
-
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
@@ -93,15 +93,6 @@ const AuthState = (props) => {
         formData,
         config,
       )
-
-      const userProfile = {
-        ...res.data.data,
-        hasSubscribed: res.data.subscription_status,
-      }
-
-      console.log(res.data)
-      console.log(userProfile)
-
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
@@ -114,6 +105,26 @@ const AuthState = (props) => {
         type: LOGIN_FAIL,
         payload: error.response.data.message,
       })
+    }
+  }
+
+  //email subscription
+  const emailSub = async (formData) => {
+    setLoading()
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+    try {
+      const res = await axios.post(
+        'https://api.tv24africa.com/api/v1/newsletter',
+        formData,
+        config,
+      )
+      dispatch({ type: EMAIL_SUBSCRIPTION, payload: res.data })
+    } catch (error) {
+      dispatch({ type: EMAIL_SUBSCRIPTION_FAIL, payload: error })
     }
   }
 
@@ -138,11 +149,13 @@ const AuthState = (props) => {
         error: state.error,
         user: state.user,
         message: state.message,
+        emailSubMessage: state.emailSubMessage,
         loadUser,
         register,
         login,
         clearErrors,
         logOut,
+        emailSub,
       }}
     >
       {props.children}

@@ -1,165 +1,155 @@
-import React, { useState, useEffect, Fragment } from "react";
-import Header from "./Header/index";
-import Footer from "../reusables/navigation/Footer/footer";
-// feeds api
-import { getNewsFeed } from "../../context/news/NewsApi";
-// import queryString from "query-string";
-
-import CategoryCard from "./CategoryCard";
-import { useHistory, useLocation } from "react-router-dom";
-import Loader from "../loader/Loader";
-import "./newscategory.css";
-import UnableToFetchNews from "../reusables/errorMessages/UnableToFetchNews";
-import { ContactsAds1 } from "../ContactUs/mainSection/ContactsAds";
-import CategoryNavbar from "./Header/CategoryNavbar";
-import { PopulateReadersList } from "../homepage/politics/ReaderList";
+import React, { useState, useEffect, Fragment, useContext } from 'react'
+import Footer from '../reusables/navigation/Footer/footer'
+import CategoryCard from './CategoryCard'
+import { useLocation, Link } from 'react-router-dom'
+import Loader from '../loader/Loader'
+import './newscategory.css'
+// import UnableToFetchNews from '../reusables/errorMessages/UnableToFetchNews'
+// import { ContactsAds1 } from '../ContactUs/mainSection/ContactsAds'
+// import { PopulateReadersList } from '../homepage/politics/ReaderList'
+import newsContext from '../../context/news/NewsContext'
+import Navbar from 'components/reusables/navigation/Nav/nav'
+import LargeAds from '../../assets/images/bannerads.png'
+import '../homepage/ads/ads.css'
+import { LargeSizeAds } from '../homepage/ads/Ads'
+import { HtmlParseOptions } from '../../_helper/parseNewsHtml'
+import ReactHtmlParser from 'react-html-parser'
+import cybertruck from '../../assets/images/cybertruck1.jpg'
+import Moment from 'react-moment'
+import { useViewPort } from '../../components/hooks/Viewport'
 
 const SubcategoryNews = () => {
-  const [loading, setLoading] = useState(true);
-  const [newsCateg, setNewsCateg] = useState(null);
-  const [error, setError] = useState(null);
-  const [news, setNews] = useState([]);
-  const [numberOfCategCard, setNumberOfCategCard] = useState(10);
-  const history = useHistory();
-
-  const { search } = useLocation();
-  const x = new URLSearchParams(search);
-  const subcategory = x.get("subcategory");
+  const context = useContext(newsContext)
+  const { news, loading, categoryNews, getNews, getCategory } = context
+  const { search } = useLocation()
+  const x = new URLSearchParams(search)
+  const subcategory = x.get('subcategory')
+  const [numberOfCategCard, setNumberOfCategCard] = useState(5)
+  const { width } = useViewPort()
+  const breakpoint = 991
 
   useEffect(() => {
-    // check if the url changes
-    const unlisten = history.listen(() => {
-      // referesh page if it changes
-      window.location.reload();
-    });
-    return () => {
-      unlisten();
-    };
-  }, []);
+    getNews()
+    getCategory('Discover Africa')
+    //eslint-disable-next-line
+  }, [subcategory])
 
-  useEffect(() => {
-    let sub = true;
-    if (sub) {
-      try {
-        getNewsFeed().then((data) => {
-          const discoveryAfrica = data?.filter(
-            (d) => d.category_id === "Discover Africa"
-          );
-
-          const getCategories = discoveryAfrica?.filter(
-            (category) => category.sub_category === subcategory
-          );
-
-          setNewsCateg(getCategories);
-          setLoading(false);
-          setNews(data);
-        });
-      } catch (error) {
-        if (error) {
-          setError(error.message);
-        }
-      }
-    }
-    return () => (sub = null);
-    // eslint-disable-next-line
-  }, [subcategory]);
-
-  if (error) {
-    // return <Link to="/error404" />;
-    return history.pushState("/error404");
+  if (loading || news === null || categoryNews === null) {
+    return <Loader />
   }
 
-  if (loading || news?.length < 1) {
-    return <Loader />;
+  const getCategories = categoryNews?.filter(
+    (c) => c.sub_category === subcategory,
+  )
+  const handleMore = () => {
+    setNumberOfCategCard((prev) => prev + 2)
   }
+
+  console.log(getCategories)
 
   return (
     <Fragment>
-      {/* <TopNav /> */}
-      {/* <Navbar /> */}
-
-      <CategoryNavbar />
-
-      <Header post_type={newsCateg && newsCateg[0]?.sub_category} />
-      {/* {<h1 className="text-center text-title">{newsCateg && newsCateg[0].category_id}</h1>} */}
-      {/* <h1 className="text-center text-title">Welcome Here</h1> */}
-      {newsCateg && newsCateg ? (
-        <div className="discover-cont">
-          <section className="discover">
-            <div className="left-pane">
-              {newsCateg &&
-                newsCateg.length > 0 &&
-                newsCateg.slice(0, numberOfCategCard).map((aNews) => {
-                  const {
-                    post_title,
-                    featured_image,
-                    id,
-                    post_type,
-                    slug,
-                    category_id,
-                    post_description,
-                  } = aNews;
-                  return (
-                    <CategoryCard
-                      key={id}
-                      post_title={post_title}
-                      featured_image={featured_image}
-                      slug={slug}
-                      category_id={category_id}
-                      post_type={post_type}
-                      post_description={post_description}
-                      className="card-unit"
-                    />
-                  );
-                })}
-              {newsCateg?.length > numberOfCategCard && (
-                <button
-                  className="premium-tag load-more-btn ml-3 ml-md-3 ml-lg-3 mb-5 mb-md-5 mb-lg-0"
-                  onClick={() => setNumberOfCategCard(numberOfCategCard + 3)}
-                >
-                  Load More...
-                </button>
-              )}
-            </div>
-            <div className="right-pane">
-              {/* <ReaderList data={news}/>
-              {news && news.length &&
-                  news.slice(0, 4).map(({ slug, post_title, id, created_at, post_description}) => {
-                    return <ReaderList 
-                            key={id} 
-                            slug={slug} 
-                            post_title={post_title}
-                            post_description={post_description}
-                            created_at={created_at}
-                          />;
-                  })} */}
-              <PopulateReadersList news={news} start={0} end={2} />
-              {/* <h4 className="trend">TRENDS</h4> */}
-              <ul>
-                {/* {news && news.length > 0 && news.slice(0, 5).map((news, index) => (
-                  <li className="trend_list" key={index}>
-                    <Link to={`/post/${news.slug}`}>{news.slug}</Link>
-                  </li>
-                ))} */}
-                <li>
-                  <ContactsAds1 />
-                </li>
-                <li>
-                  <ContactsAds1 />
-                </li>
-                {/* <li><ContactsAds1 /></li> */}
-              </ul>
-            </div>
-          </section>
+      <Navbar />
+      {!loading && getCategories.length === 0 ? (
+        <div className="category-comp-heading">
+          <h5 className="category-header">No news available</h5>
         </div>
       ) : (
-        <div>
-          <UnableToFetchNews />
+        <div className="category-comp-heading">
+          <h5 className="category-header">{getCategories[0].sub_category}</h5>
         </div>
       )}
+      <main className="cat-section">
+        <div className="category-wrapper">
+          <div className="cat-img-container">
+            <LargeSizeAds img={LargeAds} />
+          </div>
+          <div className="categ-content">
+            <div className="categ-content-grid">
+              <div className="cat-right-content">
+                {!loading && getCategories.length === 0 ? (
+                  <h5 className="text-dark">No news available</h5>
+                ) : (
+                  getCategories.slice(0, numberOfCategCard).map((eachCard) => (
+                    <Link
+                      key={eachCard.id}
+                      to={`/post/${eachCard.slug}`}
+                      className="category-card-links"
+                    >
+                      <CategoryCard
+                        featured_image={eachCard.featured_image}
+                        post_type={eachCard.post_type}
+                        slug={eachCard.slug}
+                        post_description={eachCard.post_description}
+                      />
+                    </Link>
+                  ))
+                )}
+                {getCategories.length > numberOfCategCard ? (
+                  <button className="load-more" onClick={handleMore}>
+                    Load More...
+                  </button>
+                ) : (
+                  ''
+                )}
+              </div>
+              {width > breakpoint ? (
+                <div className="cat-left-content">
+                  <h5 className="cat-left-heading">Trending Posts</h5>
+                  <div className="trend-img-container">
+                    <img src={cybertruck} alt="tesla" className="trend-img" />
+                  </div>
+                  <div className="trending-posts">
+                    {!loading && news.length === 0 ? (
+                      <h5 className="text-dark">No trending news available</h5>
+                    ) : (
+                      news.slice(14, 17).map((eachCard) => (
+                        <Link
+                          to={`/post/${eachCard.slug}`}
+                          className="trending-card"
+                          key={eachCard.id}
+                        >
+                          <p className="premium-badge-left">
+                            {eachCard.post_type === 'premium'
+                              ? `${eachCard.post_type}`
+                              : ''}
+                          </p>
+                          <p className="trend-date">
+                            <Moment format="MMMM Do YYYY">
+                              {eachCard.updated_at}
+                            </Moment>
+                          </p>
+                          <h6 className="trend-title">{eachCard.slug}</h6>
+                          <p className="trend-text">
+                            {ReactHtmlParser(
+                              `${eachCard.post_description.substring(
+                                0,
+                                120,
+                              )}...`,
+                              HtmlParseOptions,
+                            )}
+                          </p>
+                        </Link>
+                      ))
+                    )}
+                  </div>
+                  <div className="trend--img-container">
+                    <img src={cybertruck} alt="tesla" className="trend-img" />
+                  </div>
+                </div>
+              ) : (
+                ''
+              )}
+            </div>
+          </div>
+          <div className="cat-img-container">
+            <LargeSizeAds img={LargeAds} />
+          </div>
+        </div>
+      </main>
       <Footer />
     </Fragment>
-  );
-};
+  )
+}
 
-export default SubcategoryNews;
+export default SubcategoryNews

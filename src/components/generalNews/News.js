@@ -93,7 +93,6 @@ const GetNews = () => {
     const postIndex = currentCategoryNews.findIndex(
       (postHeader) => postHeader?.slug === slug,
     )
-    console.log(postIndex)
 
     return {
       previous:

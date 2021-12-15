@@ -99,7 +99,7 @@ const CategoryNews = () => {
                     {!loading && news.length === 0 ? (
                       <h5 className="text-dark">No trending news available</h5>
                     ) : (
-                      news.slice(14, 17).map((eachCard) => (
+                      news.slice(0, 3).map((eachCard) => (
                         <Link
                           to={`/post/${eachCard.slug}`}
                           className="trending-card"

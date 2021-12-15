@@ -5,10 +5,8 @@ import { HtmlParseOptions } from '../../../_helper/parseNewsHtml'
 import ReactHtmlParser from 'react-html-parser'
 import { Row, Col, Card } from 'react-bootstrap'
 
-const Economy = (props) => {
-  const businessNews =
-    props.data &&
-    props.data.filter((news) => news.category_id === 'Development')
+const Economy = ({ data }) => {
+  const businessNews = data.filter((news) => news.category_id === 'Development')
 
   return (
     <section className="business-section">

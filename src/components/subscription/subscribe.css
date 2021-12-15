@@ -1,275 +1,189 @@
-.subscribe-container {
-  max-width: 1440px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.subscribe-header {
-  color: "i will be right back";
-}
-
-.subscribe-header .lnk1 {
-  color: #000000;
-}
-
-.subscribe-header .lnk2 {
-  background-color: #ff1717;
-  color: #ffffff;
-}
-
-.subscribe-header .lnk2:hover {
-  color: white;
-}
-
-.cur_crd-wrap {
-  position: relative;
-}
-.sub-banner {
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  height: 263px;
+.subscribe-page {
+  display: block;
   width: 100%;
-  /* margin-bottom: 10px; */
-  /* position: absolute;
-    z-index: 1; */
+  height: 100%;
 }
-.sub-banner p {
+.subscribe-header,
+.subscribe-main {
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 10px 12px;
+  width: 100%;
+}
+.subscribe-header {
+  height: 340px;
+  background-color: #000;
+}
+.subscribe-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.subscribe-heading {
   font-weight: bold;
-  font-size: 36px;
-  line-height: 42px;
-  padding-top: 20px;
+  display: block;
+  width: 100%;
+  margin: 1.9rem 0;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
 }
-
-.pay_plan-wrap {
-  z-index: 100;
+.subscribe-board {
+  max-width: 69.188rem;
+  height: 49.063rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -8rem;
   background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
-    url("../../assets/images/elephant.jpg") center/cover fixed no-repeat;
-  background: linear-gradient(rgba(92, 18, 18, 0.6), rgba(92, 18, 18, 0.8)),
-    url("../../assets/images/elephant.jpg") top/cover fixed no-repeat;
-  padding: 50px 0px;
-  max-width: 1200px;
-  margin: 0 auto;
-  height: auto;
-  z-index: 100;
+    url('../../assets/images/elephant.jpg') center/cover fixed no-repeat;
+  background: linear-gradient(rgba(234, 46, 46, 0.5), rgba(234, 46, 46, 0.6)),
+    url('../../assets/images/elephant.jpg') center/cover scroll no-repeat;
   position: relative;
-  bottom: 140px;
-  /* height: 785px; */
-  /* mix-blend-mode: multiply; */
-  /* position: absolute;
-    top: 70%;
-    z-index: 100;
-    transform: translateX(50, 50); */
 }
-
-.pay_plan-wrap h2 {
-  text-align: center;
-  font-weight: 500;
-  font-size: 36px;
-  line-height: 42px;
+.subscribe-board::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 30px 50px 150px #000000, inset -30px -50px 150px #000000;
+}
+.subscribe-main-content {
+  position: relative;
+  z-index: 10;
   color: #fff;
-}
-
-.sub-curency {
-  width: 235px;
-  height: 33px;
-  background: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  left: 50%;
-  margin-top: 30px;
-  transform: translate(-50%, -50%);
-}
-
-.sub-curency_ngn,
-.sub-curency_usd {
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 30px;
-  cursor: pointer;
-}
-
-.sub-curency_ngn:hover {
-  background: #ccc;
+  width: 100%;
   height: 100%;
-  padding-right: 4px;
-}
-.sub-curency_usd:hover {
-  background: #ccc;
-  height: 100%;
-  padding-left: 4px;
-}
-
-.subscribe-container .card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2.5rem;
+}
+.pay-currency-option {
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pay-in-currency {
+  margin-bottom: 1.5rem;
+  display: block;
+  width: 100%;
+}
+.sub-curency {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
-.sub-curency_ngn {
-  color: #018651;
-  padding-left: 15px;
-}
-
+.sub-curency_ngn,
 .sub-curency_usd {
-  padding-right: 15px;
-  color: #b22234;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.sub-curency_ngn:hover,
+.sub-curency_usd:hover {
+  opacity: 0.9;
+}
+.sub-curency_ngn {
+  background-color: rgb(2, 78, 2);
+  color: #fff;
+}
+.sub-curency_usd {
+  background-color: red;
+  color: #fff;
 }
 
-.sub-crd-title {
-  font-weight: 500;
+.subscirbe-flex-cards {
+  padding: 0 7.125rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
+.subscription-cards {
+  padding: 1.5rem;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+}
+.subscribtion-header {
   font-size: 18px;
   line-height: 21px;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
 }
-
-.sub-crd-txt {
+.subscription-desc {
+  font-size: 14px;
   font-weight: 300;
-  font-size: 14px;
-  line-height: 16px;
-  padding: 10px;
 }
-
-.sub-amount {
+.pricing {
+  color: red;
   font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-  color: #ff1717;
-  text-align: center;
+  font-size: 1.5rem;
 }
-
-.sub-crd .sub-signup {
-  padding: 7px 10px;
+.monthly-pricing {
+  font-size: 12px;
+  line-height: 14px;
+  display: block;
+}
+.subscription-btn {
   border: none;
-  border-radius: 5px;
-  background: #ff1717;
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 14px;
-  /* line-height: 16px; */
-  border: 1px solid transparent;
-  text-align: center;
-  /* width: 210px !important; */
+  margin-top: 0.7rem;
+  padding: 0.5rem;
+  border-radius: 7px;
+  outline: none;
+  background-color: red;
+  color: #fff;
+  display: block;
+  width: 100%;
+}
+.subscription-btn:hover {
+  opacity: 0.9;
+  color: #fff;
 }
 
-.sub-crd .sub-signup:hover {
-  background-color: #ffffff;
-  color: #ff1717;
-  border: 1px solid #ff1717;
-}
-
-.signup-wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.card-flex {
-  margin-top: 60px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  /* padding: 20px; */
-}
-
-.sub-crd .card {
-  width: 275px;
-  height: 267px;
-  background-color: #ffffff;
-}
-
-.trial {
-  margin-top: 100px;
-  text-align: center;
-}
-.trial .trial-btn {
-  background: #ffffff;
-  border-radius: 5px;
-  padding: 7px 20px;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
-  color: #ff1717;
-  /* transform: translate(-50%, -50%); */
-  /* position: relative; */
-  /* left: 50%; */
-}
-
-.trial .trial-btn:hover {
-  background: #ff1717;
-  color: #ffffff;
-}
-
-@media (max-width: 1200px) {
-  .card-flex {
-    padding-right: 5rem;
+@media (max-width: 993px) {
+  .subscirbe-flex-cards {
+    padding: 2rem 7.125rem;
+    display: block;
+  }
+  .subscribe-main-content {
+    display: block;
+  }
+  .subscription-cards {
+    margin-bottom: 1.3rem;
+  }
+  .subscribe-board {
+    height: 70.063rem;
   }
 }
-@media (max-width: 800px) {
-  .card-flex {
-    padding-right: 6rem;
-    justify-content: unset;
+@media (max-width: 650px) {
+  .subscirbe-flex-cards {
+    padding: 2rem;
   }
-}
-
-/* medium devices */
-@media (max-width: 768px) {
-  .sub-banner p {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 22px;
-    padding-top: 30px;
-  }
-  .pay_plan-wrap {
-    bottom: 157px;
-    padding: 30px 0px;
-  }
-  .pay_plan-wrap h2 {
-    font-size: 18px;
-  }
-  .card-flex {
+  .subscribe-board {
+    max-width: unset;
     width: 100%;
-    /* margin: 20px auto; */
-    justify-content: center;
-    margin-top: 10px;
+    height: 78.063rem;
+  }
+  .subscribe-heading {
+    margin: 3.5rem 0 0 0;
   }
 }
 
-/* small devices */
-@media (max-width: 576px) {
-  .sub-banner p {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 22px;
-    padding-top: 30px;
-  }
-  .pay_plan-wrap {
-    width: 360px;
-    bottom: 157px;
-    padding: 10px 0px;
-  }
-  .pay_plan-wrap h2 {
-    font-size: 18px;
-  }
-  .card-flex {
-    margin-top: 20px;
-    padding: 0px 20px 0px 20px;
-    margin: 0 auto;
-  }
-  .sub-crd .card {
-    margin-bottom: 20px;
-  }
-  .trial {
-    margin-top: 10px;
-    margin-bottom: 30px;
-  }
-}
-/* smallest break point */
-@media (max-width: 347px) {
-  .pay_plan-wrap {
-    width: 340px;
+@media (max-width: 500px) {
+  .subscribe-board {
+    margin-top: -4rem;
   }
 }

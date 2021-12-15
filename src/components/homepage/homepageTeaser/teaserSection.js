@@ -114,7 +114,7 @@ const TeaserSection = ({ data }) => {
                   <img src={cybertruck} alt="tesla" className="l-img" />
                 </div>
                 <div className="latest-content">
-                  {data.slice(13, 17).map((eachCard) => (
+                  {data.slice(0, 4).map((eachCard) => (
                     <Link
                       to={`/post/${eachCard.slug}`}
                       className="lastest-card-link"

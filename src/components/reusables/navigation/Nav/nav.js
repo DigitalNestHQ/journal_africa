@@ -76,7 +76,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: '?category=Economy',
+                    search: '?category=Fact check africa',
                   }}
                 >
                   fact check africa
@@ -96,7 +96,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: '?category=Governance',
+                    search: '?category=Commentary',
                   }}
                 >
                   commentary
@@ -106,7 +106,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: '?category=Gender',
+                    search: '?category=Gender and human rights',
                   }}
                 >
                   gender and human rights

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import './signupteaser.css'
 import Alerts from '../../alert/Alerts'
 import AlertContext from '../../../context/alert/alertContext'
@@ -8,7 +8,7 @@ export const SignupTeaser = () => {
   const [emailAddress, setEmailAddress] = useState({ email: '' })
   const alertContext = useContext(AlertContext)
   const userContext = useContext(authContext)
-  const { loading, emailSubMessage, emailSub } = userContext
+  const { loading, message, emailSub } = userContext
   const { setAlert } = alertContext
 
   const handleChange = (e) => {
@@ -18,16 +18,18 @@ export const SignupTeaser = () => {
   const handleNewLetterSubscription = async (event) => {
     event.preventDefault()
     emailSub(emailAddress)
-
-    if (emailSubMessage.message === 'Email Already Subscribed') {
-      setAlert(emailSubMessage.message, 'danger')
-    }
-    if (emailSubMessage.message === 'succesful') {
-      setAlert(emailSubMessage.message, 'success')
-    }
-
     setEmailAddress({ email: '' })
   }
+
+  useEffect(() => {
+    if (message === 'Email Already Subscribed') {
+      setAlert(message, 'danger')
+    }
+    if (message === 'succesful') {
+      setAlert(message, 'success')
+    }
+    // eslint-disable-next-line
+  }, [message])
 
   return (
     <section className="signup-teaser">

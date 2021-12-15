@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState, useContext } from 'react'
+import React, { Fragment, useEffect, useContext } from 'react'
 import Nav from '../reusables/navigation/Nav/nav'
 import Banner from './Banner'
 import TeaserSection from './homepageTeaser/TeaserSection'
@@ -20,19 +20,10 @@ import newsContext from '../../context/news/NewsContext'
 function Homepage() {
   const context = useContext(newsContext)
   const { news, loading, getNews } = context
-  const [sportCount, setSportCount] = useState(0)
-  const [economyCount, setEconomyCount] = useState(0)
 
   useEffect(() => {
     AOS.init()
     getNews()
-    const random = () => {
-      const sportNum = Math.floor(Math.random() * 3)
-      const economyNum = Math.floor(Math.random() * 5)
-      setEconomyCount(economyNum)
-      setSportCount(sportNum)
-    }
-    random()
     // eslint-disable-next-line
   }, [])
 
@@ -45,13 +36,9 @@ function Homepage() {
   return (
     <Fragment>
       <Nav />
-      <Banner
-        data={sorted}
-        sportCount={sportCount}
-        economyCount={economyCount}
-      />
+      <Banner data={sorted} />
       <LatestNews data={sorted} />
-      <TeaserSection data={sorted} sportCount={sportCount} />
+      <TeaserSection data={sorted} />
       <Business data={sorted} />
       <FactCheck data={sorted} />
       <Economy data={sorted} />

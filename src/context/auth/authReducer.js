@@ -44,9 +44,8 @@ const authReducer = (state, action) => {
         ...state,
         ...action.payload,
         loading: false,
-        emailSubMessage: action.payload,
+        message: action.payload.message,
       }
-
     case REGISTER_FAIL:
     case AUTH_ERROR:
     case LOGIN_FAIL:
@@ -60,7 +59,12 @@ const authReducer = (state, action) => {
         user: null,
         error: action.payload,
       }
-
+    case EMAIL_SUBSCRIPTION_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      }
     case CLEAR_ERRORS:
       return {
         ...state,

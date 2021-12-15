@@ -7,14 +7,7 @@ import './ads/ads.css'
 import { LargeSizeAds } from './ads/Ads'
 import bannerAds from './../../assets/images/bannerads.png'
 
-const Banner = ({ data, sportCount, economyCount }) => {
-  const discoverAfrica = data.filter(
-    (post) => post.category_id === 'Discover Africa',
-  )
-  const sportAfrica = data.filter((post) => post.category_id === 'Sport Africa')
-  const economyAfrica = data.filter((post) => post.category_id === 'Economy')
-  const economy = economyAfrica[economyCount]
-  const sport = sportAfrica[sportCount]
+const Banner = ({ data }) => {
   const { width } = useViewPort()
   const breakpoint = 991
 
@@ -37,7 +30,7 @@ const Banner = ({ data, sportCount, economyCount }) => {
                 wrap={true}
                 slide={false}
               >
-                {discoverAfrica.slice(0, 6).map((categ) => {
+                {data.slice(0, 3).map((categ) => {
                   const {
                     featured_image,
                     id,
@@ -79,77 +72,73 @@ const Banner = ({ data, sportCount, economyCount }) => {
             </Col>
             {width > breakpoint ? (
               <Col lg={4} className="left-grid">
-                {economy ? (
-                  <div className="cnt-1">
+                {data.slice(3, 4).map((categ) => (
+                  <div className="cnt-1" key={categ.id}>
                     <Card className="text-white h-100">
                       <Card.Img
-                        src={`https://api.tv24africa.com/public/storage/post_image/${economy.featured_image}`}
+                        src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
                         alt="Card image"
                         className="h-100 w-100"
                       />
                       <p className="premium-badge-left">
-                        {economy.post_type === 'premium'
-                          ? `${economy.post_type}`
+                        {categ.post_type === 'premium'
+                          ? `${categ.post_type}`
                           : ''}
                       </p>
                       <Card.ImgOverlay className="cnt-txt-wrap">
                         <Link
                           to={{
                             pathname: '/news/categories',
-                            search: `?category=${economy.category_id}`,
+                            search: `?category=${categ.category_id}`,
                           }}
                           className="card-tag text-decoration-none p-2 cap-anco text-left"
                         >
-                          {economy.category_id}
+                          {categ.category_id}
                         </Link>
 
                         <Link
-                          to={`/post/${economy.slug}`}
+                          to={`/post/${categ.slug}`}
                           className="card-msg text-left text-capitalize text-white"
                         >
-                          {economy.slug}
+                          {categ.slug}
                         </Link>
                       </Card.ImgOverlay>
                     </Card>
                   </div>
-                ) : (
-                  ''
-                )}
-                {sport ? (
-                  <div className="cnt-2">
+                ))}
+                {data.slice(4, 5).map((categ) => (
+                  <div className="cnt-2" key={categ.id}>
                     <Card className="text-white h-100">
                       <Card.Img
-                        src={`https://api.tv24africa.com/public/storage/post_image/${sport.featured_image}`}
+                        src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
                         alt="Card image"
                         className="h-100 w-100"
                       />
                       <p className="premium-badge-left">
-                        {sport.post_type === 'premium'
-                          ? `${sport.post_type}`
+                        {categ.post_type === 'premium'
+                          ? `${categ.post_type}`
                           : ''}
                       </p>
                       <Card.ImgOverlay className="cnt-txt-wrap">
                         <Link
                           to={{
                             pathname: '/news/categories',
-                            search: `?category=${sport.category_id}`,
+                            search: `?category=${categ.category_id}`,
                           }}
                           className="card-tag text-decoration-none p-2 cap-anco text-left"
                         >
-                          {sport.category_id}
+                          {categ.category_id}
                         </Link>
                         <Link
-                          to={`/post/${sport.slug}`}
+                          to={`/post/${categ.slug}`}
                           className="card-msg text-left text-white"
                         >
-                          {sport.slug}
+                          {categ.slug}
                         </Link>
                       </Card.ImgOverlay>
                     </Card>
                   </div>
-                ) : (
-                  ''
-                )}
+                ))}
               </Col>
             ) : (
               ''

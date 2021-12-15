@@ -125,7 +125,7 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
             <Link
               to={{
                 pathname: '/news/categories',
-                search: `?category=Economy`,
+                search: `?category=Fact check africa`,
               }}
               className={`${
                 active === 5 ? 'mobile-link-active' : 'mobile-link-inactive'
@@ -161,7 +161,7 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
             <Link
               to={{
                 pathname: '/news/categories',
-                search: `?category=Governance`,
+                search: `?category=Commentary`,
               }}
               className={`${
                 active === 7 ? 'mobile-link-active' : 'mobile-link-inactive'
@@ -179,7 +179,7 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
             <Link
               to={{
                 pathname: '/news/categories',
-                search: `?category=Gender`,
+                search: `?category=Gender and human rights`,
               }}
               className={`${
                 active === 8 ? 'mobile-link-active' : 'mobile-link-inactive'

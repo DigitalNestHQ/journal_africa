@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../../../../assets/images/TV24Ergb.png";
-import "./formHeader.css";
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import logo from '../../../../assets/images/TV24Ergb.png'
+import './formHeader.css'
 
 const FormHeader = ({ redirectTo, linkLabel, hideSubscribe }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   useEffect(() => {
-    localStorage.token ? setIsLoggedIn(true) : setIsLoggedIn(false);
-  }, []);
+    localStorage.token ? setIsLoggedIn(true) : setIsLoggedIn(false)
+  }, [])
   return (
-    <header className="formHeader container-fluid mb-3" style={{ border: "1px solid red"}}>
+    <header
+      className="formHeader container-fluid mb-3"
+      style={{ border: '1px solid red' }}
+    >
       <div className="logo">
         <Link to="/">
           <img loading="lazy" src={logo} alt="app logo" />
@@ -36,7 +39,7 @@ const FormHeader = ({ redirectTo, linkLabel, hideSubscribe }) => {
         )}
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default FormHeader;
+export default FormHeader

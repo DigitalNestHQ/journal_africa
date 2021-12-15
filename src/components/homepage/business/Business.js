@@ -18,7 +18,7 @@ const Business = ({ data }) => {
           <h5 className="business-heading">Business and Economy</h5>
         <div className="business-content">
           <Row xs={1} lg={3} className="g-4">
-            {businessNews.slice(3, 6).map((categ, idx) => (
+            {businessNews.slice(0, 3).map((categ, idx) => (
               <Col className="bus-col" key={categ.id}>
                 <Link to={`/post/${categ.slug}`} className="bus-link">
                   <Card className="bus-card">

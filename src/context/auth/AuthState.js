@@ -26,10 +26,12 @@ const AuthState = (props) => {
     error: null,
     user: null,
     message: null,
-    emailSubMessage: null,
   }
 
   const [state, dispatch] = useReducer(authReducer, initialState)
+
+  //setLoading
+  const setLoading = () => dispatch({ type: SET_LOADING })
 
   // load user
   const loadUser = async () => {
@@ -131,9 +133,6 @@ const AuthState = (props) => {
   // logout user
   const logOut = () => dispatch({ type: LOGOUT })
 
-  //setLoading
-  const setLoading = () => dispatch({ type: SET_LOADING })
-
   // clear errors
   const clearErrors = () =>
     dispatch({
@@ -149,7 +148,6 @@ const AuthState = (props) => {
         error: state.error,
         user: state.user,
         message: state.message,
-        emailSubMessage: state.emailSubMessage,
         loadUser,
         register,
         login,

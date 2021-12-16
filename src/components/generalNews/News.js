@@ -85,9 +85,7 @@ const GetNews = () => {
   const newsFeedContext = useContext(newsContext)
   const { news, loading, singleNews, getNews, getSingleNews } = newsFeedContext
   const {
-    comment_message,
     comment_loading,
-    comment_error,
     postComments,
     getComments,
     newsComment,
@@ -449,6 +447,7 @@ const GetNews = () => {
                           <button
                             className="post-comment-btn contact-form-btn"
                             type="submit"
+                            disabled={isAuthenticated}
                           >
                             {comment_loading ? 'Loading...' : 'Post Comment'}
                           </button>

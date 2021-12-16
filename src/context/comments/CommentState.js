@@ -29,7 +29,7 @@ const CommentState = ({ children }) => {
     setCommentLoading()
     try {
       const res = await axios.post(
-        `http://api.tv24africa.com/api/v1/comment?name=${name}&comment=${comment}&post_id=${post_id}&post_title=${post_title}`,
+        `https://api.tv24africa.com/api/v1/comment?name=${name}&comment=${comment}&post_id=${post_id}&post_title=${post_title}`,
       )
 
       dispatch({
@@ -48,7 +48,7 @@ const CommentState = ({ children }) => {
     setCommentLoading()
     try {
       const res = await axios.get(
-        `http://api.tv24africa.com/api/v1/getcomment/${slug}`,
+        `https://api.tv24africa.com/api/v1/getcomment/${slug}`,
       )
       dispatch({
         type: GET_COMMENTS,

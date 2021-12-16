@@ -25,19 +25,17 @@ const Subscribe = () => {
   }, [])
 
   if (loading || subscriptionPlans === null) {
-    <Loader />
+    ;<Loader />
   }
-
-  console.log(user)
 
   return (
     <div className="subscribe-page">
       <header className="subscribe-header">
         <div className="register-signup-wrapper subscribe-wrapper">
           <nav className="register-nav subscribe-nav">
-            <div className="reg-nav-img-container">
+            <Link to="/" className="reg-nav-img-container">
               <img src={logo} alt="logo" className="reg-logo" />
-            </div>
+            </Link>
             <ul className="reg-nav-list">
               <li className="reg-nav-list-item">
                 <Link className="reg-signup" to="/signup">

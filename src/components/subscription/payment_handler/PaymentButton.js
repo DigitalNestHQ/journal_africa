@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3'
 import axios from 'axios'
+import '../subscribe.css'
 
 export default function PaymentButton(props) {
   const {

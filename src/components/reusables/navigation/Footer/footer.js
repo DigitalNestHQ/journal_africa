@@ -1,8 +1,7 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
 import GooglePlayImg from '../../../../assets/images/playstoreimg.png'
 import ApplePlayImg from '../../../../assets/images/apple.jpg'
-import { pageurl } from '../../../../utils/constants'
+// import { pageurl } from '../../../../utils/constants'
 import './footer.css'
 import { Link } from 'react-router-dom'
 const Footer = () => {
@@ -44,7 +43,7 @@ const Footer = () => {
             <h6 className="footer-heading">Connect</h6>
             <ul className="footer-list">
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link to="/contact" className="footer-link">
                   Contact Us
                 </Link>
               </li>

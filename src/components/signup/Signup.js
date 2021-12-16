@@ -80,9 +80,9 @@ const Signup = () => {
     <header className="register">
       <div className="register-signup-wrapper">
         <nav className="register-nav">
-          <div className="reg-nav-img-container">
+          <Link to="/" className="reg-nav-img-container">
             <img src={logo} alt="logo" className="reg-logo" />
-          </div>
+          </Link>
           <ul className="reg-nav-list">
             <li className="reg-nav-list-item">
               <Link className="reg-signup" to="/signup">

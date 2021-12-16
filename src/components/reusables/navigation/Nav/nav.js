@@ -26,7 +26,6 @@ const Navbar = () => {
   const logout = (e) => {
     e.preventDefault()
     logOut()
-    console.log('logged out')
   }
 
   return (
@@ -34,9 +33,9 @@ const Navbar = () => {
       <TopNav />
       <header className="navigation-header">
         <div className="header-wrapper">
-          <div className="img-container">
+          <Link to="/" className="img-container">
             <img src={logo} alt="logo" className="logo" id="image-sizing" />
-          </div>
+          </Link>
           {width > breakpoint ? (
             <ul className="nav-links">
               <li className="nav-item">

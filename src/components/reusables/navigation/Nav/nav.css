@@ -34,13 +34,13 @@ h3 {
 
 @media (max-width: 1475px) {
   .header-wrapper {
-    padding: 14px 62px;
+    padding: 8px 62px;
   }
 }
 
 @media (max-width: 1400px) {
   .header-wrapper {
-    padding: 14px 12px;
+    padding: 8px 12px;
   }
 }
 

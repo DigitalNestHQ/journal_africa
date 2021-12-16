@@ -35,19 +35,15 @@ const Banner = ({ data }) => {
                     featured_image,
                     id,
                     slug,
-                    category_id,
-                    post_type,
+                    category_id
                   } = categ
                   return (
                     <Carousel.Item className="caro-item" key={id}>
                       <img
-                        className="d-block w-100 h-100"
+                        className="d-block w-100 h-100 caro-img-cover"
                         src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
                         alt="tv24africanews"
                       />
-                      <p className="premium-badge">
-                        {post_type === 'premium' ? `${post_type}` : ''}
-                      </p>
                       <Carousel.Caption className="caro-capxn">
                         <Link
                           to={{
@@ -78,13 +74,8 @@ const Banner = ({ data }) => {
                       <Card.Img
                         src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
                         alt="Card image"
-                        className="h-100 w-100"
+                        className="h-100 w-100 caro-img-cover"
                       />
-                      <p className="premium-badge-left">
-                        {categ.post_type === 'premium'
-                          ? `${categ.post_type}`
-                          : ''}
-                      </p>
                       <Card.ImgOverlay className="cnt-txt-wrap">
                         <Link
                           to={{
@@ -112,13 +103,8 @@ const Banner = ({ data }) => {
                       <Card.Img
                         src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
                         alt="Card image"
-                        className="h-100 w-100"
+                        className="h-100 w-100 caro-img-cover"
                       />
-                      <p className="premium-badge-left">
-                        {categ.post_type === 'premium'
-                          ? `${categ.post_type}`
-                          : ''}
-                      </p>
                       <Card.ImgOverlay className="cnt-txt-wrap">
                         <Link
                           to={{

@@ -20,6 +20,9 @@
   position: relative;
   font-weight: bold;
 }
+.card-text {
+  font-size: 0.8rem;
+}
 .business-heading::after {
   content: ' ';
   height: 3px;

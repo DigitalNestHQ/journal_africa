@@ -41,10 +41,11 @@
   display: block;
   border-radius: unset;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
 }
 .per-link {
   color: #000;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .per-link:hover {
   color: #000;

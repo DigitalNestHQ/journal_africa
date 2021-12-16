@@ -13,7 +13,7 @@ const LatestNews = ({ data }) => {
         <h5 className="categories-heading">Personalised Stories For Me</h5>
         <div className="personalized-content">
           <Row xs={1} md={4} className="g-4">
-            {data.slice(0, 4).map((categ, idx) => (
+            {data.slice(0, 4).map((categ) => (
               <Col className="per-card" key={categ.id}>
                 <Link
                   to={`/post/${categ.slug}`}

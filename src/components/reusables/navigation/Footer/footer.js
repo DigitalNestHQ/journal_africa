@@ -13,27 +13,27 @@ const Footer = () => {
             <h6 className="footer-heading">About</h6>
             <ul className="footer-list">
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link to="/about" className="footer-link">
                   About Us
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link to="/privacy-policy" className="footer-link">
                   Terms and Conditions
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link to="/code-of-ethics" className="footer-link">
                   Code of Ethics
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link to="/cookie-policy" className="footer-link">
                   Cookie Policy
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link to="/faq" className="footer-link">
                   FAQs
                 </Link>
               </li>
@@ -48,7 +48,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link to="/advertising" className="footer-link">
                   Advertise
                 </Link>
               </li>
@@ -58,7 +58,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link to="/write-for-us" className="footer-link">
                   Write for us
                 </Link>
               </li>
@@ -73,27 +73,57 @@ const Footer = () => {
             <h6 className="footer-heading">Section</h6>
             <ul className="footer-list">
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link
+                  to={{
+                    pathname: '/news/categories',
+                    search: '?category=Podcast',
+                  }}
+                  className="footer-link"
+                >
                   Podcast
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link
+                  to={{
+                    pathname: '/news/sub-categories',
+                    search: '?subcategory=Places',
+                  }}
+                  className="footer-link"
+                >
                   Places
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link
+                  to={{
+                    pathname: '/news/sub-categories',
+                    search: '?subcategory=Lifestyle',
+                  }}
+                  className="footer-link"
+                >
                   Lifestyle
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link
+                  to={{
+                    pathname: '/news/sub-categories',
+                    search: '?subcategory=Culture',
+                  }}
+                  className="footer-link"
+                >
                   Culture
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
+                <Link
+                  to={{
+                    pathname: '/news/sub-categories',
+                    search: '?subcategory=People',
+                  }}
+                  className="footer-link"
+                >
                   People
                 </Link>
               </li>

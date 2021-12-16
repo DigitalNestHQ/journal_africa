@@ -13,6 +13,10 @@
   }
 }
 
+.caro-img-cover {
+  object-fit: cover;
+}
+
 .cap-ancor {
   background-color: #fff;
 }

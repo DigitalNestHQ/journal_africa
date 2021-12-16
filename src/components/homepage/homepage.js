@@ -31,7 +31,7 @@ function Homepage() {
     return <Loader />
   }
 
-  const sorted = news.sort((a, b) => (a.updated_at > b.updated_at ? -1 : 1))
+  const sorted = news.sort((a, b) => (a.created_at > b.created_at ? -1 : 1))
 
   return (
     <Fragment>

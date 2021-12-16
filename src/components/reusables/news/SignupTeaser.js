@@ -15,7 +15,7 @@ export const SignupTeaser = () => {
     setEmailAddress({ [e.target.name]: e.target.value })
   }
 
-  const handleNewLetterSubscription = async (event) => {
+  const handleNewLetterSubscription = (event) => {
     event.preventDefault()
     emailSub(emailAddress)
     setEmailAddress({ email: '' })

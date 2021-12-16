@@ -73,7 +73,7 @@
 }
 .main-content p {
   text-align: left !important;
-  font-size: 14px !important;
+  font-size: 0.8rem !important;
   line-height: 17px;
   color: black;
 }
@@ -140,6 +140,13 @@
   border: none;
   padding: 0.5rem 1rem;
   outline: none;
+  color: #fff;
+  background-color: red;
+}
+
+.not-logged-in-signup-btn:hover,
+.not-logged-in-signin-btn:hover,
+.loggedin-subscribe:hover {
   color: #fff;
   background-color: red;
 }

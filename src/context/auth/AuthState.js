@@ -120,8 +120,7 @@ const AuthState = (props) => {
     }
     try {
       const res = await axios.post(
-        'https://api.tv24africa.com/api/v1/newsletter',
-        formData,
+        `https://api.tv24africa.com/api/v1/newsletter?email=${formData.email}`,
         config,
       )
       dispatch({ type: EMAIL_SUBSCRIPTION, payload: res.data })

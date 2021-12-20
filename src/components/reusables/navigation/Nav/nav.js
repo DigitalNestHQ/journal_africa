@@ -9,7 +9,6 @@ import TopNav from '../../topnav'
 import './nav.css'
 import '../../header.css'
 import authContext from '../../../../context/auth/authContext'
-
 import MobileNav from './MobileNav'
 
 const Navbar = () => {
@@ -75,40 +74,10 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: '?category=Fact check africa',
-                  }}
-                >
-                  fact check africa
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to={{
-                    pathname: '/news/categories',
                     search: '?category=Development',
                   }}
                 >
                   policy and development
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to={{
-                    pathname: '/news/categories',
-                    search: '?category=Commentary',
-                  }}
-                >
-                  commentary
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to={{
-                    pathname: '/news/categories',
-                    search: '?category=Gender and human rights',
-                  }}
-                >
-                  gender and human rights
                 </Link>
               </li>
               <li className="nav-item">
@@ -138,7 +107,7 @@ const Navbar = () => {
                   )}
                 </li>
                 <li className="cta-item subscribe text-center">
-                  <Link to="/subscribe">subscribe</Link>
+                  <Link to="/subscribe" className="nav-sub-link">subscribe</Link>
                 </li>
               </ul>
             </div>

@@ -1,6 +1,3 @@
-h3 {
-  margin: 0;
-}
 .navigation {
   box-sizing: border-box;
   top: 0;
@@ -9,7 +6,6 @@ h3 {
   position: fixed;
   width: 100%;
   white-space: nowrap;
-  font-family: 'Poppins';
   z-index: 999;
   margin-bottom: 80px;
 }
@@ -25,29 +21,10 @@ h3 {
   padding: 8px 132px 8px 66px;
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
-
-@media (max-width: 1475px) {
-  .header-wrapper {
-    padding: 8px 62px;
-  }
-}
-
-@media (max-width: 1400px) {
-  .header-wrapper {
-    padding: 8px 12px;
-  }
-}
-
-@media (max-width: 1250px) {
-  .header-wrapper {
-    padding: 0px 12px;
-  }
 }
 
 ul.nav-links {
@@ -59,14 +36,14 @@ ul.nav-links {
   flex-direction: row;
   justify-content: stretch;
   align-items: center;
-  gap: 0.8rem;
+  gap: 2.2rem;
 }
 
 .cta-item a,
 .nav-item a {
   color: #fff;
-  font-size: 10px;
-  line-height: 12px;
+  font-size: 14px;
+  line-height: 17px;
   text-transform: uppercase;
 }
 
@@ -95,6 +72,11 @@ ul.nav-links {
   align-items: center;
   gap: 0.8rem;
 }
+.nav-sub-link {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
 
 .logo {
   width: 63px;
@@ -105,15 +87,9 @@ ul.nav-links {
   margin-right: 2.438rem;
 }
 
-@media (max-width: 1250px) {
-  .img-container {
-    margin-right: unset;
-  }
-}
-
 .subscribe {
   background-color: #ff0000;
-  padding: 0px 2px 1px 2px;
+  padding: 3px;
   transition: all 0.3s ease-in-out;
   font-weight: 600;
 }
@@ -129,7 +105,6 @@ ul.nav-links {
 }
 
 /*MOBILE NAV STYLING*/
-
 .mobile-menu {
   position: fixed;
   left: 0;
@@ -181,6 +156,9 @@ ul.nav-links {
 
 .mobile-link-active {
   color: #fff;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
 }
 
 .mobile-link-inactive {
@@ -191,4 +169,27 @@ ul.nav-links {
 }
 .mobile-list-item a:hover {
   color: #fff;
+}
+
+@media (max-width: 1475px) {
+  .header-wrapper {
+    padding: 8px 62px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .header-wrapper {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .header-wrapper {
+    padding: 0px 12px;
+  }
+}
+@media (max-width: 1250px) {
+  .img-container {
+    margin-right: unset;
+  }
 }

@@ -42,7 +42,7 @@ import NewState from './context/news/NewState'
 import CommentState from './context/comments/CommentState'
 const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       <AuthState>
         <CommentState>
           <AlertState>

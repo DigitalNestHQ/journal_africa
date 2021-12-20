@@ -1,8 +1,6 @@
 import React, { useContext, useState, Fragment } from 'react'
 import authContext from '../../context/auth/authContext'
-// import { Weather } from '../weather/Weather'
 import './header.css'
-// import logoImg from 'assets/images/logo white.png'
 
 function TopNav() {
   const userContext = useContext(authContext)

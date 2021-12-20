@@ -33,18 +33,20 @@ const Signup = () => {
     if (isAuthenticated) {
       history.push('/')
     }
+    // if (message === 'success') {
+    //   history.push('/success')
+    // }
     if (error === 'User already exists..') {
       setAlert(error, 'danger')
       clearErrors()
     }
     // eslint-disable-next-line
-  }, [error, isAuthenticated])
+  }, [error, isAuthenticated, history])
 
   const { firstname, lastname, email, phone, password } = user
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value })
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log(user)
     if (
       firstname.length < 2 ||
       lastname.length < 2 ||
@@ -62,17 +64,22 @@ const Signup = () => {
         email,
         phone,
         password,
+      }).then((response) => {
+        if (response.data.status === 'success') {
+          history.push('/success')
+          setUser({
+            firstname: '',
+            lastname: '',
+            email: '',
+            phone: '',
+            password: '',
+          })
+        }
+      }).catch((error) => {
+        if(error){
+          return;
+        }
       })
-      setUser({
-        firstname: '',
-        lastname: '',
-        email: '',
-        phone: '',
-        password: '',
-      })
-      if (message === 'success') {
-        setTimeout(() => history.push(pageurl.SIGNUPSUCCESSFUL), 1000)
-      }
     }
   }
 

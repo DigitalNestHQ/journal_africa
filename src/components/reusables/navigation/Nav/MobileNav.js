@@ -5,7 +5,6 @@ import './nav.css'
 
 const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
   const [active, setActive] = useState(1)
-  //   const outsideRef = useRef('')
 
   useEffect(() => {
     const handleMenuHide = () => {
@@ -25,21 +24,6 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
     }
   }, [handleMenuClick])
 
-  //   useEffect(() => {
-  //     const handleOutsideClick = (e) => {
-  //       if(menu){
-  //         if(outsideRef.current && !outsideRef.current.contains(e.target)){
-  //           handleMenuClick()
-  //         }
-  //       }
-  //     }
-  //     document.getElementById('main').addEventListener('mousedown', handleOutsideClick)
-
-  //     return () => {
-  //       document.getElementById('main').removeEventListener('mousedown', handleOutsideClick)
-  //     }
-  //   })
-
   return (
     <div className={`mobile-menu ${menu ? 'display' : 'hide'}`}>
       <div className="mobile-link-container" id="list">
@@ -48,13 +32,13 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
             className={`mobile-list-item ${
               active === 1 ? 'mobile-active' : ''
             }`}
-            onClick={() => setActive(1)}
           >
             <Link
               to={pageurl.HOMEPAGE}
               className={`${
                 active === 1 ? 'mobile-link-active' : 'mobile-link-inactive'
               }`}
+              onClick={() => setActive(1)}
             >
               Home
             </Link>
@@ -63,7 +47,6 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
             className={`mobile-list-item ${
               active === 2 ? 'mobile-active' : ''
             }`}
-            onClick={() => setActive(2)}
           >
             <Link
               to={{
@@ -73,6 +56,7 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
               className={`${
                 active === 2 ? 'mobile-link-active' : 'mobile-link-inactive'
               }`}
+              onClick={() => setActive(2)}
             >
               discover africa
             </Link>
@@ -82,7 +66,6 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
             className={`mobile-list-item ${
               active === 3 ? 'mobile-active' : ''
             }`}
-            onClick={() => setActive(3)}
           >
             <Link
               to={{
@@ -92,6 +75,7 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
               className={`${
                 active === 3 ? 'mobile-link-active' : 'mobile-link-inactive'
               }`}
+              onClick={() => setActive(3)}
             >
               politics and governance
             </Link>
@@ -101,7 +85,6 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
             className={`mobile-list-item ${
               active === 4 ? 'mobile-active' : ''
             }`}
-            onClick={() => setActive(4)}
           >
             <Link
               to={{
@@ -111,34 +94,15 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
               className={`${
                 active === 4 ? 'mobile-link-active' : 'mobile-link-inactive'
               }`}
+              onClick={() => setActive(4)}
             >
               business and economy
             </Link>
           </li>
-
           <li
             className={`mobile-list-item ${
               active === 5 ? 'mobile-active' : ''
             }`}
-            onClick={() => setActive(5)}
-          >
-            <Link
-              to={{
-                pathname: '/news/categories',
-                search: `?category=Fact check africa`,
-              }}
-              className={`${
-                active === 5 ? 'mobile-link-active' : 'mobile-link-inactive'
-              }`}
-            >
-              fact check africa
-            </Link>
-          </li>
-          <li
-            className={`mobile-list-item ${
-              active === 6 ? 'mobile-active' : ''
-            }`}
-            onClick={() => setActive(6)}
           >
             <Link
               to={{
@@ -146,53 +110,18 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
                 search: `?category=Development`,
               }}
               className={`${
-                active === 6 ? 'mobile-link-active' : 'mobile-link-inactive'
+                active === 5 ? 'mobile-link-active' : 'mobile-link-inactive'
               }`}
+              onClick={() => setActive(5)}
             >
               policy and development
             </Link>
           </li>
+
           <li
             className={`mobile-list-item ${
-              active === 7 ? 'mobile-active' : ''
+              active === 6 ? 'mobile-active' : ''
             }`}
-            onClick={() => setActive(7)}
-          >
-            <Link
-              to={{
-                pathname: '/news/categories',
-                search: `?category=Commentary`,
-              }}
-              className={`${
-                active === 7 ? 'mobile-link-active' : 'mobile-link-inactive'
-              }`}
-            >
-              commentary
-            </Link>
-          </li>
-          <li
-            className={`mobile-list-item ${
-              active === 8 ? 'mobile-active' : ''
-            }`}
-            onClick={() => setActive(8)}
-          >
-            <Link
-              to={{
-                pathname: '/news/categories',
-                search: `?category=Gender and human rights`,
-              }}
-              className={`${
-                active === 8 ? 'mobile-link-active' : 'mobile-link-inactive'
-              }`}
-            >
-              gender and human rights
-            </Link>
-          </li>
-          <li
-            className={`mobile-list-item ${
-              active === 9 ? 'mobile-active' : ''
-            }`}
-            onClick={() => setActive(9)}
           >
             <Link
               to={{
@@ -200,8 +129,9 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
                 search: `?category=Podcast`,
               }}
               className={`${
-                active === 9 ? 'mobile-link-active' : 'mobile-link-inactive'
+                active === 6 ? 'mobile-link-active' : 'mobile-link-inactive'
               }`}
+              onClick={() => setActive(6)}
             >
               podcast
             </Link>

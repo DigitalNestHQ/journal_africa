@@ -6,8 +6,12 @@ import { useViewPort } from '../../../components/hooks/Viewport'
 import './teaser.css'
 import TeaserCard from './TeaserCard'
 import TeaserPolitics from './TeaserPolitics'
+// import newsContext from '../../../context/news/NewsContext'
 
 const TeaserSection = ({ data }) => {
+  // const context = useContext(newsContext)
+  // const { latestLoading, latestNews } = context
+
   const politics = data.filter((post) => post.category_id === 'Politics')
   const discoverAfrica = data.filter(
     (post) => post.category_id === 'Discover Africa',
@@ -16,7 +20,6 @@ const TeaserSection = ({ data }) => {
   const culture = discoverAfrica.filter(
     (post) => post.sub_category === 'Culture',
   )
-
   const places = discoverAfrica.filter((post) => post.sub_category === 'Places')
   const lifestyle = discoverAfrica.filter(
     (post) => post.sub_category === 'Lifestyle',
@@ -34,13 +37,15 @@ const TeaserSection = ({ data }) => {
   }
 
   return (
-    <section className="discover">
-      <div className="discover-wrapper">
+    <section className="discover section-content-default ">
+      <div className="section-wrapper-default">
         <div className="content-grid">
           <div className="africa-now">
             <div className="discover-africa-content">
               <div className="africa">
-                <h5 className="africa-header">Discover Africa</h5>
+                <h5 className="africa-header section-heading-default">
+                  Discover Africa
+                </h5>
                 <div className="africa-cards">
                   {selectedTeasers.map((eachCard) => (
                     <div className="sub-categ-card" key={eachCard.id}>
@@ -56,7 +61,7 @@ const TeaserSection = ({ data }) => {
                           pathname: '/news/sub-categories',
                           search: `?subcategory=${eachCard.sub_category}`,
                         }}
-                        className="dest"
+                        className="dest slug-default"
                       >
                         {eachCard.sub_category}
                       </Link>
@@ -74,7 +79,7 @@ const TeaserSection = ({ data }) => {
                     pathname: '/news/categories',
                     search: `?category=Discovery Africa`,
                   }}
-                  className="more-africa"
+                  className="explore-white-btn"
                 >
                   Explore More...
                 </Link>
@@ -82,7 +87,9 @@ const TeaserSection = ({ data }) => {
             </div>
             <div className="policy">
               <div className="policy-container">
-                <h5 className="policy-heading">Politics and Government</h5>
+                <h5 className="policy-heading section-heading-default">
+                  Politics and Government
+                </h5>
                 <div className="policy-content">
                   {politics.slice(0, 3).map((eachCard) => (
                     <Link
@@ -99,7 +106,7 @@ const TeaserSection = ({ data }) => {
                     pathname: '/news/categories',
                     search: `?category=Politics`,
                   }}
-                  className="p-explore"
+                  className="explore-red-btn"
                 >
                   Explore More...
                 </Link>
@@ -109,7 +116,9 @@ const TeaserSection = ({ data }) => {
           {width > breakpoint ? (
             <div className="latest-daily">
               <div className="latest-daily-wrapper">
-                <h5 className="latest-heading">Latest Daily News</h5>
+                <h5 className="latest-heading section-heading-default">
+                  Latest Daily News
+                </h5>
                 <div className="l-img-container">
                   <img src={cybertruck} alt="tesla" className="l-img" />
                 </div>
@@ -124,6 +133,7 @@ const TeaserSection = ({ data }) => {
                     </Link>
                   ))}
                 </div>
+
                 <div className="l-img-container">
                   <img src={cybertruck} alt="tesla" className="l-img" />
                 </div>

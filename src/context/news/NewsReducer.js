@@ -4,7 +4,7 @@ import {
   SET_LOADING,
   GET_CATEG_NEWS,
   GET_SINGLE_NEWS,
-  GET_SUB_CATEG_NEWS,
+  // GET_LATEST,
 } from '../types'
 
 const newsReducer = (state, action) => {
@@ -16,12 +16,12 @@ const newsReducer = (state, action) => {
         loading: false,
       }
 
-    case GET_SUB_CATEG_NEWS:
-      return {
-        ...state,
-        subCategoryNews: action.payload,
-        loading: false,
-      }
+    // case GET_LATEST:
+    //   return {
+    //     ...state,
+    //     latestNews: action.payload,
+    //     latestLoading: false,
+    //   }
 
     case GET_CATEG_NEWS:
       return {

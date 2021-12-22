@@ -85,7 +85,7 @@ const Subscribe = () => {
                       <p className="subscription-desc">{plan.description}</p>
                       <h5 className="pricing">
                         {currency === 'NGN'
-                          ? `&#x20A6;${plan.price_ngn}`
+                          ? `N${plan.price_ngn}`
                           : currency === 'USD'
                           ? `$${plan.price_usd}`
                           : ''}

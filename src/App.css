@@ -27,3 +27,87 @@ ul {
 .app {
   margin: 0;
 }
+.card-img-overlay {
+  border: none;
+  border-radius: unset;
+  outline: none;
+}
+.card {
+  border: none;
+  border-radius: 0;
+}
+
+.card-img-top {
+  border-radius: 0;
+}
+
+.premium-badge {
+  text-transform: uppercase;
+  position: absolute;
+  color: #fff;
+  background: red;
+  top: 2%;
+  left: 2%;
+  padding: 0 0.3rem;
+  z-index: 100;
+  font-size: inherit;
+}
+.premium-badge-left {
+  text-transform: uppercase;
+  position: absolute;
+  color: #fff;
+  background: red;
+  top: 3%;
+  right: 2%;
+  padding: 0 0.3rem;
+  z-index: 100;
+  font-size: inherit;
+}
+.section-content-default {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 10px 12px;
+}
+.section-wrapper-default {
+  max-width: 78.125rem;
+  margin: 0 auto;
+  display: block;
+  padding: 1rem;
+}
+.section-heading-default {
+  line-height: 17px;
+  font-weight: 600;
+  font-size: clamp(1.15rem, 2.5vw, 1.25rem);
+}
+.slug-default {
+  color: black;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+.explore-white-btn {
+  background-color: #fff;
+  color: red;
+  padding: 5px;
+}
+.explore-white-btn:hover {
+  color: red;
+}
+.explore-red-btn {
+  background-color: red;
+  color: #fff;
+  padding: 5px;
+}
+.explore-red-btn:hover {
+  color: #fff;
+}
+.text-danger {
+  color: red !important;
+}
+@media (max-width: 993px) {
+  .section-wrapper-default {
+    max-width: unset;
+    width: 100%;
+    padding-left: unset;
+    padding-right: unset;
+  }
+}

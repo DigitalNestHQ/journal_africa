@@ -1,11 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import { LargeSizeAds } from '../ads/Ads'
-// import { ExploreMore } from '../ExploreMore'
 import './development.css'
-// import { DevelopmentCard } from './DevelopmentCard'
-// import largeAds from './../../../assets/images/largeads.png'
-import Calabar from './../../../assets/images/calabar-carnival-3.jpg'
 
 export const FactCheck = ({ data }) => {
   const factCheck = data.filter(
@@ -15,8 +10,8 @@ export const FactCheck = ({ data }) => {
     (news) => news.category_id === 'In-Depth Africa',
   )
   return (
-    <section className="fact-check-section">
-      <div className="fact-check-wrapper">
+    <section className="fact-check-section section-content-default">
+      <div className="section-wrapper-default ">
         <div className="fact-content-grid">
           <div className="right-check">
             <Link
@@ -26,7 +21,7 @@ export const FactCheck = ({ data }) => {
               }}
               className="fact-heading"
             >
-              <h5 className="fact-check-heading font-bold">
+              <h5 className="fact-check-heading section-heading-default">
                 Fact Check Africa
               </h5>
               <i className="fas fa-arrow-right"></i>
@@ -52,7 +47,7 @@ export const FactCheck = ({ data }) => {
                       className="f-c-l-img"
                     />
                   </div>
-                  <p className="f-c-text font-bold">{item.slug}</p>
+                  <p className="slug-default font-bold">{item.slug}</p>
                 </Link>
               ))}
             </div>
@@ -65,7 +60,7 @@ export const FactCheck = ({ data }) => {
               }}
               className="fact-heading"
             >
-              <h5 className="fact-check-heading font-bold">In-depth Africa</h5>
+              <h5 className="fact-check-heading section-heading-default">In-depth Africa</h5>
               <i className="fas fa-arrow-right"></i>
             </Link>
             <div className="fact-img-container">
@@ -89,7 +84,7 @@ export const FactCheck = ({ data }) => {
                       className="f-c-l-img"
                     />
                   </div>
-                  <p className="f-c-text font-bold">
+                  <p className="slug-default font-bold">
                     {item.slug.substring(0, 100)}
                   </p>
                 </Link>

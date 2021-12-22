@@ -12,7 +12,7 @@ const TeaserCard = ({ eachCard }) => {
       <p className="latest-date">
         <Moment format="MMMM Do YYYY">{eachCard.updated_at}</Moment>
       </p>
-      <h6 className="latest-title">{eachCard.slug}</h6>
+      <h6 className="latest-title slug-default">{eachCard.slug}</h6>
       <p className="latest-text">
         {ReactHtmlParser(
           `${eachCard.post_description.substring(0, 100)}...`,

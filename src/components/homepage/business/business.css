@@ -1,27 +1,16 @@
 .business-section {
-  margin-left: 0;
-  margin-right: 0;
-  padding: 10px 12px;
-  margin-top: 2rem;
+  margin-top: 1.3rem;
 }
 .commentary-section {
   background-color: #000;
 }
-.business-wrapper {
-  max-width: 78.125rem;
-  margin: 0 auto;
-  display: block;
-  padding: 1rem;
-}
 .business-heading {
-  color: #ee3039;
+  color: red;
   margin-bottom: 1.4rem;
-  line-height: 30px;
   position: relative;
-  font-weight: bold;
 }
 .card-text {
-  font-size: 0.8rem;
+  font-size: clamp(0.688rem, 2vw, 0.8rem);
 }
 .business-heading::after {
   content: ' ';
@@ -41,11 +30,6 @@
   height: 100%;
   margin-bottom: 1rem;
 }
-
-.bus-card {
-  border: none;
-}
-
 .bus-card-body {
   border-top: 3px solid #c4c4c4;
   margin-top: 1.438rem;
@@ -61,16 +45,6 @@
 }
 .bus-link:hover {
   color: #000;
-}
-
-.more-business {
-  background-color: red;
-  color: #fff;
-  padding: 5px;
-  margin: 1rem 0;
-}
-.more-business:hover {
-  color: #fff;
 }
 
 @media (min-width: 770px) {
@@ -91,13 +65,6 @@
 
   .bus-col:last-child {
     margin-bottom: unset;
-  }
-
-  .business-wrapper {
-    max-width: unset;
-    margin: unset;
-    width: 100%;
-    padding: 0;
   }
 }
 @media (max-width: 1250px) {

@@ -13,15 +13,15 @@ const Business = ({ data }) => {
   const businessNews = data.filter((news) => news.category_id === 'Business')
 
   return (
-    <section className="business-section">
-      <div className="business-wrapper">
-          <h5 className="business-heading">Business and Economy</h5>
+    <section className="business-section section-content-default">
+      <div className="section-wrapper-default">
+          <h5 className="business-heading section-heading-default">Business and Economy</h5>
         <div className="business-content">
           <Row xs={1} lg={3} className="g-4">
             {businessNews.slice(0, 3).map((categ, idx) => (
               <Col className="bus-col" key={categ.id}>
                 <Link to={`/post/${categ.slug}`} className="bus-link">
-                  <Card className="bus-card">
+                  <Card>
                     <Card.Img
                       variant="top"
                       src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
@@ -33,7 +33,7 @@ const Business = ({ data }) => {
                         : ''}
                     </p>
                     <Card.Body className="bus-card-body">
-                      <Card.Subtitle className="text-danger mb-3 font-bold">
+                      <Card.Subtitle className="text-danger mb-3 font-bold slug-default">
                         {categ.slug}
                       </Card.Subtitle>
                       <Card.Text>
@@ -54,7 +54,7 @@ const Business = ({ data }) => {
             pathname: '/news/categories',
             search: `?category=Business`,
           }}
-          className="more-business"
+          className="explore-red-btn"
         >
           Explore More...
         </Link>

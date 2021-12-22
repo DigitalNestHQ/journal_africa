@@ -12,31 +12,23 @@ const Banner = ({ data }) => {
   const breakpoint = 991
 
   return (
-    <section className="showcase">
-      <div className="showcase-wrapper">
-        <Row>
-          <Col className="col-sm-12 ad-wrapper" lg={12}>
-            <LargeSizeAds img={bannerAds} />
-          </Col>
-        </Row>
+    <section className="showcase section-content-default">
+      <div className="section-wrapper-default">
+        <div className="ad-wrapper">
+          <LargeSizeAds img={bannerAds} />
+        </div>
         <div className="flex-container">
           <Row>
             <Col lg={8} className="right-grid">
               <Carousel
                 fade={false}
-                className="carousel-slide"
                 indicators={false}
                 interval={5000}
                 wrap={true}
-                slide={false}
+                slide={true}
               >
                 {data.slice(0, 3).map((categ) => {
-                  const {
-                    featured_image,
-                    id,
-                    slug,
-                    category_id
-                  } = categ
+                  const { featured_image, id, slug, category_id } = categ
                   return (
                     <Carousel.Item className="caro-item" key={id}>
                       <img

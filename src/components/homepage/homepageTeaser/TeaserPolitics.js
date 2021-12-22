@@ -17,7 +17,7 @@ const TeaserPolitics = ({ eachCard }) => {
         />
       </div>
       <div className="left-content">
-        <h6 className="left-heading">{eachCard.slug}</h6>
+        <h6 className="slug-default">{eachCard.slug}</h6>
         {ReactHtmlParser(
           `${eachCard.post_description.substring(0, 100)}...`,
           HtmlParseOptions,

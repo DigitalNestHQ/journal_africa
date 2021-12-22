@@ -3,18 +3,7 @@
   display: block;
   margin-top: 2rem;
   background-color: #ff1515;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 10px 12px;
 }
-
-.signup-teaser-wrapper {
-  max-width: 78.125rem;
-  margin: 0 auto;
-  display: block;
-  padding: 1rem;
-}
-
 .signup-message {
   margin-bottom: 1.5rem;
   color: #fff;
@@ -42,16 +31,6 @@
   color: #fff;
   text-transform: uppercase;
 }
-
-@media (max-width: 993px) {
-  .signup-teaser-wrapper {
-    max-width: unset;
-    margin: unset;
-    display: block;
-    padding: unset;
-  }
-}
-
 @media (max-width: 650px) {
   .signup-form {
     display: flex;

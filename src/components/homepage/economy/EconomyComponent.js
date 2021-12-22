@@ -9,9 +9,9 @@ const Economy = ({ data }) => {
   const businessNews = data.filter((news) => news.category_id === 'Development')
 
   return (
-    <section className="business-section">
-      <div className="business-wrapper">
-        <h5 className="business-heading"> Policy and Development</h5>
+    <section className="business-section  section-content-default">
+      <div className="section-wrapper-default">
+        <h5 className="business-heading section-heading-default"> Policy and Development</h5>
         <div className="business-content">
           <Row xs={1} lg={3} className="g-4">
             {businessNews.slice(0, 3).map((categ, idx) => (
@@ -29,7 +29,7 @@ const Economy = ({ data }) => {
                         : ''}
                     </p>
                     <Card.Body className="bus-card-body">
-                      <Card.Subtitle className="text-danger mb-3 font-bold">
+                      <Card.Subtitle className="text-danger mb-3 font-bold slug-default">
                         {categ.slug}
                       </Card.Subtitle>
                       <Card.Text>
@@ -50,7 +50,7 @@ const Economy = ({ data }) => {
             pathname: '/news/categories',
             search: `?category=Development`,
           }}
-          className="more-business"
+          className="explore-red-btn"
         >
           Explore More...
         </Link>

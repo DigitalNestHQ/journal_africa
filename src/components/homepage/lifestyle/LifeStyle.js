@@ -10,9 +10,9 @@ const Business = ({ data }) => {
   const businessNews = data.filter((news) => news.category_id === 'Business')
 
   return (
-    <section className="business-section">
-      <div className="business-wrapper">
-        <h5 className="business-header">Gender and Human Rights</h5>
+    <section className="business-section section-content-default">
+      <div className="section-wrapper-default">
+        <h5 className="business-header section-heading-default">Gender and Human Rights</h5>
         <div className="business-content">
           <Row xs={1} lg={2} className="g-4">
             {businessNews.slice(3, 5).map((categ, idx) => (
@@ -24,8 +24,8 @@ const Business = ({ data }) => {
                       src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
                       className="card-img-business"
                     />
-                    <a href="#!" className="com-title">
-                      {categ.category_id}
+                    <a href="#!" className="com-title text-white slug-default">
+                      Human Rights
                     </a>
                   </Card>
                 </Link>
@@ -50,7 +50,7 @@ const Business = ({ data }) => {
                         : ''}
                     </p>
                     <Card.Body className="com-card-body">
-                      <Card.Subtitle className="mb-3 font-bold">
+                      <Card.Subtitle className="mb-3 slug-default">
                         {categ.slug}
                       </Card.Subtitle>
                       <Card.Text>
@@ -69,9 +69,9 @@ const Business = ({ data }) => {
         <Link
           to={{
             pathname: '/news/categories',
-            search: `?category=Business`,
+            search: `?category=Gender and human rights`,
           }}
-          className="more-business"
+          className="explore-red-btn"
         >
           Explore More...
         </Link>

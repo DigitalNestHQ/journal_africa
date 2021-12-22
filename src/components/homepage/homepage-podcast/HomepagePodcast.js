@@ -8,9 +8,9 @@ import './homepagepodcast.css'
 const HomepagePodcast = ({ data }) => {
   const businessNews = data.filter((news) => news.category_id === 'Business')
   return (
-    <section className="business-section">
-      <div className="business-wrapper">
-        <h5 className="business-header text-center">Podcast</h5>
+    <section className="business-section section-content-default">
+      <div className="section-wrapper-default">
+        <h5 className="business-header text-center section-heading-default">Podcast</h5>
         <div className="business-content">
           <Row xs={1} lg={4} className="g-4">
             {businessNews.slice(3, 7).map((categ, idx) => (
@@ -27,7 +27,7 @@ const HomepagePodcast = ({ data }) => {
                     />
                     <i class="fas fa-microphone-alt"></i>
                     <Card.Body className="pod-card-body">
-                      <Card.Subtitle className="pod-title mb-3 font-bold">
+                      <Card.Subtitle className="pod-title mb-3 font-bold slug-default">
                         {categ.slug}
                       </Card.Subtitle>
                     </Card.Body>
@@ -40,7 +40,7 @@ const HomepagePodcast = ({ data }) => {
         <Link
           to={{
             pathname: '/news/categories',
-            search: `?category=Business`,
+            search: `?category=Podcast`,
           }}
           className="more-pod"
         >

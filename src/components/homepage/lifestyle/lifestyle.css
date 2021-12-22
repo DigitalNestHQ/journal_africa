@@ -14,11 +14,9 @@
   padding-right: 0;
 }
 .business-header {
-  color: #ee3039;
+  color: red;
   margin-bottom: 1.4rem;
-  line-height: 30px;
   position: relative;
-  font-weight: bold;
 }
 
 @media (max-width: 993px) {

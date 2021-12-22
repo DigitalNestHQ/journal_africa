@@ -10,9 +10,9 @@ const Commentary = ({ data }) => {
   const businessNews = data.filter((news) => news.category_id === 'Business')
 
   return (
-    <section className="commentary-section business-section">
-      <div className="business-wrapper">
-        <h5 className="commentary-heading">Commentary</h5>
+    <section className="commentary-section business-section section-content-default">
+      <div className="section-wrapper-default">
+        <h5 className="commentary-heading section-heading-default">Commentary</h5>
         <div className="business-content">
           <Row xs={1} lg={4} className="g-4">
             {businessNews.slice(3, 7).map((categ, idx) => (
@@ -30,7 +30,7 @@ const Commentary = ({ data }) => {
                         : ''}
                     </p>
                     <Card.Body className="bus-card-body">
-                      <Card.Subtitle className="mb-3 font-bold">
+                      <Card.Subtitle className="mb-3 font-bold slug-default text-white">
                         {categ.slug}
                       </Card.Subtitle>
                       <Card.Text>
@@ -49,9 +49,9 @@ const Commentary = ({ data }) => {
         <Link
           to={{
             pathname: '/news/categories',
-            search: `?category=Business`,
+            search: `?category=Commentary`,
           }}
-          className="more-business"
+          className="explore-red-btn"
         >
           Explore More...
         </Link>

@@ -32,8 +32,8 @@ export const SignupTeaser = () => {
   }, [message])
 
   return (
-    <section className="signup-teaser">
-      <div className="signup-teaser-wrapper">
+    <section className="signup-teaser section-content-default">
+      <div className="section-wrapper-default">
         <h5 className="signup-message">
           Get exclusive stories, expert curation and expansive coverage on
           Africa every day in your inbox

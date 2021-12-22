@@ -5,7 +5,6 @@
   box-sizing: border-box;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  overflow-x: hidden;
 }
 body {
   scroll-behavior: smooth;
@@ -66,6 +65,7 @@ ul {
   margin-left: 0;
   margin-right: 0;
   padding: 10px 12px;
+  overflow-x: hidden;
 }
 .section-wrapper-default {
   max-width: 78.125rem;

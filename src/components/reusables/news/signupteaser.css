@@ -8,7 +8,7 @@
   margin-bottom: 1.5rem;
   color: #fff;
   font-weight: 300;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   display: block;
 }
 
@@ -51,7 +51,6 @@
   }
   .signup-message {
     margin-top: 1rem;
-    font-size: 1rem;
   }
   .forms-group {
     display: block;

@@ -19,15 +19,16 @@ import newsContext from '../../context/news/NewsContext'
 
 function Homepage() {
   const context = useContext(newsContext)
-  const { news, loading, getNews } = context
+  const { news, loading, getNews, getLatestNews, latestLoading } = context
 
   useEffect(() => {
     AOS.init()
     getNews()
+    getLatestNews()
     // eslint-disable-next-line
   }, [])
 
-  if (loading) {
+  if (loading || latestLoading) {
     return <Loader />
   }
 

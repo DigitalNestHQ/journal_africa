@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import 'aos/dist/aos.css'
 import { Link } from 'react-router-dom'
 import cybertruck from '../../../assets/images/cybertruck1.jpg'
 import { useViewPort } from '../../../components/hooks/Viewport'
 import './teaser.css'
-import TeaserCard from './TeaserCard'
+import TeaserLatestCard from './TeaserLatestCard'
 import TeaserPolitics from './TeaserPolitics'
-// import newsContext from '../../../context/news/NewsContext'
+import newsContext from '../../../context/news/NewsContext'
 
 const TeaserSection = ({ data }) => {
-  // const context = useContext(newsContext)
-  // const { latestLoading, latestNews } = context
+  const context = useContext(newsContext)
+  const { latestLoading, latestNews } = context
 
   const politics = data.filter((post) => post.category_id === 'Politics')
   const discoverAfrica = data.filter(
@@ -123,15 +123,19 @@ const TeaserSection = ({ data }) => {
                   <img src={cybertruck} alt="tesla" className="l-img" />
                 </div>
                 <div className="latest-content">
-                  {data.slice(0, 4).map((eachCard) => (
-                    <Link
-                      to={`/post/${eachCard.slug}`}
-                      className="lastest-card-link"
-                      key={eachCard.id}
-                    >
-                      <TeaserCard eachCard={eachCard} />
-                    </Link>
-                  ))}
+                  {!latestLoading && latestNews.length === 0 ? (
+                    <h5>No news Available</h5>
+                  ) : (
+                    latestNews.slice(0, 4).map((eachCard) => (
+                      <Link
+                        to={`/latest/${eachCard.post_title}`}
+                        className="lastest-card-link"
+                        key={eachCard.ID}
+                      >
+                        <TeaserLatestCard eachCard={eachCard} />
+                      </Link>
+                    ))
+                  )}
                 </div>
 
                 <div className="l-img-container">

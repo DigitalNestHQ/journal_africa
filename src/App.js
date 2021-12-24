@@ -16,7 +16,7 @@ import { CodeOfEthics } from './components/ethicscode/CodeOfEthics'
 import CategoryNews from './components/category/CategoryNews'
 import { PodcastHome } from './podcast/home/PodcastHome.js'
 import { PodCastsView } from './podcast/podcastspage/PodCastsView.js'
-// import LatestDaily from './components/reusables/news/LatestDaily'
+import LatestDaily from './components/reusables/news/LatestDaily'
 
 import Error404 from './components/error404/error404'
 
@@ -72,7 +72,7 @@ const App = () => {
                 />
                 <Route exact path={pageurl.WRITEFORUS} component={WriteForUs} />
                 <Route exact path="/post/:slug" component={NewsFeeds} />
-                {/* <Route exact path="/latest/:slug" component={LatestDaily} /> */}
+                <Route exact path="/latest/:slug" component={LatestDaily} />
                 <Route exact path="/news/categories" component={CategoryNews} />
                 <Route
                   exact

@@ -25,7 +25,7 @@ const HomepagePodcast = ({ data }) => {
                       src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
                       className="mb-3 card-img-business"
                     />
-                    <i class="fas fa-microphone-alt"></i>
+                    <i className="fas fa-microphone-alt"></i>
                     <Card.Body className="pod-card-body">
                       <Card.Subtitle className="pod-title mb-3 font-bold slug-default">
                         {categ.slug}

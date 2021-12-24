@@ -8,17 +8,17 @@ import {
   SET_LOADING,
   GET_CATEG_NEWS,
   GET_SINGLE_NEWS,
-  // GET_LATEST,
+  GET_LATEST,
 } from '../types'
 
 const NewState = ({ children }) => {
   const initialState = {
     news: null,
     loading: true,
-    // latestLoading: true,
+    latestLoading: true,
     singleNews: null,
     categoryNews: null,
-    // latestNews: null,
+    latestNews: null,
     error: null,
   }
 
@@ -77,23 +77,23 @@ const NewState = ({ children }) => {
     }
   }
 
-  // const getLatestNews = async () => {
-  //   try {
-  //     const res = await axios.get(
-  //       'https://api.tv24africa.com/api/v1/wordpress/posts',
-  //     )
+  const getLatestNews = async () => {
+    try {
+      const res = await axios.get(
+        'https://api.tv24africa.com/api/v1/wordpress/posts',
+      )
 
-  //     dispatch({
-  //       type: GET_LATEST,
-  //       payload: res.data.data,
-  //     })
-  //   } catch (error) {
-  //     dispatch({
-  //       type: GET_NEWS_ERROR,
-  //       payload: error,
-  //     })
-  //   }
-  // }
+      dispatch({
+        type: GET_LATEST,
+        payload: res.data.data,
+      })
+    } catch (error) {
+      dispatch({
+        type: GET_NEWS_ERROR,
+        payload: error,
+      })
+    }
+  }
 
   //set loading
   const setLoading = () => {
@@ -107,16 +107,16 @@ const NewState = ({ children }) => {
       value={{
         news: state.news,
         loading: state.loading,
-        // latestLoading: state.latestLoading,
+        latestLoading: state.latestLoading,
         singleNews: state.singleNews,
         error: state.error,
         categoryNews: state.categoryNews,
-        // latestNews: state.latestNews,
+        latestNews: state.latestNews,
         setLoading,
         getNews,
         getCategory,
         getSingleNews,
-        // getLatestNews
+        getLatestNews
       }}
     >
       {children}

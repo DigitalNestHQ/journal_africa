@@ -93,7 +93,9 @@ const CategoryNews = () => {
               </div>
               {width > breakpoint ? (
                 <div className="cat-left-content">
-                  <h5 className="cat-left-heading section-heading-default">Trending Posts</h5>
+                  <h5 className="cat-left-heading section-heading-default">
+                    Trending Posts
+                  </h5>
                   <div className="trend-img-container">
                     <img src={cybertruck} alt="tesla" className="trend-img" />
                   </div>
@@ -101,15 +103,20 @@ const CategoryNews = () => {
                     {!loading && news.length === 0 ? (
                       <h5 className="text-dark">No trending news available</h5>
                     ) : (
-                      news.slice(0, 3).map((eachCard) => (
-                        <Link
-                          to={`/post/${eachCard.slug}`}
-                          className="trending-card lastest-card-link"
-                          key={eachCard.id}
-                        >
-                          <TeaserCard eachCard={eachCard} />
-                        </Link>
-                      ))
+                      news
+                        .sort((a, b) =>
+                          parseInt(a.views) > parseInt(b.views) ? -1 : 1,
+                        )
+                        .slice(0, 3)
+                        .map((eachCard) => (
+                          <Link
+                            to={`/post/${eachCard.slug}`}
+                            className="trending-card lastest-card-link"
+                            key={eachCard.id}
+                          >
+                            <TeaserCard eachCard={eachCard} />
+                          </Link>
+                        ))
                     )}
                   </div>
                   <div className="trend--img-container">

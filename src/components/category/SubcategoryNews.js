@@ -12,10 +12,8 @@ import Navbar from 'components/reusables/navigation/Nav/nav'
 import LargeAds from '../../assets/images/bannerads.png'
 import '../homepage/ads/ads.css'
 import { LargeSizeAds } from '../homepage/ads/Ads'
-import { HtmlParseOptions } from '../../_helper/parseNewsHtml'
-import ReactHtmlParser from 'react-html-parser'
+import TeaserCard from '../homepage/homepageTeaser/TeaserCard'
 import cybertruck from '../../assets/images/cybertruck1.jpg'
-import Moment from 'react-moment'
 import { useViewPort } from '../../components/hooks/Viewport'
 
 const SubcategoryNews = () => {
@@ -50,15 +48,19 @@ const SubcategoryNews = () => {
       <Navbar />
       {!loading && getCategories.length === 0 ? (
         <div className="category-comp-heading">
-          <h5 className="category-header">No news available</h5>
+          <h5 className="category-header section-heading-default">
+            No news available
+          </h5>
         </div>
       ) : (
         <div className="category-comp-heading">
-          <h5 className="category-header">{getCategories[0].sub_category}</h5>
+          <h5 className="category-header section-heading-default">
+            {getCategories[0].sub_category}
+          </h5>
         </div>
       )}
-      <main className="cat-section">
-        <div className="category-wrapper">
+      <main className="cat-section section-content-default">
+        <div className="section-wrapper-default">
           <div className="cat-img-container">
             <LargeSizeAds img={LargeAds} />
           </div>
@@ -93,7 +95,9 @@ const SubcategoryNews = () => {
               </div>
               {width > breakpoint ? (
                 <div className="cat-left-content">
-                  <h5 className="cat-left-heading">Trending Posts</h5>
+                  <h5 className="cat-left-heading section-heading-default">
+                    Trending Posts
+                  </h5>
                   <div className="trend-img-container">
                     <img src={cybertruck} alt="tesla" className="trend-img" />
                   </div>
@@ -104,34 +108,15 @@ const SubcategoryNews = () => {
                       news.slice(0, 3).map((eachCard) => (
                         <Link
                           to={`/post/${eachCard.slug}`}
-                          className="trending-card"
+                          className="trending-card lastest-card-link"
                           key={eachCard.id}
                         >
-                          <p className="premium-badge-left">
-                            {eachCard.post_type === 'premium'
-                              ? `${eachCard.post_type}`
-                              : ''}
-                          </p>
-                          <p className="trend-date">
-                            <Moment format="MMMM Do YYYY">
-                              {eachCard.updated_at}
-                            </Moment>
-                          </p>
-                          <h6 className="trend-title">{eachCard.slug}</h6>
-                          <p className="trend-text">
-                            {ReactHtmlParser(
-                              `${eachCard.post_description.substring(
-                                0,
-                                120,
-                              )}...`,
-                              HtmlParseOptions,
-                            )}
-                          </p>
+                          <TeaserCard eachCard={eachCard} />
                         </Link>
                       ))
                     )}
                   </div>
-                  <div className="trend--img-container">
+                  <div className="trend-img-container">
                     <img src={cybertruck} alt="tesla" className="trend-img" />
                   </div>
                 </div>

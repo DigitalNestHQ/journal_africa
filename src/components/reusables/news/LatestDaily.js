@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, Fragment, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import newsContext from '../../../context/news/NewsContext'
 import Navbar from '../navigation/Nav/nav'
@@ -14,18 +14,17 @@ import authContext from '../../../context/auth/authContext'
 import commentsContext from '../../../context/comments/commentsContext'
 import { Row } from 'react-bootstrap'
 import cybertruck from '../../../assets/images/cybertruck1.jpg'
-import Moment from 'react-moment'
 import { HtmlParseOptions } from '../../../_helper/parseNewsHtml'
 import { useViewPort } from '../../hooks/Viewport'
 import '../../newscategory/category.css'
-import NewsComments from '../../generalNews/NewsComments'
-import NewsForm from '../../generalNews/NewsForm'
-import RelatedNews from '../../generalNews/RelatedNews'
-import ShareNews from '../../generalNews/ShareNews'
+import LatestRelatedNews from '../../generalNews/LatestRelatedNews'
+import LatestShareNews from '../../generalNews/LatestShareNews'
 import Footer from '../../reusables/navigation/Footer/footer'
 import TeaserCard from '../../homepage/homepageTeaser/TeaserCard'
+import Paging from '../../reusables/Paging'
 
 const LatestDaily = () => {
+  const [currentPage, setCurrentPage] = useState(1)
   const context = useContext(newsContext)
   const auth = useContext(authContext)
   const contextComment = useContext(commentsContext)
@@ -33,6 +32,7 @@ const LatestDaily = () => {
   const { user, isAuthenticated } = auth
   const { width } = useViewPort()
   const breakpoint = 1150
+  const breakpoint2 = 994
   const {
     latestLoading,
     latestNews,
@@ -75,8 +75,13 @@ const LatestDaily = () => {
             },
     }
   }
+  const currentCategoryNewsWithoutSingleNews = latestNews.filter(
+    (news) => news.post_title !== currentNews.post_title,
+  )
 
   const { previous, next } = getAdjacentPosts(slug)
+  const firstPageIndex = (currentPage - 1) * 4
+  const lastPageIndex = firstPageIndex + 4
 
   console.log(news)
   console.log(latestNews)
@@ -85,16 +90,78 @@ const LatestDaily = () => {
   console.log(next)
 
   return (
-    <div className="latest-daily">
+    <Fragment>
       <Navbar />
-      <div className="single-news-section">
-        <div className="single-news-section-wrapper">
+      <div className="showcase section-content-default">
+        <div className="section-wrapper-default">
           <div className="s-n-ads-container">
             <LargeSizeAds img={bannerAds} />
           </div>
           <main className="single-news-main-section">
-            {currentNews.post_content}
             <div className="s-n-content-grid">
+              <div className="s-n-left-content">
+                <div className="available-content">
+                  <h5 className="news-post-title section-heading-default">
+                    {currentNews.post_title}
+                  </h5>
+                  <div className="main-content">
+                    {ReactHtmlParser(
+                      `${
+                        isAuthenticated
+                          ? currentNews.post_content
+                          : currentNews.post_content.substring(0, 1500)
+                      }`,
+                      HtmlParseOptions,
+                    )}
+                  </div>
+                  {isAuthenticated ? (
+                    <div></div>
+                  ) : (
+                    <div className="blur-content"></div>
+                  )}
+                  <div className="check-mate">
+                    {!isAuthenticated ? (
+                      <NotLoggedIn />
+                    ) : isAuthenticated && !user.subscription_status ? (
+                      <LoggedInNotSubscribed />
+                    ) : (
+                      ''
+                    )}
+                  </div>
+                  <LatestShareNews next={next} previous={previous} />
+                  <div className="related-articles-section">
+                    <button className="related-articles-btn">
+                      related articles
+                    </button>
+                    <div className="related-content">
+                      <Row xs={1} md={4} className="related-row">
+                        {currentCategoryNewsWithoutSingleNews
+                          .slice(firstPageIndex, lastPageIndex)
+                          .map((categ) => (
+                            <LatestRelatedNews
+                              key={categ.ID}
+                              slug={categ.post_title}
+                              featured_image={categ.featured_image}
+                              post_type={categ.post_type}
+                            />
+                          ))}
+                      </Row>
+                      {width > breakpoint2 ? (
+                        <Paging
+                          currentPage={currentPage}
+                          totalCount={
+                            currentCategoryNewsWithoutSingleNews.length
+                          }
+                          pageSize={4}
+                          onPageChange={(page) => setCurrentPage(page)}
+                        />
+                      ) : (
+                        ''
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
               {width > breakpoint ? (
                 <div className="cat-left-content s-n-right-content">
                   <h5 className="cat-left-heading">Trending Posts</h5>
@@ -132,7 +199,8 @@ const LatestDaily = () => {
           </main>
         </div>
       </div>
-    </div>
+      <Footer />
+    </Fragment>
   )
 }
 

@@ -80,6 +80,12 @@
   object-fit: cover;
   height: 407px !important;
 }
+.main-content ol li a img {
+  width: 788px !important;
+  display: block;
+  object-fit: cover;
+  height: 407px !important;
+}
 .not-logged-in,
 .logged-in-not-subscribed {
   display: block;
@@ -282,6 +288,9 @@
     width: 100% !important;
   }
   .main-content p img {
+    width: 100% !important;
+  }
+  .main-content ol li a img {
     width: 100% !important;
   }
 }

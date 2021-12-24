@@ -119,7 +119,7 @@ const CategoryNews = () => {
                         ))
                     )}
                   </div>
-                  <div className="trend--img-container">
+                  <div className="trend-img-container">
                     <img src={cybertruck} alt="tesla" className="trend-img" />
                   </div>
                 </div>

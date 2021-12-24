@@ -1,6 +1,4 @@
 import React, { useEffect, Fragment, useContext, useState } from 'react'
-// import CommentForm from './CommentForm'
-// import ShareNews from './ShareNews'
 import bannerAds from './../../assets/images/bannerads.png'
 import ReactHtmlParser from 'react-html-parser'
 import Nav from '../reusables/navigation/Nav/nav'
@@ -9,36 +7,26 @@ import { useParams, Link } from 'react-router-dom'
 import Loader from '../loader/Loader'
 import './allNews.css'
 import { NotLoggedIn, LoggedInNotSubscribed } from './FreeReaderPersuader'
-// import { PopulateReadersList } from '../homepage/politics/ReaderList'
-// import { ContactsAds1 } from '../ContactUs/mainSection/ContactsAds'
-// import { formatDate } from '../../_helper/dateFormatter'
 import authContext from '../../context/auth/authContext'
 import newsContext from '../../context/news/NewsContext'
-import commentsContext from '../../context/comments/commentsContext'
 import { LargeSizeAds } from '../homepage/ads/Ads'
 import TeaserCard from '../homepage/homepageTeaser/TeaserCard'
-// import { addView } from './postView'
 import { Row } from 'react-bootstrap'
 import cybertruck from '../../assets/images/cybertruck1.jpg'
 import { HtmlParseOptions } from '../../_helper/parseNewsHtml'
 import { useViewPort } from '../../components/hooks/Viewport'
 import '../category/newscategory.css'
-import NewsComments from './NewsComments'
-import NewsForm from './NewsForm'
 import RelatedNews from './RelatedNews'
 import ShareNews from './ShareNews'
 import Paging from '../reusables/Paging'
-// import countapi from 'countapi-js'
 import axios from 'axios'
 
 const GetNews = () => {
   const [currentPage, setCurrentPage] = useState(1)
-  const contextComment = useContext(commentsContext)
   const userContext = useContext(authContext)
   const { user, isAuthenticated } = userContext
   const newsFeedContext = useContext(newsContext)
   const { news, loading, singleNews, getNews, getSingleNews } = newsFeedContext
-  const { comment_loading } = contextComment
   const { slug } = useParams()
   const { width } = useViewPort()
   const breakpoint = 1150
@@ -99,7 +87,7 @@ const GetNews = () => {
     //eslint-disable-next-line
   }, [])
 
-  if (loading || singleNews === null || news === null || comment_loading) {
+  if (loading || singleNews === null || news === null) {
     return <Loader />
   }
 
@@ -219,8 +207,6 @@ const GetNews = () => {
                         )}
                       </div>
                     </div>
-                    <NewsComments slug={slug} />
-                    <NewsForm singleNews={singleNews} />
                   </div>
                 )}
               </div>

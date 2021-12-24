@@ -5,7 +5,6 @@ import { Row, Col, Card } from 'react-bootstrap'
 import { LargeSizeAds } from '../ads/Ads'
 import bannerAds from '../../../assets/images/bannerads.png'
 import '../ads/ads.css'
-
 const LatestNews = ({ data }) => {
   return (
     <section className="section-content-default my4">

@@ -138,7 +138,13 @@ const NewsForm = ({ singleNews }) => {
             type="submit"
             disabled={button}
           >
-            {comment_loading ? 'Loading...' : 'Post Comment'}
+            {button && !comment_loading
+              ? 'Sign in to comment'
+              : !button && !comment_loading
+              ? 'Post Comment'
+              : !button && comment_loading
+              ? 'Loading...'
+              : ''}
           </button>
         </div>
       </form>

@@ -42,6 +42,7 @@ import { WriteForUs } from './components/writeforus/WriteForUs.js'
 import NewState from './context/news/NewState'
 import CommentState from './context/comments/CommentState'
 const App = () => {
+
   return (
     <div className="app">
       <AuthState>

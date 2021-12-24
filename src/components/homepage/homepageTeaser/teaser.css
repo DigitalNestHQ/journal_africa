@@ -151,10 +151,12 @@
 .latest-card {
   display: block;
   border-radius: 0.7rem;
-  margin-bottom: 1.3rem;
+  margin: 1rem 0;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
   padding: 0.7rem 1rem;
   position: relative;
+  background-color: #fff;
+  width: 100%;
 }
 
 .latest-heading {

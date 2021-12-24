@@ -10,6 +10,7 @@
     "aos": "^2.3.4",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "countapi-js": "^1.0.2",
     "flutterwave-react-v3": "^1.0.9",
     "marked": "^4.0.7",
     "moment": "^2.29.1",

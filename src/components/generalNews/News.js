@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment, useContext } from 'react'
+import React, { useEffect, Fragment, useContext, useState } from 'react'
 // import CommentForm from './CommentForm'
 // import ShareNews from './ShareNews'
 import bannerAds from './../../assets/images/bannerads.png'
@@ -16,10 +16,10 @@ import authContext from '../../context/auth/authContext'
 import newsContext from '../../context/news/NewsContext'
 import commentsContext from '../../context/comments/commentsContext'
 import { LargeSizeAds } from '../homepage/ads/Ads'
+import TeaserCard from '../homepage/homepageTeaser/TeaserCard'
 // import { addView } from './postView'
 import { Row } from 'react-bootstrap'
 import cybertruck from '../../assets/images/cybertruck1.jpg'
-import Moment from 'react-moment'
 import { HtmlParseOptions } from '../../_helper/parseNewsHtml'
 import { useViewPort } from '../../components/hooks/Viewport'
 import '../category/newscategory.css'
@@ -27,8 +27,12 @@ import NewsComments from './NewsComments'
 import NewsForm from './NewsForm'
 import RelatedNews from './RelatedNews'
 import ShareNews from './ShareNews'
+import Paging from '../reusables/Paging'
+// import countapi from 'countapi-js'
+import axios from 'axios'
 
 const GetNews = () => {
+  const [currentPage, setCurrentPage] = useState(1)
   const contextComment = useContext(commentsContext)
   const userContext = useContext(authContext)
   const { user, isAuthenticated } = userContext
@@ -38,6 +42,7 @@ const GetNews = () => {
   const { slug } = useParams()
   const { width } = useViewPort()
   const breakpoint = 1150
+  const breakpoint2 = 994
 
   const getAdjacentPosts = (slug) => {
     if (singleNews.length === 0) return ''
@@ -66,6 +71,26 @@ const GetNews = () => {
 
   useEffect(() => {
     getSingleNews(slug)
+    const addView = async () => {
+      const id = {
+        id: `${singleNews[0].id}`,
+      }
+      try {
+        const res = await axios.post(
+          'https://api.tv24africa.com/api/v1/add/view',
+          id,
+        )
+        console.log(res)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    if (singleNews === null || singleNews.length === 0) {
+      return
+    }
+    addView()
+
     //eslint-disable-next-line
   }, [slug])
 
@@ -82,6 +107,7 @@ const GetNews = () => {
     if (singleNews.length === 0) return ''
     return news.category_id === singleNews[0].category_id
   })
+
   const currentCategoryNewsWithoutSingleNews = currentCategoryNews.filter(
     (news) => {
       if (singleNews.length === 0) return ''
@@ -91,11 +117,14 @@ const GetNews = () => {
 
   const { previous, next } = getAdjacentPosts(slug)
 
+  const firstPageIndex = (currentPage - 1) * 4
+  const lastPageIndex = firstPageIndex + 4
+
   return (
     <Fragment>
       <Nav />
-      <div className="single-news-section">
-        <div className="single-news-section-wrapper">
+      <div className="showcase section-content-default">
+        <div className="section-wrapper-default">
           <div className="s-n-ads-container">
             <LargeSizeAds img={bannerAds} />
           </div>
@@ -106,7 +135,7 @@ const GetNews = () => {
                   <h5>Post Unavailable</h5>
                 ) : (
                   <div className="available-content">
-                    <h5 className="news-post-title">
+                    <h5 className="news-post-title section-heading-default">
                       {singleNews[0].post_title}
                     </h5>
                     <div className="news-img-container">
@@ -164,10 +193,10 @@ const GetNews = () => {
                         related articles
                       </button>
                       <div className="related-content">
-                        <Row xs={1} md={4} className="g-4">
+                        <Row xs={1} md={4} className="related-row">
                           {currentCategoryNewsWithoutSingleNews
-                            .slice(0, 4)
-                            .map((categ, idx) => (
+                            .slice(firstPageIndex, lastPageIndex)
+                            .map((categ) => (
                               <RelatedNews
                                 key={categ.id}
                                 slug={categ.slug}
@@ -176,6 +205,18 @@ const GetNews = () => {
                               />
                             ))}
                         </Row>
+                        {width > breakpoint2 ? (
+                          <Paging
+                            currentPage={currentPage}
+                            totalCount={
+                              currentCategoryNewsWithoutSingleNews.length
+                            }
+                            pageSize={4}
+                            onPageChange={(page) => setCurrentPage(page)}
+                          />
+                        ) : (
+                          ''
+                        )}
                       </div>
                     </div>
                     <NewsComments slug={slug} />
@@ -185,7 +226,9 @@ const GetNews = () => {
               </div>
               {width > breakpoint ? (
                 <div className="cat-left-content s-n-right-content">
-                  <h5 className="cat-left-heading">Trending Posts</h5>
+                  <h5 className="cat-left-heading section-heading-default">
+                    Trending Posts
+                  </h5>
                   <div className="trend-img-container">
                     <img src={cybertruck} alt="tesla" className="trend-img" />
                   </div>
@@ -193,34 +236,20 @@ const GetNews = () => {
                     {!loading && news.length === 0 ? (
                       <h5 className="text-dark">No trending news available</h5>
                     ) : (
-                      news.slice(0, 3).map((eachCard) => (
-                        <Link
-                          to={`/post/${eachCard.slug}`}
-                          className="trending-card"
-                          key={eachCard.id}
-                        >
-                          <p className="premium-badge-left">
-                            {eachCard.post_type === 'premium'
-                              ? `${eachCard.post_type}`
-                              : ''}
-                          </p>
-                          <p className="trend-date">
-                            <Moment format="MMMM Do YYYY">
-                              {eachCard.updated_at}
-                            </Moment>
-                          </p>
-                          <h6 className="trend-title">{eachCard.slug}</h6>
-                          <p className="trend-text">
-                            {ReactHtmlParser(
-                              `${eachCard.post_description.substring(
-                                0,
-                                120,
-                              )}...`,
-                              HtmlParseOptions,
-                            )}
-                          </p>
-                        </Link>
-                      ))
+                      news
+                        .sort((a, b) =>
+                          parseInt(a.views) > parseInt(b.views) ? -1 : 1,
+                        )
+                        .slice(0, 3)
+                        .map((eachCard) => (
+                          <Link
+                            to={`/post/${eachCard.slug}`}
+                            className="trending-card lastest-card-link"
+                            key={eachCard.id}
+                          >
+                            <TeaserCard eachCard={eachCard} />
+                          </Link>
+                        ))
                     )}
                   </div>
                   <div className="trend--img-container">

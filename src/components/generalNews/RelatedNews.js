@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Col, Card } from 'react-bootstrap'
 
+
 const RelatedNews = ({ slug, featured_image, post_type }) => {
   return (
     <Col className="related-card">

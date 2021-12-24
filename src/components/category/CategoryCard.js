@@ -21,7 +21,7 @@ const CategoryCard = ({
         />
       </div>
       <div className="cat-content-list-item-detail">
-        <h6 className="cat-content-list-item-detail-heading">{slug}</h6>
+        <h6 className="cat-content-list-item-detail-heading text-danger slug-default">{slug}</h6>
         <div className="cat-content-list-item-detail-text">
           {ReactHtmlParser(
             `${post_description.substring(0, 135)}...`,

@@ -11,6 +11,9 @@ const MainSection = () => {
     phone: '',
     message: '',
   })
+  
+  const { width } = useViewPort()
+  const breakpoint = 762
 
   const onChange = (e) => {
     setContact({ ...contact, [e.target.name]: e.target.value })
@@ -29,9 +32,6 @@ const MainSection = () => {
   }
 
   const { subject, name, email, phone, message } = contact
-
-  const { width } = useViewPort()
-  const breakpoint = 762
   return (
     <section className="contact-section">
       <div className="register-signup-wrapper contact-wrapper">

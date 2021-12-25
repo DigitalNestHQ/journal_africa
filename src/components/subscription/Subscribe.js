@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import authContext from '../../context/auth/authContext'
-import logo from '../../assets/images/logo white.png'
 import './subscribe.css'
 import PaymentButton from './payment_handler/PaymentButton'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import FormHeader from '../reusables/navigation/formsReusables/FormHeader'
 import Loader from '../loader/Loader'
 
 const Subscribe = () => {
@@ -25,30 +25,14 @@ const Subscribe = () => {
   }, [])
 
   if (loading || subscriptionPlans === null) {
-    ;<Loader />
+    <Loader />
   }
 
   return (
-    <div className="subscribe-page">
-      <header className="subscribe-header">
+    <section className="subscribe-page">
+      <header className="reg-sub-header">
         <div className="register-signup-wrapper subscribe-wrapper">
-          <nav className="register-nav subscribe-nav">
-            <Link to="/" className="reg-nav-img-container">
-              <img src={logo} alt="logo" className="reg-logo" />
-            </Link>
-            <ul className="reg-nav-list">
-              <li className="reg-nav-list-item">
-                <Link className="reg-signup" to="/signup">
-                  sign up
-                </Link>
-              </li>
-              <li className="reg-nav-list-item">
-                <Link className="reg-subscribe" to="/subscribe">
-                  subscribe
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <FormHeader/>
           <h2 className="subscribe-heading text-center text-white">
             Let's put you ahead with the news
           </h2>
@@ -131,7 +115,7 @@ const Subscribe = () => {
           </div>
         </div>
       </main>
-    </div>
+    </section>
   )
 }
 

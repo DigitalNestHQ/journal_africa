@@ -1,44 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../../../assets/images/TV24Ergb.png'
-import './formHeader.css'
+import logo from '../../../../assets/images/logo white.png'
 
-const FormHeader = ({ redirectTo, linkLabel, hideSubscribe }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  useEffect(() => {
-    localStorage.token ? setIsLoggedIn(true) : setIsLoggedIn(false)
-  }, [])
+const FormHeader = () => {
   return (
-    <header
-      className="formHeader container-fluid mb-3"
-      style={{ border: '1px solid red' }}
-    >
-      <div className="logo">
-        <Link to="/">
-          <img loading="lazy" src={logo} alt="app logo" />
-        </Link>
-      </div>
-      <div className="links">
-        {isLoggedIn && !hideSubscribe ? (
-          <Link className="links-item lnk1" to="/">
+    <nav className="register-nav subscribe-nav">
+      <Link to="/" className="reg-nav-img-container">
+        <img src={logo} alt="logo" className="reg-logo"/>
+      </Link>
+      <ul className="reg-nav-list">
+        <li className="reg-nav-list-item">
+          <Link className="reg-signup" to="/">
             Home
           </Link>
-        ) : (
-          <Link className="links-item lnk1" to={`/${redirectTo}`}>
-            {linkLabel}
+        </li>
+        <li className="reg-nav-list-item">
+          <Link className="reg-signup" to="/signup">
+            sign up
           </Link>
-        )}
-        {hideSubscribe ? (
-          <Link className="links-item lnk2" to="/">
-            Home
+        </li>
+        <li className="reg-nav-list-item">
+          <Link className="reg-subscribe" to="/subscribe">
+            subscribe
           </Link>
-        ) : (
-          <Link className="links-item lnk2" to="/subscribe">
-            Subscribe
-          </Link>
-        )}
-      </div>
-    </header>
+        </li>
+      </ul>
+    </nav>
   )
 }
 

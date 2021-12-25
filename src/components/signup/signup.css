@@ -76,6 +76,7 @@
   object-fit: cover;
   display: block;
   width: 100%;
+  height: 70px;
 }
 .reg-showcase {
   display: block;
@@ -146,6 +147,7 @@
 .reg-input {
   border-radius: unset;
   padding: 1.4rem 0.75rem;
+  font-size: inherit;
 }
 .already-have-account {
   display: flex;

@@ -75,7 +75,7 @@ ol {
   padding: 1rem;
 }
 .section-heading-default {
-  line-height: 17px;
+  line-height: 30px;
   font-weight: 600;
   font-size: clamp(1.15rem, 2.5vw, 1.25rem);
 }

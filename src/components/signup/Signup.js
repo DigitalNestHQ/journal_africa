@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { pageurl } from '../../utils/constants'
 import Alerts from '../alert/Alerts'
 import './signup.css'
 import logo from '../../assets/images/logo white.png'
@@ -20,22 +19,12 @@ const Signup = () => {
   const alertContext = useContext(AlertContext)
   const history = useHistory()
   const { setAlert } = alertContext
-  const {
-    register,
-    error,
-    clearErrors,
-    isAuthenticated,
-    loading,
-    message,
-  } = authContext
+  const { register, error, clearErrors, isAuthenticated, loading } = authContext
 
   useEffect(() => {
     if (isAuthenticated) {
       history.push('/')
     }
-    // if (message === 'success') {
-    //   history.push('/success')
-    // }
     if (error === 'User already exists..') {
       setAlert(error, 'danger')
       clearErrors()
@@ -64,22 +53,24 @@ const Signup = () => {
         email,
         phone,
         password,
-      }).then((response) => {
-        if (response.data.status === 'success') {
-          history.push('/success')
-          setUser({
-            firstname: '',
-            lastname: '',
-            email: '',
-            phone: '',
-            password: '',
-          })
-        }
-      }).catch((error) => {
-        if(error){
-          return;
-        }
       })
+        .then((response) => {
+          if (response.data.status === 'success') {
+            history.push('/success')
+            setUser({
+              firstname: '',
+              lastname: '',
+              email: '',
+              phone: '',
+              password: '',
+            })
+          }
+        })
+        .catch((error) => {
+          if (error) {
+            return
+          }
+        })
     }
   }
 

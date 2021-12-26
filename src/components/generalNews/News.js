@@ -68,7 +68,6 @@ const GetNews = () => {
           'https://api.tv24africa.com/api/v1/add/view',
           id,
         )
-        console.log(res)
       } catch (error) {
         console.log(error)
       }

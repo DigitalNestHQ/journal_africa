@@ -11,7 +11,6 @@ import {
 } from '../../generalNews/FreeReaderPersuader'
 import ReactHtmlParser from 'react-html-parser'
 import authContext from '../../../context/auth/authContext'
-import commentsContext from '../../../context/comments/commentsContext'
 import { Row } from 'react-bootstrap'
 import cybertruck from '../../../assets/images/cybertruck1.jpg'
 import { HtmlParseOptions } from '../../../_helper/parseNewsHtml'
@@ -27,8 +26,6 @@ const LatestDaily = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const context = useContext(newsContext)
   const auth = useContext(authContext)
-  const contextComment = useContext(commentsContext)
-  const { comment_loading } = contextComment
   const { user, isAuthenticated } = auth
   const { width } = useViewPort()
   const breakpoint = 1150

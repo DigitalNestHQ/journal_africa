@@ -17,7 +17,7 @@
 .contact-header {
   background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
     url('./herocontact.png') center/cover scroll no-repeat;
-  background: linear-gradient(rgba(234, 46, 46, 0.5), rgba(234, 46, 46, 0.6)),
+  background: linear-gradient(rgba(224, 20, 20, 0.775), rgba(113, 8, 8, 0.884)),
     url('./herocontact.png') center/cover scroll no-repeat;
   padding: 0 1rem;
 }

@@ -129,37 +129,42 @@ const LatestDaily = () => {
                     )}
                   </div>
                   <LatestShareNews next={next} previous={previous} />
-                  <div className="related-articles-section">
-                    <button className="related-articles-btn">
-                      related articles
-                    </button>
-                    <div className="related-content">
-                      <Row xs={1} md={4} className="related-row">
-                        {currentCategoryNewsWithoutSingleNews
-                          .slice(firstPageIndex, lastPageIndex)
-                          .map((categ) => (
-                            <LatestRelatedNews
-                              key={categ.ID}
-                              slug={categ.post_title}
-                              featured_image={categ.featured_image}
-                              post_type={categ.post_type}
-                            />
-                          ))}
-                      </Row>
-                      {width > breakpoint2 ? (
-                        <Paging
-                          currentPage={currentPage}
-                          totalCount={
-                            currentCategoryNewsWithoutSingleNews.length
-                          }
-                          pageSize={4}
-                          onPageChange={(page) => setCurrentPage(page)}
-                        />
-                      ) : (
-                        ''
-                      )}
+                  {currentCategoryNewsWithoutSingleNews.length !== 0 ? (
+                    <div className="related-articles-section">
+                      <button className="related-articles-btn">
+                        related articles
+                      </button>
+                      <div className="related-content">
+                        <Row xs={1} md={4} className="related-row">
+                          {currentCategoryNewsWithoutSingleNews
+                            .slice(firstPageIndex, lastPageIndex)
+                            .map((categ) => (
+                              <LatestRelatedNews
+                                key={categ.ID}
+                                slug={categ.post_title}
+                                featured_image={categ.featured_image}
+                                post_type={categ.post_type}
+                              />
+                            ))}
+                        </Row>
+                        {width > breakpoint2 &&
+                        currentCategoryNewsWithoutSingleNews.length !== 0 ? (
+                          <Paging
+                            currentPage={currentPage}
+                            totalCount={
+                              currentCategoryNewsWithoutSingleNews.length
+                            }
+                            pageSize={4}
+                            onPageChange={(page) => setCurrentPage(page)}
+                          />
+                        ) : (
+                          ''
+                        )}
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    ''
+                  )}
                 </div>
               </div>
               {width > breakpoint ? (

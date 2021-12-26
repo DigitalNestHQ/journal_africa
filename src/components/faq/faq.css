@@ -1,10 +1,9 @@
 #faq {
-  position: relative;
-  top: 150px;
+  margin: 150px 0;
 }
 
 #faq .question {
-  color: var(--pod-black-1);
+  color: #000;
 }
 
 #faq button {
@@ -13,5 +12,8 @@
 }
 
 #faq .card-body {
-  padding: 2rem;
+  padding: 1rem;
+}
+.faq {
+  width: 100%;
 }

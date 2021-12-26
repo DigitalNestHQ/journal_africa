@@ -1,5 +1,6 @@
 .contact-header,
-.reg-sub-header {
+.reg-sub-header,
+.about-us-header {
   height: 24rem;
   width: 100%;
   position: relative;
@@ -19,4 +20,10 @@
   background: linear-gradient(rgba(234, 46, 46, 0.5), rgba(234, 46, 46, 0.6)),
     url('./herocontact.png') center/cover scroll no-repeat;
   padding: 0 1rem;
+}
+.about-us-header {
+  background: linear-gradient(rgba(22, 7, 233, 0.541), rgba(51, 65, 126, 0.61)),
+    url('../../../assets/images/discoverbanner.jpg') top/cover scroll no-repeat;
+  padding: 0 1rem;
+  margin: 0;
 }

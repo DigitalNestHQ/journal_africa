@@ -3,13 +3,11 @@
   width: 100%;
   margin: 0;
   padding: 0 1rem;
-  border: 2px solid green;
 }
 .contact-page-main {
   display: block;
   width: 100%;
   margin-top: -320px;
-  border: 2px solid red;
 }
 
 .contact-heading {
@@ -22,13 +20,20 @@
   margin-bottom: 4.5rem;
   color: #fff;
 }
-.contact-board {
-  background-color: #fff;
+.contact-board,
+.about-board-bg {
   padding: 2rem;
   margin: 0;
   width: 100%;
   display: block;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.contact-board {
+  background-color: #fff;
+}
+.about-board-bg {
+  background-color: #f3efef;
 }
 .contact-board-heading {
   font-size: 1.5rem;

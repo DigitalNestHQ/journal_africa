@@ -1,36 +1,17 @@
-.cookie-container{
-    max-width: 1440px;
-    margin: 0 auto;
-    padding-top: 150px;
-    padding-bottom: 30px;
-    text-align: center;
+.cookie-txt {
+  width: 100%;
+  margin: 50px 0 100px 0;
+  padding-bottom: 10px;
 }
-.cookie-txt{
-    max-width: 92%;
-    margin: 50px 20px 100px 20px;
-    padding-bottom: 10px;
-
-}
-.cookie-container h3{
-    margin-top: 50px;
-    text-align: center;
-    text-decoration: underline;
-    text-decoration-color: #FF0000;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 28px;
-    /* transform: matrix(1, 0, 0, -1, 0, 0); */
-    color: #000;
-}
-.cookie-container p{
-    font-size: 18px;
-    line-height: 1.8;
-    font-weight: 400;
-    margin-bottom: 20px;
+.cookie-container p {
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 400;
+  margin-bottom: 20px;
 }
 
-@media(max-width:500px){
-    .cookie-container p{
-        text-align: left;
-    }
+@media (max-width: 500px) {
+  .cookie-container p {
+    text-align: left;
+  }
 }

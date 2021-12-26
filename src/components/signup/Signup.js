@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import Alerts from '../alert/Alerts'
 import './signup.css'
-import logo from '../../assets/images/logo white.png'
+import FormHeader from '../reusables/navigation/formsReusables/FormHeader'
 
 import AlertContext from '../../context/alert/alertContext'
 import AuthContext from '../../context/auth/authContext'
@@ -68,7 +68,7 @@ const Signup = () => {
         })
         .catch((error) => {
           if (error) {
-            return
+            console.log(error)
           }
         })
     }
@@ -77,23 +77,7 @@ const Signup = () => {
   return (
     <header className="register">
       <div className="register-signup-wrapper">
-        <nav className="register-nav">
-          <Link to="/" className="reg-nav-img-container">
-            <img src={logo} alt="logo" className="reg-logo" />
-          </Link>
-          <ul className="reg-nav-list">
-            <li className="reg-nav-list-item">
-              <Link className="reg-signup" to="/signup">
-                sign up
-              </Link>
-            </li>
-            <li className="reg-nav-list-item">
-              <Link className="reg-subscribe" to="/subscribe">
-                subscribe
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <FormHeader/>
         <div className="reg-showcase">
           <div className="reg-content-grid">
             <div className="reg-benefits">
@@ -213,14 +197,14 @@ const Signup = () => {
                     I agree to the Terms and{' '}
                     <span>
                       {' '}
-                      <Link to="/" className="reg-conditions">
+                      <Link to="/privacy-policy" className="reg-conditions">
                         Conditions
                       </Link>
                     </span>{' '}
                     and{' '}
                     <span>
                       {' '}
-                      <Link to="/" className="reg-policy">
+                      <Link to="/privacy-policy" className="reg-policy">
                         Privacy Policy
                       </Link>
                     </span>

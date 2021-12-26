@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import Alerts from '../alert/Alerts'
 import AlertContext from '../../context/alert/alertContext'
 import AuthContext from '../../context/auth/authContext'
-import logo from '../../assets/images/logo white.png'
+import FormHeader from '../reusables/navigation/formsReusables/FormHeader'
 import './login.css'
 import '../signup/signup.css'
 
@@ -56,23 +56,7 @@ const Login = () => {
   return (
     <header className="login">
       <div className="register-signup-wrapper login-wrapper">
-        <nav className="register-nav">
-          <Link to="/" className="reg-nav-img-container">
-            <img src={logo} alt="logo" className="reg-logo" />
-          </Link>
-          <ul className="reg-nav-list">
-            <li className="reg-nav-list-item">
-              <Link className="reg-signup" to="/signup">
-                sign up
-              </Link>
-            </li>
-            <li className="reg-nav-list-item">
-              <Link className="reg-subscribe" to="/subscribe">
-                subscribe
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <FormHeader/>
         <div className="log-showcase">
           <div className="reg-content-grid">
             <div className="reg-benefits">

@@ -64,7 +64,7 @@ const App = () => {
                   component={SuccessPage}
                 />
                 <Route exact path={pageurl.CATEGORY} component={Category} />
-                <Route exact path={pageurl.ABOUT} component={AboutUs} />
+                <Route exact path="/about" component={AboutUs} />
                 <Route
                   exact
                   path={pageurl.CODEOFETHICS}

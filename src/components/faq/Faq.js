@@ -1,8 +1,9 @@
 // React
-import React from "react";
-import Footer from "../reusables/navigation/Footer/footer";
-import Navbar from "../reusables/navigation/Nav/nav";
-import "./faq.css";
+import React from 'react'
+import Footer from '../reusables/navigation/Footer/footer'
+import Navbar from '../reusables/navigation/Nav/nav'
+import { Row, Col } from 'react-bootstrap'
+import './faq.css'
 
 const FaqCard = ({ cardNumber, collapseNumber, question, answer }) => {
   return (
@@ -35,41 +36,38 @@ const FaqCard = ({ cardNumber, collapseNumber, question, answer }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 const Faq = () => {
   return (
     <>
       <Navbar />
-      <div className="container py-3 mb-5" id="faq">
-        <h3 className="text-center mb-5">
-          <span className="pace-accent-color">Frequestly Asked</span>{" "}
-          <span className="pace-primary-color">Questions</span>
-        </h3>
-        <div className="row">
-          <div className="col-12 mx-auto">
-            <div className="accordion" id="paceFaq">
-              <FaqCard
-                cardNumber="question1"
-                collapseNumber="collapse1"
-                question="How many news can I read per day?"
-                answer="Unlimited."
-              />
-              <FaqCard
-                cardNumber="question2"
-                collapseNumber="collapse2"
-                question="Question 2?"
-                answer="Amswer 2."
-              />
-             
-            </div>
-          </div>
+      <div className="section-content-default" id="faq">
+        <div className="section-wrapper-default">
+          <h5 className="section-heading-default text-center mb-5">Frequently Questions</h5>
+            <Row>
+              <Col xs={12} className="accordion" id="paceFaq">
+                <FaqCard
+                  cardNumber="question1"
+                  collapseNumber="collapse1"
+                  question="How many news can I read per day?"
+                  answer="Unlimited."
+                />
+                <FaqCard
+                  cardNumber="question2"
+                  collapseNumber="collapse2"
+                  question="Question 2?"
+                  answer="Amswer 2."
+                />
+              </Col>
+            </Row>
+          
         </div>
       </div>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Faq;
+export default Faq

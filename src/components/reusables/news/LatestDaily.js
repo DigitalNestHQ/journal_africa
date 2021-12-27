@@ -21,6 +21,7 @@ import LatestShareNews from '../../generalNews/LatestShareNews'
 import Footer from '../../reusables/navigation/Footer/footer'
 import TeaserCard from '../../homepage/homepageTeaser/TeaserCard'
 import Paging from '../../reusables/Paging'
+import Moment from 'react-moment'
 
 const LatestDaily = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -101,6 +102,14 @@ const LatestDaily = () => {
                   <h5 className="news-post-title section-heading-default">
                     {currentNews.post_title}
                   </h5>
+                  <div className="news-author-details">
+                    <p className="post-comp">
+                      Posted on{' '}
+                      <Moment format="MMMM Do YYYY">
+                        {currentNews.post_date}
+                      </Moment>
+                    </p>
+                  </div>
                   <div className="main-content">
                     {ReactHtmlParser(
                       `${

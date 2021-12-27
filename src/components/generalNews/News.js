@@ -20,6 +20,7 @@ import RelatedNews from './RelatedNews'
 import ShareNews from './ShareNews'
 import Paging from '../reusables/Paging'
 import axios from 'axios'
+import Moment from 'react-moment'
 
 const GetNews = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -125,6 +126,17 @@ const GetNews = () => {
                     <h5 className="news-post-title section-heading-default">
                       {singleNews[0].post_title}
                     </h5>
+                    <div className="news-author-details">
+                      <p className="author-name-comp">
+                        By <strong>{singleNews[0].author_name}</strong>
+                      </p>
+                      <p className="post-comp">
+                        Posted on{' '}
+                        <Moment format="MMMM Do YYYY">
+                          {singleNews[0].updated_at}
+                        </Moment>
+                      </p>
+                    </div>
                     <div className="news-img-container">
                       <img
                         src={`https://api.tv24africa.com/public/storage/post_image/${singleNews[0].featured_image}`}
@@ -144,10 +156,10 @@ const GetNews = () => {
                                   0,
                                   1500,
                                 )
-                            : singleNews[0].post_type === 'free' &&
-                              isAuthenticated
-                            ? singleNews[0].post_description
-                            : singleNews[0].post_description.substring(0, 1500)
+                            : singleNews[0].post_type === 'premium' &&
+                              !isAuthenticated
+                            ? singleNews[0].post_description.substring(0, 1500)
+                            : singleNews[0].post_description
                         }`,
                         HtmlParseOptions,
                       )}
@@ -159,11 +171,11 @@ const GetNews = () => {
                       ) : (
                         <div className="blur-content"></div>
                       )
-                    ) : singleNews[0].post_type === 'free' &&
-                      isAuthenticated ? (
-                      <div></div>
-                    ) : (
+                    ) : singleNews[0].post_type === 'premium' &&
+                      !isAuthenticated ? (
                       <div className="blur-content"></div>
+                    ) : (
+                      <div className=""></div>
                     )}
                     <div className="check-mate">
                       {!isAuthenticated ? (

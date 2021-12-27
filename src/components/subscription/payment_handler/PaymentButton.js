@@ -31,8 +31,6 @@ export default function PaymentButton(props) {
     customizations: {
       title: title,
       description: description,
-      logo:
-        'https://drive.google.com/file/d/1SwEHlpsuOxQSVkMjgVOqjR7cCwQwAtxH/view?usp=sharing',
     },
   }
 

@@ -73,14 +73,8 @@ const Footer = () => {
             <h6 className="footer-heading">Section</h6>
             <ul className="footer-list">
               <li className="footer-list-item">
-                <Link
-                  to={{
-                    pathname: '/news/categories',
-                    search: '?category=Podcast',
-                  }}
-                  className="footer-link"
-                >
-                  Podcast
+                <Link to="/podcast" className="footer-link">
+                  Podcast (coming soon)
                 </Link>
               </li>
               <li className="footer-list-item">

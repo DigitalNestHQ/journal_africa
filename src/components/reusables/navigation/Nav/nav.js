@@ -57,7 +57,7 @@ const Navbar = () => {
                     search: '?category=Politics',
                   }}
                 >
-                  politics and governance
+                  politics and government
                 </Link>
               </li>
               <li className="nav-item">
@@ -81,14 +81,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  to={{
-                    pathname: '/news/categories',
-                    search: '?category=Podcast',
-                  }}
-                >
-                  podcast
-                </Link>
+                <Link to="/podcast">podcast (coming soon)</Link>
               </li>
             </ul>
           ) : (
@@ -107,7 +100,12 @@ const Navbar = () => {
                   )}
                 </li>
                 <li className="cta-item subscribe text-center">
-                  <Link to="/subscribe" className="nav-sub-link">subscribe</Link>
+                  <Link to="/subscribe" className="nav-sub-link">
+                    subscribe
+                  </Link>
+                </li>
+                <li className="cta-item">
+                  <i className="fas fa-search"></i>
                 </li>
               </ul>
             </div>
@@ -119,7 +117,12 @@ const Navbar = () => {
         </div>
       </header>
       {width < breakpoint ? (
-        <MobileNav menu={menu} handleMenuClick={handleMenuClick} isAuthenticated={isAuthenticated} logout={logout}/>
+        <MobileNav
+          menu={menu}
+          handleMenuClick={handleMenuClick}
+          isAuthenticated={isAuthenticated}
+          logout={logout}
+        />
       ) : (
         ''
       )}

@@ -36,7 +36,7 @@ ul.nav-links {
   flex-direction: row;
   justify-content: stretch;
   align-items: center;
-  gap: 2.2rem;
+  gap: 1.5rem;
 }
 
 .cta-item a,

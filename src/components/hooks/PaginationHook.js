@@ -69,7 +69,7 @@ export const usePagination = ({ totalCount, pageSize, sibilingCount = 1, current
         totalPageCount,
       )
 
-      return [firstPageIndex, RIGHT_PAGE, ...rightRange]
+      return [firstPageIndex, LEFT_PAGE, ...rightRange]
     }
 
     if (shouldShowLeftDots && shouldShowRightDots) {

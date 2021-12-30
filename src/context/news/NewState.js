@@ -6,6 +6,7 @@ import {
   GET_NEWS,
   GET_NEWS_ERROR,
   SET_LOADING,
+  SET_LATEST_LOADING,
   GET_CATEG_NEWS,
   GET_SINGLE_NEWS,
   GET_LATEST,
@@ -17,8 +18,8 @@ const NewState = ({ children }) => {
   const initialState = {
     news: null,
     filtered: null,
-    loading: true,
-    latestLoading: true,
+    loading: false,
+    latestLoading: false,
     singleNews: null,
     categoryNews: null,
     latestNews: null,
@@ -27,8 +28,23 @@ const NewState = ({ children }) => {
 
   const [state, dispatch] = useReducer(newsReducer, initialState)
 
+  //set loading
+  const setLoading = () => {
+    dispatch({
+      type: SET_LOADING,
+    })
+  }
+
+  //set loading
+  const setLatestLoading = () => {
+    dispatch({
+      type: SET_LATEST_LOADING,
+    })
+  }
+
   // Get news
   const getNews = async () => {
+    setLoading()
     try {
       const res = await axios.get('https://api.tv24africa.com/api/v1/posts')
       dispatch({
@@ -45,6 +61,7 @@ const NewState = ({ children }) => {
 
   //Get Category news
   const getCategory = async (category) => {
+    setLoading()
     try {
       const res = await axios.get(
         `https://api.tv24africa.com/api/v1/categories?category=${category}`,
@@ -63,6 +80,7 @@ const NewState = ({ children }) => {
   }
 
   const getSingleNews = async (slug) => {
+    setLoading()
     try {
       const res = await axios.get(
         `https://api.tv24africa.com/api/v1/getpost/${slug}`,
@@ -81,6 +99,7 @@ const NewState = ({ children }) => {
   }
 
   const getLatestNews = async () => {
+    setLatestLoading()
     try {
       const res = await axios.get(
         'https://api.tv24africa.com/api/v1/wordpress/posts',
@@ -104,12 +123,6 @@ const NewState = ({ children }) => {
 
   const clearFilterNews = () => {
     dispatch({ type: CLEAR_FILTER })
-  }
-  //set loading
-  const setLoading = () => {
-    dispatch({
-      type: SET_LOADING,
-    })
   }
 
   return (

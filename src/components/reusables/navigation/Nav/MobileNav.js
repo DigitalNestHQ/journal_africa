@@ -151,6 +151,11 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
             <li className="mobile-cta-item subscribe text-center">
               <Link to="/subscribe">subscribe</Link>
             </li>
+            <li className="mobile-cta-item">
+              <Link to="/search">
+                <i className="fas fa-search"></i>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

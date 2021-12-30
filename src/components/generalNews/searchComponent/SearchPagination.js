@@ -1,8 +1,8 @@
 import React from 'react'
-import { usePagination } from '../hooks/PaginationHook'
-import './pagi.css'
+import { usePagination } from '../../hooks/PaginationHook'
+import './search.css'
 
-const Paging = (props) => {
+const SearchPagination = (props) => {
   const {
     onPageChange,
     totalCount,
@@ -31,9 +31,9 @@ const Paging = (props) => {
   if (currentPage === 0) {
     return null
   }
-  
+
   return (
-    <ul className="pagination-handle">
+    <ul className="search-pagination-handle">
       {/* Left navigation arrow */}
 
       <button
@@ -44,15 +44,20 @@ const Paging = (props) => {
         <i class="fas fa-chevron-left"></i>
       </button>
 
-      {/* {paginationRange.map((pageNumber, idx) => {
+      {paginationRange.map((pageNumber, idx) => {
         // If the pageItem is a DOT, render the DOTS unicode character
         if (pageNumber === 'LEFT_PAGE' || pageNumber === 'RIGHT_PAGE') {
-          return <li className="pagination-item dots" key={idx}>&#8230;</li>
+          return (
+            <li className="pagination-item dots" key={idx}>
+              &#8230;
+            </li>
+          )
         }
 
         // Render our Page Pills
         return <li onClick={() => onPageChange(pageNumber)}>{pageNumber}</li>
-      })} */}
+      })}
+
       {/*  Right Navigation arrow */}
 
       <button
@@ -66,4 +71,4 @@ const Paging = (props) => {
   )
 }
 
-export default Paging
+export default SearchPagination

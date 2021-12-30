@@ -2,6 +2,7 @@ import {
   GET_NEWS,
   GET_NEWS_ERROR,
   SET_LOADING,
+  SET_LATEST_LOADING,
   GET_CATEG_NEWS,
   GET_SINGLE_NEWS,
   GET_LATEST,
@@ -63,6 +64,11 @@ const newsReducer = (state, action) => {
       return {
         ...state,
         loading: true,
+      }
+    case SET_LATEST_LOADING:
+      return {
+        ...state,
+        latestLoading: true,
       }
 
     default:

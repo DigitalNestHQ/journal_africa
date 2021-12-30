@@ -74,7 +74,7 @@ const Footer = () => {
             <ul className="footer-list">
               <li className="footer-list-item">
                 <Link to="/podcast" className="footer-link">
-                  Podcast (coming soon)
+                  Podcast
                 </Link>
               </li>
               <li className="footer-list-item">

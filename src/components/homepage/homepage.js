@@ -28,7 +28,7 @@ function Homepage() {
     // eslint-disable-next-line
   }, [])
 
-  if (loading || latestLoading) {
+  if (loading || latestLoading || news === null ) {
     return <Loader />
   }
 

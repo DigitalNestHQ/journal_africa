@@ -20,9 +20,7 @@ const SearchComponent = ({ filtered, news }) => {
     <Fragment>
       {news !== null && !loading ? (
         filtered !== null ? (
-          filtered
-            .slice(firstPageIndex, lastPageIndex)
-            .map((news) => <SearchItem newsPost={news} key={news.id} />)
+          filtered.map((news) => <SearchItem newsPost={news} key={news.id} />)
         ) : (
           news
             .slice(firstPageIndex, lastPageIndex)

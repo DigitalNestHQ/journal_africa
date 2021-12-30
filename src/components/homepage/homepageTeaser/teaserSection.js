@@ -32,8 +32,8 @@ const TeaserSection = ({ data }) => {
   // Select 1 news from each category
   const selectedTeasers = [culture[0], places[0], lifestyle[0], people[0]]
 
-  if (selectedTeasers.length === 0) {
-    return null
+  if (selectedTeasers.length === 0 || latestNews === null) {
+    return null;
   }
 
   return (

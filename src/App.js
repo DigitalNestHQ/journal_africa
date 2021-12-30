@@ -35,8 +35,8 @@ import SubcategoryNews from './components/category/SubcategoryNews.js'
 import { WriteForUs } from './components/writeforus/WriteForUs.js'
 import NewState from './context/news/NewState'
 import CommentState from './context/comments/CommentState'
+import SearchNews from './components/generalNews/searchComponent/SearchNews'
 const App = () => {
-
   return (
     <div className="app">
       <AuthState>
@@ -67,6 +67,7 @@ const App = () => {
                 <Route exact path="/post/:slug" component={NewsFeeds} />
                 <Route exact path="/latest/:slug" component={LatestDaily} />
                 <Route exact path="/news/categories" component={CategoryNews} />
+                <Route exact path="/search" component={SearchNews} />
                 <Route
                   exact
                   path="/news/sub-categories"

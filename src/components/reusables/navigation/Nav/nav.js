@@ -81,7 +81,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/podcast">podcast (coming soon)</Link>
+                <Link to="/podcast">podcast</Link>
               </li>
             </ul>
           ) : (
@@ -105,7 +105,9 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li className="cta-item">
-                  <i className="fas fa-search"></i>
+                  <Link to="/search">
+                    <i className="fas fa-search"></i>
+                  </Link>
                 </li>
               </ul>
             </div>

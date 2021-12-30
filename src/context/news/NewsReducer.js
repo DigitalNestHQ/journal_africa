@@ -5,6 +5,8 @@ import {
   GET_CATEG_NEWS,
   GET_SINGLE_NEWS,
   GET_LATEST,
+  FILTER_NEWS,
+  CLEAR_FILTER,
 } from '../types'
 
 const newsReducer = (state, action) => {
@@ -14,6 +16,21 @@ const newsReducer = (state, action) => {
         ...state,
         news: action.payload,
         loading: false,
+      }
+
+    case FILTER_NEWS:
+      return {
+        ...state,
+        filtered: state.news.filter((news) => {
+          const regex = new RegExp(`${action.payload}`, 'gi')
+          return news.post_title.match(regex) || news.slug.match(regex)
+        }),
+      }
+
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: null,
       }
 
     case GET_LATEST:

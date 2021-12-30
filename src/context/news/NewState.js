@@ -9,11 +9,14 @@ import {
   GET_CATEG_NEWS,
   GET_SINGLE_NEWS,
   GET_LATEST,
+  FILTER_NEWS,
+  CLEAR_FILTER,
 } from '../types'
 
 const NewState = ({ children }) => {
   const initialState = {
     news: null,
+    filtered: null,
     loading: true,
     latestLoading: true,
     singleNews: null,
@@ -95,6 +98,13 @@ const NewState = ({ children }) => {
     }
   }
 
+  const filterNews = (text) => {
+    dispatch({ type: FILTER_NEWS, payload: text })
+  }
+
+  const clearFilterNews = () => {
+    dispatch({ type: CLEAR_FILTER })
+  }
   //set loading
   const setLoading = () => {
     dispatch({
@@ -106,6 +116,7 @@ const NewState = ({ children }) => {
     <newsContext.Provider
       value={{
         news: state.news,
+        filtered: state.filtered,
         loading: state.loading,
         latestLoading: state.latestLoading,
         singleNews: state.singleNews,
@@ -116,7 +127,9 @@ const NewState = ({ children }) => {
         getNews,
         getCategory,
         getSingleNews,
-        getLatestNews
+        getLatestNews,
+        filterNews,
+        clearFilterNews,
       }}
     >
       {children}

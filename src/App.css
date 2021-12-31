@@ -79,6 +79,11 @@ ol {
   font-weight: 600;
   font-size: clamp(1.15rem, 2.5vw, 1.25rem);
 }
+.section-heading-default-pod {
+  line-height: 30px;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+}
 .slug-default {
   color: black;
   font-weight: bold;

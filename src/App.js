@@ -13,10 +13,11 @@ import ContactUs from './components/ContactUs/index'
 import NewsFeeds from './components/generalNews/News'
 import { CodeOfEthics } from './components/ethicscode/CodeOfEthics'
 import CategoryNews from './components/category/CategoryNews'
-import { PodcastHome } from './podcast/home/PodcastHome.js'
+import PodcastHome from './podcast/home/PodcastHome.js'
 import { PodCastsView } from './podcast/podcastspage/PodCastsView.js'
 import LatestDaily from './components/reusables/news/LatestDaily'
 import Error404 from './components/error404/error404'
+import CurrentPodCast from './podcast/home/currentPodcast/CurrentPodCast'
 
 // css override
 import './../src/components/reusables/utilities/index.css'
@@ -77,6 +78,11 @@ const App = () => {
                 <Route exact path={pageurl.PODCAST} component={PodcastHome} />
                 <Route exact path="/podcast/all" component={PodCastsView} />
                 <Route exact path="/podcast/single" component={SinglePodCast} />
+                <Route
+                  exact
+                  path="/podcast/:collectionId"
+                  component={CurrentPodCast}
+                />
                 <Route
                   exact
                   path={pageurl.PRIVACYPOLICY}

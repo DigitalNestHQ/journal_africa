@@ -1,0 +1,82 @@
+.each-pod-category {
+  width: 100%;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.pod-category-header {
+  display: block;
+  width: 100%;
+  margin: 3rem 0;
+}
+.pod-header {
+  margin: 0;
+}
+.pod-category-list {
+  display: block;
+  width: 100%;
+}
+.pod-collections {
+  display: block;
+  width: 100%;
+  margin: 2rem 0;
+  border-bottom: 7px solid #8a8787;
+}
+.pod-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  border-bottom: 2px solid #fff;
+  padding: 0 0 1.3rem 0;
+}
+.pod-img-container {
+  width: 250px;
+  height: 150px;
+  display: block;
+}
+.pod-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.pod-collection-details {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+}
+.pod-cta {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+.pod-btn {
+  background: transparent;
+  color: #fff;
+  outline: none;
+  padding: 0.2rem 0.5rem;
+  font-weight: bold;
+}
+.play-button {
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.pod-subscribe {
+  border: none;
+  background-color: red;
+}
+.pod-episodes {
+  margin: 0.3rem 0;
+  color: #fff;
+  display: block;
+  width: 100%;
+}
+.pod-episodes:hover {
+  color: #fff;
+}

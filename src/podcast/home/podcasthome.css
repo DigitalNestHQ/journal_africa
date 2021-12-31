@@ -1,29 +1,19 @@
-:root{
-    --pod-black-1: #000000;
-    --pod-white-1: #FFFFFF;
-    --pod-red-1: #FF0000;
+.pod-bg {
+  background-color: #302f2f;
+  height: 100%;
+  color: #fff;
+}
+.pod-content {
+  margin-top: 127px;
+}
+.pod-content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
 }
 
-.podcast_container{
-    background-color: var(--pod-black-1);
-    color: var(--pod-white-1);
-    min-height: 100vh;
+@media (max-width: 1250px) {
+  .pod-content {
+    margin-top: 111px;
+  }
 }
-
-.podcast{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1500px;
-    margin: 0 auto;
-}
-
-.podcast_container .container-fluid{
-    padding: 0;
-}
-
-
-
-
-
-

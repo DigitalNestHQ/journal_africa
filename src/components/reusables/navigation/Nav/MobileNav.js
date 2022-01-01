@@ -124,10 +124,7 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
             }`}
           >
             <Link
-              to={{
-                pathname: '/news/categories',
-                search: `?category=Podcast`,
-              }}
+              to='/podcast'
               className={`${
                 active === 6 ? 'mobile-link-active' : 'mobile-link-inactive'
               }`}

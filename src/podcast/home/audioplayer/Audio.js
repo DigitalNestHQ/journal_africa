@@ -3,7 +3,7 @@ import React from "react";
 // import Song from "./Song";
 // import Play from "./Play";
 // import Pause from "./Pause";
-import Bar from "./../currentPodcast/Bar";
+import Bar from "../currentPodcast/CurrentPodcastHeader";
 import playImage from "./../../../assets/images/play.png";
 import pauseImage from "./../../../assets/images/pause.png";
 

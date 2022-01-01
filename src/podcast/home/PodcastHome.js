@@ -50,16 +50,20 @@ const PodcastHome = () => {
       <div className="section-content-default pod-content">
         <div className="section-wrapper-default">
           <div className="pod-content-grid">
-            <div className="pod-categories">
-              <PodcastCategories
-                header={'Digital Podcasts'}
-                podcasts={digitalPodcasts}
-              />
-              <PodcastCategories
-                header={'Radio & TV Podcasts'}
-                podcasts={radioPodcasts}
-              />
-            </div>
+            {podcasts.length === 0 && !loading ? (
+              <h5>Podcast unavailable</h5>
+            ) : (
+              <div className="pod-categories">
+                <PodcastCategories
+                  header={'Digital Podcasts'}
+                  podcasts={digitalPodcasts}
+                />
+                <PodcastCategories
+                  header={'Radio & TV Podcasts'}
+                  podcasts={radioPodcasts}
+                />
+              </div>
+            )}
             <div className="pod-ads">Ads</div>
           </div>
         </div>

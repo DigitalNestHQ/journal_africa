@@ -8,6 +8,7 @@ import PodcastCategories from './podcategories/PodcastCategories'
 // import { HtmlParseOptions } from '../../_helper/parseNewsHtml'
 // import ReactHtmlParser from 'react-html-parser'
 // import { Row, Col, Card } from 'react-bootstrap'
+import { useViewPort } from '../../components/hooks/Viewport'
 import axios from 'axios'
 import '../../components/homepage/politics/politicsandgovernance.css'
 import './podcasthome.css'
@@ -15,12 +16,15 @@ import NavBar from '../../components/reusables/navigation/Nav/nav'
 import Footer from '../../components/reusables/navigation/Footer/footer'
 import { HOMESCREEN_API_URL } from '../../utils/constants'
 import Loader from '../../components/loader/Loader'
+import cybertruck from '../../assets/images/cybertruck1.jpg'
 
 //  THIS IS THE PODCAST PLAYING PAGE
 
 const PodcastHome = () => {
   const [podcasts, setPodcasts] = useState(null)
   const [loading, setLoading] = useState(false)
+  const { width } = useViewPort()
+  const breakpoint = 1150
   useEffect(() => {
     const fetchPods = async () => {
       setLoading(true)
@@ -28,7 +32,6 @@ const PodcastHome = () => {
         .then((data) => {
           setPodcasts(data)
           setLoading(false)
-          console.log(data)
         })
         .catch((err) => console.log(err))
     }
@@ -64,7 +67,33 @@ const PodcastHome = () => {
                 />
               </div>
             )}
-            <div className="pod-ads">Ads</div>
+            {width > breakpoint ? (
+              <div className="pod-ads">
+                <div className="pod-home-ad-sense">
+                  <img
+                    src={cybertruck}
+                    alt="ads"
+                    className="pod-home-ad-sense-img"
+                  />
+                </div>
+                <div className="pod-home-ad-sense">
+                  <img
+                    src={cybertruck}
+                    alt="ads"
+                    className="pod-home-ad-sense-img"
+                  />
+                </div>
+                <div className="pod-home-ad-sense">
+                  <img
+                    src={cybertruck}
+                    alt="ads"
+                    className="pod-home-ad-sense-img"
+                  />
+                </div>
+              </div>
+            ) : (
+              ''
+            )}
           </div>
         </div>
       </div>

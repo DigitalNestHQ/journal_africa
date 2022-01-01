@@ -8,7 +8,7 @@
 .pod-category-header {
   display: block;
   width: 100%;
-  margin: 3rem 0;
+  margin: 0 0 3rem 0;
 }
 .pod-header {
   margin: 0;
@@ -79,4 +79,16 @@
 }
 .pod-episodes:hover {
   color: #fff;
+}
+
+@media(max-width:685px) {
+  .pod-grid {
+    display: block;
+    grid-template-columns: unset;
+    gap: unset;
+  }
+  .pod-img-container {
+    width: 100%;
+    height: 280px;
+  }
 }

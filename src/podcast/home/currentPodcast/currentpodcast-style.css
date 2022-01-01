@@ -105,10 +105,23 @@
   text-align: left;
   color: #bab8b8;
 }
-.pod-read-more{
-    background-color: transparent;
-    text-decoration: underline;
-    border: none;
-    outline: none;
-    color: #fff;
+.pod-read-more {
+  background-color: transparent;
+  text-decoration: underline;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+.pod-pause-play-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 1rem 0 0 0;
+  gap: 1rem;
+}
+.pod-play-button {
+  border: none;
+  background-color: transparent;
+  outline: none;
 }

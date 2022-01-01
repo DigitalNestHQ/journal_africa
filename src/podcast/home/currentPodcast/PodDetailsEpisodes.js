@@ -1,5 +1,8 @@
 import React from 'react'
 import EpisodeDesc from './EpisodeDesc'
+import ReleaseDate from './ReleaseDate'
+import EpisodeDuration from './EpisodeDuration'
+import play_button from '../../../assets/images/play_button.svg'
 
 const PodDetailsEpisodes = ({ episodes }) => {
   return (
@@ -22,6 +25,13 @@ const PodDetailsEpisodes = ({ episodes }) => {
                   characterCount={150}
                   readMore={true}
                 />
+                <div className="pod-pause-play-section">
+                  <button className="pod-play-button">
+                    <img src={play_button} alt="play" />
+                  </button>
+                  <ReleaseDate date={episode.releaseDate}/>
+                  <EpisodeDuration duration={episode.trackTimeMillis} />
+                </div>
               </div>
             </div>
           ))}

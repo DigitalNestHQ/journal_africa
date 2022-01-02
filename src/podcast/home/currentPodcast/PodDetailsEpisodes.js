@@ -30,9 +30,6 @@ const PodDetailsEpisodes = ({ episodes }) => {
                 <div className="pod-pause-play-section">
                   <button
                     className="pod-play-button"
-                    onClick={() =>
-                      history.push(`/podcast/play/${episode.trackId}`)
-                    }
                   >
                     <img src={play_button} alt="play" />
                   </button>

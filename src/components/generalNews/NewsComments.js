@@ -1,45 +1,51 @@
-import React from 'react'
-import { Card } from 'react-bootstrap';
-import { formatDate } from '../../_helper/dateFormatter';
+import React, { useEffect, useState, useContext } from 'react'
+import commentsContext from '../../context/comments/commentsContext'
+import Moment from 'react-moment'
 
-export const NewsComments = ({comments}) => {
-    return (
-        <>
-            <section className="comment--feed">
-                {/*  if there is no comment display drop a comment else return the comments */}
-                {
-                    comments && comments.length == 0 ? <React.Fragment><p className="drop-comment-text">Leave a Reply</p></React.Fragment> :
-                    (
-                         <React.Fragment>
-                            <span className="lead mb-1">Comments</span>
-                            {
-                                comments && comments.map((comment, index)=>{
-                                    return (
-                                        <Card key={index}>
-                                            <Card.Text className="h5 pl-0 text-capitalize commenter">{comment?.name}</Card.Text>
-                                            <span className="comment-date">Posted on {formatDate(comment?.created_at)}</span>
-                                            <Card.Body>
-                                                <blockquote className="blockquote mb-0">
-                                                    <p className=" comment">
-                                                        {' '}
-                                                        {comment?.comment}
-                                                        {' '}
-                                                    </p>
-                                                    {/* <footer className="blockquote-foote comment-date">
-                                                    </footer> */}
-                                                </blockquote>
-                                                <hr style={{border: '1px #ddd solid', width: '100%'}}/>
-                                            </Card.Body>
-                                        </Card> 
-                                    )
-                                })
-                            }
-                        </React.Fragment>
-                    )
-                }
-            </section>
-        </>
-    )
+const NewsComments = ({ slug }) => {
+  const [commentLength, setCommentLength] = useState(3)
+  const context = useContext(commentsContext)
+  const { comment_loading, getComments, newsComment } = context
+
+  const handleComment = () => {
+    setCommentLength((prev) => prev + 2)
+  }
+
+  useEffect(() => {
+    getComments(slug)
+    console.log('comment-effect')
+    //eslint-disable-next-line
+  }, [slug])
+
+  if (comment_loading || newsComment === null) {
+    return <div></div>
+  }
+
+  return (
+    <div className="comments-comments">
+      <h5 className="comment-form-header">Comments</h5>
+      {!comment_loading && newsComment.length === 0 ? (
+        <p>Be the first to comment on this post</p>
+      ) : (
+        newsComment.slice(0, commentLength).map((eachComment) => (
+          <div className="comments-comments-container" key={eachComment.id}>
+            <div className="comment-details">
+              <h5 className="comment-name">{eachComment.name}</h5>
+              <p className="comment-text">{eachComment.comment}</p>
+            </div>
+            <p className="comment-date">
+              <Moment format="MMMM Do YYYY">{eachComment.created_at}</Moment>
+            </p>
+          </div>
+        ))
+      )}
+      <div className="comment-load-more">
+        <button className="load-more" onClick={handleComment}>
+          Load More...
+        </button>
+      </div>
+    </div>
+  )
 }
 
-export default NewsComments;
+export default NewsComments

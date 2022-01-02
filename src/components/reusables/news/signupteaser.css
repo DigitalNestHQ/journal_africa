@@ -1,126 +1,59 @@
+.signup-teaser {
+  text-align: center;
+  display: block;
+  margin-top: 2rem;
+  background-color: #ff1515;
+}
+.signup-message {
+  margin-bottom: 1.5rem;
+  color: #fff;
+  font-weight: 300;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  display: block;
+}
 
-.signup-teaser{
-    text-align: center;
+.signup-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-input {
+  padding: 1rem;
+  width: 26.5rem;
+  border: none;
+  outline: none;
+}
+.submit-btn {
+  padding: 1rem;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  text-transform: uppercase;
+}
+@media (max-width: 650px) {
+  .signup-form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-top: 100px;
-}
-.signup-teaser .teaser-message{
-    font-size: 36px;
-    max-width: 930px;
-    line-height: 43.2px;
-    color: var(--news-description-color);
-    font-weight: 400;
-}
-
-.signup-teaser .teaser--btn{
-    border: none;
-    outline: none;
-    margin-top: 20px;
-    margin-bottom: 90px;
-    background-color: var(--color-red-2);
-    color: var(--color-white);
-    font-size: 36px;
-    height: 76px;
-    width: 265px;
-    border-radius: 10px;
-}
-
-.signup-teaser input{
-    outline: none;
-    border: 1px solid #595959;
-    padding: 10px 20px;
-    font-size: 17px;
-    width: 400px;
-    text-align: center;
-}
-
-.signup-teaser .sub--btn{
-    background-color: var(--color-red-2);
-    color: var(--color-white);
-    outline: none;
-}
-.signup-teaser .sub--btn:hover{
-    opacity: 0.7;
-}
-
-/* // Large devices (desktops, less than 1200px) */
-@media (max-width: 1199.98px) {
-    .signup-teaser .teaser-message{
-        font-size: 33px;
-    }
-    .signup-teaser .teaser--btn{
-        font-size: 34px;
-        height: 70px;
-        width: 260px;
-        border-radius: 10px;
-    }
-}
-
-/* // Medium devices (tablets, less than 992px) */
-@media (max-width: 991.98px) {
-    .signup-teaser .teaser-message{
-        font-size: 30px;
-    }
-    .signup-teaser .teaser--btn{
-        font-size: 32px;
-        height: 60px;
-        width: 240px;
-        border-radius: 10px;
-    }
-}
-
-/* // Small devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px) {
-    .signup-teaser .teaser-message {
-        font-size: 22px;
-        line-height: 35px;
-    }
-    .signup-teaser .teaser--btn{
-        font-size: 27px;
-        height: 63px;
-        width: 220px;
-        border-radius: 10px;
-    }
-
-    .signup-teaser input{
-        width: 100%;
-    }
-    
-}
-
-/* // Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
-    .signup-teaser .teaser-message {
-        font-size: 22px;
-        line-height: 35px;
-    }
-    .signup-teaser .teaser--btn{
-        font-size: 25px;
-        height: 60px;
-        width: 210px;
-        border-radius: 6px;
-        margin-bottom: 50px;
-
-    }
-}
-
-@media (max-width: 400.98px) {
-    .signup-teaser{
-        margin-top: 20px;
-    }
-    .signup-teaser .teaser-message {
-        font-size: 17px;
-        line-height: 20px;
-    }
-    .signup-teaser .teaser--btn{
-        font-size: 20px;
-        height: 40px;
-        width: 150px;
-        border-radius: 5px;
-        margin-bottom: 50px;
-
-    }
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+    padding: 0;
+  }
+  .signup-input {
+    display: block;
+    width: 100%;
+  }
+  .submit-btn {
+    display: block;
+    width: 100%;
+  }
+  .signup-message {
+    margin-top: 1rem;
+  }
+  .forms-group {
+    display: block;
+    width: 100%;
+  }
 }

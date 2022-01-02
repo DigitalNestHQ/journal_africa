@@ -1,75 +1,83 @@
-import React, { Component } from "react";
-import "./lifestyle.css";
-import { LifeStyleCard } from "./LifeStyleCard";
-import { ExploreMore } from "../ExploreMore";
-import { Link } from "react-router-dom";
+import React from 'react'
+import '../business/business.css'
+import { Link } from 'react-router-dom'
+import { HtmlParseOptions } from '../../../_helper/parseNewsHtml'
+import ReactHtmlParser from 'react-html-parser'
+import { Row, Col, Card } from 'react-bootstrap'
+import './lifestyle.css'
 
-// This component has been changed to Finance
-class LifeStyle extends Component {
-  render() {
-    const lifestyleNews =
-      this.props.data &&
-      this.props.data.filter((news) => news.category_id === "Finance");
-    // shuffle the news randomly for the big frame
-    const shuffleLifeStyleNews = Math.floor(Math.random() * 4);
-    const bigFrameNews = lifestyleNews[shuffleLifeStyleNews];
-    // const {featured_image} = lifestyleNews[0];
-    // console.log(lifestyleNews)
-    return (
-      <div className="lifestyle custom-container">
+const Business = ({ data }) => {
+  const businessNews = data.filter((news) => news.category_id === 'Business')
+
+  return (
+    <section className="business-section section-content-default">
+      <div className="section-wrapper-default">
+        <h5 className="business-header section-heading-default">Gender and Human Rights</h5>
+        <div className="business-content">
+          <Row xs={1} lg={2} className="g-4">
+            {businessNews.slice(3, 5).map((categ, idx) => (
+              <Col className="com-col" key={categ.id}>
+                <Link to={`/post/${categ.slug}`} className="bus-link">
+                  <Card className="bus-card">
+                    <Card.Img
+                      variant="top"
+                      src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
+                      className="card-img-business"
+                    />
+                    <a href="#!" className="com-title text-white slug-default">
+                      Human Rights
+                    </a>
+                  </Card>
+                </Link>
+              </Col>
+            ))}
+          </Row>
+        </div>
+        <div className="business-content">
+          <Row xs={1} lg={3} className="g-4">
+            {businessNews.slice(3, 6).map((categ, idx) => (
+              <Col className="bus-col" key={categ.id}>
+                <Link to={`/post/${categ.slug}`} className="bus-link">
+                  <Card className="bus-card">
+                    <Card.Img
+                      variant="top"
+                      src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
+                      className="mb-3 card-img-business"
+                    />
+                    <p className="premium-badge">
+                      {categ.post_type === 'premium'
+                        ? `${categ.post_type}`
+                        : ''}
+                    </p>
+                    <Card.Body className="com-card-body">
+                      <Card.Subtitle className="mb-3 slug-default">
+                        {categ.slug}
+                      </Card.Subtitle>
+                      <Card.Text>
+                        {ReactHtmlParser(
+                          `${categ.post_description.substring(0, 130)}...`,
+                          HtmlParseOptions,
+                        )}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Link>
+              </Col>
+            ))}
+          </Row>
+        </div>
         <Link
           to={{
-            pathname: "/news/categories",
-            search: `?category=Finance`,
+            pathname: '/news/categories',
+            search: `?category=Gender and human rights`,
           }}
+          className="explore-red-btn"
         >
-          <h3 className="lifestyle-category-heading">Finance</h3>
+          Explore More...
         </Link>
-        <div className="lifestyle-top">
-          <div className="lifestyle-top-left"></div>
-          {/* <div className="lifestyle-top-right d-none d-lg-block"></div> */}
-        </div>
-        <div className="custom-cntainer lifestyle-bottom">
-          <div
-            className="row lifestyle-bottom-left"
-            style={
-              {
-                // background: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
-                // url("https://api.tv24africa.com/public/storage/post_image/${bigFrameNews?.featured_image}")center/cover no-repeat`
-              }
-            }
-          >
-            {lifestyleNews &&
-              lifestyleNews.length > 0 &&
-              lifestyleNews.slice(0, 3).map((news) => {
-                const {
-                  post_title,
-                  id,
-                  featured_image,
-                  slug,
-                  category_id,
-                  post_description,
-                } = news;
-                return (
-                  <LifeStyleCard
-                    key={slug}
-                    post_title={post_title}
-                    id={id}
-                    featured_image={featured_image}
-                    slug={slug}
-                    category_id={category_id}
-                    post_description={post_description}
-                  />
-                );
-              })}
-          </div>
-        </div>
-        <div className="lifestyle-more-btn">
-          <ExploreMore category_id="Lifestyle" />
-        </div>
       </div>
-    );
-  }
+    </section>
+  )
 }
 
-export default LifeStyle;
+export default Business

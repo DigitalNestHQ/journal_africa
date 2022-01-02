@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-const queryContext = createContext();
+const newsContext = createContext();
 
-export default queryContext;
+export default newsContext;

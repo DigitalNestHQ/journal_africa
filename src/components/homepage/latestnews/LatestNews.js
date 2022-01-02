@@ -1,69 +1,48 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import LatestNewsCard from "./LatestNewsCard";
-import "./latestnews.css";
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-
-
-class LatestNews extends Component {
-  render() {
-    const feeds = this.props.data;
-
-    if(feeds.length === 0){
-      return (
-        <>
-          <div className="latest-news-wrap container-fluid my-4">
-            <Link to="/">
-            {/* <label className="categories-heading">Latest Stories For Me</label> */}
-            </Link>
-            <div className="container-fluid row pol-news-card-wrap">
-                  <div className="card sec-2 col-lg-6 col-sm-6 col-6 my-2 mx-auto" style={{
-                    margin: '10px 0px',
-                    padding: '0px 5px'
-                  }}>
-                  <SkeletonTheme color="#EEE" highlightColor="#CCC">
-                      <p>
-                      <Skeleton count={3} duration={4} />
-                      </p>
-                  </SkeletonTheme>
-                </div>
-              </div>
-          </div>
-        </>
-      )
-    }
-    return (
-      <div className="custom-container latest-news-wrap container-fluid my-4">
-        <Link to="/">
-          <label className="categories-heading">Personalised Stories For Me</label>
-        </Link>
-        <div className="container-fluid row pol-news-card-wrap">
-          {feeds && feeds.length > 0 &&
-            feeds.slice(0, 4).map((categ) => {
-              const {
-                post_type,
-                post_title,
-                featured_image,
-                id,
-                slug,
-                category_id,
-              } = categ;
-              return (
-                <LatestNewsCard
-                  key={id}
-                  post_title={post_title}
-                  post_type={post_type}
-                  featured_image={featured_image}
-                  id={id}
-                  slug={slug}
-                  category_id={category_id}
-                />
-              );
-            })}
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './latestnews.css'
+import { Row, Col, Card } from 'react-bootstrap'
+import { LargeSizeAds } from '../ads/Ads'
+import bannerAds from '../../../assets/images/bannerads.png'
+import '../ads/ads.css'
+const LatestNews = ({ data }) => {
+  return (
+    <section className="section-content-default my4">
+      <div className="section-wrapper-default">
+        <h5 className="categories-heading section-heading-default">
+          Personalised Stories For Me
+        </h5>
+        <div className="personalized-content">
+          <Row xs={1} md={4} className="g-4">
+            {data.slice(0, 4).map((categ) => (
+              <Col className="per-card" key={categ.id}>
+                <Link to={`/post/${categ.slug}`} className="per-link">
+                  <Card className="l-card">
+                    <Card.Img
+                      variant="top"
+                      src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
+                      className="mb-3 card-img-latest"
+                    />
+                    <p className="premium-badge">
+                      {categ.post_type === 'premium'
+                        ? `${categ.post_type}`
+                        : ''}
+                    </p>
+                    <Card.Body className="l-card-body">
+                      <Card.Text>{categ.slug}</Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Link>
+              </Col>
+            ))}
+          </Row>
+        </div>
+        <div className="ad-sense">
+          <LargeSizeAds img={bannerAds} />
         </div>
       </div>
-    );
-  }
+    </section>
+  )
 }
 
-export default LatestNews;
+export default LatestNews

@@ -1,52 +1,57 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./allNews.css";
-const ShareNews = (props) => {
-  const { post_title, post_description } = props;
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+const ShareNews = ({ next, previous }) => {
   return (
-    <div className="row share-icons-container">
-      <span className="small">Share this story</span>
-      <div className="share-news">
-        <a
-          target="_blank"
-          href={`https://twitter.com/intent/tweet/?text=${post_title}. Read More on&url=tv24africa.com`}
-        >
-          <span className="share-icon-wrap twt">
-            <i className="fab fa-twitter"></i>{" "}
-          </span>
-        </a>
-        <a
-          target="_blank"
-          href="https://facebook.com/sharer/sharer.php?u=tv24africa.com"
-        >
-          <span className="share-icon-wrap fb">
-            <i className="fab fa-facebook"></i>{" "}
-          </span>
-        </a>
-        <a target="_blank" hreh="">
-          <span className="share-icon-wrap insta">
-            <i className="fab fa-instagram"></i>{" "}
-          </span>
-        </a>
-        <a
-          target="_blank"
-          href={`https://api.whatsapp.com/send?text=${post_title}. Read More on tv24africa.com`}
-        >
-          <span className="share-icon-wrap twt">
-            <i className="fab fa-whatsapp wtsapp"></i>{" "}
-          </span>
-        </a>
-        <a
-          target="_blank"
-          href={`https://www.linkedin.com/shareArticle?mini=true&url=https://tv24africa.com&title=${post_title} &summary=${post_title}&source=tv24africa`}
-        >
-          <span className="share-icon-wrap lnk">
-            <i className="fab fa-linkedin"></i>{" "}
-          </span>
-        </a>
+    <div className="next-prev-section">
+      <div className="news-social-icons">
+        <h5 className="slug-default mb-0">Share this story</h5>
+        <ul className="share-icons">
+          <li className="news-social-icons-items n-facebook">
+            <i className="fab fa-facebook"></i>
+          </li>
+          <li className="news-social-icons-items n-twitter">
+            <i className="fab fa-twitter"></i>
+          </li>
+          <li className="news-social-icons-items n-instagram">
+            <i className="fab fa-instagram"></i>
+          </li>
+          <li className="news-social-icons-items n-whatsapp">
+            <i className="fab fa-whatsapp"></i>
+          </li>
+          <li className="news-social-icons-items n-linkedin">
+            <i className="fab fa-linkedin"></i>
+          </li>
+        </ul>
+      </div>
+      <div className="next-or-prev-section">
+        <div className="previous">
+          {previous.slug ? (
+            <div>
+              <p className="previous-article">Previous Article</p>
+              <Link to={`/post/${previous.slug}`} className="prev-link">
+                {previous.slug}
+              </Link>
+            </div>
+          ) : (
+            ''
+          )}
+        </div>
+        <div className="next">
+          {next.slug ? (
+            <div>
+              <p className="next-article">Next Article</p>
+              <Link to={`/post/${next.slug}`} className="next-link">
+                {next.slug}
+              </Link>
+            </div>
+          ) : (
+            ''
+          )}
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ShareNews;
+export default ShareNews

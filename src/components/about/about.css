@@ -1,180 +1,81 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.about-left-text {
+  width: 100%;
+  display: block;
+  margin: 0;
 }
-.about{
-    max-width: 1440px;
-    margin: 0 auto;
-    padding-top: 110px;
+.about-board-cards {
+  margin-top: 1.8rem;
+  width: 100%;
 }
-
-.about .bg-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.about-link-tag {
+  background-color: #fff;
+  color: red;
+  font-weight: 600;
 }
-@media(max-width: 900px){
-    .about .bg-header{
-        align-items: flex-end;
-    }
-    
-    .about-txt{
-        padding-bottom: 30px;
-    }
+.about-link-tag:hover {
+  color: red;
 }
-.abt-tp-nav{
-    width: 100%;
+.about-card-msg {
+  margin: 0.5rem 0 0 0;
+  text-transform: capitalize;
 }
-.about-header .navigation{
-    background: #E90A0A;
-    height: 60px;
+.trump-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
-.bg-header{
-background: linear-gradient(rgba(22, 7, 233, 0.541), rgba(51, 65, 126, 0.61)),
-    url("../../assets/images/discoverbanner.jpg")top/cover fixed no-repeat;
-color: #fff;
-height: 200px;
-width: 100%;
-margin: 0 auto;
-padding: 0;
-text-align: center;
+.aboutimg-container {
+  width: 100%;
+  position: relative;
+  height: 100%;
 }
-.bg-header p{
-font-weight: bold;
-font-size: 36px;
-line-height: 42px;
-padding-top: 50px;
+.about-card-left-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
 }
-
-.abt-txt p, 
-.txt-btm p{
-font-weight: normal;
-font-size: 17px;
-line-height: 28px;
-text-align: justify;
+.about-trends {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 1rem 0;
+  color: #fff;
+  background-color: red;
+  padding: 0.3rem;
+  text-transform: uppercase;
 }
-.txt-btm{
-    padding: 20px 30px;
+.about-left-overlay {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  left: 0;
+  color: #fff;
+  padding: 0.5rem;
 }
-
-.about-crd{
-    border: 1px solid red;
+.add-container {
+  margin-top: 1.5rem;
+  display: block;
+  width: 100%;
 }
-.about-right{
-
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)), drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    width: 30%;
-    height: 755px;
-    border-radius: 30px;
-    /* padding: 5px; */
-    margin-top: 30px;
+.rem-text-container {
+  margin-top: 1.5rem;
+  display: block;
+  width: 100%;
 }
-
-.about-right .ts-overlay{
-    background-color: rgba(0, 0, 0, 0.4);
+.about-board-content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
 }
-
-.about-right .ts-overlay .ts-card-txt{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-.abt-main{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-@media(max-width: 900px){
-    .abt-main{
-        padding: 10px !important;
-    }
-}
-.about-left{
-    width: 63%;
-    flex: 1 1 .5px;
-    padding: 30px;
-}
-
-.about-left .ts-overlay{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-.about-left .ts-overlay button{
-    background: #FFFFFF;
-    color: #E90A0A;
-    border: none;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-.s-card{
-    width: 294px;
-    height: 330px;
-}
-@media(max-width: 900px){
-    .about-right{
-        display: none;
-    }
-}
-.about-right button{
-    padding: 10px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    background: #F83D3D;
-    color: #fff;
-    border-radius: 20px;
-    border: none;
-    text-align: center;
-    margin: 0 auto;
-    display: block;
-}
-.about-right p{
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 30px;
-    color: #fff;
-    /* padding-top: 450px; */
-}
-@media screen and (max-width: 772px){
-    .bg-header p{
-    font-size: 25px;
-    line-height: 32px;
-    padding-top: 30px;
-    }
-    .abt-main{
-        flex-direction: column;
-        align-items: center;
-    }
-    .about-left{
-        width: 90%;
-        margin: 0 auto;
-        padding: 30px 20px;
-    }
-    .txt-btm{
-        padding: 40px;
-        margin: 0 auto;
-    }
-    .abt-txt p, 
-    .txt-btm p{
-    font-size: 18px;
-    }
-    .about-right{
-        width: 90%;
-        height: 550px;
-        margin: 0 auto;
-    }
-    .about-right p{
-        font-size: 20px;
-        line-height: 28px;
-    padding-top: 300px;
-    }
-    .s-card{
-        margin: 20px auto;
-    }
+@media (max-width: 993px) {
+  .about-board-content-grid {
+    grid-template-columns: 1fr;
+    gap: unset;
+  }
+  .about-us-each-card {
+    margin-bottom: 1rem;
+  }
 }

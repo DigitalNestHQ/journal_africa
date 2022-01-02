@@ -1,34 +1,73 @@
-import React from 'react';
-import bigImage from "./../../../assets/images/burna-podcast.png";
-import './currentpodcast-style.css';
-import { Card } from "react-bootstrap";
-import Audio from '../audioplayer/Audio';
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
+import NavBar from '../../../components/reusables/navigation/Nav/nav'
+import Footer from '../../../components/reusables/navigation/Footer/footer'
+import Loader from '../../../components/loader/Loader'
+import { BASE_URL } from '../../../utils/constants'
+import CurrentPodcastDetails from './CurrentPodcastDetails'
+import CurrentPodcastHeader from './CurrentPodcastHeader'
+import './currentpodcast-style.css'
 
-export const CurrentPodCast = () => {
-  
-    return (
-        <React.Fragment>
-            <section className="current_pod_screen">
-              <Card className="h-100">
-                <Card.Img
-                  src={bigImage}
-                  alt="Card image"
-                  className="h-100"
-                />
-                <Card.ImgOverlay>
-                  <div className="current_pod_wrapper">
-                    <Audio className="player"/>
-                  </div>
-                  <Card.Text className="current_pod_title">
-                    Burna Buy: I deserved to win Grammy
-                  </Card.Text>
-                </Card.ImgOverlay>
-              </Card>
-                <section className="current_pod_caption">
-                  <p className="current_podcast_signal"><i className="fas fa-dot-circle live_dot_signal"></i> Live</p>
-                  <p className="current_podcast_caption">An ongoing interview session with NDDC Chairman</p>
-                </section>
-            </section>
-        </React.Fragment>
-    )
+const CurrentPodCast = () => {
+  const { collectionId } = useParams()
+  const [podcast, setPodcast] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    const fetchPods = async () => {
+      setLoading(true)
+      getPodcast(collectionId)
+        .then((data) => {
+          setPodcast(data)
+          setLoading(false)
+        })
+        .catch((error) => console.log(error))
+    }
+    fetchPods()
+    // gettPodcast()
+  }, [collectionId])
+
+  if (podcast === null || loading) {
+    return <Loader />
+  }
+
+  const podcastList = podcast.slice(0, 50)
+  const podcastDetails = podcast[0]
+
+  return (
+    <section className="pod-bg">
+      <NavBar />
+      <div className="section-content-default pod-content">
+        <div className="section-wrapper-default">
+          {podcast.length === 0 && !loading ? (
+            <h5>No episodes available</h5>
+          ) : (
+            <div>
+              <CurrentPodcastHeader podcastDetails={podcastDetails} />
+              <CurrentPodcastDetails podcastList={podcastList} />
+            </div>
+          )}
+        </div>
+      </div>
+      <Footer />
+    </section>
+  )
 }
+export default CurrentPodCast
+
+const getPodcast = async (collectionId) => {
+  const response = await axios.get(
+    `${BASE_URL}lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=400`,
+  )
+
+  return response.data.results
+}
+
+// const gettPodcast = async () => {
+//   const response = await axios.get(
+//     `${BASE_URL}lookup?id=278981407&country=US&media=podcast&entity=podcastEpisode&limit=1`,
+//   )
+
+//   console.log(response.data.results)
+// }

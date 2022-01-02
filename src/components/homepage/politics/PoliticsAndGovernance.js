@@ -1,106 +1,63 @@
-import React, { useEffect, useState } from "react";
-import PoliticsAndGovernanceCard from "./PoliticsAndGovernanceCard";
-import ReaderList from "./ReaderList";
-import "./politicsandgovernance.css";
-import { Link } from "react-router-dom";
-import { ExploreMore } from "../ExploreMore";
-import axios from "axios";
+import React from 'react'
+import '../business/business.css'
+import { Link } from 'react-router-dom'
+import { HtmlParseOptions } from '../../../_helper/parseNewsHtml'
+import ReactHtmlParser from 'react-html-parser'
+import { Row, Col, Card } from 'react-bootstrap'
+import './politicsandgovernance.css'
 
-// import firstbankAd from "./../../../assets/images/homepage/first_bank.jpg";
+const Commentary = ({ data }) => {
+  const businessNews = data.filter((news) => news.category_id === 'Commentary')
 
-// THE FIRST FRONTEND GUY MADE SEVERAL CONFUSING NAMING CONVENTION
-
-// THIS COMPONENT HAS BEEN CHANGED TO POLITICS COMPONENT
-
-const PoliticsAndGovernance = (props) => {
-  const [wordpressNews, setWordpressNews] = useState();
-
-  useEffect(() => {
-    async function getWordpressNews() {
-      const wordpressNews = await axios.get(
-        "https://api.tv24africa.com/api/v1/wordpress/posts"
-      );
-      setWordpressNews(wordpressNews.data.data);
-    }
-    getWordpressNews();
-  }, []);
-  // console.log(wordpressNews);
-  const feeds = props?.data;
-  const getPoliticsNews =
-    feeds && feeds.filter((news) => news.category_id === "Politics");
-  const getPremiumNews =
-    feeds && feeds.filter((allNews) => allNews.post_type === "premium");
   return (
-    <div className="politics">
-      <div className="custom-container container-fluid hl-tp-cont mx-auto">
-        <div className="row container-fluid mx-auto">
-          <div className="col-12 col-md-12 col-lg-8 ns-txt-wrap">
-            <Link
-              to={{
-                pathname: "/news/categories",
-                search: `?category=Politics`,
-              }}
-            >
-              <label className="politics-category-heading">Politics</label>
-            </Link>
-            {getPremiumNews &&
-              getPremiumNews.length &&
-              getPremiumNews.slice(0, 3).map((news) => {
-                const {
-                  post_title,
-                  id,
-                  slug,
-                  featured_image,
-                  category_id,
-                  post_description,
-                } = news;
-                return (
-                  <PoliticsAndGovernanceCard
-                    key={id}
-                    post_title={post_title}
-                    slug={slug}
-                    featured_image={featured_image}
-                    category_id={category_id}
-                    post_description={post_description}
-                  />
-                );
-              })}
-          </div>
-          <div className="col-12 col-md-10 col-lg-4 mx-auto must-read-container">
-            <h3>LATEST DAILY NEWS</h3>
-            <div>
-              {wordpressNews &&
-                wordpressNews.length &&
-                wordpressNews.slice(0, 4).map((news) => {
-                  const { guid, post_title, post_content, ID, post_date } =
-                    news;
-                  return (
-                    <ReaderList
-                      key={ID}
-                      slug={guid}
-                      post_title={post_title}
-                      post_description={post_content}
-                      created_at={post_date}
-                      description_slice={136}
-                      redirect_to_wordpress={true}
+    <section className="commentary-section business-section section-content-default">
+      <div className="section-wrapper-default">
+        <h5 className="commentary-heading section-heading-default">Commentary</h5>
+        <div className="business-content">
+          <Row xs={1} lg={4} className="g-4">
+            {businessNews.slice(0, 4).map((categ, idx) => (
+              <Col className="bus-col" key={categ.id}>
+                <Link to={`/post/${categ.slug}`} className="bus-link">
+                  <Card className="com-card">
+                    <Card.Img
+                      variant="top"
+                      src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
+                      className="mb-3 card-img-business"
                     />
-                  );
-                })}
-            </div>
-
-            {/* <div className="politics-ads">
-              <span>
-                <img src={firstbankAd} />
-              </span>
-            </div> */}
-          </div>
-          <div className="explore-more-politics">
-            <ExploreMore category_id="Politics and Governance" />
-          </div>
+                    <p className="premium-badge">
+                      {categ.post_type === 'premium'
+                        ? `${categ.post_type}`
+                        : ''}
+                    </p>
+                    <Card.Body className="bus-card-body">
+                      <Card.Subtitle className="mb-3 font-bold slug-default text-white">
+                        {categ.slug}
+                      </Card.Subtitle>
+                      <Card.Text>
+                        {ReactHtmlParser(
+                          `${categ.post_description.substring(0, 130)}...`,
+                          HtmlParseOptions,
+                        )}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Link>
+              </Col>
+            ))}
+          </Row>
         </div>
+        <Link
+          to={{
+            pathname: '/news/categories',
+            search: `?category=Commentary`,
+          }}
+          className="explore-red-btn"
+        >
+          Explore More...
+        </Link>
       </div>
-    </div>
-  );
-};
+    </section>
+  )
+}
 
-export default PoliticsAndGovernance;
+export default Commentary

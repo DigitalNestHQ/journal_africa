@@ -1,254 +1,67 @@
-/* img{
-    width: 100%;
-    height: 100%;
-} */
-.latest-news-wrap{
+.l-card-body {
+  padding: 0;
 }
 
-.card-body{
-    padding: 0;
+.l-card {
+  transition: 0.3s;
+  background-color: inherit;
+  border: none;
 }
 
-.latest-news-wrap label{
-    text-decoration: none;
-    margin-left: 13px;
-    letter-spacing: 1.2px;
-    margin-bottom: 0px;
-    font-style: normal;
-    letter-spacing: 0em;
-    text-align: left;
-    position: relative;
-    top: 15px;
-    text-transform: capitalize;
-
-    color: var(--color-red) !important;
-    text-shadow: var(--section-heading-text-shadow);
-    font-size: var(--section-heading-size);
-    font-weight: 900;
-    margin-bottom: 0;
+.sec-2 {
+  position: relative;
 }
 
+.sec-2 img {
+  height: 155px;
+  object-fit: cover;
+}
 
-.latest-news-wrap{
-    /* background-color: #EFEFEF; */
-    padding-top: 20px;
+.categories-heading {
+  margin-bottom: 2rem;
+  color: red;
 }
-.pol-news-card-wrap{
-    max-width: 1440px;;
-    margin: 0 auto;
-    /* padding: 0px 10px; */
-    /* new */
-    padding: 0;
+
+.card-img-latest {
+  width: 100%;
+  height: 250px;
+  display: block;
+  border-radius: unset;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
 }
-.news-sec a{
-    text-decoration: none;
-    transition: transform 2s ease;
-    height: 100%;
-    width: 100%;
-    color: #000;
-    background-color:#D1D1D1
+.per-link {
+  color: #000;
+  font-size: 0.8rem;
 }
-.news-sec a:hover{
-    /* transform: scale(0.9);
-    transform: scale(0.8); */
-    color: hsl(0, 100%, 64%);
-    opacity: 0.8;
-    cursor: pointer;
+.per-link:hover {
+  color: #000;
 }
-.latest-news-title{
-    text-align: left;
-    /* padding: 10px 0px 10px 3px; */
-    padding: 10px 0px 10px 0px;
-    font-weight: 500;
-    line-height: 1.3;
-    font-size: var(--news-description-size);
-    font-weight: var(--news-description-weight);
+.personalized-content {
+  width: 100%;
+  height: 100%;
 }
-/*  news link style with hover */
-.news-link:hover{
-    color: red;
-    opacity: 0.8;
-    cursor: pointer;
+.my4 {
+  margin-top: 1.5rem;
 }
-.news-crd{
-    position: relative;
-    background-color:#D1D1D1!important;
-    border: none;
-    box-shadow: 0 0 0 0;
-    width: 272px;
-}
-.news-card-img{
-    width: 272px;
-    height: 198px;
-}
-.news-crd span{
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: #DC143C;
-    color: #fff;
-    display: inline-block;
-    padding: 2px 7px 2px 3px;
-    font-style: italic;
-    text-transform: uppercase;
-}
-.news-card-caption{
-    font-weight: 400;
-    font-size: 1.15rem;
-    margin-left: -1.25rem;
-    color: #000000;
-    line-height:28.13px;
-    text-transform: capitalize;
-}
-.card {
-    transition: 0.3s;
-    background-color: inherit;
-    border: none;
+@media (max-width: 770px) {
+  .per-card {
+    margin-bottom: 2.5rem;
   }
- 
-  .card:hover {
-    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
-}
-.card a{
-    color:#2b2929;
-    text-decoration: none;
-    /* padding:5px 15px;
-    margin: 10px 0px 0px 0px; */
-    text-align: center;
-    text-transform: capitalize;
-}
-.latest-news-article{
-    /* padding: 0px 0px; */
 }
 
-.sec-2{
-    position: relative;
+@media (min-width: 770px) {
+  .card-img-latest {
+    width: 100%;
+    height: 160px;
+  }
+  .ad-sense {
+    margin-top: 2.5rem;
+  }
 }
 
-
-
-.sec-2 img{
-    height: 155px;
-    object-fit: cover;
-}
-
-
-.premium_category_indicator--latest-news{
-    border-radius: 2px;
-    margin: 10px 0px 0px 0px;
-    font-weight: 400;
-    position: absolute;
-    top: -2px;
-    left: 25px;
-    /* width: 61px; */
-}
-
-
-
-
-/* // Large devices (desktops, less than 1200px) */
-@media (max-width: 1199.98px) {
-    .latest-news-article{
-        /* background-color: green; */
-    }
-    .sec-2 img {
-        height: 100px; 
-        object-fit: cover;
-    }
-    .premium_category_indicator--latest-news {
-        left: 16px
-    }
-
-}
-
-/* // Medium devices (tablets, less than 992px) */
-@media (max-width: 991.98px) {
-    .latest-news-article{
-        /* background-color: pink; */
-    }
-    .sec-2 img {
-        height: 100px; 
-        object-fit: cover;
-    }
-    .premium_category_indicator--latest-news {
-        left: 16px
-    }
-}
-
-/* // Small devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px) {
-    .latest-news-article{
-        /* background-color: blue; */
-    }
-    .latest-news-wrap h3{
-        text-align: center;
-
-    }
-    .news-crd {
-        position: relative;
-        background-color: #D1D1D1!important;
-        border: none;
-        width: 100%;
-    }
-    .latest-news-article img {
-        width: 100%;
-        height: 240px;
-    }
-    .latest-news-title{
-        font-size: var(--news-heading);
-    }
-    .latest-news-article .premium_category_indicator--latest-news{
-        /* top: 68px; */
-        left: 25px;
-    }
-}
-
-/* // Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
-    .latest-news-article{
-        /* background-color: red; */
-        /* margin-top: 0px !important; */
-        margin-bottom: 0px !important;
-    }
-    .sec-2 img{
-        height: 150px;
-        width: 100%;
-        display: block;
-    }
-    .card a{
-        color:#333;
-        font-size: 16px;
-        /* padding: 5px 0px; */
-        /* margin: 10px 0px 0px 0px; */
-        text-align: center;
-        line-height: 120%;
-        text-transform: capitalize;
-    }
-    .latest-news-article .premium_category_indicator--latest-news{
-        top: 110px;
-        left: 20px;
-    }
-}
-
-
-@media (max-width: 400.98px) {
-    .latest-news-article {
-        /* margin-top: 0px !important; */
-        margin-bottom: -20px !important;
-        /* display: none !important; */
-    }
-    .sec-2 img{
-        height: 126px;
-        width: 150px;
-    }
-    .card a{
-        margin-top: 10px;
-    }
-
-    .latest-news-article .premium_category_indicator--latest-news{
-        top: 120px;
-        left: 15px;
-    }
-
-
+@media (max-width: 993px) {
+  .my4 {
+    margin-top: unset;
+  }
 }

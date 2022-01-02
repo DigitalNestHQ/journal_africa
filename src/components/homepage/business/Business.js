@@ -1,61 +1,69 @@
-import React from "react";
-import BusinessCard from "./BusinessCard";
-import "./business.css";
-import { Link } from "react-router-dom";
-import { ExploreMore } from "../ExploreMore";
-// this component has been changed to finance
-class Business extends React.Component {
-  render() {
-    const businessNews =
-      this.props.data &&
-      this.props.data.filter((news) => news.category_id === "Business");
-    return (
-      <div className="business">
+import React from 'react'
+// import BusinessCard from './BusinessCard'
+import './business.css'
+import { Link } from 'react-router-dom'
+import { HtmlParseOptions } from '../../../_helper/parseNewsHtml'
+import ReactHtmlParser from 'react-html-parser'
+import { Row, Col, Card } from 'react-bootstrap'
+import { LargeSizeAds } from '../ads/Ads'
+import bannerAds from '../../../assets/images/bannerads.png'
+import '../ads/ads.css'
+
+const Business = ({ data }) => {
+  const businessNews = data.filter((news) => news.category_id === 'Business')
+
+  return (
+    <section className="business-section section-content-default">
+      <div className="section-wrapper-default">
+          <h5 className="business-heading section-heading-default">Business and Economy</h5>
+        <div className="business-content">
+          <Row xs={1} lg={3} className="g-4">
+            {businessNews.slice(0, 3).map((categ, idx) => (
+              <Col className="bus-col" key={categ.id}>
+                <Link to={`/post/${categ.slug}`} className="bus-link">
+                  <Card>
+                    <Card.Img
+                      variant="top"
+                      src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
+                      className="mb-3 card-img-business"
+                    />
+                    <p className="premium-badge">
+                      {categ.post_type === 'premium'
+                        ? `${categ.post_type}`
+                        : ''}
+                    </p>
+                    <Card.Body className="bus-card-body">
+                      <Card.Subtitle className="text-danger mb-3 font-bold slug-default">
+                        {categ.slug}
+                      </Card.Subtitle>
+                      <Card.Text>
+                        {ReactHtmlParser(
+                          `${categ.post_description.substring(0, 130)}...`,
+                          HtmlParseOptions,
+                        )}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Link>
+              </Col>
+            ))}
+          </Row>
+        </div>
         <Link
           to={{
-            pathname: "/news/categories",
+            pathname: '/news/categories',
             search: `?category=Business`,
           }}
+          className="explore-red-btn"
         >
-          <h3 className="business-category-heading">Business</h3>
+          Explore More...
         </Link>
-        <div className="custom-container container-fluid ent-chng-pos">
-          <div className="container-fluid row w-100 bg-white mx-auto ent-pos-tp">
-            {businessNews &&
-              businessNews.length &&
-              businessNews.slice(0, 4).map((life) => {
-                const {
-                  featured_image,
-                  category_id,
-                  slug,
-                  post_title,
-                  id,
-                  post_type,
-                  post_description,
-                } = life;
-                return (
-                  <BusinessCard
-                    key={id}
-                    featured_image={featured_image}
-                    category_id={category_id}
-                    slug={slug}
-                    post_title={post_title}
-                    post_type={post_type}
-                    post_description={post_description}
-                  />
-                );
-              })}
-            <div className="">
-              <ExploreMore category_id="Finance" />
-            </div>
-          </div>
-        </div>
-        <div className="custom-container">
-          <div className="bus-ad"></div>
+        <div className="ad-sense mt-5">
+          <LargeSizeAds img={bannerAds} />
         </div>
       </div>
-    );
-  }
+    </section>
+  )
 }
 
-export default Business;
+export default Business

@@ -1,53 +1,62 @@
-import React, { Component } from "react";
-import "./economy.css";
-import { Link } from "react-router-dom";
-import { ExploreMore } from "../ExploreMore";
-import EconomyCard from "./EconomyCard";
+import React from 'react'
+import '../business/business.css'
+import { Link } from 'react-router-dom'
+import { HtmlParseOptions } from '../../../_helper/parseNewsHtml'
+import ReactHtmlParser from 'react-html-parser'
+import { Row, Col, Card } from 'react-bootstrap'
 
-class EconomyComponent extends Component {
-  render() {
-    const economy = this.props.data && this.props.data.filter(
-      (news) => news.category_id === "Economy"
-    );
-    return (
-      <>
-      <div className="economy custom-container mt-3 pt-3">
+const Economy = ({ data }) => {
+  const businessNews = data.filter((news) => news.category_id === 'Development')
+
+  return (
+    <section className="business-section  section-content-default">
+      <div className="section-wrapper-default">
+        <h5 className="business-heading section-heading-default"> Policy and Development</h5>
+        <div className="business-content">
+          <Row xs={1} lg={3} className="g-4">
+            {businessNews.slice(0, 3).map((categ, idx) => (
+              <Col className="bus-col" key={categ.id}>
+                <Link to={`/post/${categ.slug}`} className="bus-link">
+                  <Card className="bus-card">
+                    <Card.Img
+                      variant="top"
+                      src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
+                      className="mb-3 card-img-business"
+                    />
+                    <p className="premium-badge">
+                      {categ.post_type === 'premium'
+                        ? `${categ.post_type}`
+                        : ''}
+                    </p>
+                    <Card.Body className="bus-card-body">
+                      <Card.Subtitle className="text-danger mb-3 font-bold slug-default">
+                        {categ.slug}
+                      </Card.Subtitle>
+                      <Card.Text>
+                        {ReactHtmlParser(
+                          `${categ.post_description.substring(0, 130)}...`,
+                          HtmlParseOptions,
+                        )}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Link>
+              </Col>
+            ))}
+          </Row>
+        </div>
         <Link
           to={{
-            pathname: "/news/categories",
-            search: `?category=Economy`,
+            pathname: '/news/categories',
+            search: `?category=Development`,
           }}
+          className="explore-red-btn"
         >
-          <h3 className="economy-category-heading">
-            Economy
-          </h3>
+          Explore More...
         </Link>
-        <div className="container-fluid">
-          <div className="container-fluid row lf-wrap bg-white">
-            {economy && economy.length &&
-              economy.slice(0, 4).map((life) => {
-                const { featured_image, category_id, id, post_title, post_type, slug, post_description } = life;
-                return (
-                  <EconomyCard
-                    key={id}
-                    featured_image={featured_image}
-                    category_id={category_id}
-                    post_type={post_type}
-                    post_title={post_title}
-                    slug={slug}
-                    post_description={post_description}
-                  />
-                );
-              })}
-          </div>
-        </div>
       </div>
-      <div style={{position:'relative'}} className="custom-container ecomony-more-btn">
-        <ExploreMore category_id="Economy"/>
-      </div>
-      </>
-    );
-  }
+    </section>
+  )
 }
 
-export default EconomyComponent;
+export default Economy

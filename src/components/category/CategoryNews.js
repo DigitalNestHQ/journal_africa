@@ -1,163 +1,141 @@
-import React, { useState, useEffect, Fragment } from "react";
-import Header from "./Header/index";
-import Footer from "../reusables/navigation/Footer/footer";
-// feeds api
-import { getNewsFeed } from "../../context/news/NewsApi";
-// import queryString from "query-string";
-
-import CategoryCard from "./CategoryCard";
-import { getCategories } from "../../context/news/NewsApi";
-import { useHistory, useLocation } from "react-router-dom";
-import Loader from "../loader/Loader";
-import "./newscategory.css";
-import UnableToFetchNews from "../reusables/errorMessages/UnableToFetchNews";
-import { ContactsAds1 } from "../ContactUs/mainSection/ContactsAds";
-import CategoryNavbar from "./Header/CategoryNavbar";
-import { PopulateReadersList } from "../homepage/politics/ReaderList";
+import React, { useState, useEffect, Fragment, useContext } from 'react'
+// import Header from './Header/index'
+import Footer from '../reusables/navigation/Footer/footer'
+import CategoryCard from './CategoryCard'
+import { useLocation, Link } from 'react-router-dom'
+import Loader from '../loader/Loader'
+import './newscategory.css'
+// import UnableToFetchNews from '../reusables/errorMessages/UnableToFetchNews'
+// import { ContactsAds1 } from '../ContactUs/mainSection/ContactsAds'
+import Nav from '../reusables/navigation/Nav/nav'
+// import { PopulateReadersList } from '../homepage/politics/ReaderList'
+import newsContext from '../../context/news/NewsContext'
+import LargeAds from '../../assets/images/bannerads.png'
+import '../homepage/ads/ads.css'
+import { LargeSizeAds } from '../homepage/ads/Ads'
+import TeaserCard from '../homepage/homepageTeaser/TeaserCard'
+import cybertruck from '../../assets/images/cybertruck1.jpg'
+import { useViewPort } from '../../components/hooks/Viewport'
 
 const CategoryNews = () => {
-  const [loading, setLoading] = useState(true);
-  const [newsCateg, setNewsCateg] = useState(null);
-  const [error, setError] = useState(null);
-  const [news, setNews] = useState([]);
-  const [numberOfCategCard, setNumberOfCategCard] = useState(10);
-  const history = useHistory();
+  const context = useContext(newsContext)
+  const { news, loading, categoryNews, getNews, getCategory } = context
+  const [numberOfCategCard, setNumberOfCategCard] = useState(5)
+  const { search } = useLocation()
+  const x = new URLSearchParams(search)
+  const category = x.get('category')
+  const { width } = useViewPort()
+  const breakpoint = 991
 
-  // method1
-  const { search } = useLocation();
-  const x = new URLSearchParams(search);
-  const category = x.get("category");
-  // console.log(search);
-
-  // method2
-  // const x = new URLSearchParams(search);
-  // const category = x.get('category')
-  // const { search } = useLocation();
-  // const { category } = queryString.parse(search);
-
-  useEffect(() => {
-    let sub = true;
-    if (sub) {
-      try {
-        getCategories(`${category}`)
-          .then((res) => {
-            // console.log(res);
-            setNewsCateg(res);
-          })
-          .then(() => {
-            setLoading(false);
-          });
-        getNewsFeed().then((data) => {
-          setNews(data);
-          // console.log(news)
-        });
-      } catch (error) {
-        if (error) {
-          setError(error.message);
-          console.log(error);
-        }
-      }
-    }
-    return () => (sub = null);
-    // eslint-disable-next-line
-  }, [category]);
-
-  if (error) {
-    // return <Link to="/error404" />;
-    return history.pushState("/error404");
+  const handleMore = () => {
+    setNumberOfCategCard((prev) => prev + 2)
   }
 
-  if (loading || news.length < 1) {
-    return <Loader />;
+  useEffect(() => {
+    getNews()
+    getCategory(`${category}`)
+    //eslint-disable-next-line
+  }, [category])
+
+  if (loading || categoryNews === null || news === null) {
+    return <Loader />
   }
 
   return (
     <Fragment>
-      {/* <TopNav /> */}
-      {/* <Navbar /> */}
-
-      <CategoryNavbar />
-
-      <Header post_type={newsCateg && newsCateg[0]?.category_id} />
-      {/* {<h1 className="text-center text-title">{newsCateg && newsCateg[0].category_id}</h1>} */}
-      {/* <h1 className="text-center text-title">Welcome Here</h1> */}
-      {newsCateg && newsCateg ? (
-        <div className="discover-cont">
-          <section className="discover">
-            <div className="left-pane">
-              {newsCateg &&
-                newsCateg.length > 0 &&
-                newsCateg.slice(0, numberOfCategCard).map((aNews) => {
-                  const {
-                    post_title,
-                    featured_image,
-                    id,
-                    post_type,
-                    slug,
-                    category_id,
-                    post_description,
-                  } = aNews;
-                  return (
-                    <CategoryCard
-                      key={id}
-                      post_title={post_title}
-                      featured_image={featured_image}
-                      slug={slug}
-                      category_id={category_id}
-                      post_type={post_type}
-                      post_description={post_description}
-                      className="card-unit"
-                    />
-                  );
-                })}
-              {newsCateg?.length > numberOfCategCard && (
-                <button
-                  className="premium-tag load-more-btn ml-3 ml-md-3 ml-lg-3 mb-5 mb-md-5 mb-lg-0"
-                  onClick={() => setNumberOfCategCard(numberOfCategCard + 3)}
-                >
-                  Load More...
-                </button>
-              )}
-            </div>
-            <div className="right-pane">
-              {/* <ReaderList data={news}/>
-              {news && news.length &&
-                  news.slice(0, 4).map(({ slug, post_title, id, created_at, post_description}) => {
-                    return <ReaderList 
-                            key={id} 
-                            slug={slug} 
-                            post_title={post_title}
-                            post_description={post_description}
-                            created_at={created_at}
-                          />;
-                  })} */}
-              <PopulateReadersList news={news} start={0} end={2} />
-              {/* <h4 className="trend">TRENDS</h4> */}
-              <ul>
-                {/* {news && news.length > 0 && news.slice(0, 5).map((news, index) => (
-                  <li className="trend_list" key={index}>
-                    <Link to={`/post/${news.slug}`}>{news.slug}</Link>
-                  </li>
-                ))} */}
-                <li>
-                  <ContactsAds1 />
-                </li>
-                <li>
-                  <ContactsAds1 />
-                </li>
-                {/* <li><ContactsAds1 /></li> */}
-              </ul>
-            </div>
-          </section>
+      <Nav />
+      {!loading && categoryNews.length === 0 ? (
+        <div className="category-comp-heading">
+          <h5 className="category-header section-heading-default">
+            No news available
+          </h5>
         </div>
       ) : (
-        <div>
-          <UnableToFetchNews />
+        <div className="category-comp-heading">
+          <h5 className="category-header section-heading-default">
+            {categoryNews[0].category_id}
+          </h5>
         </div>
       )}
+      <main className="cat-section section-content-default">
+        <div className="section-wrapper-default">
+          <div className="cat-img-container">
+            <LargeSizeAds img={LargeAds} />
+          </div>
+          <div className="categ-content">
+            <div className="categ-content-grid">
+              <div className="cat-right-content">
+                {!loading && categoryNews.length === 0 ? (
+                  <h5 className="text-dark">No news available</h5>
+                ) : (
+                  categoryNews.slice(0, numberOfCategCard).map((eachCard) => (
+                    <Link
+                      className="category-card-links"
+                      key={eachCard.id}
+                      to={`/post/${eachCard.slug}`}
+                    >
+                      <CategoryCard
+                        featured_image={eachCard.featured_image}
+                        post_type={eachCard.post_type}
+                        slug={eachCard.slug}
+                        post_description={eachCard.post_description}
+                      />
+                    </Link>
+                  ))
+                )}
+                {categoryNews.length > numberOfCategCard ? (
+                  <button className="load-more" onClick={handleMore}>
+                    Load More...
+                  </button>
+                ) : (
+                  ''
+                )}
+              </div>
+              {width > breakpoint ? (
+                <div className="cat-left-content">
+                  <h5 className="cat-left-heading section-heading-default">
+                    Trending Posts
+                  </h5>
+                  <div className="trend-img-container">
+                    <img src={cybertruck} alt="tesla" className="trend-img" />
+                  </div>
+                  <div className="trending-posts">
+                    {!loading && news.length === 0 ? (
+                      <h5 className="text-dark">No trending news available</h5>
+                    ) : (
+                      news
+                        .sort((a, b) =>
+                          parseInt(a.views) > parseInt(b.views) ? -1 : 1,
+                        )
+                        .slice(0, 3)
+                        .map((eachCard) => (
+                          <Link
+                            to={`/post/${eachCard.slug}`}
+                            className="trending-card lastest-card-link"
+                            key={eachCard.id}
+                          >
+                            <TeaserCard eachCard={eachCard} />
+                          </Link>
+                        ))
+                    )}
+                  </div>
+                  <div className="trend-img-container">
+                    <img src={cybertruck} alt="tesla" className="trend-img" />
+                  </div>
+                </div>
+              ) : (
+                ''
+              )}
+            </div>
+          </div>
+          <div className="cat-img-container">
+            <LargeSizeAds img={LargeAds} />
+          </div>
+        </div>
+      </main>
       <Footer />
     </Fragment>
-  );
-};
+  )
+}
 
-export default CategoryNews;
+export default CategoryNews

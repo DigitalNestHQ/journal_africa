@@ -90,5 +90,6 @@
   .pod-img-container {
     width: 100%;
     height: 280px;
+    margin-bottom: 1.5rem;
   }
 }

@@ -3,8 +3,10 @@ import EpisodeDesc from './EpisodeDesc'
 import ReleaseDate from './ReleaseDate'
 import EpisodeDuration from './EpisodeDuration'
 import play_button from '../../../assets/images/play_button.svg'
+import { useHistory } from 'react-router-dom'
 
 const PodDetailsEpisodes = ({ episodes }) => {
+  const history = useHistory()
   return (
     <>
       {episodes && (
@@ -26,10 +28,15 @@ const PodDetailsEpisodes = ({ episodes }) => {
                   readMore={true}
                 />
                 <div className="pod-pause-play-section">
-                  <button className="pod-play-button">
+                  <button
+                    className="pod-play-button"
+                    onClick={() =>
+                      history.push(`/podcast/play/${episode.trackId}`)
+                    }
+                  >
                     <img src={play_button} alt="play" />
                   </button>
-                  <ReleaseDate date={episode.releaseDate}/>
+                  <ReleaseDate date={episode.releaseDate} />
                   <EpisodeDuration duration={episode.trackTimeMillis} />
                 </div>
               </div>

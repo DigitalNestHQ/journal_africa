@@ -18,6 +18,7 @@ import { PodCastsView } from './podcast/podcastspage/PodCastsView.js'
 import LatestDaily from './components/reusables/news/LatestDaily'
 import Error404 from './components/error404/error404'
 import CurrentPodCast from './podcast/home/currentPodcast/CurrentPodCast'
+import CurrentPodCastPlayer from './podcast/home/livepodcastalert/CurrentPodCastPlayer'
 
 // css override
 import './../src/components/reusables/utilities/index.css'
@@ -82,6 +83,11 @@ const App = () => {
                   exact
                   path="/podcast/:collectionId"
                   component={CurrentPodCast}
+                />
+                <Route
+                  exact
+                  path="/podcast/play/:trackId"
+                  component={CurrentPodCastPlayer}
                 />
                 <Route
                   exact

@@ -33,6 +33,8 @@ function Homepage() {
   }
 
   const sorted = news.sort((a, b) => (a.created_at > b.created_at ? -1 : 1))
+  const categoryId = news.map((eachNews) => eachNews.category_id)
+  console.log(categoryId)
 
   return (
     <Fragment>

@@ -6,6 +6,7 @@ import play_button from '../../../assets/images/play_button.svg'
 import './podnavbar.css'
 // import hambuger from './../../../assets/images/hamburger.png'
 const PodcastCategories = ({ header, podcasts }) => {
+  const history = useHistory()
   return (
     <div className="each-pod-category">
       <div className="pod-category-header">
@@ -14,7 +15,7 @@ const PodcastCategories = ({ header, podcasts }) => {
         </h5>
       </div>
       <div className="pod-category-list">
-        {podcasts.map((podcast) => (
+        {podcasts.slice(0, podcasts.length).map((podcast) => (
           <div key={podcast.collectionName} className="pod-collections">
             <div className="pod-grid">
               <div className="pod-img-container">
@@ -42,11 +43,21 @@ const PodcastCategories = ({ header, podcasts }) => {
                   </p>
                 </div>
                 <div className="pod-cta">
-                  <button className="pod-btn play-button">
+                  <button
+                    className="pod-btn play-button"
+                    onClick={() =>
+                      history.push(`/podcast/${podcast.collectionId}`)
+                    }
+                  >
                     <img src={play_button} alt="play" />
                     Play Latest episode
                   </button>
-                  <button className="pod-btn pod-subscribe">Subscribe</button>
+                  <button
+                    className="pod-btn pod-subscribe"
+                    onClick={() => history.push(`/subscribe`)}
+                  >
+                    Subscribe
+                  </button>
                 </div>
               </div>
             </div>

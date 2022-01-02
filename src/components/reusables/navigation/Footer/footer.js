@@ -80,45 +80,45 @@ const Footer = () => {
               <li className="footer-list-item">
                 <Link
                   to={{
-                    pathname: '/news/sub-categories',
-                    search: '?subcategory=Places',
+                    pathname: '/news/categories',
+                    search: '?category=Business Africa',
                   }}
                   className="footer-link"
                 >
-                  Places
+                  Business Africa
                 </Link>
               </li>
               <li className="footer-list-item">
                 <Link
                   to={{
-                    pathname: '/news/sub-categories',
-                    search: '?subcategory=Lifestyle',
+                    pathname: '/news/categories',
+                    search: '?category=Finance',
                   }}
                   className="footer-link"
                 >
-                  Lifestyle
+                  Finance
+                </Link>
+              </li>
+              <li className="footer-list-item">
+                <Link
+                   to={{
+                    pathname: '/news/categories',
+                    search: '?category=Investigation',
+                  }}
+                  className="footer-link"
+                >
+                  Investigation
                 </Link>
               </li>
               <li className="footer-list-item">
                 <Link
                   to={{
-                    pathname: '/news/sub-categories',
-                    search: '?subcategory=Culture',
+                    pathname: '/news/categories',
+                    search: '?category=Sport Africa',
                   }}
                   className="footer-link"
                 >
-                  Culture
-                </Link>
-              </li>
-              <li className="footer-list-item">
-                <Link
-                  to={{
-                    pathname: '/news/sub-categories',
-                    search: '?subcategory=People',
-                  }}
-                  className="footer-link"
-                >
-                  People
+                  Sport Africa
                 </Link>
               </li>
             </ul>

@@ -9,7 +9,7 @@
 .pod-content-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 1rem;
+  grid-gap: 1rem;
   margin: 2rem 0 0 0;
 }
 
@@ -38,6 +38,6 @@
   .pod-content-grid {
     display: block;
     grid-template-columns: unset;
-    gap: unset;
+    grid-gap: unset;
   }
 }

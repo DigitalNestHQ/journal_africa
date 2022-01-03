@@ -9,7 +9,7 @@ export const NotLoggedIn = () => {
       <h5 className="continue-sign-in">To Continue Reading</h5>
       <div className="signup-signin-cta">
         <Link to={pageurl.SIGNUP} className="not-logged-in-signup-btn">Sign Up</Link>
-        or
+        <p>or</p>
         <Link to={pageurl.SIGNIN} className="not-logged-in-signin-btn">Sign In</Link>
       </div>
     </div>

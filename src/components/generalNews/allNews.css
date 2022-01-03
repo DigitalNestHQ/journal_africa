@@ -7,7 +7,7 @@
 .s-n-content-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 2rem;
+  grid-gap: 2rem !important;
 }
 
 .s-n-left-content {
@@ -49,6 +49,8 @@
 
 .main-content {
   width: 790px !important;
+  max-width: 790px !important;
+  margin: auto;
 }
 .blur-content {
   background: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
@@ -60,7 +62,7 @@
 }
 .main-content p {
   text-align: left !important;
-  font-size: 0.8rem !important;
+  font-size: inherit;
   line-height: 17px;
   color: black;
 }
@@ -110,7 +112,7 @@
 .continue-sign-in,
 .beyond-premium {
   font-weight: bold;
-  font-size: 25px;
+  font-size: clamp(1.5rem, 2.5vw, 1.35rem);
   display: block;
 }
 
@@ -125,7 +127,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+}
+
+.signup-signin-cta > * + * {
+  margin: 0 0 0 1rem;
 }
 
 .not-logged-in-signup-btn,
@@ -161,12 +166,15 @@
   align-items: center;
   justify-content: stretch;
 }
-.news-social-icons {
-  gap: 1.8rem;
+
+.news-social-icons > * + * {
+  margin: 0 0 0 1.8rem;
 }
 .share-icons {
-  gap: 1rem;
   cursor: pointer;
+}
+.share-icons > * + * {
+  margin: 0 0 0 1rem;
 }
 .n-facebook {
   color: blue;
@@ -189,7 +197,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 3rem;
+}
+
+.next-or-prev-section > * + * {
+  margin: 0 0 0 3rem;
 }
 .prev-link,
 .next-link {
@@ -255,7 +266,7 @@
 
 .related-link {
   color: #000;
-  font-size: 0.8rem;
+  font-size: inherit;
   text-align: left;
 }
 .related-link:hover {
@@ -290,7 +301,7 @@
 
 @media (max-width: 1150px) {
   .s-n-content-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
   .news-img {
     width: 100%;
@@ -307,15 +318,12 @@
 }
 
 @media (max-width: 560px) {
-  .news-social-icons {
-    gap: 1rem;
+  .news-social-icons > * + * {
+    margin: 0 0 0 1rem;
   }
-  .next-or-prev-section {
-    gap: 1rem;
-  }
-  .continue-sign-in,
-  .beyond-premium {
-    font-size: 20px;
+
+  .next-or-prev-section > * + * {
+    margin: 0 0 0 1rem;
   }
   .not-logged-in-signup-btn,
   .not-logged-in-signin-btn,

@@ -41,8 +41,12 @@
   display: flex;
   align-items: center;
   justify-content: stretch;
-  gap: 2rem;
 }
+
+.reg-nav-list > * + * {
+  margin: 0 0 0 2rem;
+}
+
 .reg-nav-list-item {
   display: block;
 }
@@ -86,7 +90,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
-  gap: 2.5rem;
+  grid-gap: 2.5rem;
   width: 100%;
 }
 .reg-benefits {
@@ -154,7 +158,10 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+}
+
+.already-have-account > * + * {
+  margin: 0 0 0 0.5rem;
 }
 .reg-agree-label {
   margin: 0;
@@ -172,9 +179,13 @@
   display: flex;
   align-items: center;
   justify-content: stretch;
-  gap: 0.6rem;
   margin-bottom: 1.5rem;
 }
+
+.check-section > * + * {
+  margin: 0 0 0 0.6rem;
+}
+
 .reg-sign-in {
   display: block;
   color: red;
@@ -223,8 +234,12 @@
   .register-nav {
     flex-direction: column;
     justify-content: stretch;
-    gap: 2rem;
   }
+
+  .register-nav > * + * {
+    margin: 2rem 0 0 0;
+  }
+
   .already-have-account {
     flex-direction: column;
   }

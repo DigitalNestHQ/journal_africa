@@ -36,7 +36,10 @@ ul.nav-links {
   flex-direction: row;
   justify-content: stretch;
   align-items: center;
-  gap: 1.5rem;
+}
+
+.nav-links > * + * {
+  margin: 0 0 0 1.5rem;
 }
 
 .cta-item a,
@@ -54,7 +57,10 @@ ul.nav-links {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+}
+
+.mobile-cta-list > * + * {
+  margin: 1rem 0 0 0 ;
 }
 
 .mobile-cta-item a {
@@ -70,7 +76,10 @@ ul.nav-links {
   flex-direction: row;
   justify-content: stretch;
   align-items: center;
-  gap: 0.8rem;
+}
+
+.cta-list > * + * {
+  margin: 0 0 0 0.8rem;
 }
 .nav-sub-link {
   display: block;

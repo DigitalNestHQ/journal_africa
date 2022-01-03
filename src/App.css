@@ -12,7 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'NimbusSanL', sans-serif;
   font-family: 'NimbusSanLCon', sans-serif;
-  font-size: clamp(0.688rem, 2vw, 0.8rem);
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 a:hover {
   text-decoration: none;
@@ -87,7 +87,7 @@ ol {
 .slug-default {
   color: black;
   font-weight: bold;
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
 }
 .explore-white-btn {
   background-color: #fff;

@@ -46,7 +46,7 @@
 .contact-board-content-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 2rem;
+  grid-gap: 2rem;
 }
 
 .contact-form-wrapper {
@@ -89,6 +89,6 @@
 @media (max-width: 762px) {
   .contact-board-content-grid {
     grid-template-columns: 1fr;
-    gap: unset;
+    grid-gap: unset;
   }
 }

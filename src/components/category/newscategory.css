@@ -31,7 +31,7 @@
 .categ-content-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 3.5rem;
+  grid-gap: 3.5rem;
   padding: 1rem;
 }
 .cat-right-content {
@@ -44,10 +44,13 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 1.5rem;
   color: #000;
   position: relative;
   margin: 0 0 2rem 0;
+}
+
+.cate-content-list > * + * {
+  margin: 0 0 0 1.5rem;
 }
 
 .cate-content-list:hover {
@@ -220,7 +223,7 @@
 @media (max-width: 993px) {
   .categ-content-grid {
     grid-template-columns: 1fr;
-    gap: unset;
+    grid-gap: unset;
   }
 }
 
@@ -229,7 +232,9 @@
     margin: 0 0 2.9rem 0;
     flex-direction: column;
     justify-content: center;
-    gap: 2.5rem;
+  }
+  .cate-content-list > * + * {
+    margin: 2rem 0 0 0;
   }
   .cat-content-list-item-img-cont {
     width: 100%;

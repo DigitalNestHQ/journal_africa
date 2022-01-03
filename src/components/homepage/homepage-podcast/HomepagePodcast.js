@@ -38,10 +38,7 @@ const HomepagePodcast = ({ data }) => {
           </Row>
         </div>
         <Link
-          to={{
-            pathname: '/news/categories',
-            search: `?category=Podcast`,
-          }}
+          to='/podcast'
           className="more-pod"
         >
           Explore More...

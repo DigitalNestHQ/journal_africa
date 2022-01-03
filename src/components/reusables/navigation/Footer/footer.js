@@ -1,7 +1,6 @@
 import React from 'react'
 import GooglePlayImg from '../../../../assets/images/playstoreimg.png'
 import ApplePlayImg from '../../../../assets/images/apple.jpg'
-// import { pageurl } from '../../../../utils/constants'
 import './footer.css'
 import { Link } from 'react-router-dom'
 const Footer = () => {
@@ -164,9 +163,9 @@ const Footer = () => {
         <div className="rights">
           <p className="copy-rights">
             &copy; 2021 TV24 Africa Newspaper Limited,{' '}
-            <span className="copy-right-red">
+            <a href="https://newsmediaafrica.com/" className="copy-right-red">
               A Subsidiary of News Media Africa Limited
-            </span>
+            </a>
           </p>
         </div>
       </div>

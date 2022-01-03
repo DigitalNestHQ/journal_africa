@@ -7,7 +7,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  grid-gap: 1.5rem !important;
 }
 
 .fact-heading {
@@ -53,12 +53,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 2rem;
   margin-bottom: 1rem;
   border-bottom: 3px solid #c4c4c4;
   line-height: 30px;
   padding-bottom: 0.75rem;
   color: #000;
+}
+.fact-check-list-item > * + * {
+  margin: 0 0 0 2rem;
 }
 .fact-check-list-item:hover {
   color: #000;
@@ -66,6 +68,7 @@
 .fact-list-img-container {
   width: 100px;
   height: 74px;
+  display: block;
 }
 
 .f-c-l-img {
@@ -73,15 +76,6 @@
   height: 100%;
   display: block;
 }
-
-/* @media (max-width: 1070px) {
-  .fact-check-wrapper {
-    max-width: unset;
-    margin: unset;
-    padding: unset;
-    width: 100%;
-  }
-} */
 @media (max-width: 1000px) {
   .fact-content-grid {
     width: 100%;
@@ -96,5 +90,11 @@
   }
   .f-c-text {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 400px){
+  .fact-check-list-item > * + * {
+    margin: 0 0 0 0.85rem;
   }
 }

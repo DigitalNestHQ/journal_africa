@@ -18,13 +18,12 @@ import { HOMESCREEN_API_URL } from '../../utils/constants'
 import Loader from '../../components/loader/Loader'
 import cybertruck from '../../assets/images/cybertruck1.jpg'
 
-//  THIS IS THE PODCAST PLAYING PAGE
 
 const PodcastHome = () => {
   const [podcasts, setPodcasts] = useState(null)
   const [loading, setLoading] = useState(false)
   const { width } = useViewPort()
-  const breakpoint = 1150
+  const breakpoint = 993
   useEffect(() => {
     const fetchPods = async () => {
       setLoading(true)

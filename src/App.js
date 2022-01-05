@@ -29,7 +29,7 @@ import AlertState from './context/alert/AlertState'
 
 // middleware
 import './App.css'
-import { SinglePodCast } from './podcast/singlepodcast/SinglePodCast.js'
+// import { SinglePodCast } from './podcast/singlepodcast/SinglePodCast.js'
 import { SuccessPage } from './components/homepage/homepageSubscribeSection/SuccessPage.js'
 import Faq from './components/faq/Faq.js'
 import { Advertising } from './components/advertising/Advertising.js'
@@ -38,81 +38,92 @@ import { WriteForUs } from './components/writeforus/WriteForUs.js'
 import NewState from './context/news/NewState'
 import CommentState from './context/comments/CommentState'
 import SearchNews from './components/generalNews/searchComponent/SearchNews'
+import { SoundLayer } from './context/podcast/SoundLayer'
+import soundReducer, { soundInitialState } from './context/podcast/soundReducer'
 const App = () => {
   return (
     <div className="app">
-      <AuthState>
-        <CommentState>
-          <AlertState>
-            <NewState>
-              <Switch>
-                <Route exact path={pageurl.HOMEPAGE} component={HomePage} />
-                <Route exact path={pageurl.SUBSCRIBE} component={Subscribe} />
-                <Route exact path={pageurl.FAQ} component={Faq} />
-                <Route
-                  exact
-                  path={pageurl.ADVERTISING}
-                  component={Advertising}
-                />
-                <Route
-                  exact
-                  path={pageurl.SIGNUPSUCCESSFUL}
-                  component={SuccessPage}
-                />
-                <Route exact path="/about" component={AboutUs} />
-                <Route
-                  exact
-                  path={pageurl.CODEOFETHICS}
-                  component={CodeOfEthics}
-                />
-                <Route exact path={pageurl.WRITEFORUS} component={WriteForUs} />
-                <Route exact path="/post/:slug" component={NewsFeeds} />
-                <Route exact path="/latest/:slug" component={LatestDaily} />
-                <Route exact path="/news/categories" component={CategoryNews} />
-                <Route exact path="/search" component={SearchNews} />
-                <Route
-                  exact
-                  path="/news/sub-categories"
-                  component={SubcategoryNews}
-                />
-                {/* <Route exact path="/news/1" component={Categories} /> */}
-                <Route exact path={pageurl.PODCAST} component={PodcastHome} />
-                <Route exact path="/podcast/all" component={PodCastsView} />
-                <Route exact path="/podcast/single" component={SinglePodCast} />
-                <Route
-                  exact
-                  path="/podcast/:collectionId"
-                  component={CurrentPodCast}
-                />
-                <Route
-                  exact
-                  path="/podcast/play/:trackId"
-                  component={CurrentPodCastPlayer}
-                />
-                <Route
-                  exact
-                  path={pageurl.PRIVACYPOLICY}
-                  component={PrivacyPolicy}
-                />
-                <Route
-                  exact
-                  path={pageurl.COOKIEPOLICY}
-                  component={CookiePolicy}
-                />
-                <Route path="/login" component={Login} />
-                <Route
-                  exact
-                  path={pageurl.DISCOVERAFRICA}
-                  component={DiscoverAfrica}
-                />
-                <Route exact path={pageurl.CONTACTUS} component={ContactUs} />
-                <Route exact path={pageurl.SIGNUP} component={Signup} />
-                <Route component={Error404} />
-              </Switch>
-            </NewState>
-          </AlertState>
-        </CommentState>
-      </AuthState>
+      <SoundLayer initialState={soundInitialState} reducer={soundReducer}>
+        <AuthState>
+          <CommentState>
+            <AlertState>
+              <NewState>
+                <Switch>
+                  <Route exact path={pageurl.HOMEPAGE} component={HomePage} />
+                  <Route exact path={pageurl.SUBSCRIBE} component={Subscribe} />
+                  <Route exact path={pageurl.FAQ} component={Faq} />
+                  <Route
+                    exact
+                    path={pageurl.ADVERTISING}
+                    component={Advertising}
+                  />
+                  <Route
+                    exact
+                    path={pageurl.SIGNUPSUCCESSFUL}
+                    component={SuccessPage}
+                  />
+                  <Route exact path="/about" component={AboutUs} />
+                  <Route
+                    exact
+                    path={pageurl.CODEOFETHICS}
+                    component={CodeOfEthics}
+                  />
+                  <Route
+                    exact
+                    path={pageurl.WRITEFORUS}
+                    component={WriteForUs}
+                  />
+                  <Route exact path="/post/:slug" component={NewsFeeds} />
+                  <Route exact path="/latest/:slug" component={LatestDaily} />
+                  <Route
+                    exact
+                    path="/news/categories"
+                    component={CategoryNews}
+                  />
+                  <Route exact path="/search" component={SearchNews} />
+                  <Route
+                    exact
+                    path="/news/sub-categories"
+                    component={SubcategoryNews}
+                  />
+                  {/* <Route exact path="/news/1" component={Categories} /> */}
+                  <Route exact path={pageurl.PODCAST} component={PodcastHome} />
+                  <Route exact path="/podcast/all" component={PodCastsView} />
+                  <Route
+                    exact
+                    path="/podcast/single/:collectionId"
+                    component={CurrentPodCastPlayer}
+                  />
+                  <Route
+                    exact
+                    path="/podcast/:collectionId"
+                    component={CurrentPodCast}
+                  />
+                  <Route
+                    exact
+                    path={pageurl.PRIVACYPOLICY}
+                    component={PrivacyPolicy}
+                  />
+                  <Route
+                    exact
+                    path={pageurl.COOKIEPOLICY}
+                    component={CookiePolicy}
+                  />
+                  <Route path="/login" component={Login} />
+                  <Route
+                    exact
+                    path={pageurl.DISCOVERAFRICA}
+                    component={DiscoverAfrica}
+                  />
+                  <Route exact path={pageurl.CONTACTUS} component={ContactUs} />
+                  <Route exact path={pageurl.SIGNUP} component={Signup} />
+                  <Route component={Error404} />
+                </Switch>
+              </NewState>
+            </AlertState>
+          </CommentState>
+        </AuthState>
+      </SoundLayer>
     </div>
   )
 }

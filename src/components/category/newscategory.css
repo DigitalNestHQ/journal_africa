@@ -241,3 +241,13 @@
     height: 250px;
   }
 }
+
+@media (max-width: 500px) {
+  .category-comp-heading {
+    margin-top: 90px;
+    top: -4%;
+  }
+  .cat-section {
+    margin-top: 112px;
+  }
+}

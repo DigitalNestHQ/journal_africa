@@ -26,6 +26,11 @@ ol {
 .app {
   margin: 0;
 }
+ins strong{
+  font-weight: normal;
+  text-decoration: none;
+  font-size:  clamp(0.9rem, 2vw, 1rem);
+}
 .card-img-overlay {
   border: none;
   border-radius: unset;
@@ -77,7 +82,7 @@ ol {
 .section-heading-default {
   line-height: 30px;
   font-weight: 600;
-  font-size: clamp(1.15rem, 2.5vw, 1.25rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.25rem);
 }
 .section-heading-default-pod {
   line-height: 30px;
@@ -114,5 +119,12 @@ ol {
     width: 100%;
     padding-left: unset;
     padding-right: unset;
+  }
+}
+
+@media (max-width: 400px){
+  .section-heading-default {
+    line-height: 20px;
+    font-size: clamp(0.9rem, 2vw, 1.25rem);
   }
 }

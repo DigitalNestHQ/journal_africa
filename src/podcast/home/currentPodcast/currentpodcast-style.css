@@ -228,6 +228,18 @@
   padding: 0.3rem 1rem;
   text-transform: uppercase;
 }
+@media (max-width: 350px) {
+  .pod-collection-tags {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .pod-collection-tags > * + * {
+    margin: 1.5rem 0 0 0;
+  }
+}
 @media (max-width: 650px) {
   .current-podcast-heading {
     display: block;

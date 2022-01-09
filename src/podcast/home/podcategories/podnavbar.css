@@ -89,6 +89,9 @@
 .pod-episodes:hover {
   color: #fff;
 }
+.pod-text{
+  line-height:30px;
+}
 
 @media(max-width:685px) {
   .pod-grid {

@@ -51,6 +51,7 @@
   width: 790px !important;
   max-width: 790px !important;
   margin: auto;
+  line-height: 30px;
 }
 .blur-content {
   background: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
@@ -63,7 +64,7 @@
 .main-content p {
   text-align: left !important;
   font-size: inherit;
-  line-height: 17px;
+  line-height: 30px;
   color: black;
 }
 
@@ -92,6 +93,12 @@
   display: block;
   object-fit: cover;
   height: 407px !important;
+}
+
+.main-content ol li {
+  line-height: 30px;
+  margin-bottom: 1rem;
+  display: block;
 }
 .main-content ol li a img {
   width: 788px !important;
@@ -211,6 +218,7 @@
 .prev-link:hover,
 .next-link:hover {
   color: black;
+  text-decoration: underline;
 }
 .previous {
   text-align: left;

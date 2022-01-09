@@ -111,6 +111,10 @@
   display: block;
   text-align: left;
   color: #bab8b8;
+  line-height: 30px;
+}
+.pod-details-left-gird-text{
+  line-height: 30px;
 }
 .pod-read-more {
   background-color: transparent;
@@ -163,6 +167,7 @@
   white-space: pre-wrap;
   text-align: left;
   margin-top: 1.5rem;
+  line-height: 30px;
 }
 
 .pod-play-area-section{

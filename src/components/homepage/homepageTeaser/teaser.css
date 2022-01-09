@@ -113,7 +113,6 @@
 
 .left-content {
   width: 100%;
-  font-size: 0.8rem;
   margin-left: 2rem;
 }
 
@@ -177,7 +176,7 @@
 .latest-text {
   font-size: inherit;
   text-align: left;
-  line-height: 1.5;
+  line-height: 30px;
 }
 
 .latest-text h2 ins strong{
@@ -188,6 +187,7 @@
 }
 .left-content p {
 font-size: clamp(0.9rem, 2vw, 1rem);
+line-height: 30px;
 }
 @media (max-width: 560px) {
   .policy-card {

@@ -128,3 +128,8 @@ ins strong{
     font-size: clamp(0.9rem, 2vw, 1.25rem);
   }
 }
+@media (max-width: 280px){
+  .section-heading-default {
+    font-size:0.7rem;
+  }
+}

@@ -91,7 +91,7 @@ const GetNews = () => {
       if (user !== null) {
         setLoggedIn(user)
       }
-    }else{
+    } else {
       setLoggedIn({})
     }
     //eslint-disable-next-line
@@ -195,6 +195,8 @@ const GetNews = () => {
                         ) : (
                           <LoggedInNotSubscribed />
                         )
+                      ) : singleNews[0].post_type === 'free' ? (
+                        <LoggedInNotSubscribed />
                       ) : (
                         <NotLoggedIn />
                       )}

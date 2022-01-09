@@ -99,10 +99,6 @@
   position: relative;
 }
 
-.policy-card > * + * {
-  margin: 0 0 0 2rem;
-}
-
 .policy-government-link,
 .lastest-card-link {
   color: #000000;
@@ -118,6 +114,7 @@
 .left-content {
   width: 100%;
   font-size: 0.8rem;
+  margin-left: 2rem;
 }
 
 .p-img {

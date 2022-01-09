@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import Alerts from '../alert/Alerts'
 import AlertContext from '../../context/alert/alertContext'
 import AuthContext from '../../context/auth/authContext'
@@ -13,22 +13,22 @@ const Login = () => {
   const alertContext = useContext(AlertContext)
   const authContext = useContext(AuthContext)
   const { setAlert } = alertContext
+  const location = useLocation()
 
   const { login, error, clearErrors, isAuthenticated, loading } = authContext
 
   useEffect(() => {
     if (isAuthenticated) {
-      setTimeout(() => {
+      const fromSuccessPage = location.state && location.state.fromSuccessPage
+      if (fromSuccessPage) {
         history.push('/')
-      }, 1000)
+      } else {
+        history.goBack()
+      }
     }
     if (error === 'invalid_credentials') {
       setAlert(error, 'danger')
       clearErrors()
-    }
-
-    return () => {
-      clearTimeout(() => history.push('/'), 1000)
     }
     // eslint-disable-next-line
   }, [error, isAuthenticated, history])
@@ -56,7 +56,7 @@ const Login = () => {
   return (
     <header className="login">
       <div className="register-signup-wrapper login-wrapper">
-        <FormHeader/>
+        <FormHeader />
         <div className="log-showcase">
           <div className="reg-content-grid">
             <div className="reg-benefits">

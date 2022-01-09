@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { pageurl } from "../../../utils/constants";
-import "./successpage.css";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { pageurl } from '../../../utils/constants'
+import './successpage.css'
 
 export const SuccessPage = (props) => {
   return (
@@ -16,8 +16,17 @@ export const SuccessPage = (props) => {
           activation link to enable you sign in and continue reading TV24 Africa
           News after subscribing to your desired subscription plan.
         </p>
-        <Link to={pageurl.SIGNIN}>Continue</Link>
+        <Link
+          to={{
+            pathname: pageurl.SIGNIN,
+            state: {
+              fromSuccessPage: true,
+            },
+          }}
+        >
+          Continue
+        </Link>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}

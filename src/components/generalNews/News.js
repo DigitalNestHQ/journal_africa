@@ -24,6 +24,7 @@ import Moment from 'react-moment'
 
 const GetNews = () => {
   const [currentPage, setCurrentPage] = useState(1)
+  const [loggedIn, setLoggedIn] = useState({})
   const userContext = useContext(authContext)
   const { user, isAuthenticated } = userContext
   const newsFeedContext = useContext(newsContext)
@@ -32,30 +33,33 @@ const GetNews = () => {
   const { width } = useViewPort()
   const breakpoint2 = 994
 
-  const getAdjacentPosts = React.useCallback((slug) => {
-    if (singleNews.length === 0) return ''
-    const currentCategoryNews = news.filter(
-      (news) => news.category_id === singleNews[0].category_id,
-    )
-    const postIndex = currentCategoryNews.findIndex(
-      (postHeader) => postHeader?.slug === slug,
-    )
+  const getAdjacentPosts = React.useCallback(
+    (slug) => {
+      if (singleNews.length === 0) return ''
+      const currentCategoryNews = news.filter(
+        (news) => news.category_id === singleNews[0].category_id,
+      )
+      const postIndex = currentCategoryNews.findIndex(
+        (postHeader) => postHeader?.slug === slug,
+      )
 
-    return {
-      previous:
-        postIndex <= 0
-          ? ''
-          : {
-              slug: currentCategoryNews[postIndex - 1].slug,
-            },
-      next:
-        postIndex >= currentCategoryNews.length - 1
-          ? ''
-          : {
-              slug: currentCategoryNews[postIndex + 1].slug,
-            },
-    }
-  },[news, singleNews])
+      return {
+        previous:
+          postIndex <= 0
+            ? ''
+            : {
+                slug: currentCategoryNews[postIndex - 1].slug,
+              },
+        next:
+          postIndex >= currentCategoryNews.length - 1
+            ? ''
+            : {
+                slug: currentCategoryNews[postIndex + 1].slug,
+              },
+      }
+    },
+    [news, singleNews],
+  )
 
   useEffect(() => {
     getSingleNews(slug)
@@ -83,8 +87,15 @@ const GetNews = () => {
 
   useEffect(() => {
     getNews()
+    if (isAuthenticated) {
+      if (user !== null) {
+        setLoggedIn(user)
+      }
+    }else{
+      setLoggedIn({})
+    }
     //eslint-disable-next-line
-  }, [])
+  }, [isAuthenticated])
 
   if (loading || singleNews === null || news === null) {
     return <Loader />
@@ -149,7 +160,7 @@ const GetNews = () => {
                         `${
                           singleNews[0].post_type === 'premium' &&
                           isAuthenticated
-                            ? user.subscription_status
+                            ? loggedIn.subscription_status
                               ? singleNews[0].post_description
                               : singleNews[0].post_description.substring(
                                   0,
@@ -165,7 +176,7 @@ const GetNews = () => {
                     </div>
                     {singleNews[0].post_type === 'premium' &&
                     isAuthenticated ? (
-                      user.subscription_status ? (
+                      loggedIn.subscription_status ? (
                         <div></div>
                       ) : (
                         <div className="blur-content"></div>
@@ -177,14 +188,15 @@ const GetNews = () => {
                       <div className=""></div>
                     )}
                     <div className="check-mate">
-                      {!isAuthenticated &&
-                      singleNews[0].post_type === 'premium' ? (
-                        <NotLoggedIn />
-                      ) : (isAuthenticated && !user.subscription_status) ||
-                        singleNews[0].post_type === 'free' ? (
-                        <LoggedInNotSubscribed />
+                      {singleNews[0].post_type === 'premium' &&
+                      isAuthenticated ? (
+                        loggedIn.subscription_status ? (
+                          ''
+                        ) : (
+                          <LoggedInNotSubscribed />
+                        )
                       ) : (
-                        ''
+                        <NotLoggedIn />
                       )}
                     </div>
                     <ShareNews next={next} previous={previous} />

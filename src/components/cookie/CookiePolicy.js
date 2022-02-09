@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react'
-import Nav from '../reusables/navigation/Nav/nav'
-import Footer from '../reusables/navigation/Footer/footer'
+import React, { Fragment } from "react"
+import Nav from "../reusables/navigation/Nav/nav"
+import Footer from "../reusables/navigation/Footer/footer"
 
-import './cookie.css'
+import "./cookie.css"
 
 const CookiePolicy = () => {
   return (
@@ -12,7 +12,7 @@ const CookiePolicy = () => {
         <div className="section-wrapper-default">
           <div className="privacy-header-component">
             <h3 className="section-heading-default text-center privacy-border-red">
-              TV24 Africa Cookie Policy
+              Journal Africa Cookie Policy
             </h3>
           </div>
           <div className="cookie-txt">

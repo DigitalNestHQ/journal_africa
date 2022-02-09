@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react'
-import Nav from '../reusables/navigation/Nav/nav'
-import Footer from '../reusables/navigation/Footer/footer'
+import React, { Fragment } from "react"
+import Nav from "../reusables/navigation/Nav/nav"
+import Footer from "../reusables/navigation/Footer/footer"
 
-import './privacyPolicy.css'
+import "./privacyPolicy.css"
 
 const PrivacyPolicy = () => {
   return (
@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
               <h5 className="privacy-list-heading slug-default">1. Terms</h5>
               <div className="privacy-list-content">
                 <p className="privacy-terms-text">
-                  By accessing the website “www.tv24africa.com” or any if is
+                  By accessing the website “www.journalafrica.com” or any if is
                   subdomains, you are agreeing to be bound by these website
                   Terms and Conditions of Use, all applicable laws, and
                   regulations, and agree that you are responsible for compliance
@@ -56,7 +56,7 @@ const PrivacyPolicy = () => {
                   </li>
                   <li className="license-list-item">
                     Attempt to decompile or reverse engineer any software
-                    contained on tv24africa.com website.
+                    contained on journalafrica.com website.
                   </li>
                   <li className="license-list-item">
                     Remove any copyright or other proprietary notations from the
@@ -69,9 +69,9 @@ const PrivacyPolicy = () => {
                   <li className="license-list-item">
                     This license shall automatically terminate if you violate
                     any of these restrictions and may be terminated by
-                    tv24africa.com at any time. Upon terminating your viewing of
-                    these materials or upon the termination of this license, you
-                    must destroy any downloaded materials in your possession
+                    journalafrica.com at any time. Upon terminating your viewing
+                    of these materials or upon the termination of this license,
+                    you must destroy any downloaded materials in your possession
                     whether in electronic or printed format.
                   </li>
                 </ol>
@@ -118,7 +118,7 @@ const PrivacyPolicy = () => {
                   <li className="license-list-item">
                     Post material or make statements that do not generally
                     pertain to the designated topic or theme of any chat room or
-                    bulletin board{' '}
+                    bulletin board{" "}
                   </li>
                   <li className="license-list-item">
                     We reserve the right to remove or edit content from the
@@ -133,8 +133,8 @@ const PrivacyPolicy = () => {
               </h5>
               <div className="privacy-list-content">
                 <p className="privacy-terms-text">
-                  The materials on TV24africa website are provided “as is”.
-                  TV24africa makes no warranties, expressed or implied, and
+                  The materials on Journal Africa website are provided “as is”.
+                  Journal Africa makes no warranties, expressed or implied, and
                   hereby disclaims and negates all other warranties, including
                   without limitation, implied warranties or conditions of
                   merchantability, fitness for a particular purpose, or
@@ -142,7 +142,7 @@ const PrivacyPolicy = () => {
                   of rights.
                 </p>
                 <p className="privacy-terms-text">
-                  Further, TV24Africa does not warrant or make any
+                  Further, Journal Africa does not warrant or make any
                   representations concerning the accuracy, likely results, or
                   reliability of the use of the materials on its Internet
                   website or otherwise relating to such materials or on any
@@ -156,20 +156,20 @@ const PrivacyPolicy = () => {
               </h5>
               <div className="privacy-list-content">
                 <p className="privacy-terms-text">
-                  In no event shall TV24Africa or its suppliers be liable for
-                  any damages (including, without limitation, damages for loss
-                  of data or profit, or due to business interruption,) arising
-                  out of the use or inability to use the materials on TV24Africa
-                  Internet site, even if TV24Africa or a TV24Africa authorized
-                  representative has been notified orally or in writing of the
-                  possibility of such damage. Because some jurisdictions do not
-                  allow limitations on implied warranties, or limitations of
-                  liability for consequential or incidental damages, these
-                  limitations may not apply to you
+                  In no event shall Journal Africa or its suppliers be liable
+                  for any damages (including, without limitation, damages for
+                  loss of data or profit, or due to business interruption,)
+                  arising out of the use or inability to use the materials on
+                  Journal Africa Internet site, even if Journal Africa or a
+                  Journal Africa authorized representative has been notified
+                  orally or in writing of the possibility of such damage.
+                  Because some jurisdictions do not allow limitations on implied
+                  warranties, or limitations of liability for consequential or
+                  incidental damages, these limitations may not apply to you
                 </p>
                 <p className="privacy-terms-text">
-                  TV24Africa suggests watching over children when they use the
-                  website. TV 24 Africa news is not responsible for the
+                  Journal Africa suggests watching over children when they use
+                  the website.Journal Africa news is not responsible for the
                   consequences of children’s access to the website.
                 </p>
               </div>
@@ -180,14 +180,14 @@ const PrivacyPolicy = () => {
               </h5>
               <div className="privacy-list-content">
                 <p className="privacy-terms-text">
-                  Revisions and Errata The materials appearing on TV24Africa
+                  Revisions and Errata The materials appearing on Journal Africa
                   website could include technical, typographical, or
-                  photographic errors. TV24Africa does not warrant that any of
-                  the materials on its website are accurate, complete, or
-                  current. TV24Africa may make changes to the materials
-                  contained on its web site at any time without notice.
-                  TV24Africa does not, however, make any commitment to update
-                  the materials.
+                  photographic errors. Journal Africa does not warrant that any
+                  of the materials on its website are accurate, complete, or
+                  current. Journal Africa may make changes to the materials
+                  contained on its web site at any time without notice. Journal
+                  Africa does not, however, make any commitment to update the
+                  materials.
                 </p>
               </div>
             </div>
@@ -195,11 +195,11 @@ const PrivacyPolicy = () => {
               <h5 className="privacy-list-heading slug-default">7. Links</h5>
               <div className="privacy-list-content">
                 <p className="privacy-terms-text">
-                  Links TV24Africa has not reviewed all of the sites linked to
-                  its Internet website and is not responsible for the contents
-                  of any such linked site. The inclusion of any link does not
-                  imply endorsement by TV24Africa of the site. Use of any such
-                  linked website is at the user’s own risk.
+                  Links Journal Africa has not reviewed all of the sites linked
+                  to its Internet website and is not responsible for the
+                  contents of any such linked site. The inclusion of any link
+                  does not imply endorsement by Journal Africa of the site. Use
+                  of any such linked website is at the user’s own risk.
                 </p>
               </div>
             </div>
@@ -210,8 +210,8 @@ const PrivacyPolicy = () => {
               <div className="privacy-list-content">
                 <ol className="license-list">
                   <li className="license-list-item">
-                    TV24Africa may revise these terms of use for its website at
-                    any time without notice. Please check these terms
+                    Journal Africa may revise these terms of use for its website
+                    at any time without notice. Please check these terms
                     periodically for changes. Your continued use of this website
                     following the posting of changes to these terms will mean
                     you accept those changes.
@@ -233,9 +233,9 @@ const PrivacyPolicy = () => {
               </h5>
               <div className="privacy-list-content">
                 <p className="privacy-terms-text">
-                  Any claim relating to the TV24Africa website shall be governed
-                  by the laws of Nigeria without regard to its conflict of law
-                  provisions.
+                  Any claim relating to the Journal Africa website shall be
+                  governed by the laws of Nigeria without regard to its conflict
+                  of law provisions.
                 </p>
               </div>
             </div>
@@ -252,15 +252,16 @@ const PrivacyPolicy = () => {
                 </p>
                 <p className="privacy-terms-text">
                   This privacy policy applies to anyone who uses any services of
-                  TV24Africa available online including TV24Africa website,
-                  program, and/or software applications that allow you to access
-                  watch and/or listen to TV24Africa content on your device
-                  (hereinafter referred as “TV24Africa Online Services”).
+                  Journal Africa available online including Journal Africa
+                  website, program, and/or software applications that allow you
+                  to access watch and/or listen to Journal Africa content on
+                  your device (hereinafter referred as “Journal Africa Online
+                  Services”).
                 </p>
                 <p className="privacy-terms-text">
                   Please carefully review this Privacy Policy and more generally
                   our Terms of Use relating to our services. Your use of the
-                  TV24Africa website signifies your consent to our Privacy
+                  Journal Africa website signifies your consent to our Privacy
                   Policy and our Terms of Use.
                 </p>
               </div>
@@ -271,8 +272,8 @@ const PrivacyPolicy = () => {
               </h5>
               <div className="privacy-list-content">
                 <p className="privacy-terms-text">
-                  Personal data When you use TV24Africa Online Services we may
-                  receive or collect personal information about you.
+                  Personal data When you use Journal Africa Online Services we
+                  may receive or collect personal information about you.
                 </p>
               </div>
             </div>
@@ -282,25 +283,25 @@ const PrivacyPolicy = () => {
               </h5>
               <div className="privacy-list-content">
                 <p className="privacy-terms-text">
-                  Indeed, by using TV24Africa Online Services you may provide us
-                  with voluntary registration information such as your email
-                  address. In particular, when you sign up to TV24Africa
-                  Community which enables you to receive a newsletter according
-                  to your own choice, you provide your email address. Or, you
-                  may provide your e-mail address to participate to our
+                  Indeed, by using Journal Africa Online Services you may
+                  provide us with voluntary registration information such as
+                  your email address. In particular, when you sign up to Journal
+                  Africa Community which enables you to receive a newsletter
+                  according to your own choice, you provide your email address.
+                  Or, you may provide your e-mail address to participate to our
                   interactive program.
                 </p>
                 <p className="privacy-terms-text">
-                  Besides, when you use TV24Africa applications you may agree to
-                  give us geolocation data in order to benefit from the
+                  Besides, when you use Journal Africa applications you may
+                  agree to give us geolocation data in order to benefit from the
                   functioning of a News map.
                 </p>
                 <p className="privacy-terms-text">
                   Personal information we collect: In addition, we collect, by
                   default, standard data such as your IP address or additional
                   data like anonymous labels, through labels and information
-                  provided by OS in order to understand how TV24Africa Online
-                  Services are being used or to benefit from a push
+                  provided by OS in order to understand how Journal Africa
+                  Online Services are being used or to benefit from a push
                   notification.
                 </p>
               </div>
@@ -315,7 +316,7 @@ const PrivacyPolicy = () => {
                 </p>
                 <ul className="license-list">
                   <li className="license-list-item">
-                    Allow you to benefit from TV24Africa Online Services
+                    Allow you to benefit from Journal Africa Online Services
                   </li>
                   <li className="license-list-item">
                     Ensure an easier browsing on our website
@@ -325,14 +326,14 @@ const PrivacyPolicy = () => {
                     information referred to our cookie policy)
                   </li>
                   <li className="license-list-item">
-                    Send push notifications on your TV24Africa apps
+                    Send push notifications on your Journal Africa apps
                   </li>
                   <li className="license-list-item">
                     Indeed, this analysis tool enables us to measure and analyze
-                    information with regard to your use of our TV24Africa Online
-                    Services. We can then put this information in favor of
-                    better efficiency of our TV24Africa Online Services and
-                    accordingly increase the quality of our services.
+                    information with regard to your use of our Journal Africa
+                    Online Services. We can then put this information in favor
+                    of better efficiency of our Journal Africa Online Services
+                    and accordingly increase the quality of our services.
                   </li>
                 </ul>
               </div>
@@ -350,20 +351,21 @@ const PrivacyPolicy = () => {
                 <p className="privacy-terms-text">
                   Indeed, your personal information can be transmitted to
                   suppliers of technology and services to ensure the optimum
-                  operation of TV24Africa Online Services. For example, this is
-                  effectively the case when you share an article via a
+                  operation of Journal Africa Online Services. For example, this
+                  is effectively the case when you share an article via a
                   third-party application like Facebook or Twitter.
                 </p>
                 <p className="privacy-terms-text">
                   We hold your personal information for as long it appears
-                  necessary to ensure the effective operation of our TV24Africa
-                  Online Services.
+                  necessary to ensure the effective operation of our Journal
+                  Africa Online Services.
                 </p>
                 <div className="privacy-terms-text">
-                  TV24Africa only processes your personal data for the purposes
-                  described below, it does not divulge them for other purposes.
-                  Our main objective is to collect and use only the information
-                  we believe is necessary for the performance of TV24Africa
+                  Journal Africa only processes your personal data for the
+                  purposes described below, it does not divulge them for other
+                  purposes. Our main objective is to collect and use only the
+                  information we believe is necessary for the performance of
+                  Journal Africa
                 </div>
               </div>
             </div>
@@ -376,7 +378,7 @@ const PrivacyPolicy = () => {
                   <b>1.1</b> On our platforms, you may be asked to participate
                   by sending (by various means) content that you wish to share
                   with us, such as a video or photo (hereinafter referred to as
-                  the “Content”) so that it can be used by the TV24Africa
+                  the “Content”) so that it can be used by the Journal Africa
                   (hereinafter referred to as the “Media”).
                 </p>
                 <p className="privacy-terms-text">
@@ -403,13 +405,13 @@ const PrivacyPolicy = () => {
                 <div className="privacy-terms-text">
                   <b>1.4</b> You retain all of the intellectual property rights
                   for your Content, but you must grant limited rights to the
-                  Media. When you submit Content to TV24Africa, you grant the
-                  Media a non-exclusive right, that is transferable (including
-                  the right to sublicense), free of charge, for the whole world
-                  and throughout the duration of the copyright protection, to
-                  use, reproduce, distribute, create derivative works, represent
-                  and perform the Content in connection with the Media’s
-                  activity, and in particular for the promotion and
+                  Media. When you submit Content to Journal Africa, you grant
+                  the Media a non-exclusive right, that is transferable
+                  (including the right to sublicense), free of charge, for the
+                  whole world and throughout the duration of the copyright
+                  protection, to use, reproduce, distribute, create derivative
+                  works, represent and perform the Content in connection with
+                  the Media’s activity, and in particular for the promotion and
                   redistribution of all or part of the service (and of the
                   resulting derivative works) without limitation, in all
                   formats, on all media and via all media channels;

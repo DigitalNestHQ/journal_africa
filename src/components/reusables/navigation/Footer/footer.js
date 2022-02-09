@@ -1,8 +1,8 @@
-import React from 'react'
-import GooglePlayImg from '../../../../assets/images/playstoreimg.png'
-import ApplePlayImg from '../../../../assets/images/apple.jpg'
-import './footer.css'
-import { Link } from 'react-router-dom'
+import React from "react"
+import GooglePlayImg from "../../../../assets/images/playstoreimg.png"
+import ApplePlayImg from "../../../../assets/images/apple.jpg"
+import "./footer.css"
+import { Link } from "react-router-dom"
 const Footer = () => {
   return (
     <footer className="footer-section">
@@ -79,8 +79,8 @@ const Footer = () => {
               <li className="footer-list-item">
                 <Link
                   to={{
-                    pathname: '/news/categories',
-                    search: '?category=Business Africa',
+                    pathname: "/news/categories",
+                    search: "?category=Business Africa",
                   }}
                   className="footer-link"
                 >
@@ -90,8 +90,8 @@ const Footer = () => {
               <li className="footer-list-item">
                 <Link
                   to={{
-                    pathname: '/news/categories',
-                    search: '?category=Finance',
+                    pathname: "/news/categories",
+                    search: "?category=Finance",
                   }}
                   className="footer-link"
                 >
@@ -100,9 +100,9 @@ const Footer = () => {
               </li>
               <li className="footer-list-item">
                 <Link
-                   to={{
-                    pathname: '/news/categories',
-                    search: '?category=Investigation',
+                  to={{
+                    pathname: "/news/categories",
+                    search: "?category=Investigation",
                   }}
                   className="footer-link"
                 >
@@ -112,8 +112,8 @@ const Footer = () => {
               <li className="footer-list-item">
                 <Link
                   to={{
-                    pathname: '/news/categories',
-                    search: '?category=Sport Africa',
+                    pathname: "/news/categories",
+                    search: "?category=Sport Africa",
                   }}
                   className="footer-link"
                 >
@@ -135,26 +135,26 @@ const Footer = () => {
             <ul className="download-list">
               <li className="download-list-item">
                 <Link to="/" className="download-link">
-                  {' '}
-                  <i className="fab fa-instagram"></i>{' '}
+                  {" "}
+                  <i className="fab fa-instagram"></i>{" "}
                 </Link>
               </li>
               <li className="download-list-item">
                 <Link to="/" className="download-link">
-                  {' '}
-                  <i className="fab fa-facebook"></i>{' '}
+                  {" "}
+                  <i className="fab fa-facebook"></i>{" "}
                 </Link>
               </li>
               <li className="download-list-item">
                 <Link to="/" className="download-link">
-                  {' '}
-                  <i className="fab fa-twitter"></i>{' '}
+                  {" "}
+                  <i className="fab fa-twitter"></i>{" "}
                 </Link>
               </li>
               <li className="download-list-item">
                 <Link to="/" className="download-link">
-                  {' '}
-                  <i className="fab fa-youtube"></i>{' '}
+                  {" "}
+                  <i className="fab fa-youtube"></i>{" "}
                 </Link>
               </li>
             </ul>
@@ -162,7 +162,7 @@ const Footer = () => {
         </div>
         <div className="rights">
           <p className="copy-rights">
-            &copy; 2021 TV24 Africa Newspaper Limited,{' '}
+            &copy; 2021 Journal Africa Newspaper Limited,{" "}
             <a href="https://newsmediaafrica.com/" className="copy-right-red">
               A Subsidiary of News Media Africa Limited
             </a>

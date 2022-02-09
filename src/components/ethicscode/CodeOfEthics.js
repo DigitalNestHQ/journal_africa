@@ -1,7 +1,7 @@
-import React from 'react'
-import Footer from '../reusables/navigation/Footer/footer'
-import Navbar from '../reusables/navigation/Nav/nav'
-import './codeofethics.css'
+import React from "react"
+import Footer from "../reusables/navigation/Footer/footer"
+import Navbar from "../reusables/navigation/Nav/nav"
+import "./codeofethics.css"
 
 export const CodeOfEthics = () => {
   return (
@@ -10,17 +10,20 @@ export const CodeOfEthics = () => {
       <section className="section-content-default privacy-container">
         <div className="section-wrapper-default">
           <div className="code-of-ethics-heading">
-            <h1 className="section-heading-default">TV24AFRICA NEWSPAPER CODE OF ETHICS</h1>
+            <h1 className="section-heading-default">
+              {" "}
+              JOURNAL AFRICA NEWSPAPER CODE OF ETHICS
+            </h1>
           </div>
           <div className="code-of-ethics-information">
             <p>
               This Code of ethics is designed in pursuance of the vision and
-              mission of TV24 Africa Newspaper which it shall adopt for the
+              mission of Journal Africa Newspaper which it shall adopt for the
               conduct of our organisation.
             </p>
 
             <p>
-              The mission of TV24 Africa Newspaper is to practice and promote
+              The mission of Journal Africa Newspaper is to practice and promote
               journalism in the public interest. All of the values stated here,
               and the rules set out here, are intended to contribute to that
               mission. We do this because, while our entity is new, and our
@@ -97,7 +100,7 @@ export const CodeOfEthics = () => {
           </div>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </>
   )
 }

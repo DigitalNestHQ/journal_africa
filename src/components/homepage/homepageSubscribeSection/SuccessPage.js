@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { pageurl } from '../../../utils/constants'
-import './successpage.css'
+import React from "react"
+import { Link } from "react-router-dom"
+import { pageurl } from "../../../utils/constants"
+import "./successpage.css"
 
 export const SuccessPage = (props) => {
   return (
@@ -13,8 +13,8 @@ export const SuccessPage = (props) => {
           An activation link has been sent to your registered email address.
           <br />
           Please check your inbox or your spam folder and click on the
-          activation link to enable you sign in and continue reading TV24 Africa
-          News after subscribing to your desired subscription plan.
+          activation link to enable you sign in and continue reading Journal
+          Africa News after subscribing to your desired subscription plan.
         </p>
         <Link
           to={{

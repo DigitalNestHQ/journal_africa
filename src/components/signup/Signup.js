@@ -1,19 +1,19 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import Alerts from '../alert/Alerts'
-import './signup.css'
-import FormHeader from '../reusables/navigation/formsReusables/FormHeader'
+import React, { useState, useContext, useEffect } from "react"
+import { Link, useHistory } from "react-router-dom"
+import Alerts from "../alert/Alerts"
+import "./signup.css"
+import FormHeader from "../reusables/navigation/formsReusables/FormHeader"
 
-import AlertContext from '../../context/alert/alertContext'
-import AuthContext from '../../context/auth/authContext'
+import AlertContext from "../../context/alert/alertContext"
+import AuthContext from "../../context/auth/authContext"
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [user, setUser] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    phone: '',
-    password: '',
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    password: "",
   })
   const authContext = useContext(AuthContext)
   const alertContext = useContext(AlertContext)
@@ -23,10 +23,10 @@ const Signup = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      history.push('/')
+      history.push("/")
     }
-    if (error === 'User already exists..') {
-      setAlert(error, 'danger')
+    if (error === "User already exists..") {
+      setAlert(error, "danger")
       clearErrors()
     }
     // eslint-disable-next-line
@@ -39,13 +39,13 @@ const Signup = () => {
     if (
       firstname.length < 2 ||
       lastname.length < 2 ||
-      email === '' ||
-      phone === '' ||
-      password === ''
+      email === "" ||
+      phone === "" ||
+      password === ""
     ) {
-      setAlert('Please provide all the details', 'danger')
+      setAlert("Please provide all the details", "danger")
     } else if (password.length < 6) {
-      setAlert('Password is too short', 'danger')
+      setAlert("Password is too short", "danger")
     } else {
       register({
         firstname,
@@ -55,14 +55,14 @@ const Signup = () => {
         password,
       })
         .then((response) => {
-          if (response.data.status === 'success') {
-            history.push('/success')
+          if (response.data.status === "success") {
+            history.push("/success")
             setUser({
-              firstname: '',
-              lastname: '',
-              email: '',
-              phone: '',
-              password: '',
+              firstname: "",
+              lastname: "",
+              email: "",
+              phone: "",
+              password: "",
             })
           }
         })
@@ -77,7 +77,7 @@ const Signup = () => {
   return (
     <header className="register">
       <div className="register-signup-wrapper">
-        <FormHeader/>
+        <FormHeader />
         <div className="reg-showcase">
           <div className="reg-content-grid">
             <div className="reg-benefits">
@@ -90,10 +90,10 @@ const Signup = () => {
                 </li>
                 <li className="reg-benefits-list-item">
                   Access exclusive stories, expert curation and expansive
-                  coverage on TV24 Africa website and Mobile App.
+                  coverage on Journal Africa website and Mobile App.
                 </li>
                 <li className="reg-benefits-list-item">
-                  Listen to live radio and podcast on TV24 Africa website and
+                  Listen to live radio and podcast on Journal Africa website and
                   Mobile App.
                 </li>
                 <li className="reg-benefits-list-item">
@@ -170,7 +170,7 @@ const Signup = () => {
                     Password
                   </label>
                   <input
-                    type={`${showPassword ? 'text' : 'password'}`}
+                    type={`${showPassword ? "text" : "password"}`}
                     name="password"
                     placeholder="Enter Password"
                     className="form-control reg-input"
@@ -183,7 +183,7 @@ const Signup = () => {
                     className="show-password"
                     onClick={() => setShowPassword(!showPassword)}
                   >
-                    {showPassword ? 'hide' : 'show'}
+                    {showPassword ? "hide" : "show"}
                   </span>
                 </div>
                 <div className="form-group check-section">
@@ -194,16 +194,16 @@ const Signup = () => {
                     required
                   />
                   <label htmlFor="agree" className="reg-agree-label">
-                    I agree to the Terms and{' '}
+                    I agree to the Terms and{" "}
                     <span>
-                      {' '}
+                      {" "}
                       <Link to="/privacy-policy" className="reg-conditions">
                         Conditions
                       </Link>
-                    </span>{' '}
-                    and{' '}
+                    </span>{" "}
+                    and{" "}
                     <span>
-                      {' '}
+                      {" "}
                       <Link to="/privacy-policy" className="reg-policy">
                         Privacy Policy
                       </Link>
@@ -212,7 +212,7 @@ const Signup = () => {
                 </div>
                 <input
                   type="submit"
-                  value={`${loading ? 'Please wait...' : 'Continue'}`}
+                  value={`${loading ? "Please wait..." : "Continue"}`}
                   className="btn btn-red btn-block mb-3"
                   disabled={loading}
                 />

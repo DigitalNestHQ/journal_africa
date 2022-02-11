@@ -60,7 +60,7 @@ ul.nav-links {
 }
 
 .mobile-cta-list > * + * {
-  margin: 1rem 0 0 0 ;
+  margin: 1rem 0 0 0;
 }
 
 .mobile-cta-item a {
@@ -88,7 +88,7 @@ ul.nav-links {
 }
 
 .logo {
-  width: 63px;
+  width: 60px;
   height: 63px;
 }
 

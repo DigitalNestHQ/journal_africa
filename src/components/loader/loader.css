@@ -3,7 +3,7 @@
   height: 100vh;
   left: 0;
   top: 0;
-  background-color: #b4afaf;
+  background-color: #f7f7f7;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,6 +27,6 @@
     transform: scale(1.5);
   }
   to {
-    transform: scale(2);
+    transform: scale(2.5);
   }
 }

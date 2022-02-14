@@ -1,11 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { Link, useHistory, useLocation } from 'react-router-dom'
-import Alerts from '../alert/Alerts'
-import AlertContext from '../../context/alert/alertContext'
-import AuthContext from '../../context/auth/authContext'
-import FormHeader from '../reusables/navigation/formsReusables/FormHeader'
-import './login.css'
-import '../signup/signup.css'
+import React, { useState, useContext, useEffect } from "react"
+import { Link, useHistory, useLocation } from "react-router-dom"
+import Alerts from "../alert/Alerts"
+import AlertContext from "../../context/alert/alertContext"
+import AuthContext from "../../context/auth/authContext"
+import FormHeader from "../reusables/navigation/formsReusables/FormHeader"
+import "./login.css"
+import "../signup/signup.css"
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -21,21 +21,21 @@ const Login = () => {
     if (isAuthenticated) {
       const fromSuccessPage = location.state && location.state.fromSuccessPage
       if (fromSuccessPage) {
-        history.push('/')
+        history.push("/")
       } else {
         history.goBack()
       }
     }
-    if (error === 'invalid_credentials') {
-      setAlert(error, 'danger')
+    if (error === "invalid_credentials") {
+      setAlert(error, "danger")
       clearErrors()
     }
     // eslint-disable-next-line
   }, [error, isAuthenticated, history])
 
   const [user, setUser] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   })
 
   const { email, password } = user
@@ -44,8 +44,8 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    if (email === '' || password === '') {
-      setAlert('email or password not correct', 'danger')
+    if (email === "" || password === "") {
+      setAlert("email or password not correct", "danger")
     }
     login({
       email,
@@ -61,7 +61,7 @@ const Login = () => {
           <div className="reg-content-grid">
             <div className="reg-benefits">
               <h1 className="african-story">
-                {' '}
+                {" "}
                 Telling the untold African Story
               </h1>
             </div>
@@ -88,7 +88,7 @@ const Login = () => {
                     Password
                   </label>
                   <input
-                    type={`${showPassword ? 'text' : 'password'}`}
+                    type={`${showPassword ? "text" : "password"}`}
                     name="password"
                     placeholder="Enter Password"
                     className="form-control reg-input"
@@ -101,12 +101,12 @@ const Login = () => {
                     className="show-password"
                     onClick={() => setShowPassword(!showPassword)}
                   >
-                    {showPassword ? 'hide' : 'show'}
+                    {showPassword ? "hide" : "show"}
                   </span>
                 </div>
                 <input
                   type="submit"
-                  value={`${loading ? 'Please wait...' : 'Continue'}`}
+                  value={`${loading ? "Please wait..." : "Continue"}`}
                   className="btn btn-red btn-block mb-3"
                   disabled={loading}
                 />

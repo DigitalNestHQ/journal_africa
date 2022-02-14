@@ -1,34 +1,31 @@
-import React, { useState, useEffect, Fragment, useContext } from 'react'
-import Footer from '../reusables/navigation/Footer/footer'
-import CategoryCard from './CategoryCard'
-import { useLocation, Link } from 'react-router-dom'
-import Loader from '../loader/Loader'
-import './newscategory.css'
-// import UnableToFetchNews from '../reusables/errorMessages/UnableToFetchNews'
-// import { ContactsAds1 } from '../ContactUs/mainSection/ContactsAds'
-// import { PopulateReadersList } from '../homepage/politics/ReaderList'
-import newsContext from '../../context/news/NewsContext'
-import Navbar from 'components/reusables/navigation/Nav/nav'
-import LargeAds from '../../assets/images/bannerads.png'
-import '../homepage/ads/ads.css'
-import { LargeSizeAds } from '../homepage/ads/Ads'
-import TeaserCard from '../homepage/homepageTeaser/TeaserCard'
-import cybertruck from '../../assets/images/cybertruck1.jpg'
-import { useViewPort } from '../../components/hooks/Viewport'
+import React, { useState, useEffect, Fragment, useContext } from "react"
+import Footer from "../reusables/navigation/Footer/footer"
+import CategoryCard from "./CategoryCard"
+import { useLocation, Link } from "react-router-dom"
+import Loader from "../loader/Loader"
+import "./newscategory.css"
+import newsContext from "../../context/news/NewsContext"
+import Navbar from "components/reusables/navigation/Nav/nav"
+import LargeAds from "../../assets/images/bannerads.png"
+import "../homepage/ads/ads.css"
+import { LargeSizeAds } from "../homepage/ads/Ads"
+import TeaserCard from "../homepage/homepageTeaser/TeaserCard"
+import cybertruck from "../../assets/images/cybertruck1.jpg"
+import { useViewPort } from "../../components/hooks/Viewport"
 
 const SubcategoryNews = () => {
   const context = useContext(newsContext)
   const { news, loading, categoryNews, getNews, getCategory } = context
   const { search } = useLocation()
   const x = new URLSearchParams(search)
-  const subcategory = x.get('subcategory')
+  const subcategory = x.get("subcategory")
   const [numberOfCategCard, setNumberOfCategCard] = useState(5)
   const { width } = useViewPort()
   const breakpoint = 991
 
   useEffect(() => {
     getNews()
-    getCategory('Discover Africa')
+    getCategory("Discover Africa")
     //eslint-disable-next-line
   }, [subcategory])
 
@@ -37,7 +34,7 @@ const SubcategoryNews = () => {
   }
 
   const getCategories = categoryNews?.filter(
-    (c) => c.sub_category === subcategory,
+    (c) => c.sub_category === subcategory
   )
   const handleMore = () => {
     setNumberOfCategCard((prev) => prev + 2)
@@ -90,7 +87,7 @@ const SubcategoryNews = () => {
                     Load More...
                   </button>
                 ) : (
-                  ''
+                  ""
                 )}
               </div>
               {width > breakpoint ? (
@@ -121,7 +118,7 @@ const SubcategoryNews = () => {
                   </div>
                 </div>
               ) : (
-                ''
+                ""
               )}
             </div>
           </div>

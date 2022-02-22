@@ -80,44 +80,44 @@ const Footer = () => {
                 <Link
                   to={{
                     pathname: "/news/categories",
-                    search: "?category=Business Africa",
+                    search: `?category=Gender and human rights`,
                   }}
                   className="footer-link"
                 >
-                  Business Africa
+                  Gender and human rights
                 </Link>
               </li>
               <li className="footer-list-item">
                 <Link
                   to={{
                     pathname: "/news/categories",
-                    search: "?category=Finance",
+                    search: "?category=Commentary",
                   }}
                   className="footer-link"
                 >
-                  Finance
+                  Commentary
                 </Link>
               </li>
               <li className="footer-list-item">
                 <Link
                   to={{
                     pathname: "/news/categories",
-                    search: "?category=Investigation",
+                    search: "?category=Fact Check Africa",
                   }}
                   className="footer-link"
                 >
-                  Investigation
+                  Fact Check Africa
                 </Link>
               </li>
               <li className="footer-list-item">
                 <Link
                   to={{
                     pathname: "/news/categories",
-                    search: "?category=Sport Africa",
+                    search: "?category=In-Depth Africa",
                   }}
                   className="footer-link"
                 >
-                  Sport Africa
+                  In-Depth Africa
                 </Link>
               </li>
             </ul>

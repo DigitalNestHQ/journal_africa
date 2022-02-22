@@ -9,18 +9,20 @@
 }
 .privacy-border-red {
   text-align: center;
-  border-bottom: 3px solid red;
   margin: 0 auto;
   display: inline-block;
 }
-.license-list {
+.list {
   list-style: decimal;
   list-style-position: inside;
 }
-.license-list-item {
-  margin-bottom: 0.5rem;
+.subscription-contract {
+  margin: 1rem 0;
 }
-.license-list-item:last-child {
+.list-item {
+  margin-bottom: 1rem;
+}
+.list-item:last-child {
   margin-bottom: 0;
 }
 .privacy-terms {
@@ -31,6 +33,10 @@
 }
 .privacy-terms:last-child {
   margin-bottom: 0;
+}
+
+.intro-text {
+  margin: 1rem 0;
 }
 @media (max-width: 1250px) {
   .privacy-container {

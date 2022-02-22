@@ -1,7 +1,6 @@
 import React from "react"
 import "./loader.css"
-import logoImg from "assets/images/logo white.png"
-import newLogo from "assets/images/updatedLogo.jpeg"
+import newLogo from "assets/images/main logo.png"
 
 const Loader = () => {
   return (

@@ -18,25 +18,27 @@ export const CodeOfEthics = () => {
           <div className="code-of-ethics-information">
             <p>
               This Code of ethics is designed in pursuance of the vision and
-              mission of Journal Africa Newspaper which it shall adopt for the
-              conduct of our organisation.
+              mission of Journal Africa which it shall adopt for the conduct of
+              our organisation.
             </p>
 
             <p>
-              The mission of Journal Africa Newspaper is to practice and promote
+              The mission of Journal Africa is to practice and promote
               journalism in the public interest. All of the values stated here,
               and the rules set out here, are intended to contribute to that
-              mission. We do this because, while our entity is new, and our
-              business model somewhat innovative, our ethics are neither. They
-              reflect what we and others have learned over many years. At the
-              same time, however, this Code is not immutable. Most of it
-              consists of guidelines; exceptional circumstances may require
-              exceptions to these rules. We expect to continue to learn, and, as
-              we do so, to revise this document in light of further insight and
-              experience.
+              mission.
+            </p>
+            <p>
+              We do this because, while our entity is new, and our model
+              somewhat innovative, our ethics are neither. They reflect what we
+              and others have learned over many years. At the same time,
+              however, this Code is not immutable. Most of it consists of
+              guidelines; exceptional circumstances may require exceptions to
+              these rules. We expect to continue to learn, and, as we do so, to
+              revise this document in light of further insight and experience.
             </p>
             <div>
-              <ol>
+              <ul style={{ listStyle: " inside " }}>
                 <li>
                   Adhere to the journalistic values of honesty, courage,
                   fairness, balance, independence, credibility and diversity,
@@ -95,7 +97,7 @@ export const CodeOfEthics = () => {
                   on what response is warranted, correct them fully, quickly and
                   ungrudgingly.
                 </li>
-              </ol>
+              </ul>
             </div>
           </div>
         </div>

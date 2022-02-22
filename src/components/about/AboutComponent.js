@@ -22,7 +22,7 @@ const AboutComponent = () => {
   }, [])
 
   if (news === null || loading) {
-    ;<Loader />
+    return <Loader />
   }
   return (
     <Fragment>
@@ -40,25 +40,23 @@ const AboutComponent = () => {
                   <div className="about-board">
                     <div className="about-left-text">
                       <p>
-                        Journal Africa Newspaper was established in the year
-                        2020 by News Media Africa Limited to give the African
-                        people the chance to tell their stories in ways never
-                        told. It is a multi-platform online news and analysis
-                        publication reaching everyone across the world via
-                        various digital media platforms.
+                        Journal Africa is a research and fact based analytical
+                        publication focused on the political, business,
+                        governance, development and lifestyle of the African
+                        people.
                       </p>
                       <p>
-                        Journal Africa Newspaper aims to become the number one
-                        in Africa and one of the world’s most trusted source of
-                        informative and inspiring. It is poised to give Africans
-                        access to independent and well researched national,
-                        regional and international news in all spheres.
+                        Journal Africa is a subscription-driven publication
+                        offered on a monthly, quarterly and annual basis and
+                        hosts several features and categories including a
+                        podcast section, all of which deals with contemporary
+                        socio-economic and development issues in the African
+                        continent.
                       </p>
                       <p>
-                        The emphasis of its reporting will be more focused more
-                        on promoting development issues in the sub-region,
-                        especially those that are under reported, but capable of
-                        empowering the Africa people.
+                        Journal Africa provides original, analytical,
+                        well-written stories that helps to engender debate and
+                        shape ideological conclusions of all users.
                       </p>
                     </div>
                     <div className="about-board-cards">
@@ -107,7 +105,7 @@ const AboutComponent = () => {
                   {width > breakPoint ? (
                     <div className="trump-board">
                       {news === null || loading ? (
-                        <h5>Loading...</h5>
+                        ""
                       ) : !loading && news.length === 0 ? (
                         <h5>No trends</h5>
                       ) : (
@@ -147,21 +145,9 @@ const AboutComponent = () => {
                 </div>
                 <div className="rem-text-container">
                   <p>
-                    Journal Africa Newspaper will dig deep into important issues
-                    capable of spurring real social change and reforms with no
-                    corporate, political or sectional agenda but through a fact
-                    based and unbiased reporting.
-                  </p>
-                  <p>
-                    Through our medium, we consider it our main responsibility
-                    to carry out an important work of informing and empowering
-                    Africans both at home and abroad, but also to equally
-                    support the present and future generations in achieving a
-                    voice in the world of modern media.
-                  </p>
-                  <p>
-                    Journal Africa Newspaper is available worldwide on all
-                    digital media platforms and mobile applications.
+                    Journal Africa has a sub publication better known as “News
+                    Journal Africa” which offers free access to independent
+                    national, regional and international news in all spheres.
                   </p>
                 </div>
               </div>

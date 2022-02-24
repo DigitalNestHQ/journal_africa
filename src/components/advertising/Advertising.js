@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { pageurl } from '../../utils/constants'
-import Footer from '../reusables/navigation/Footer/footer'
-import Navbar from '../reusables/navigation/Nav/nav'
-import './advertising.css'
+import React from "react"
+import { Link } from "react-router-dom"
+import { pageurl } from "../../utils/constants"
+import Footer from "../reusables/navigation/Footer/footer"
+import Navbar from "../reusables/navigation/Nav/nav"
+import "./advertising.css"
 
 export const Advertising = () => {
   return (
@@ -50,19 +50,12 @@ export const Advertising = () => {
               </ol>
             </div>
             <div className="submission-section">
-              <h1 className="section-heading-default">
-                Submission of Materials
-              </h1>
-
               <p>
-                Banner ads can be in jpeg and gif format. All materials must be
-                delivered via electronic medium. All ads must be delivered via
-                electronic version, either on disk or e-mail in the ordered
-                pixel dimensions unless otherwise noted.
-              </p>
-              <p>
-                For more information,{' '}
-                <Link to={pageurl.CONTACTUS}>contact us.</Link>
+                For more information, email us at{" "}
+                <a href={`mailto:  advertising@journal.africa`}>
+                  {" "}
+                  advertising@journal.africa
+                </a>{" "}
               </p>
             </div>
           </div>

@@ -19,10 +19,11 @@ import CurrentPodCast from "./podcast/home/currentPodcast/CurrentPodCast"
 import CurrentPodCastPlayer from "./podcast/home/livepodcastalert/CurrentPodCastPlayer"
 import { SuccessPage } from "./components/homepage/homepageSubscribeSection/SuccessPage.js"
 import Faq from "./components/faq/Faq.js"
-import { Advertising } from "./components/advertising/Advertising.js"
-import SubcategoryNews from "./components/category/SubcategoryNews.js"
-import { WriteForUs } from "./components/writeforus/WriteForUs.js"
+import { Advertising } from "./components/advertising/Advertising"
+import SubcategoryNews from "./components/category/SubcategoryNews"
+import { WriteForUs } from "./components/writeforus/WriteForUs"
 import NewState from "./context/news/NewState"
+import Copyright from "./components/privacyPolicy/Copyright"
 
 import SearchNews from "./components/generalNews/searchComponent/SearchNews"
 import { SoundLayer } from "./context/podcast/SoundLayer"
@@ -41,6 +42,7 @@ const App = () => {
             <NewState>
               <Switch>
                 <Route exact path={pageurl.HOMEPAGE} component={HomePage} />
+                <Route exact path="/copyright" component={Copyright} />
                 <Route exact path={pageurl.SUBSCRIBE} component={Subscribe} />
                 <Route exact path={pageurl.FAQ} component={Faq} />
                 <Route

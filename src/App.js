@@ -3,6 +3,7 @@ import { pageurl } from "./utils/constants.js"
 import { Route, Switch } from "react-router-dom"
 import HomePage from "./components/homepage/homepage"
 import AboutUs from "./components/about/AboutComponent"
+import TermsAndConditions from "./components/privacyPolicy/TermsAndConditions"
 import PrivacyPolicy from "./components/privacyPolicy/PrivacyPolicy"
 import CookiePolicy from "./components/cookie/CookiePolicy"
 import Login from "./components/login/Login"
@@ -42,6 +43,11 @@ const App = () => {
             <NewState>
               <Switch>
                 <Route exact path={pageurl.HOMEPAGE} component={HomePage} />
+                <Route
+                  exact
+                  path={pageurl.PRIVACYPOLICY}
+                  component={PrivacyPolicy}
+                />
                 <Route exact path="/copyright" component={Copyright} />
                 <Route exact path={pageurl.SUBSCRIBE} component={Subscribe} />
                 <Route exact path={pageurl.FAQ} component={Faq} />
@@ -84,8 +90,8 @@ const App = () => {
                 />
                 <Route
                   exact
-                  path={pageurl.PRIVACYPOLICY}
-                  component={PrivacyPolicy}
+                  path={pageurl.TERMSANDCONDITIONS}
+                  component={TermsAndConditions}
                 />
                 <Route
                   exact

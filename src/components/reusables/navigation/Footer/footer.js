@@ -3,6 +3,7 @@ import GooglePlayImg from "../../../../assets/images/playstoreimg.png"
 import ApplePlayImg from "../../../../assets/images/apple.jpg"
 import "./footer.css"
 import { Link } from "react-router-dom"
+import { pageurl } from "../../../../utils/constants"
 const Footer = () => {
   return (
     <footer className="footer-section">
@@ -17,7 +18,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/privacy-policy" className="footer-link">
+                <Link to={pageurl.TERMSANDCONDITIONS} className="footer-link">
                   Terms and Conditions
                 </Link>
               </li>
@@ -62,8 +63,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
-                  Site Map
+                <Link to={pageurl.PRIVACYPOLICY} className="footer-link">
+                  Privacy Policy
                 </Link>
               </li>
             </ul>

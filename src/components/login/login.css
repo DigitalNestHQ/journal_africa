@@ -8,9 +8,9 @@
   height: 120vh;
   position: relative;
   background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
-    url('../../assets/images/elephant.jpg') center/cover fixed no-repeat;
+    url("../../assets/images/elephant.jpg") center/cover fixed no-repeat;
   background: linear-gradient(rgba(224, 20, 20, 0.775), rgba(113, 8, 8, 0.884)),
-    url('../../assets/images/elephant.jpg') center/cover fixed no-repeat;
+    url("../../assets/images/elephant.jpg") center/cover fixed no-repeat;
   display: block;
   margin-left: 0;
   margin-right: 0;
@@ -18,7 +18,7 @@
 }
 
 .login::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;

@@ -1,0 +1,19 @@
+#faq {
+  margin: 150px 0;
+}
+
+#faq .question {
+  color: #000;
+}
+
+#faq button {
+  outline: none;
+  box-shadow: none;
+}
+
+#faq .card-body {
+  padding: 1rem;
+}
+.faq {
+  width: 100%;
+}

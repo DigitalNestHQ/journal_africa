@@ -1,131 +1,163 @@
-import React, { Fragment } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Nav from "../reusables/navigation/Nav/Nav";
-import { Card, Button } from "react-bootstrap";
-import Image3 from "../../assets/images/calabar-carnival-3.jpg";
-import Image4 from "../../assets/images/travel1.jpg";
-import Trump from "../../assets/images/trump1.jpg";
-import logo from "../../assets/images/TV24E.png";
-import { BrowserRouter as Link } from "react-router-dom";
-import { pageurl } from "../../utils/constants";
-import { NavLink } from "react-router-dom";
-import Footer from "../reusables/navigation/Footer/Footer";
-// import "../homepage/homepage.css";
-import "./about.css";
+import React, { Fragment, useEffect, useState, useContext } from "react"
+import { Link } from "react-router-dom"
+import Nav from "../reusables/navigation/Nav/nav"
+import { Card, Row, Col } from "react-bootstrap"
+import Loader from "../loader/Loader"
+import Footer from "../reusables/navigation/Footer/footer"
+import "./about.css"
+import newsContext from "../../context/news/NewsContext"
+import { LargeSizeAds } from "../homepage/ads/Ads"
+import bannerAds from "./../../assets/images/bannerads.png"
+import { useViewPort } from "../hooks/Viewport"
 
-const AboutComponent = (props) => {
+const AboutComponent = () => {
+  const context = useContext(newsContext)
+  const { loading, getNews, news } = context
+  const { width } = useViewPort()
+  const breakPoint = 991
+
+  useEffect(() => {
+    getNews()
+    //eslint-disable-next-line
+  }, [])
+
+  if (news === null || loading) {
+    return <Loader />
+  }
   return (
     <Fragment>
-      <Router>
-        <Nav />
-        <div className="about">
-          {/* <Nav className="default" /> */}
-          <div className="bg-header">
-            <p className="about-txt">ABOUT TV24 AFRICA NEWSPAPER</p>
-          </div>
-          <div className="container abt-main">
-            <div className="about-left">
-              <div className="abt-txt">
-                <p>
-                  TV24 Africa Newspaper was established in the year 2020 by News
-                  Media Africa Limited to give the African people the chance to
-                  tell their stories in ways never told. It is a multi-platform
-                  online news and analysis publication reaching everyone across
-                  the world via various digital media platforms.
-                </p>
-                <p>
-                  TV24Africa Newspaper aims to become the number one in Africa
-                  and one of the world’s most trusted source of informative and
-                  inspiring. It is poised to give Africans access to independent
-                  and well researched national, regional and international news
-                  in all spheres.
-                </p>
-                <p>
-                  {" "}
-                  The emphasis of its reporting will be more focused more on
-                  promoting development issues in the sub-region, especially
-                  those that are under reported, but capable of empowering the
-                  Africa people
-                </p>
-              </div>
-              <div className="about-crds">
-                <div className="row">
-                  <div className="col-sm-6 s-card">
-                    <Card className="text-white mt-wrap h-100">
-                      <Card.Img
-                        src={Image4}
-                        alt="Card image"
-                        className="h-100"
-                      />
-                      <Card.ImgOverlay className="m-t text-center ts-overlay">
-                        <Button variant="outline-danger" className="butn">
-                          Travel
-                        </Button>
-                        <Card.Text className="ts-card-txt">
-                          Travelstart is Africa's leading online travel agency.
-                          Based in sunny Cape Town, we have offices across
-                          Africa and the Middle East where hundreds of
-                          Travelstarters
-                        </Card.Text>
-                      </Card.ImgOverlay>
-                    </Card>
+      <Nav />
+      <div className="cnt-page">
+        <div className="about-us-header"></div>
+        <div className="contact-section">
+          <div className="register-signup-wrapper contact-wrapper">
+            <div className="contact-page-main">
+              <h5 className="contact-heading">
+                About Journal Africa newspaper
+              </h5>
+              <div className="about-board-bg">
+                <div className="about-board-content-grid">
+                  <div className="about-board">
+                    <div className="about-left-text">
+                      <p>
+                        Journal Africa is a research and fact based analytical
+                        publication focused on the political, business,
+                        governance, development and lifestyle of the African
+                        people.
+                      </p>
+                      <p>
+                        Journal Africa is a subscription-driven publication
+                        offered on a monthly, quarterly and annual basis and
+                        hosts several features and categories including a
+                        podcast section, all of which deals with contemporary
+                        socio-economic and development issues in the African
+                        continent.
+                      </p>
+                      <p>
+                        Journal Africa provides original, analytical,
+                        well-written stories that helps to engender debate and
+                        shape ideological conclusions of all users.
+                      </p>
+                    </div>
+                    <div className="about-board-cards">
+                      <Row xs={1} md={2} className="g-4">
+                        {news === null || loading ? (
+                          <div></div>
+                        ) : !loading && news.length === 0 ? (
+                          <div></div>
+                        ) : (
+                          news.slice(6, 8).map((eachCard) => (
+                            <Col
+                              key={eachCard.id}
+                              className="about-us-each-card"
+                            >
+                              <Card className="text-white h-100">
+                                <Card.Img
+                                  src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
+                                  alt="Card image"
+                                  className="h-100 w-100 caro-img-cover"
+                                />
+                                <Card.ImgOverlay className="cnt-txt-wrap">
+                                  <Link
+                                    to={{
+                                      pathname: "/news/categories",
+                                      search: `?category=${eachCard.category_id}`,
+                                    }}
+                                    className="text-decoration-none p-2 text-left cap-anco about-link-tag"
+                                  >
+                                    {eachCard.category_id}
+                                  </Link>
+
+                                  <Link
+                                    to={`/post/${eachCard.slug}`}
+                                    className="text-left text-white about-card-msg"
+                                  >
+                                    {eachCard.slug}
+                                  </Link>
+                                </Card.ImgOverlay>
+                              </Card>
+                            </Col>
+                          ))
+                        )}
+                      </Row>
+                    </div>
                   </div>
-                  <div className="col-sm-6 s-card">
-                    <Card className="text-white mt-wrap h-100">
-                      <Card.Img
-                        src={Image3}
-                        alt="Card image"
-                        className="h-100 bg-none"
-                      />
-                      <Card.ImgOverlay className="m-t text-center ts-overlay">
-                        <Button variant="outline-danger" className="butn">
-                          Event
-                        </Button>
-                        <Card.Text className="ts-card-txt">
-                          Calabar Carnival festival in Nigeria, also tagged
-                          "Africa's Biggest Street Party", was created as part
-                          of the vision of making the Cross River State,
-                          Nigeria, the ...
-                        </Card.Text>
-                      </Card.ImgOverlay>
-                    </Card>
-                  </div>
+                  {width > breakPoint ? (
+                    <div className="trump-board">
+                      {news === null || loading ? (
+                        ""
+                      ) : !loading && news.length === 0 ? (
+                        <h5>No trends</h5>
+                      ) : (
+                        news.slice(8, 9).map((eachCard) => (
+                          <div
+                            className="text-center trump-container"
+                            key={eachCard.id}
+                          >
+                            <div className="aboutimg-container">
+                              <img
+                                src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
+                                alt="img"
+                                className="about-card-left-img"
+                              />
+                            </div>
+                            <h5 className="about-trends text-center ">
+                              Trends
+                            </h5>
+                            <div className="about-left-overlay">
+                              <Link
+                                to={`/post/${eachCard.slug}`}
+                                className="about-overlay-text slug-default text-white"
+                              >
+                                {eachCard.slug}
+                              </Link>
+                            </div>
+                          </div>
+                        ))
+                      )}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <div className="add-container">
+                  <LargeSizeAds img={bannerAds} />
+                </div>
+                <div className="rem-text-container">
+                  <p>
+                    Journal Africa has a sub publication better known as “News
+                    Journal Africa” which offers free access to independent
+                    national, regional and international news in all spheres.
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="about-right">
-              <button>TRENDS</button>
-              <p classNAme="text-white">
-                Trump Administration Seeks to Stifle Protests Near White House
-                and on National Mall
-              </p>
-              {/* <img src={Trump} alt="Donald"/> */}
-            </div>
-          </div>
-          <div className="txt-btm container-fluid">
-            <p>
-              TV24 Africa Newspaper will dig deep into important issues capable
-              of spurring real social change and reforms with no corporate,
-              political or sectional agenda but through a fact based and
-              unbiased reporting.
-            </p>
-            <p>
-              Through our medium, we consider it our main responsibility to
-              carry out an important work of informing and empowering Africans
-              both at home and abroad, but also to equally support the present
-              and future generations in achieving a voice in the world of modern
-              media.
-            </p>
-            <p>
-              TV24Africa Newspaper is available worldwide on all digital media
-              platforms and mobile applications.
-            </p>
           </div>
         </div>
-        <Footer />
-      </Router>
+      </div>
+      <Footer />
     </Fragment>
-  );
-};
+  )
+}
 
-export default AboutComponent;
+export default AboutComponent

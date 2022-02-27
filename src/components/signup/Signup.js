@@ -1,44 +1,41 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { pageurl } from "../../utils/constants";
-import FormHeader from "../reusables/navigation/formsReusables/FormHeader";
-import Alerts from "../alert/Alerts";
-import "./signup.css";
+import React, { useState, useContext, useEffect } from "react"
+import { Link, useHistory } from "react-router-dom"
+import Alerts from "../alert/Alerts"
+import "./signup.css"
+import FormHeader from "../reusables/navigation/formsReusables/FormHeader"
 
-import AlertContext from "../../context/alert/alertContext";
-import AuthContext from "../../context/auth/authContext";
-const Signup = (props) => {
-  const alertContext = useContext(AlertContext);
-  const authContext = useContext(AuthContext);
-
-  const { setAlert } = alertContext;
-  const { register, error, clearErrors, isAuthenticated } = authContext;
-
-  useEffect(() => {
-    // if(isAuthenticated){
-    //   setTimeout(() => {
-    //   props.history.push('/category');
-    //   }, 5000);
-    // }
-    if (error === "User already exists..") {
-      setAlert(error, "danger");
-      clearErrors();
-    }
-    // eslint-disable-next-line
-  }, [error, isAuthenticated, props]);
-  
+import AlertContext from "../../context/alert/alertContext"
+import AuthContext from "../../context/auth/authContext"
+const Signup = () => {
+  const [showPassword, setShowPassword] = useState(false)
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
     email: "",
     phone: "",
     password: "",
-  });
+  })
+  const authContext = useContext(AuthContext)
+  const alertContext = useContext(AlertContext)
+  const history = useHistory()
+  const { setAlert } = alertContext
+  const { register, error, clearErrors, isAuthenticated, loading } = authContext
 
-  const { firstname, lastname, email, phone, password } = user;
-  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push("/")
+    }
+    if (error === "User already exists..") {
+      setAlert(error, "danger")
+      clearErrors()
+    }
+    // eslint-disable-next-line
+  }, [error, isAuthenticated, history])
+
+  const { firstname, lastname, email, phone, password } = user
+  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value })
   const onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (
       firstname.length < 2 ||
       lastname.length < 2 ||
@@ -46,160 +43,192 @@ const Signup = (props) => {
       phone === "" ||
       password === ""
     ) {
-      setAlert("please provide all the details", "danger");
+      setAlert("Please provide all the details", "danger")
     } else if (password.length < 6) {
-      setAlert("password is too short", "danger");
+      setAlert("Password is too short", "danger")
     } else {
       register({
         firstname,
         lastname,
-        phone,
         email,
+        phone,
         password,
-      });
-      console.log("success");
-      setAlert(
-        "Registration successful, Please enter the token sent to your email",
-        "success"
-      );
+      })
+        .then((response) => {
+          if (response.data.status === "success") {
+            history.push("/success")
+            setUser({
+              firstname: "",
+              lastname: "",
+              email: "",
+              phone: "",
+              password: "",
+            })
+          }
+        })
+        .catch((error) => {
+          if (error) {
+            console.log(error)
+          }
+        })
     }
-  };
+  }
+
   return (
-    <div className="signup">
-      <div className="page-wrap">
+    <header className="register">
+      <div className="register-signup-wrapper">
         <FormHeader />
-        <div className="container-fluid signup-wrap">
-          <div className="signup-txt">
-            <p>The original African story every day in your inbox</p>
-            <span>
-              Register today to receive an email from our Editor in Chief.
-            </span>
-          </div>
-          <div className="form-wrap">
-            <h2>Sign Up</h2>
-            <Alerts />
-            <form className="form signup-form" onSubmit={onSubmit}>
-              <div className="row mb-3">
-                <div className="col-sm-6 inp-half">
-                  <label htmlFor="first name" class="form-label">
-                    First Name
+        <div className="reg-showcase">
+          <div className="reg-content-grid">
+            <div className="reg-benefits">
+              <ul className="reg-benefits-list">
+                <li className="reg-benefits-list-item">
+                  Read beyond the news.
+                </li>
+                <li className="reg-benefits-list-item">
+                  Explore indepth analysis and correct to details content.
+                </li>
+                <li className="reg-benefits-list-item">
+                  Access exclusive stories, expert curation and expansive
+                  coverage on Journal Africa website and Mobile App.
+                </li>
+                <li className="reg-benefits-list-item">
+                  Listen to live radio and podcast on Journal Africa website and
+                  Mobile App.
+                </li>
+                <li className="reg-benefits-list-item">
+                  No commitement, cancel anytime.
+                </li>
+              </ul>
+            </div>
+            <div className="reg-form-outer-container">
+              <h5 className="reg-form-header">Create an Account</h5>
+              <Alerts />
+              <form onSubmit={onSubmit}>
+                <div className="form-group form-group-flex">
+                  <div className="reg-form-first">
+                    <label htmlFor="firstName" className="reg-label">
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      name="firstname"
+                      placeholder="Enter First Name"
+                      className="form-control reg-input"
+                      value={firstname}
+                      onChange={onChange}
+                      minLength="2"
+                      required
+                    />
+                  </div>
+                  <div className="reg-form-last">
+                    <label htmlFor="lastName" className="reg-label">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      name="lastname"
+                      placeholder="Enter Last Name"
+                      className="form-control reg-input"
+                      value={lastname}
+                      onChange={onChange}
+                      minLength="2"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email" className="reg-label">
+                    Email
                   </label>
                   <input
                     type="text"
-                    className="form-control"
-                    placeholder="First name"
-                    name="firstname"
-                    value={firstname}
+                    name="email"
+                    placeholder="Enter email..."
+                    className="form-control reg-input"
+                    value={email}
                     onChange={onChange}
                     required
-                    minLength="2"
                   />
                 </div>
-                <div className="col-sm-6 inp-half">
-                  <label htmlFor="Last name" class="form-label">
-                    Last Name
+                <div className="form-group">
+                  <label htmlFor="phone" className="reg-label">
+                    Phone Number
                   </label>
                   <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Last name"
-                    name="lastname"
-                    value={lastname}
+                    type="number"
+                    name="phone"
+                    placeholder="Enter your phone number (e.g +2347030403416)"
+                    className="form-control reg-input"
+                    value={phone}
                     onChange={onChange}
                     required
-                    minLength="2"
                   />
                 </div>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="email" class="form-label">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Enter your email address"
-                  name="email"
-                  value={email}
-                  onChange={onChange}
-                  required
-                />
-              </div>
-
-              <div className="mb-3">
-                <label htmlFor="phone" class="form-label">
-                  Phone
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter your phone number (e.g +2347030403416)"
-                  name="phone"
-                  value={phone}
-                  onChange={onChange}
-                  required
-                />
-              </div>
-
-              <div className="mb-1">
-                <label htmlFor="password" class="form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Enter your password"
-                  name="password"
-                  value={password}
-                  onChange={onChange}
-                  required
-                  minLength="6"
-                />
-                <span className="showPassword">show</span>
-              </div>
-              <div className="mb-2 my-0">
-                <div class="form-check">
+                <div className="form-group password-input">
+                  <label htmlFor="password" className="reg-label">
+                    Password
+                  </label>
                   <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="invalidCheck2"
+                    type={`${showPassword ? "text" : "password"}`}
+                    name="password"
+                    placeholder="Enter Password"
+                    className="form-control reg-input"
+                    value={password}
+                    onChange={onChange}
+                    minLength="6"
                     required
                   />
-                  <label
-                    className="form-check-label tclabel"
-                    for="invalidCheck2"
+                  <span
+                    className="show-password"
+                    onClick={() => setShowPassword(!showPassword)}
                   >
-                    I agree to the Stears Terms and{" "}
-                    <Link className="link_terms" to={pageurl.COOKIEPOLICY}>
-                      Conditions
-                    </Link>{" "}
-                    and{" "}
-                    <Link className="link_privacy" to={pageurl.PRIVACYPOLICY}>
+                    {showPassword ? "hide" : "show"}
+                  </span>
+                </div>
+                <div className="form-group check-section">
+                  <input
+                    type="checkbox"
+                    name="agree"
+                    className="agree-checkbox"
+                    required
+                  />
+                  <label htmlFor="agree" className="reg-agree-label">
+                    I agree to the Terms and{" "}
+                    <span>
                       {" "}
-                      Privacy Policy
-                    </Link>{" "}
+                      <Link to="/privacy-policy" className="reg-conditions">
+                        Conditions
+                      </Link>
+                    </span>{" "}
+                    and{" "}
+                    <span>
+                      {" "}
+                      <Link to="/privacy-policy" className="reg-policy">
+                        Privacy Policy
+                      </Link>
+                    </span>
                   </label>
                 </div>
-              </div>
-              <button className="my-2" type="submit">
-                Continue
-              </button>
-            </form>
-            <div className="gosignup">
-              <h5>
-                Already have an account?{" "}
-                <Link className="gsignup" to="/login">
-                  {" "}
-                  Sign In{" "}
+                <input
+                  type="submit"
+                  value={`${loading ? "Please wait..." : "Continue"}`}
+                  className="btn btn-red btn-block mb-3"
+                  disabled={loading}
+                />
+              </form>
+              <div className="already-have-account">
+                <p className="m-0">Already have an Account?</p>
+                <Link to="/login" className="reg-sign-in">
+                  Sign In
                 </Link>
-              </h5>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+    </header>
+  )
+}
 
-export default Signup;
+export default Signup

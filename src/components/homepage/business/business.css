@@ -1,0 +1,93 @@
+.business-section {
+  margin-top: 1.3rem;
+}
+.business-heading {
+  color: red;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+.card-text {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 30px;
+}
+.business-heading::after {
+  content: ' ';
+  height: 3px;
+  width: 930px;
+  background-color: #c4c4c4;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.font-bold {
+  font-weight: bold;
+}
+.business-content {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1rem;
+}
+.bus-card-body {
+  border-top: 3px solid #c4c4c4;
+  margin-top: 1.438rem;
+  padding-top: 1rem;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.bus-link {
+  color: #000;
+  font-size: 0.9rem;
+  line-height: 30px;
+}
+.bus-link:hover {
+  color: #000;
+}
+
+.card-img-business {
+  width: 100%;
+  height: 250px;
+  display: block;
+  border-radius: unset;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
+}
+
+@media (min-width: 770px) {
+  .card-img-business {
+    width: 100%;
+    height: 22.25rem;
+  }
+}
+
+@media (max-width: 993px) {
+  .bus-col {
+    margin-bottom: 2.5rem;
+  }
+
+  .bus-col:last-child {
+    margin-bottom: unset;
+  }
+}
+@media (max-width: 1250px) {
+  .business-heading::after {
+    width: 830px;
+  }
+}
+@media (max-width: 1160px) {
+  .business-heading::after {
+    width: 730px;
+  }
+}
+@media (max-width: 1050px) {
+  .business-heading::after {
+    width: 630px;
+  }
+}
+@media (max-width: 905px) {
+  .business-heading::after {
+    width: 0;
+  }
+}

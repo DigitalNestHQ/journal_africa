@@ -1,0 +1,14 @@
+.advertising-information {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.advertising-information ol {
+  list-style-position: inside;
+  line-height: 2;
+}
+
+.submission-section {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}

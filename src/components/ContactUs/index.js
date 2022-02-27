@@ -1,12 +1,20 @@
-import React from "react";
-import Header from "./Header";
-import MainSection from "./mainSection";
+import Navbar from 'components/reusables/navigation/Nav/nav'
+import React from 'react'
+import Footer from '../reusables/navigation/Footer/footer'
+import Header from './Header'
+import MainSection from './mainSection'
+import './index.css'
 
 const ContactUs = () => (
-  <div className="cnt-page">
-    <Header />
-    <MainSection />
-  </div>
-);
+  <React.Fragment>
+    <Navbar />
+    <div className="cnt-page">
+      {/* <header className="contact-header" /> */}
+      <Header />
+      <MainSection />
+    </div>
+    <Footer />
+  </React.Fragment>
+)
 
-export default ContactUs;
+export default ContactUs

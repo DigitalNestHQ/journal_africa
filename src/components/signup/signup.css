@@ -1,148 +1,258 @@
-.signup{
-    max-width: 1500px;
-    margin: 0 auto;
-    background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
-    url("../../assets/images/elephant.jpg")center/cover fixed no-repeat;
-    font-family: 'Roboto', sans-serif;
-    padding-bottom: 20px;
-    mix-blend-mode: multiply;
-}
-.signup-wrap{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.form-wrap h2{
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 28px;
-}
-.signup-form label{
-    font-weight: 300;
-font-size: 18px;
-line-height: 22px;
-}
-.signup-form input{
-    width: 455px;
-    height: 47px;
-    border: 1px solid #000000;
-}
-.tclabel{
-    font-weight: 500;
-    font-size: 14px !important;
-    line-height: 16px !important;
-    margin-top: 0;
-    padding-top: 5px;
-}
-.inp-half input{
-    width: 202px
-}
-.signup-form input[type="checkbox"]{
-    height: auto;
-    width: auto;
-}
-.signup-form input::placeholder{
-    font-weight: 200;
-    font-size: 14px;
-    line-height: 16px;
-    color: #000!important;
-    text-align: center;
-}
-.showPassword {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
-    position: relative;
-    left: 360px;
-    bottom: 35px
-}
-.showPassword:hover {
-    cursor: pointer;
+.register {
+  width: 100%;
+  height: 120vh;
+  position: relative;
+  background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
+    url("../../assets/images/elephant.jpg") center/cover fixed no-repeat;
+  background: linear-gradient(rgba(224, 20, 20, 0.775), rgba(113, 8, 8, 0.884)),
+    url("../../assets/images/elephant.jpg") center/cover fixed no-repeat;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 10px 12px;
 }
 
-.signup-form small {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
+.register::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 30px 50px 150px #000000, inset -30px -50px 150px #000000;
 }
-.signup-form button{
-    padding: 15px 120px;
-    background-color: #FF1717;
-    color: #fff;
-    font-style: normal;
-    font-weight: 900;
-    font-size: 24px;
-    line-height: 28px;
-    text-align: center;
-    width:454px;;
-    margin: 0 auto;
-    border: none;
+.register-signup-wrapper {
+  max-width: 78.125rem;
+  margin: 0 auto;
+  display: block;
+  padding: 1rem;
+  position: relative;
+  z-index: 2;
 }
-.form-wrap{
-    background-color: #fff;
-    padding: 20px;
+.register-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
-.signup-txt{
-    color: #fff;
-    width: 435px;
-}
-.signup-txt p {
-    font-style: normal;
-    font-weight: 900;
-    font-size: 72px;
-    line-height: 84px;
+.reg-nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
 }
 
-.signup-txt span {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+.reg-nav-list > * + * {
+  margin: 0 0 0 2rem;
 }
-.page-wrap{
-    max-width: 90%;
-    margin: 0 auto;
+
+.reg-nav-list-item {
+  display: block;
 }
-.form{
-    margin-top: 30px;
-    padding-top: 30px;
+.reg-signup {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  text-transform: capitalize;
 }
-.fpass{
-    margin-top: 0;
-    padding-top: 0;
-    margin-left: 250px;
-    color: #000;
-    text-align: right;
+.reg-signup:hover {
+  color: #fff;
 }
-.gosignup{
-    text-align: center;
+
+.reg-subscribe {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  color: red;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  text-transform: capitalize;
+  background-color: #fff;
+  padding: 0.3rem 1rem;
 }
-.gosignup h5{
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
-    margin-top: 15px;
-    margin-bottom: 10px;
+
+.reg-subscribe:hover {
+  color: red;
 }
-.gsignup{
-    color: #FF1717;
-    text-transform: capitalize;
+.reg-logo {
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 70px;
 }
-.link_terms,
-.link_privacy{
-    color: #FF1717;
-    text-transform: capitalize;
-    font-weight: bold;
+.reg-showcase {
+  display: block;
+  width: 100%;
 }
-.danger{
-    font-size: 12px;
-    text-align: center;
-    background-color: red; 
+.reg-content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  grid-gap: 2.5rem;
+  width: 100%;
 }
-.alert{
-    color: white; 
+.reg-benefits {
+  display: block;
+  width: 100%;
 }
-.success{
-    background-color: green;
+.reg-benefits-list {
+  display: block;
+  list-style-type: disc;
+  color: #fff;
+}
+.reg-benefits-list-item {
+  margin-bottom: 1.3rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+.reg-form-outer-container {
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  color: #000000;
+  padding: 1.3rem;
+  margin: 0;
+}
+.reg-form-header {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.reg-label {
+  display: block;
+  width: 100%;
+  font-size: 0.9rem;
+}
+.form-group {
+  width: 100%;
+  display: block;
+  margin-bottom: 1.3rem;
+  position: relative;
+}
+.show-password {
+  position: absolute;
+  right: 2%;
+  top: 55%;
+  cursor: pointer;
+}
+
+.form-group-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reg-input {
+  border-radius: unset;
+  padding: 1.4rem 0.75rem;
+  font-size: inherit;
+}
+.already-have-account {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.already-have-account > * + * {
+  margin: 0 0 0 0.5rem;
+}
+.reg-agree-label {
+  margin: 0;
+  font-size: 0.8rem;
+}
+.btn-red {
+  background-color: red;
+  color: #fff;
+  font-weight: bold;
+}
+.btn-red:hover {
+  color: #fff;
+}
+.check-section {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  margin-bottom: 1.5rem;
+}
+
+.check-section > * + * {
+  margin: 0 0 0 0.6rem;
+}
+
+.reg-sign-in {
+  display: block;
+  color: red;
+}
+.reg-sign-in:hover {
+  color: red;
+}
+.reg-policy,
+.reg-conditions {
+  color: red;
+}
+.reg-policy:hover,
+.reg-conditions:hover {
+  color: red;
+}
+
+@media (max-width: 993px) {
+  .register-signup-wrapper {
+    max-width: unset;
+    margin: unset;
+    padding: unset;
+  }
+  .reg-content-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+  .reg-benefits {
+    display: none;
+    width: unset;
+  }
+  .form-group-flex {
+    display: block;
+  }
+  .reg-form-first {
+    margin-bottom: 1.3rem;
+  }
+  .reg-showcase {
+    margin-top: 2.3rem;
+  }
+  .register {
+    height: 200vh;
+  }
+}
+
+@media (max-width: 400px) {
+  .register-nav {
+    flex-direction: column;
+    justify-content: stretch;
+  }
+
+  .register-nav > * + * {
+    margin: 2rem 0 0 0;
+  }
+
+  .already-have-account {
+    flex-direction: column;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

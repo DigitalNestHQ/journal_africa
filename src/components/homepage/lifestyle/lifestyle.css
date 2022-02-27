@@ -1,24 +1,26 @@
-.lifestyle{
-    background-color: #000;
+.com-title {
+  display: block;
+  padding: 1rem;
+  background-color: red;
+  color: #fff;
 }
-.lifestyle h3{
-    font-weight: 500;
-    font-size: 36px;
-    line-height: 42px;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    position: relative;
-    top: 25px;
+.com-title:hover {
+  color: #fff;
 }
-.mt-wrap{
-    height: 100%;
+.com-card-body {
+  padding-top: 1rem;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
-.overl{
-    position: absolute;
-    top: 100px;
-    font-size: 20px;
-    color: lightgrey;
+.business-header {
+  color: red;
+  margin-bottom: 1.4rem;
+  position: relative;
 }
-.lf-wrap{
-    position: relative;
-    top: 50px;
+
+@media (max-width: 993px) {
+  .com-col {
+    margin-bottom: 2.5rem;
+  }
 }

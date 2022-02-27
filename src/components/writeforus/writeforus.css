@@ -1,0 +1,17 @@
+.write-for-us-information {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.write-for-us-information ol {
+  list-style-position: inside;
+  line-height: 2;
+}
+
+.write-for-us-information h5 {
+  margin-top: 3rem;
+}
+
+.write-for-us-information p {
+  line-height: 2;
+}

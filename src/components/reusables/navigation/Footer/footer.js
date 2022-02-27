@@ -1,112 +1,177 @@
-import React from "react";
-// import { pageurl } from "../../../utils/constants";
-import { Card } from "react-bootstrap";
-import GooglePlayImg from "../../../../assets/images/playstoreimg.png";
-import ApplePlayImg from "../../../../assets/images/apple.jpg";
-import { pageurl } from '../../../../utils/constants'
-import "./footer.css";
+import React from "react"
+import GooglePlayImg from "../../../../assets/images/playstoreimg.png"
+import ApplePlayImg from "../../../../assets/images/apple.jpg"
+import "./footer.css"
+import { Link } from "react-router-dom"
+import { pageurl } from "../../../../utils/constants"
 const Footer = () => {
   return (
-    <div className="footer-wrapper container-fluid">
-      <footer className="footer">
-        <div className="row">
-          <div className="col-sm-3">
-            <h3 className="ft-hd-1">About</h3>
-            <p>
-              TV24 Africa Newspaper is Africa’s top online publication
-              delivering breaking news and in-depth analysis in business,
-              politics, entertainment, sports, lifestyle and many more.
-            </p>
-            <Card.Link href="#">
-              <i className="fab fa-facebook"></i>
-            </Card.Link>
-            <Card.Link href="#">
-              <i className="fab fa-twitter"></i>
-            </Card.Link>
-            <Card.Link href="#">
-              <i className="fab fa-instagram"></i>
-            </Card.Link>
-            <Card.Link href="#">
-              <i className="fab fa-youtube"></i>
-            </Card.Link>
-          </div>
-          <div className="col-sm-3 ">
-            <h3 className="ft-hd-2">categories</h3>
-            <ul>
-              <li>
-                <a href={pageurl.CONTACTUS}>Contact Us</a>
+    <footer className="footer-section">
+      <div className="footer-wrapper">
+        <div className="footer-content">
+          <div className="footer-grid">
+            <h6 className="footer-heading">About</h6>
+            <ul className="footer-list">
+              <li className="footer-list-item">
+                <Link to="/about" className="footer-link">
+                  About Us
+                </Link>
               </li>
-              <li>
-                <a href="/">Apps</a>
+              <li className="footer-list-item">
+                <Link to={pageurl.TERMSANDCONDITIONS} className="footer-link">
+                  Terms and Conditions
+                </Link>
               </li>
-              <li>
-                <a href="/">Newsletters</a>
+              <li className="footer-list-item">
+                <Link to="/code-of-ethics" className="footer-link">
+                  Code of Ethics
+                </Link>
               </li>
-              <li>
-                <a href="/">Channel Finder</a>
+              <li className="footer-list-item">
+                <Link to="/cookie-policy" className="footer-link">
+                  Cookie Policy
+                </Link>
               </li>
-              <li>
-                <a href="/">TV Schedule</a>
-              </li>
-              <li>
-                <a href="/">Podcasts</a>
-              </li>
-              <li>
-                <a href="/contact">Submit a Tip</a>
-              </li>
-              <li>
-                <a href="/works">Our Channels</a>
+              <li className="footer-list-item">
+                <Link to="/faq" className="footer-link">
+                  FAQs
+                </Link>
               </li>
             </ul>
           </div>
-          <div className="col-sm-3 ft-crd">
-            <h3 className="ft-hd-3">company</h3>
-            <ul>
-              <li>
-                <a href={pageurl.ABOUT}>About Us</a>
+          <div className="footer-grid">
+            <h6 className="footer-heading">Connect</h6>
+            <ul className="footer-list">
+              <li className="footer-list-item">
+                <Link to="/contact" className="footer-link">
+                  Contact Us
+                </Link>
               </li>
-              <li>
-                <a href="/">Code of Ethics</a>
+              <li className="footer-list-item">
+                <Link to="/advertising" className="footer-link">
+                  Advertise
+                </Link>
               </li>
-              <li>
-                <a href={pageurl.PRIVACYPOLICY}>Terms and Conditions</a>
+              <li className="footer-list-item">
+                <Link to="/" className="footer-link">
+                  Newsletters
+                </Link>
               </li>
-              <li>
-                <a href={pageurl.PRIVACYPOLICY}>Privacy Policy</a>
+              <li className="footer-list-item">
+                <Link to="/write-for-us" className="footer-link">
+                  Write for us
+                </Link>
               </li>
-              <li>
-                <a href={pageurl.COOKIEPOLICY}>Cookie Policy</a>
-              </li>
-              <li>
-                <a href="/">Cookie Preferences</a>
-              </li>
-              <li>
-                <a href="/contact">Community Guidelines</a>
-              </li>
-              <li>
-                <a href={pageurl.CONTACTUS}>Work for us</a>
-              </li>
-              <li>
-                <a href="/hr">HR quality</a>
+              <li className="footer-list-item">
+                <Link to={pageurl.PRIVACYPOLICY} className="footer-link">
+                  Privacy Policy
+                </Link>
               </li>
             </ul>
           </div>
-          <div className="col-sm-3">
-            <h3 className="ps_p">DOWNLOAD APP</h3>
-            <div className="app-store">
-              <a href="/playStore">
-                <img src={GooglePlayImg} alt="google play" />{" "}
-              </a>
-              <a href="/applestore">
-                <img src={ApplePlayImg} alt="google play" />{" "}
-              </a>
+          <div className="footer-grid">
+            <h6 className="footer-heading">Section</h6>
+            <ul className="footer-list">
+              <li className="footer-list-item">
+                <Link to="/copyright" className="footer-link">
+                  Copyright Policy
+                </Link>
+              </li>
+              <li className="footer-list-item">
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: `?category=Gender and human rights`,
+                  }}
+                  className="footer-link"
+                >
+                  Gender and human rights
+                </Link>
+              </li>
+              <li className="footer-list-item">
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: "?category=Commentary",
+                  }}
+                  className="footer-link"
+                >
+                  Commentary
+                </Link>
+              </li>
+              <li className="footer-list-item">
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: "?category=Fact Check Africa",
+                  }}
+                  className="footer-link"
+                >
+                  Fact Check Africa
+                </Link>
+              </li>
+              <li className="footer-list-item">
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: "?category=In-Depth Africa",
+                  }}
+                  className="footer-link"
+                >
+                  In-Depth Africa
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-grid">
+            <h6 className="footer-heading">Download app</h6>
+            <div className="img-footer-cont">
+              <div className="img-google-container">
+                <img src={GooglePlayImg} alt="google" className="google" />
+              </div>
+              <div className="img-apple-container">
+                <img src={ApplePlayImg} alt="apple" className="apple" />
+              </div>
             </div>
-            <small className="text-center">&copy;2021 TV24 Media Network</small>
+            <ul className="download-list">
+              <li className="download-list-item">
+                <Link to="/" className="download-link">
+                  {" "}
+                  <i className="fab fa-instagram"></i>{" "}
+                </Link>
+              </li>
+              <li className="download-list-item">
+                <Link to="/" className="download-link">
+                  {" "}
+                  <i className="fab fa-facebook"></i>{" "}
+                </Link>
+              </li>
+              <li className="download-list-item">
+                <Link to="/" className="download-link">
+                  {" "}
+                  <i className="fab fa-twitter"></i>{" "}
+                </Link>
+              </li>
+              <li className="download-list-item">
+                <Link to="/" className="download-link">
+                  {" "}
+                  <i className="fab fa-youtube"></i>{" "}
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
-      </footer>
-    </div>
-  );
-};
+        <div className="rights">
+          <p className="copy-rights">
+            &copy; 2021 Journal Africa Newspaper Limited,{" "}
+            <a href="https://newsmediaafrica.com/" className="copy-right-red">
+              A Subsidiary of News Media Africa Limited
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}
 
-export default Footer;
+export default Footer

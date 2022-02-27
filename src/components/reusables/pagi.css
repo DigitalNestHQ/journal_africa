@@ -1,0 +1,35 @@
+.pagination-handle {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 40%;
+  z-index: 10;
+  left: 0;
+  right: 0;
+}
+
+.fa-chevron-right,
+.fa-chevron-left {
+  background: transparent;
+  color: red;
+  font-size: 1.2rem;
+  padding: 0;
+  cursor: pointer;
+}
+.fa-chevron-right {
+  margin-left: 1rem;
+}
+
+.fa-chevron-left {
+  margin-right: 1rem;
+}
+.arrow-left,
+.arrow-right {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}

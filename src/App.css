@@ -1,20 +1,138 @@
+@import url("http://fonts.cdnfonts.com/css/nimbussanl");
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
+}
+body {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "NimbusSanL", sans-serif;
+  font-family: "NimbusSanLCon", sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+a {
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.app {
+  margin: 0;
+}
+ins strong {
+  font-weight: normal;
+  text-decoration: none;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+.card-img-overlay {
+  border: none;
+  border-radius: unset;
+  outline: none;
+}
+.card {
+  border: none;
+  border-radius: 0;
 }
 
-.App {
-  /* width: 100vw; */
-  max-width: 1500px;
+.card-img-top {
+  border-radius: 0;
+}
+
+.premium-badge {
+  text-transform: uppercase;
+  position: absolute;
+  color: #fff;
+  background: red;
+  top: 1.5%;
+  left: 1.5%;
+  padding: 0 0.1rem;
+  z-index: 100;
+  font-size: 0.7rem;
+}
+.premium-badge-left {
+  text-transform: uppercase;
+  position: absolute;
+  color: #fff;
+  background: red;
+  top: 1.5%;
+  right: 1.5%;
+  padding: 0 0.1rem;
+  z-index: 100;
+  font-size: 0.7rem;
+}
+.section-content-default {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 10px 12px;
+  overflow-x: hidden;
+}
+.section-wrapper-default {
+  max-width: 78.125rem;
   margin: 0 auto;
-  overflow-x: hidden !important;
+  display: block;
+  padding: 1rem;
+}
+.section-heading-default {
+  line-height: 30px;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 2.5vw, 1.25rem);
+}
+.section-heading-default-pod {
+  line-height: 30px;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+}
+.slug-default {
+  color: black;
+  font-weight: bold;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+.explore-white-btn {
+  background-color: #fff;
+  color: red;
+  padding: 5px;
+}
+.explore-white-btn:hover {
+  color: red;
+}
+.explore-red-btn {
+  background-color: red;
+  color: #fff;
+  padding: 5px;
+}
+.explore-red-btn:hover {
+  color: #fff;
+}
+.text-danger {
+  color: red !important;
+}
+@media (max-width: 993px) {
+  .section-wrapper-default {
+    max-width: unset;
+    width: 100%;
+    padding-left: unset;
+    padding-right: unset;
+  }
 }
 
-/* @media screen and (min-width: 1440px) {
-  .App {
-    margin: 0 auto;
+@media (max-width: 400px) {
+  .section-heading-default {
+    line-height: 20px;
+    font-size: clamp(0.9rem, 2vw, 1.25rem);
   }
-} */
+}
+@media (max-width: 280px) {
+  .section-heading-default {
+    font-size: 0.7rem;
+  }
+}

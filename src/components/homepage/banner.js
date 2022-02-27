@@ -1,82 +1,131 @@
-import React, { Component } from "react";
-// import { pageurl } from "../../../utils/constants";
-import image1 from "../../assets/images/Electoral_College_Riot.jpg";
-import image2 from "../../assets/images/IV-opposition.jpg";
-import image4 from "../../assets/images/Sunday-Igboho-1.jpg";
-import { getNewsFeed } from "../../context/news/NewsApi";
-import { Carousel } from "react-bootstrap";
-import CarouselCard from "./CarouselCard";
-import "./homepage.css";
+import React from 'react'
+import { Card, Carousel, Row, Col } from 'react-bootstrap'
+import { useViewPort } from '../hooks/Viewport'
+import { Link } from 'react-router-dom'
+import './homepage.css'
+import './ads/ads.css'
+import { LargeSizeAds } from './ads/Ads'
+import bannerAds from './../../assets/images/bannerads.png'
 
-class Banner extends Component {
-  render() {
-   const feeds = this.props.data;
-   const firstFeed = Array.isArray(feeds) && feeds.length ? feeds[0] : {};
-   const secondFeed = Array.isArray(feeds) && feeds.length ? feeds[1] : {};
-    return (
-      <div className="container-fluid flex-container banner">
-        <div className="col-sm-8 py-4 ">
-          <Carousel className="mt-3 ">
-            {feeds  &&
-              feeds.slice(0, 3).map((categ) => {
-                const {
-                  post_type,
-                  post_title,
-                  featured_image,
-                  id,
-                  slug,
-                  category_id
-                } = categ;
-                return (
-                   <Carousel.Item className="caro-item" key={id}>
-                    <img className="d-block w-100" src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`} alt="First slide" />
-                    <Carousel.Caption className="caro-capxn">
-                          <a
-                            href={`/post/${slug}`}
-                            className="text-decoration-none inline-block p-2 text-left cap-ancor"
-                          >
-                            {category_id}
-                          </a>
-                          <p className="text-white text-left car-p">
-                          {slug}
-                          </p>
-                  </Carousel.Caption>
-          </Carousel.Item>
-                );
-              })}
-          </Carousel>
+const Banner = ({ data }) => {
+  const { width } = useViewPort()
+  const breakpoint = 991
+
+  return (
+    <section className="showcase section-content-default">
+      <div className="section-wrapper-default">
+        <div className="ad-wrapper">
+          <LargeSizeAds img={bannerAds} />
         </div>
-        <div className="col-sm-4 py-4 mt-3">
-          {
-            <div className="cnt-1">
-            <div className="cnt-txt-wrap">
-              <a
-                href={`/post/${firstFeed.slug}`}
-                className="text-decoration-none inline-block p-2  cap-anco text-left mt-5"
+        <div className="flex-container">
+          <Row>
+            <Col lg={8} className="right-grid">
+              <Carousel
+                fade={false}
+                indicators={false}
+                interval={5000}
+                wrap={true}
+                slide={true}
               >
-                {firstFeed.category_id}
-              </a>
-              <p>{firstFeed.slug}</p>
-            </div>
-          </div>
-          }
-          <div className="cnt-2">
-            <div className="cnt-txt-wrap">
-              <a
-                href={`/post/${secondFeed.slug}`}
-                className="text-decoration-none inline-block p-1 text-left cap-anco mt-5"
-              >
-                { secondFeed.category_id}
-              </a>
-              <p>
-                { secondFeed.post_title}
-              </p>
-            </div>
-          </div>
+                {data.slice(0, 3).map((categ) => {
+                  const { featured_image, id, slug, category_id } = categ
+                  return (
+                    <Carousel.Item className="caro-item" key={id}>
+                      <img
+                        className="d-block w-100 h-100 caro-img-cover"
+                        src={`https://api.tv24africa.com/public/storage/post_image/${featured_image}`}
+                        alt="tv24africanews"
+                      />
+                      <Carousel.Caption className="caro-capxn">
+                        <Link
+                          to={{
+                            pathname: '/news/categories',
+                            search: `?category=${category_id}`,
+                          }}
+                          className="caro-link text-decoration-none p-2 text-left cap-ancor"
+                        >
+                          {category_id}
+                        </Link>
+                        <Link
+                          to={`/post/${slug}`}
+                          className="text-white text-left car-p text-capitalize"
+                        >
+                          {slug.toLowerCase()}
+                        </Link>
+                      </Carousel.Caption>
+                    </Carousel.Item>
+                  )
+                })}
+              </Carousel>
+            </Col>
+            {width > breakpoint ? (
+              <Col lg={4} className="left-grid">
+                {data.slice(3, 4).map((categ) => (
+                  <div className="cnt-1" key={categ.id}>
+                    <Card className="text-white h-100">
+                      <Card.Img
+                        src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
+                        alt="Card image"
+                        className="h-100 w-100 caro-img-cover"
+                      />
+                      <Card.ImgOverlay className="cnt-txt-wrap">
+                        <Link
+                          to={{
+                            pathname: '/news/categories',
+                            search: `?category=${categ.category_id}`,
+                          }}
+                          className="card-tag text-decoration-none p-2 cap-anco text-left"
+                        >
+                          {categ.category_id}
+                        </Link>
+
+                        <Link
+                          to={`/post/${categ.slug}`}
+                          className="card-msg text-left text-capitalize text-white"
+                        >
+                          {categ.slug}
+                        </Link>
+                      </Card.ImgOverlay>
+                    </Card>
+                  </div>
+                ))}
+                {data.slice(4, 5).map((categ) => (
+                  <div className="cnt-2" key={categ.id}>
+                    <Card className="text-white h-100">
+                      <Card.Img
+                        src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
+                        alt="Card image"
+                        className="h-100 w-100 caro-img-cover"
+                      />
+                      <Card.ImgOverlay className="cnt-txt-wrap">
+                        <Link
+                          to={{
+                            pathname: '/news/categories',
+                            search: `?category=${categ.category_id}`,
+                          }}
+                          className="card-tag text-decoration-none p-2 cap-anco text-left"
+                        >
+                          {categ.category_id}
+                        </Link>
+                        <Link
+                          to={`/post/${categ.slug}`}
+                          className="card-msg text-left text-white"
+                        >
+                          {categ.slug}
+                        </Link>
+                      </Card.ImgOverlay>
+                    </Card>
+                  </div>
+                ))}
+              </Col>
+            ) : (
+              ''
+            )}
+          </Row>
         </div>
       </div>
-    );
-  }
+    </section>
+  )
 }
 
-export default Banner;
+export default Banner

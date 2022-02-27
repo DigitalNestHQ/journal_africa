@@ -1,22 +1,32 @@
-import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import logo from "../../../../assets/images/TV24Ergb.png";
-import "./formHeader.css"
+import React from "react"
+import { Link } from "react-router-dom"
+import logo from "../../../../assets/images/logo white.png"
 
 const FormHeader = () => {
   return (
-    // <Router>
-      <header className="formHeader container-fluid">
-        <div className="logo">
-          <Link to="/"><img src={logo} alt="app logo" /></Link>
-        </div>
-        <div className="links">
-          <Link className="links-item lnk1" to="/sign-up">Sign Up</Link>
-          <Link className="links-item lnk2" to="/subscribe">Subscribe</Link>
-        </div>
-      </header>
-    // </Router>
-  );
-};
+    <nav className="register-nav subscribe-nav">
+      <Link to="/" className="reg-nav-img-container">
+        <img src={logo} alt="logo" className="reg-logo" />
+      </Link>
+      <ul className="reg-nav-list">
+        <li className="reg-nav-list-item">
+          <Link className="reg-signup" to="/">
+            Home
+          </Link>
+        </li>
+        <li className="reg-nav-list-item">
+          <Link className="reg-signup" to="/signup">
+            sign up
+          </Link>
+        </li>
+        <li className="reg-nav-list-item">
+          <Link className="reg-subscribe" to="/subscribe">
+            subscribe
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  )
+}
 
-export default FormHeader;
+export default FormHeader

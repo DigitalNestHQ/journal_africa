@@ -1,72 +1,81 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.about-left-text {
+  width: 100%;
+  display: block;
+  margin: 0;
 }
-.about{
-    max-width: 1440px;
-    margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
-    background-color: #BDBCBC;
+.about-board-cards {
+  margin-top: 1.8rem;
+  width: 100%;
 }
-.abt-tp-nav{
-    width: 100%;
+.about-link-tag {
+  background-color: #fff;
+  color: red;
+  font-weight: 600;
 }
-.about-header .navigation{
-    background: #E90A0A;
-    height: 60px;
+.about-link-tag:hover {
+  color: red;
 }
-.bg-header{
-    background: linear-gradient(rgba(22, 7, 233, 0.541), rgba(51, 65, 126, 0.61)),
-    url("../../assets/images/discoverbanner.jpg")top/cover fixed no-repeat;
-color: #fff;
-height: 120px;
-width: 100%;
-margin: 0 auto;
-padding: 0;
-text-align: center;
+.about-card-msg {
+  margin: 0.5rem 0 0 0;
+  text-transform: capitalize;
 }
-.bg-header p{
-    font-weight: bold;
-font-size: 36px;
-line-height: 42px;
-padding-top: 50px;
+.trump-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
-
-.abt-txt p, 
-.txt-btm p{
-    font-weight: normal;
-font-size: 24px;
-line-height: 28px;
-text-align: justify;
+.aboutimg-container {
+  width: 100%;
+  position: relative;
+  height: 100%;
 }
-.txt-btm{
-    padding: 20px 30px;
+.about-card-left-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
 }
-
-.about-crd{
-    border: 1px solid red;
+.about-trends {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 1rem 0;
+  color: #fff;
+  background-color: red;
+  padding: 0.3rem;
+  text-transform: uppercase;
 }
-.about-right{
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
-    url("../../assets/images/trump1.jpg")center/cover no-repeat;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)), drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    width: 30%;
-    height: 755px;
-    border-radius: 30px;
-    padding: 30px;
+.about-left-overlay {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  left: 0;
+  color: #fff;
+  padding: 0.5rem;
 }
-.abt-main{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.add-container {
+  margin-top: 1.5rem;
+  display: block;
+  width: 100%;
 }
-.about-left{
-    width: 63%;
-    flex: 1 1 .5px;
-    padding: 30px;
+.rem-text-container {
+  margin-top: 1.5rem;
+  display: block;
+  width: 100%;
 }
-.s-card{
-    width: 294px;
-    height: 330px;
+.about-board-content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 993px) {
+  .about-board-content-grid {
+    grid-template-columns: 1fr;
+    gap: unset;
+  }
+  .about-us-each-card {
+    margin-bottom: 1rem;
+  }
 }

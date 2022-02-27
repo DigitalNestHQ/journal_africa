@@ -1,221 +1,160 @@
-.banner {
-    font-family: 'Roboto', sans-serif;
+.showcase {
+  margin-top: 125px;
 }
-
-.cnt-1 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
-        url("../../assets/images/endsars.jpg")top/cover fixed no-repeat;
-    color: #fff;
+.caro-item:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
 }
-
-.cnt-2 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
-        url("../../assets/images/Mambilla-Plateau.jpg")top/cover fixed no-repeat;
-    color: #fff;
+.caro-img-cover {
+  object-fit: cover;
 }
 .car-p {
-    font-size: 14px;
-    line-height: 22px;
+  margin: 1rem 0;
+  font-size: 1.2rem;
 }
 .cap-ancor {
-    font-weight: 500;
-    background-color: #fff;
-    display: flex;
-    justify-content: flex-start;
-    width: 310px
+  background-color: #fff;
 }
-
 
 .cap-anco {
-    background-color: #fff;
-    color: #F83D3D;;
-    border: 1px solid black;
-    position: relative;
-    top: 30px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    line-height: 21px;
-}
-
-.flex-container {
-    padding-top: 180px;
-}
-
-.caro-capxn {
-    z-index: 4!important;
-}
-
-.caro-capxn p {
-    width: 70%;
-    font-weight: 400!important;
-    line-height: 28.13px;
-    padding-top: 10px;
-    font-size: 24px;
-    font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 18px;
 }
 
 .caro-capxn a {
-    font-weight: 700;
-    font-size: 30px;
-    color: #F83D3D;
-    line-height: 35.16px
+  float: left;
+  clear: both;
+  text-decoration: none;
+  display: block;
+}
+.caro-capxn a:hover {
+  color: red;
 }
 
 .cnt-txt-wrap {
-    position: relative;
-    top: 30%;
-    left: 5%;
-    width: 84%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
 }
 
-.cnt-txt-wrap p {
-    padding-top: 35px;
-    font-family: 'Roboto',sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21.09px;
-    display: flex;
-    align-items: flex-end;
-    color: #FFFFFF;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.cnt-txt-wrap a {
+  float: left;
+  clear: both;
+  text-decoration: none;
+  display: block;
 }
 
+.left-grid {
+  padding-top: 0;
+  padding-bottom: 0;
+}
 
-/* carousel controller */
 .carousel-control-next,
 .carousel-control-prev {
-    display: none
+  display: none;
 }
 
 .carousel-caption {
-    left: 5%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.25rem 1.25rem 1.25rem 3.188rem;
 }
 
-@media screen and (min-width: 560px) {
-    .flex-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 150px;
-    }
-
-    .caro-item {
-        height: 450px;
-    }
-
-    .caro-item:after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6))
-    }
-
-    .cnt-2{
-        height: 200px;
-        margin-top: 22px;
-    }
-    .cnt-1 {
-        height: 228px;
-    }
-
+.cnt-2 {
+  margin-top: 1.3rem;
 }
 
-@media screen and (max-width: 560px) {
-
-    .cnt-2,
-    .cnt-1,
-    .ct-rt {
-        height: 250px;
-    }
+.flex-container {
+  width: 100%;
+  height: 100%;
+}
+.ad-wrapper {
+  display: block;
+  margin-bottom: 1.3rem;
 }
 
-/*############## Tease section ###################*/
-.teaser {
-    background-color: #ccc;
-    padding-top: 40px;
-    padding-bottom: 30px;
+.caro-link {
+  color: red;
+  font-size: clamp(1.18rem, 2.5vw, 1.4rem);
+  font-weight: 600;
 }
 
-
-
-.butn {
-    background: #fff;
-    color: #F83D3D;
-    padding: 0 10px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 28px;
-    letter-spacing: 0em;
-    text-align: left;
-
+.car-p {
+  font-size: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
-.butn:hover {
-    background: #F08080;
-    color: #fff
+.card-tag:hover {
+  color: red;
 }
 
-.h-100 {
-    transition: transform 2s ease;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    border: none;
+.card-tag {
+  background-color: #fff;
+  color: red;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
 }
 
-.h-100:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))
+.card-msg {
+  margin: 0.5rem 0 0 0;
+  text-transform: capitalize;
+  position: absolute;
+  top: 70%;
 }
+@media (max-width: 560px) {
+  .car-p {
+    margin: 1rem 0 0 0;
+  }
 
-.h-100:hover {
-    transform: scale(0.8);
-    cursor: pointer;
+  .car-p {
+    font-size: 1rem;
+  }
+  .caro-item {
+    height: 280px;
+  }
 }
-
-.ts-card-txt:hover {
-    filter: brightness(1.5);
+@media (max-width: 994px) {
+  .right-grid {
+    margin-bottom: 1.3rem;
+  }
 }
-
-.ts-card-wrap {
-    width: 293px;
-    height: 334px;
-    border: none !important;
+@media (max-width: 993px) {
+  .carousel-caption {
+    padding: 1rem;
+  }
 }
-
-.ts-overlay {
-    padding-top: 200px;
+@media screen and (min-width: 992px) {
+  .cnt-1,
+  .cnt-2 {
+    height: 13.375rem;
+  }
+  .cnt-2 {
+    margin-top: 1.4rem;
+  }
 }
-
-.ts-card-txt {
-    font-family: 'Roboto', sans-serif;
-    margin-top: 20px;
-    font-size: 11px !important;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 13px;
-    letter-spacing: 0em;
-    text-align: left;
+@media (min-width: 560px) {
+  .caro-item {
+    height: 450px;
+  }
 }
-
-@media screen and (max-width: 560px) {
-
-    .ts-overlay {
-        padding-top: 140px;
-    }
+@media (max-width: 600px) {
+  .carousel-caption {
+    padding: 1.25rem;
+  }
+}
+@media (max-width: 1250px) {
+  .showcase {
+    margin-top: 108px;
+  }
+}
+@media(max-width: 350px){
+  .caro-link {
+    font-size: inherit;
+  }
 }

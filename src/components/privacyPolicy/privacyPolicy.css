@@ -1,43 +1,45 @@
-.policy{
-    max-width: 1200;
-    margin: 0 auto;
-    padding-top: 150px;
-    padding-bottom: 40px;
-    font-family: 'Roboto', sans-serif;
+.privacy-container {
+  margin-top: 130px;
 }
-.policy h3{
-    text-transform: capitalize;
-    width: 90%;
-    margin: 0 auto;
-    font-size: 24px;
-    line-height: 28px;
-    text-decoration: underline;
-    text-decoration-color: #FF0000;
-    text-align: center;
-    font-weight: 700;
+.privacy-header-component {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 0 1.8rem 0;
 }
-.policy ol{
-    width: 92%;
-    margin: 0 auto;
+.privacy-border-red {
+  text-align: center;
+  margin: 0 auto;
+  display: inline-block;
 }
-.policy li p, 
-.policy ul li,
-.ol-text-format li{
-    font-size: 14px;
-    line-height: 18.44px;
-    font-weight: 400;
+.list {
+  list-style: decimal;
+  list-style-position: inside;
 }
-.policy span{
-    font-size: 20px;
-    line-height: 23.44px;
-    font-weight: 500;
-    display: inline-block;
-    padding-top: 10px;
-    padding-bottom: 15px;
+.subscription-contract {
+  margin: 1rem 0;
 }
-.ul-rm ul li, .pol-list-rm{
-    list-style-type: none;
+.list-item {
+  margin-bottom: 1rem;
 }
-ol > li::marker {
-    font-weight: bold;
+.list-item:last-child {
+  margin-bottom: 0;
+}
+.privacy-terms {
+  margin-bottom: 1.5rem;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+.privacy-terms:last-child {
+  margin-bottom: 0;
+}
+
+.intro-text {
+  margin: 1rem 0;
+}
+@media (max-width: 1250px) {
+  .privacy-container {
+    margin-top: 110px;
   }
+}

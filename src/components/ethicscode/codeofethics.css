@@ -1,0 +1,28 @@
+.code-of-ethics-heading {
+  padding: 2px 0;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  text-align: center;
+  width: 100%;
+}
+
+.code-of-ethics-heading h1 {
+  padding: 1em 0.5em;
+  border-top: 4px solid #eee;
+  border-bottom: 4px solid #eee;
+  margin: 0;
+}
+
+.code-of-ethics-information {
+  width: 100%;
+  margin: 2rem 0;
+  line-height: 1.7;
+}
+
+.code-of-ethics-information ol {
+  list-style-position: inside;
+}
+
+.code-of-ethics-information li {
+  margin-top: 1.5rem;
+}

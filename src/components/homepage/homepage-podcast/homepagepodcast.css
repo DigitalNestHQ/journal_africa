@@ -1,0 +1,27 @@
+.pod-card-body {
+  padding-top: 1rem;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.pod-title {
+  color: #000;
+}
+
+.more-pod {
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  margin: 1rem 0;
+}
+.more-pod:hover {
+  color: #fff;
+}
+.fa-microphone-alt {
+  position: absolute;
+  top: 2%;
+  left: 2.5%;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  background-color: transparent;
+}

@@ -1,66 +1,55 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, useParams } from "react-router-dom";
-import Nav from "../reusables/navigation/Nav/Nav";
-import Banner from "./Banner";
-import TeaserSection from "./homepageTeaser/teaserSection";
-import SubscribeForm from "./homepageSubscribeSection/subscribe";
-import Politics from "./politics/politicsComponent";
-import Headlines from "./headlines/headlineComponent";
-import Lifestyles from "./lifestyle/lifestyleComponent";
-import Entertainment from "./entertainment/entertainmentComponent";
-import { getNewsFeed } from "../../context/news/NewsApi";
-import Business from "./businessFinance/Business";
-import Tech from "./techafrica/TechAfrica";
-import Sports from "./sports/sportComponent";
-import InsideAfrica from "./dicoverafrica/discoverAfrica";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Footer from "../reusables/navigation/Footer/Footer";
-import "./homepage.css";
+import React, { Fragment, useEffect, useContext } from 'react'
+import Nav from '../reusables/navigation/Nav/nav'
+import Banner from './Banner'
+import TeaserSection from './homepageTeaser/TeaserSection'
+import PoliticsAndGovernance from './politics/PoliticsAndGovernance'
+import Tech from './lifestyle/LifeStyle'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import Footer from '../reusables/navigation/Footer/footer'
+import './homepage.css'
+import FactCheck from './development/FactCheck'
+import Economy from './economy/EconomyComponent'
+import Business from './business/Business'
+import { SignupTeaser } from '../reusables/news/SignupTeaser'
+import LatestNews from './latestnews/LatestNews'
+import Loader from '../loader/Loader'
+import HomepagePodcast from './homepage-podcast/HomepagePodcast'
+import newsContext from '../../context/news/NewsContext'
 
 function Homepage() {
-  const [news, setNews] = useState([]);
-  const [error, setError] = useState(null);
-  const { slug } = useParams();
-  // your useeffct function will cause memory  leaks
-  useEffect(() => {
-    AOS.init();
-    let subscribe = true;
-    if (subscribe) {
-      getNewsFeed()
-        .then((data) => {
-          setNews(data);
-          // console.log(data);
-        })
-        .catch((err) => {
-          setError(err);
-          console.log(err);
-        });
-      return () => (subscribe = null);
-    }
+  const context = useContext(newsContext)
+  const { news, loading, getNews, getLatestNews, latestLoading } = context
 
-    //eslint-disable-next-line
-  }, [slug, setNews]);
+  useEffect(() => {
+    AOS.init()
+    getNews()
+    getLatestNews()
+    // eslint-disable-next-line
+  }, [])
+
+  if (loading || latestLoading || news === null ) {
+    return <Loader />
+  }
+
+  const sorted = news.sort((a, b) => (a.created_at > b.created_at ? -1 : 1))
   
   return (
-    <Fragment className="aos-init aos-animate home-wrap">
-      <Router>
-        <Nav />
-        <Banner data={news}/>
-        <Politics data={news} />
-        <TeaserSection />
-        <Headlines />
-        <Business />
-        <InsideAfrica />
-        {/* <Tech /> */}
-        <Sports />
-        <Lifestyles />
-        <Entertainment />
-        <SubscribeForm />
-        <Footer />
-      </Router>
+    <Fragment>
+      <Nav />
+      <Banner data={sorted} />
+      <LatestNews data={sorted} />
+      <TeaserSection data={sorted} />
+      <Business data={sorted} />
+      <FactCheck data={sorted} />
+      <Economy data={sorted} />
+      <PoliticsAndGovernance data={sorted} />
+      <Tech data={sorted} />
+      <HomepagePodcast data={sorted} />
+      <SignupTeaser />
+      <Footer />
     </Fragment>
-  );
+  )
 }
 
-export default Homepage;
+export default Homepage

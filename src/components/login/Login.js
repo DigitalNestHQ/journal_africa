@@ -1,120 +1,133 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { pageurl } from "../../utils/constants";
-import FormHeader from "../reusables/navigation/formsReusables/FormHeader";
-import Alerts from "../alert/Alerts";
-import AlertContext from "../../context/alert/alertContext";
-import AuthContext from "../../context/auth/authContext";
-import "./login.css";
+import React, { useState, useContext, useEffect } from "react"
+import { Link, useHistory, useLocation } from "react-router-dom"
+import Alerts from "../alert/Alerts"
+import AlertContext from "../../context/alert/alertContext"
+import AuthContext from "../../context/auth/authContext"
+import FormHeader from "../reusables/navigation/formsReusables/FormHeader"
+import "./login.css"
+import "../signup/signup.css"
 
-const Login = (props) => {
-  const alertContext = useContext(AlertContext);
-  const authContext = useContext(AuthContext);
+const Login = () => {
+  const [showPassword, setShowPassword] = useState(false)
+  const history = useHistory()
+  const alertContext = useContext(AlertContext)
+  const authContext = useContext(AuthContext)
+  const { setAlert } = alertContext
+  const location = useLocation()
 
-  const { setAlert } = alertContext;
-  const { login, error, clearErrors, isAuthenticated } = authContext;
+  const { login, error, clearErrors, isAuthenticated, loading } = authContext
 
   useEffect(() => {
-    // if (isAuthenticated) {
-    //   setTimeout(() => {
-    //     props.history.push("/");
-    //   }, 5000);
-    // }
-    if (error) {
-      setAlert(error, "danger");
-      clearErrors();
+    if (isAuthenticated) {
+      const fromSuccessPage = location.state && location.state.fromSuccessPage
+      if (fromSuccessPage) {
+        history.push("/")
+      } else {
+        history.goBack()
+      }
+    }
+    if (error === "invalid_credentials") {
+      setAlert(error, "danger")
+      clearErrors()
     }
     // eslint-disable-next-line
-  }, [error]);
+  }, [error, isAuthenticated, history])
 
   const [user, setUser] = useState({
     email: "",
     password: "",
-  });
+  })
 
-  const { email, password } = user;
-  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
+  const { email, password } = user
+
+  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value })
+
   const onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (email === "" || password === "") {
-      setAlert("email or password not correct", "danger");
+      setAlert("email or password not correct", "danger")
     }
-    if(!error) {
-      login({
-        email,
-        password,
-      });
-      setAlert("login successful", "success");
-      setTimeout(() => {
-            props.history.push("/");
-          }, 4000)
+    login({
+      email,
+      password,
+    })
+  }
 
-    }
-  };
   return (
-    <div className="login">
-      <div className="page-wrap">
+    <header className="login">
+      <div className="register-signup-wrapper login-wrapper">
         <FormHeader />
-        <div className="container-fluid login-wrap">
-          <div className="login-txt">
-            <span>Telling</span>
-            <p>The Untold African Story</p>
-          </div>
-          <div className="form-wrap">
-            <h2>Sign In</h2>
-            <Alerts />
-            <form className="form login-form" onSubmit={onSubmit}>
-              <div class="mb-3">
-                <label htmlFor="email" class="form-label">
-                  Email
-                </label>
+        <div className="log-showcase">
+          <div className="reg-content-grid">
+            <div className="reg-benefits">
+              <h1 className="african-story">
+                {" "}
+                Telling the untold African Story
+              </h1>
+            </div>
+            <div className="reg-form-outer-container">
+              <h5 className="reg-form-header">Sign In</h5>
+              <Alerts />
+              <form onSubmit={onSubmit}>
+                <div className="form-group">
+                  <label htmlFor="email" className="reg-label">
+                    Email
+                  </label>
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Enter email..."
+                    className="form-control reg-input"
+                    value={email}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+                <div className="form-group password-input">
+                  <label htmlFor="password" className="reg-label">
+                    Password
+                  </label>
+                  <input
+                    type={`${showPassword ? "text" : "password"}`}
+                    name="password"
+                    placeholder="Enter Password"
+                    className="form-control reg-input"
+                    value={password}
+                    onChange={onChange}
+                    minLength="6"
+                    required
+                  />
+                  <span
+                    className="show-password"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? "hide" : "show"}
+                  </span>
+                </div>
                 <input
-                  type="email"
-                  class="form-control"
-                  placeholder="Enter your email address"
-                  name="email"
-                  value={email}
-                  required
-                  onChange={onChange}
+                  type="submit"
+                  value={`${loading ? "Please wait..." : "Continue"}`}
+                  className="btn btn-red btn-block mb-3"
+                  disabled={loading}
                 />
-              </div>
-
-              <div class="mb-3">
-                <label htmlFor="password" class="form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  class="form-control"
-                  placeholder="Enter your password"
-                  name="password"
-                  value={password}
-                  required
-                  onChange={onChange}
-                />
-                <span className="showPassword">show</span>
-                <Link className="fpass" to="/forgotPassword">
-                  Forgot your password?
+              </form>
+              <div className="forgot-password">
+                <Link to="/" className="forgot-password-link">
+                  Forgot password?
                 </Link>
               </div>
-              <button className="my-2" type="submit">
-                Sign In
-              </button>
-            </form>
-            <div className="gosignup">
-              <h5>
-                Don't have an account?{" "}
-                <Link className="gsignup" to="/signup">
-                  {" "}
-                  SIGN UP{" "}
+              <div className="already-have-account">
+                <p className="m-0 reg-dont-account">Don't have an Account?</p>
+                <Link to="/signup" className="reg-sign-in">
+                  Sign up
                 </Link>
-              </h5>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+    </header>
+  )
+}
 
-export default Login;
+export default Login

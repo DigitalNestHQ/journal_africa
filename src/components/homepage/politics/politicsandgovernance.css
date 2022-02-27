@@ -1,0 +1,88 @@
+.commentary-section {
+  background-color: #000;
+}
+.business-wrapper {
+  max-width: 78.125rem;
+  margin: 0 auto;
+  display: block;
+  padding: 1rem;
+}
+.commentary-heading {
+  color: #fff;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+.commentary-heading::after {
+  content: ' ';
+  height: 3px;
+  width: 930px;
+  background-color: #c4c4c4;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.business-content {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1rem;
+}
+
+.com-card {
+  border: none;
+  background-color: inherit;
+  color: #fff;
+}
+
+.bus-card-body {
+  border-top: 3px solid #c4c4c4;
+  margin-top: 1.438rem;
+  padding-top: 1rem;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.bus-link {
+  color: #000;
+  font-size: 0.9rem;
+}
+.bus-link:hover {
+  color: #000;
+}
+@media (max-width: 993px) {
+  .bus-col {
+    margin-bottom: 2.5rem;
+  }
+
+  .bus-col:last-child {
+    margin-bottom: unset;
+  }
+
+  .business-wrapper {
+    max-width: unset;
+    margin: unset;
+    width: 100%;
+    padding: 0;
+  }
+}
+@media (max-width: 1250px) {
+  .commentary-heading::after {
+    width: 830px;
+  }
+}
+@media (max-width: 1160px) {
+  .commentary-heading::after {
+    width: 730px;
+  }
+}
+@media (max-width: 1050px) {
+  .commentary-heading::after {
+    width: 630px;
+  }
+}
+@media (max-width: 905px) {
+  .commentary-heading::after {
+    width: 0;
+  }
+}

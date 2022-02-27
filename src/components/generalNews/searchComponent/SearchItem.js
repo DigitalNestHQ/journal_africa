@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import CategoryCard from '../../category/CategoryCard'
 
 const SearchItem = ({ newsPost }) => {
-  console.log(newsPost)
-
   return (
     <Link to={`/post/${newsPost.slug}`} className="category-card-links">
       <CategoryCard

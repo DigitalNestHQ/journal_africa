@@ -24,7 +24,6 @@ const authReducer = (state, action) => {
     case REGISTER_SUCCESS:
       return {
         ...state,
-        ...action.payload,
         isAuthenticated: false,
         loading: false,
         message: action.payload.status,
@@ -33,7 +32,6 @@ const authReducer = (state, action) => {
       localStorage.setItem('token', action.payload.token)
       return {
         ...state,
-        ...action.payload,
         isAuthenticated: true,
         loading: false,
         message: action.payload.message,
@@ -42,7 +40,6 @@ const authReducer = (state, action) => {
     case EMAIL_SUBSCRIPTION:
       return {
         ...state,
-        ...action.payload,
         loading: false,
         message: action.payload.message,
       }

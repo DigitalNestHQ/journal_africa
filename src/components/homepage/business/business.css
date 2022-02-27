@@ -7,7 +7,8 @@
   position: relative;
 }
 .card-text {
-  font-size: clamp(0.688rem, 2vw, 0.8rem);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 30px;
 }
 .business-heading::after {
   content: ' ';
@@ -39,6 +40,7 @@
 .bus-link {
   color: #000;
   font-size: 0.9rem;
+  line-height: 30px;
 }
 .bus-link:hover {
   color: #000;

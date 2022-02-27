@@ -1,52 +1,54 @@
-import React from 'react'
-import { pageurl } from './utils/constants.js'
-import { Route, Switch } from 'react-router-dom'
-import HomePage from './components/homepage/homepage'
-import AboutUs from './components/about/AboutComponent'
-import PrivacyPolicy from './components/privacyPolicy/PrivacyPolicy'
-import CookiePolicy from './components/cookie/CookiePolicy'
-import Login from './components/login/Login'
-import Signup from './components/signup/Signup'
-import Subscribe from './components/subscription/Subscribe'
-import DiscoverAfrica from './components/DiscoverAfrica/index'
-import ContactUs from './components/ContactUs/index'
-import NewsFeeds from './components/generalNews/News'
-import { CodeOfEthics } from './components/ethicscode/CodeOfEthics'
-import CategoryNews from './components/category/CategoryNews'
-import PodcastHome from './podcast/home/PodcastHome.js'
-import { PodCastsView } from './podcast/podcastspage/PodCastsView.js'
-import LatestDaily from './components/reusables/news/LatestDaily'
-import Error404 from './components/error404/error404'
-import CurrentPodCast from './podcast/home/currentPodcast/CurrentPodCast'
-import CurrentPodCastPlayer from './podcast/home/livepodcastalert/CurrentPodCastPlayer'
+import React from "react"
+import { pageurl } from "./utils/constants.js"
+import { Route, Switch } from "react-router-dom"
+import HomePage from "./components/homepage/homepage"
+import AboutUs from "./components/about/AboutComponent"
+import TermsAndConditions from "./components/privacyPolicy/TermsAndConditions"
+import PrivacyPolicy from "./components/privacyPolicy/PrivacyPolicy"
+import CookiePolicy from "./components/cookie/CookiePolicy"
+import Login from "./components/login/Login"
+import Signup from "./components/signup/Signup"
+import Subscribe from "./components/subscription/Subscribe"
+import ContactUs from "./components/ContactUs/index"
+import NewsFeeds from "./components/generalNews/News"
+import { CodeOfEthics } from "./components/ethicscode/CodeOfEthics"
+import CategoryNews from "./components/category/CategoryNews"
+import PodcastHome from "./podcast/home/PodcastHome.js"
+import LatestDaily from "./components/reusables/news/LatestDaily"
+import Error404 from "./components/error404/error404"
+import CurrentPodCast from "./podcast/home/currentPodcast/CurrentPodCast"
+import CurrentPodCastPlayer from "./podcast/home/livepodcastalert/CurrentPodCastPlayer"
+import { SuccessPage } from "./components/homepage/homepageSubscribeSection/SuccessPage.js"
+import Faq from "./components/faq/Faq.js"
+import { Advertising } from "./components/advertising/Advertising"
+import SubcategoryNews from "./components/category/SubcategoryNews"
+import { WriteForUs } from "./components/writeforus/WriteForUs"
+import NewState from "./context/news/NewState"
+import Copyright from "./components/privacyPolicy/Copyright"
 
-// css override
-import './../src/components/reusables/utilities/index.css'
+import SearchNews from "./components/generalNews/searchComponent/SearchNews"
+import { SoundLayer } from "./context/podcast/SoundLayer"
+import soundReducer, { soundInitialState } from "./context/podcast/soundReducer"
+import AuthState from "./context/auth/AuthState"
+import AlertState from "./context/alert/AlertState"
+import "./../src/components/reusables/utilities/index.css"
+import "./App.css"
 
-// states
-import AuthState from './context/auth/AuthState'
-import AlertState from './context/alert/AlertState'
-
-// middleware
-import './App.css'
-import { SinglePodCast } from './podcast/singlepodcast/SinglePodCast.js'
-import { SuccessPage } from './components/homepage/homepageSubscribeSection/SuccessPage.js'
-import Faq from './components/faq/Faq.js'
-import { Advertising } from './components/advertising/Advertising.js'
-import SubcategoryNews from './components/category/SubcategoryNews.js'
-import { WriteForUs } from './components/writeforus/WriteForUs.js'
-import NewState from './context/news/NewState'
-import CommentState from './context/comments/CommentState'
-import SearchNews from './components/generalNews/searchComponent/SearchNews'
 const App = () => {
   return (
     <div className="app">
-      <AuthState>
-        <CommentState>
+      <SoundLayer initialState={soundInitialState} reducer={soundReducer}>
+        <AuthState>
           <AlertState>
             <NewState>
               <Switch>
                 <Route exact path={pageurl.HOMEPAGE} component={HomePage} />
+                <Route
+                  exact
+                  path={pageurl.PRIVACYPOLICY}
+                  component={PrivacyPolicy}
+                />
+                <Route exact path="/copyright" component={Copyright} />
                 <Route exact path={pageurl.SUBSCRIBE} component={Subscribe} />
                 <Route exact path={pageurl.FAQ} component={Faq} />
                 <Route
@@ -75,10 +77,12 @@ const App = () => {
                   path="/news/sub-categories"
                   component={SubcategoryNews}
                 />
-                {/* <Route exact path="/news/1" component={Categories} /> */}
                 <Route exact path={pageurl.PODCAST} component={PodcastHome} />
-                <Route exact path="/podcast/all" component={PodCastsView} />
-                <Route exact path="/podcast/single" component={SinglePodCast} />
+                <Route
+                  exact
+                  path="/podcast/single/:collectionId"
+                  component={CurrentPodCastPlayer}
+                />
                 <Route
                   exact
                   path="/podcast/:collectionId"
@@ -86,13 +90,8 @@ const App = () => {
                 />
                 <Route
                   exact
-                  path="/podcast/play/:trackId"
-                  component={CurrentPodCastPlayer}
-                />
-                <Route
-                  exact
-                  path={pageurl.PRIVACYPOLICY}
-                  component={PrivacyPolicy}
+                  path={pageurl.TERMSANDCONDITIONS}
+                  component={TermsAndConditions}
                 />
                 <Route
                   exact
@@ -100,19 +99,14 @@ const App = () => {
                   component={CookiePolicy}
                 />
                 <Route path="/login" component={Login} />
-                <Route
-                  exact
-                  path={pageurl.DISCOVERAFRICA}
-                  component={DiscoverAfrica}
-                />
                 <Route exact path={pageurl.CONTACTUS} component={ContactUs} />
                 <Route exact path={pageurl.SIGNUP} component={Signup} />
                 <Route component={Error404} />
               </Switch>
             </NewState>
           </AlertState>
-        </CommentState>
-      </AuthState>
+        </AuthState>
+      </SoundLayer>
     </div>
   )
 }

@@ -1,14 +1,14 @@
-import React, { useContext, useState, Fragment } from 'react'
-import authContext from '../../context/auth/authContext'
-import './header.css'
+import React, { useContext, useState, Fragment } from "react"
+import authContext from "../../context/auth/authContext"
+import "./header.css"
 
 function TopNav() {
   const userContext = useContext(authContext)
   const { user, isAuthenticated } = userContext
 
-  let options = { year: 'numeric', month: 'long', day: 'numeric' }
+  let options = { year: "numeric", month: "long", day: "numeric" }
 
-  const [date] = useState(new Date().toLocaleDateString('en-US', options))
+  const [date] = useState(new Date().toLocaleDateString("en-US", options))
 
   const authLinks = (
     <Fragment>
@@ -26,7 +26,7 @@ function TopNav() {
   const guestLinks = (
     <Fragment>
       <li className="welcome-item-w">
-        <span className="welcome">Welcome to TV24 Africa News</span>
+        <span className="welcome">Welcome to Journal Africa News</span>
       </li>
       <li className="welcome-item-d">
         <span>{date}</span>
@@ -37,7 +37,9 @@ function TopNav() {
   return (
     <nav className="top-nav">
       <div className="text-white name-sp">
-        <ul className="welcome-list">{isAuthenticated ? authLinks :  guestLinks}</ul>
+        <ul className="welcome-list">
+          {isAuthenticated ? authLinks : guestLinks}
+        </ul>
       </div>
       <ul className="soc-nav">
         <li>

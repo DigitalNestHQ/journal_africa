@@ -63,11 +63,3 @@ const getPodcast = async (collectionId) => {
 
   return response.data.results
 }
-
-// const gettPodcast = async () => {
-//   const response = await axios.get(
-//     `${BASE_URL}lookup?id=278981407&country=US&media=podcast&entity=podcastEpisode&limit=1`,
-//   )
-
-//   console.log(response.data.results)
-// }

@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import PodcastCategories from './podcategories/PodcastCategories'
-// import { CurrentPodCast } from './currentPodcast/CurrentPodCast'
-// import { Teasers } from './currentPodcast/Teasers'
-// import { LivePodCastAlert } from './livepodcastalert/LivePodCastAlert'
-// import '../../components/homepage/business/business.css'
-// import { Link } from 'react-router-dom'
-// import { HtmlParseOptions } from '../../_helper/parseNewsHtml'
-// import ReactHtmlParser from 'react-html-parser'
-// import { Row, Col, Card } from 'react-bootstrap'
 import { useViewPort } from '../../components/hooks/Viewport'
 import axios from 'axios'
 import '../../components/homepage/politics/politicsandgovernance.css'
@@ -18,13 +10,12 @@ import { HOMESCREEN_API_URL } from '../../utils/constants'
 import Loader from '../../components/loader/Loader'
 import cybertruck from '../../assets/images/cybertruck1.jpg'
 
-//  THIS IS THE PODCAST PLAYING PAGE
 
 const PodcastHome = () => {
   const [podcasts, setPodcasts] = useState(null)
   const [loading, setLoading] = useState(false)
   const { width } = useViewPort()
-  const breakpoint = 1150
+  const breakpoint = 993
   useEffect(() => {
     const fetchPods = async () => {
       setLoading(true)

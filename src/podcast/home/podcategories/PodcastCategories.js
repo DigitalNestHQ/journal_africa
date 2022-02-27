@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import pause_button from '../../../assets/images/pause_button.svg'
 import play_button from '../../../assets/images/play_button.svg'
 import './podnavbar.css'
-// import hambuger from './../../../assets/images/hamburger.png'
 const PodcastCategories = ({ header, podcasts }) => {
   const history = useHistory()
   return (

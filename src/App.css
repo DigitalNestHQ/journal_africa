@@ -1,4 +1,4 @@
-@import url('http://fonts.cdnfonts.com/css/nimbussanl');
+@import url("http://fonts.cdnfonts.com/css/nimbussanl");
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +10,12 @@ body {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'NimbusSanL', sans-serif;
-  font-family: 'NimbusSanLCon', sans-serif;
-  font-size: clamp(0.688rem, 2vw, 0.8rem);
+  font-family: "NimbusSanL", sans-serif;
+  font-family: "NimbusSanLCon", sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+a {
+  color: black;
 }
 a:hover {
   text-decoration: none;
@@ -25,6 +28,11 @@ ol {
 }
 .app {
   margin: 0;
+}
+ins strong {
+  font-weight: normal;
+  text-decoration: none;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 .card-img-overlay {
   border: none;
@@ -45,22 +53,22 @@ ol {
   position: absolute;
   color: #fff;
   background: red;
-  top: 2%;
-  left: 2%;
-  padding: 0 0.3rem;
+  top: 1.5%;
+  left: 1.5%;
+  padding: 0 0.1rem;
   z-index: 100;
-  font-size: inherit;
+  font-size: 0.7rem;
 }
 .premium-badge-left {
   text-transform: uppercase;
   position: absolute;
   color: #fff;
   background: red;
-  top: 3%;
-  right: 2%;
-  padding: 0 0.3rem;
+  top: 1.5%;
+  right: 1.5%;
+  padding: 0 0.1rem;
   z-index: 100;
-  font-size: inherit;
+  font-size: 0.7rem;
 }
 .section-content-default {
   margin-left: 0;
@@ -77,7 +85,7 @@ ol {
 .section-heading-default {
   line-height: 30px;
   font-weight: 600;
-  font-size: clamp(1.15rem, 2.5vw, 1.25rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.25rem);
 }
 .section-heading-default-pod {
   line-height: 30px;
@@ -87,7 +95,7 @@ ol {
 .slug-default {
   color: black;
   font-weight: bold;
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
 }
 .explore-white-btn {
   background-color: #fff;
@@ -114,5 +122,17 @@ ol {
     width: 100%;
     padding-left: unset;
     padding-right: unset;
+  }
+}
+
+@media (max-width: 400px) {
+  .section-heading-default {
+    line-height: 20px;
+    font-size: clamp(0.9rem, 2vw, 1.25rem);
+  }
+}
+@media (max-width: 280px) {
+  .section-heading-default {
+    font-size: 0.7rem;
   }
 }

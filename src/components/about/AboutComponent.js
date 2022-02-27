@@ -1,19 +1,14 @@
-import React, { Fragment, useEffect, useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
-import Nav from '../reusables/navigation/Nav/nav'
-import { Card, Row, Col } from 'react-bootstrap'
-// import Image3 from '../../assets/images/calabar-carnival-3.jpg';
-// import Image4 from '../../assets/images/travel1.jpg';
-import Loader from '../loader/Loader'
-// import Trump from "../../assets/images/trump1.jpg";
-// import logo from "../../assets/images/TV24E.png";
-// import { Link } from "react-router-dom";
-import Footer from '../reusables/navigation/Footer/footer'
-import './about.css'
-import newsContext from '../../context/news/NewsContext'
-import { LargeSizeAds } from '../homepage/ads/Ads'
-import bannerAds from './../../assets/images/bannerads.png'
-import { useViewPort } from '../hooks/Viewport'
+import React, { Fragment, useEffect, useState, useContext } from "react"
+import { Link } from "react-router-dom"
+import Nav from "../reusables/navigation/Nav/nav"
+import { Card, Row, Col } from "react-bootstrap"
+import Loader from "../loader/Loader"
+import Footer from "../reusables/navigation/Footer/footer"
+import "./about.css"
+import newsContext from "../../context/news/NewsContext"
+import { LargeSizeAds } from "../homepage/ads/Ads"
+import bannerAds from "./../../assets/images/bannerads.png"
+import { useViewPort } from "../hooks/Viewport"
 
 const AboutComponent = () => {
   const context = useContext(newsContext)
@@ -27,7 +22,7 @@ const AboutComponent = () => {
   }, [])
 
   if (news === null || loading) {
-    ;<Loader />
+    return <Loader />
   }
   return (
     <Fragment>
@@ -37,31 +32,31 @@ const AboutComponent = () => {
         <div className="contact-section">
           <div className="register-signup-wrapper contact-wrapper">
             <div className="contact-page-main">
-              <h5 className="contact-heading">About tv24africa newspaper</h5>
+              <h5 className="contact-heading">
+                About Journal Africa newspaper
+              </h5>
               <div className="about-board-bg">
                 <div className="about-board-content-grid">
                   <div className="about-board">
                     <div className="about-left-text">
                       <p>
-                        TV24 Africa Newspaper was established in the year 2020
-                        by News Media Africa Limited to give the African people
-                        the chance to tell their stories in ways never told. It
-                        is a multi-platform online news and analysis publication
-                        reaching everyone across the world via various digital
-                        media platforms.
+                        Journal Africa is a research and fact based analytical
+                        publication focused on the political, business,
+                        governance, development and lifestyle of the African
+                        people.
                       </p>
                       <p>
-                        TV24Africa Newspaper aims to become the number one in
-                        Africa and one of the world’s most trusted source of
-                        informative and inspiring. It is poised to give Africans
-                        access to independent and well researched national,
-                        regional and international news in all spheres.
+                        Journal Africa is a subscription-driven publication
+                        offered on a monthly, quarterly and annual basis and
+                        hosts several features and categories including a
+                        podcast section, all of which deals with contemporary
+                        socio-economic and development issues in the African
+                        continent.
                       </p>
                       <p>
-                        The emphasis of its reporting will be more focused more
-                        on promoting development issues in the sub-region,
-                        especially those that are under reported, but capable of
-                        empowering the Africa people.
+                        Journal Africa provides original, analytical,
+                        well-written stories that helps to engender debate and
+                        shape ideological conclusions of all users.
                       </p>
                     </div>
                     <div className="about-board-cards">
@@ -72,7 +67,10 @@ const AboutComponent = () => {
                           <div></div>
                         ) : (
                           news.slice(6, 8).map((eachCard) => (
-                            <Col key={eachCard.id} className='about-us-each-card'>
+                            <Col
+                              key={eachCard.id}
+                              className="about-us-each-card"
+                            >
                               <Card className="text-white h-100">
                                 <Card.Img
                                   src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
@@ -82,7 +80,7 @@ const AboutComponent = () => {
                                 <Card.ImgOverlay className="cnt-txt-wrap">
                                   <Link
                                     to={{
-                                      pathname: '/news/categories',
+                                      pathname: "/news/categories",
                                       search: `?category=${eachCard.category_id}`,
                                     }}
                                     className="text-decoration-none p-2 text-left cap-anco about-link-tag"
@@ -104,55 +102,52 @@ const AboutComponent = () => {
                       </Row>
                     </div>
                   </div>
-                  {width > breakPoint ? <div className="trump-board">
-                    {news === null || loading ? (
-                      <h5>Loading...</h5>
-                    ) : !loading && news.length === 0 ? (
-                      <h5>No trends</h5>
-                    ) : (
-                      news.slice(8, 9).map((eachCard) => (
-                        <div className="text-center trump-container" key={eachCard.id}>
-                          <div className="aboutimg-container">
-                            <img
-                              src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
-                              alt="img"
-                              className="about-card-left-img"
-                            />
+                  {width > breakPoint ? (
+                    <div className="trump-board">
+                      {news === null || loading ? (
+                        ""
+                      ) : !loading && news.length === 0 ? (
+                        <h5>No trends</h5>
+                      ) : (
+                        news.slice(8, 9).map((eachCard) => (
+                          <div
+                            className="text-center trump-container"
+                            key={eachCard.id}
+                          >
+                            <div className="aboutimg-container">
+                              <img
+                                src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
+                                alt="img"
+                                className="about-card-left-img"
+                              />
+                            </div>
+                            <h5 className="about-trends text-center ">
+                              Trends
+                            </h5>
+                            <div className="about-left-overlay">
+                              <Link
+                                to={`/post/${eachCard.slug}`}
+                                className="about-overlay-text slug-default text-white"
+                              >
+                                {eachCard.slug}
+                              </Link>
+                            </div>
                           </div>
-                          <h5 className="about-trends text-center ">Trends</h5>
-                          <div className="about-left-overlay">
-                            <Link
-                              to={`/post/${eachCard.slug}`}
-                              className="about-overlay-text slug-default text-white"
-                            >
-                              {eachCard.slug}
-                            </Link>
-                          </div>
-                        </div>
-                      ))
-                    )}
-                  </div> : ''}
+                        ))
+                      )}
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <div className="add-container">
                   <LargeSizeAds img={bannerAds} />
                 </div>
                 <div className="rem-text-container">
                   <p>
-                    TV24 Africa Newspaper will dig deep into important issues
-                    capable of spurring real social change and reforms with no
-                    corporate, political or sectional agenda but through a fact
-                    based and unbiased reporting.
-                  </p>
-                  <p>
-                    Through our medium, we consider it our main responsibility
-                    to carry out an important work of informing and empowering
-                    Africans both at home and abroad, but also to equally
-                    support the present and future generations in achieving a
-                    voice in the world of modern media.
-                  </p>
-                  <p>
-                    TV24Africa Newspaper is available worldwide on all digital
-                    media platforms and mobile applications.
+                    Journal Africa has a sub publication better known as “News
+                    Journal Africa” which offers free access to independent
+                    national, regional and international news in all spheres.
                   </p>
                 </div>
               </div>

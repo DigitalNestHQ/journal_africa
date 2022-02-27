@@ -1,15 +1,15 @@
-import React, { useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
-import logo from '../../../../assets/images/TV24Ergb.png'
-import hamburger from '../../../../assets/images/hamburger.svg'
-import close from '../../../../assets/images/close.svg'
-import { useViewPort } from '../../../../components/hooks/Viewport'
-import { pageurl } from '../../../../utils/constants'
-import TopNav from '../../topnav'
-import './nav.css'
-import '../../header.css'
-import authContext from '../../../../context/auth/authContext'
-import MobileNav from './MobileNav'
+import React, { useState, useContext } from "react"
+import { Link } from "react-router-dom"
+import newLogo from "../../../../assets/images/main logo.png"
+import hamburger from "../../../../assets/images/hamburger.svg"
+import close from "../../../../assets/images/close.svg"
+import { useViewPort } from "../../../../components/hooks/Viewport"
+import { pageurl } from "../../../../utils/constants"
+import TopNav from "../../topnav"
+import "./nav.css"
+import "../../header.css"
+import authContext from "../../../../context/auth/authContext"
+import MobileNav from "./MobileNav"
 
 const Navbar = () => {
   const userContext = useContext(authContext)
@@ -33,7 +33,7 @@ const Navbar = () => {
       <header className="navigation-header">
         <div className="header-wrapper">
           <Link to="/" className="img-container">
-            <img src={logo} alt="logo" className="logo" id="image-sizing" />
+            <img src={newLogo} alt="logo" className="logo" id="image-sizing" />
           </Link>
           {width > breakpoint ? (
             <ul className="nav-links">
@@ -43,8 +43,8 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   to={{
-                    pathname: '/news/categories',
-                    search: '?category=Discover Africa',
+                    pathname: "/news/categories",
+                    search: "?category=Discover Africa",
                   }}
                 >
                   discover africa
@@ -53,8 +53,8 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   to={{
-                    pathname: '/news/categories',
-                    search: '?category=Politics',
+                    pathname: "/news/categories",
+                    search: "?category=Politics",
                   }}
                 >
                   politics and government
@@ -63,8 +63,8 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   to={{
-                    pathname: '/news/categories',
-                    search: '?category=Business',
+                    pathname: "/news/categories",
+                    search: "?category=Business",
                   }}
                 >
                   business and economy
@@ -73,8 +73,8 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   to={{
-                    pathname: '/news/categories',
-                    search: '?category=Development',
+                    pathname: "/news/categories",
+                    search: "?category=Development",
                   }}
                 >
                   policy and development
@@ -85,7 +85,7 @@ const Navbar = () => {
               </li>
             </ul>
           ) : (
-            ''
+            ""
           )}
           {width > breakpoint ? (
             <div className="cta-buttons">
@@ -126,7 +126,7 @@ const Navbar = () => {
           logout={logout}
         />
       ) : (
-        ''
+        ""
       )}
     </div>
   )

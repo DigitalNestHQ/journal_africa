@@ -28,7 +28,6 @@ const LatestDaily = () => {
   const auth = useContext(authContext)
   const { user, isAuthenticated } = auth
   const { width } = useViewPort()
-  const breakpoint = 1150
   const breakpoint2 = 994
   const {
     latestLoading,
@@ -172,39 +171,36 @@ const LatestDaily = () => {
                   )}
                 </div>
               </div>
-              {width > breakpoint ? (
-                <div className="cat-left-content s-n-right-content">
-                  <h5 className="cat-left-heading">Trending Posts</h5>
-                  <div className="trend-img-container">
-                    <img src={cybertruck} alt="tesla" className="trend-img" />
-                  </div>
-                  <div className="trending-posts">
-                    {!loading && news.length === 0 ? (
-                      <h5 className="text-dark">No trending news available</h5>
-                    ) : (
-                      news
-                        .sort((a, b) =>
-                          parseInt(a.views) > parseInt(b.views) ? -1 : 1,
-                        )
-                        .slice(0, 3)
-                        .map((eachCard) => (
-                          <Link
-                            to={`/post/${eachCard.slug}`}
-                            className="trending-card lastest-card-link"
-                            key={eachCard.id}
-                          >
-                            <TeaserCard eachCard={eachCard} />
-                          </Link>
-                        ))
-                    )}
-                  </div>
-                  <div className="trend--img-container">
-                    <img src={cybertruck} alt="tesla" className="trend-img" />
-                  </div>
+
+              <div className="cat-left-content s-n-right-content">
+                <h5 className="cat-left-heading">Trending Posts</h5>
+                <div className="trend-img-container">
+                  <img src={cybertruck} alt="tesla" className="trend-img" />
                 </div>
-              ) : (
-                ''
-              )}
+                <div className="trending-posts">
+                  {!loading && news.length === 0 ? (
+                    <h5 className="text-dark">No trending news available</h5>
+                  ) : (
+                    news
+                      .sort((a, b) =>
+                        parseInt(a.views) > parseInt(b.views) ? -1 : 1,
+                      )
+                      .slice(0, 3)
+                      .map((eachCard) => (
+                        <Link
+                          to={`/post/${eachCard.slug}`}
+                          className="trending-card lastest-card-link"
+                          key={eachCard.id}
+                        >
+                          <TeaserCard eachCard={eachCard} />
+                        </Link>
+                      ))
+                  )}
+                </div>
+                <div className="trend--img-container">
+                  <img src={cybertruck} alt="tesla" className="trend-img" />
+                </div>
+              </div>
             </div>
           </main>
         </div>

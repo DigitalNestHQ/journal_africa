@@ -1,9 +1,9 @@
-import React from 'react'
-import GooglePlayImg from '../../../../assets/images/playstoreimg.png'
-import ApplePlayImg from '../../../../assets/images/apple.jpg'
-// import { pageurl } from '../../../../utils/constants'
-import './footer.css'
-import { Link } from 'react-router-dom'
+import React from "react"
+import GooglePlayImg from "../../../../assets/images/playstoreimg.png"
+import ApplePlayImg from "../../../../assets/images/apple.jpg"
+import "./footer.css"
+import { Link } from "react-router-dom"
+import { pageurl } from "../../../../utils/constants"
 const Footer = () => {
   return (
     <footer className="footer-section">
@@ -18,7 +18,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/privacy-policy" className="footer-link">
+                <Link to={pageurl.TERMSANDCONDITIONS} className="footer-link">
                   Terms and Conditions
                 </Link>
               </li>
@@ -63,8 +63,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/" className="footer-link">
-                  Site Map
+                <Link to={pageurl.PRIVACYPOLICY} className="footer-link">
+                  Privacy Policy
                 </Link>
               </li>
             </ul>
@@ -73,52 +73,52 @@ const Footer = () => {
             <h6 className="footer-heading">Section</h6>
             <ul className="footer-list">
               <li className="footer-list-item">
-                <Link to="/podcast" className="footer-link">
-                  Podcast
+                <Link to="/copyright" className="footer-link">
+                  Copyright Policy
                 </Link>
               </li>
               <li className="footer-list-item">
                 <Link
                   to={{
-                    pathname: '/news/categories',
-                    search: '?category=Business Africa',
+                    pathname: "/news/categories",
+                    search: `?category=Gender and human rights`,
                   }}
                   className="footer-link"
                 >
-                  Business Africa
+                  Gender and human rights
                 </Link>
               </li>
               <li className="footer-list-item">
                 <Link
                   to={{
-                    pathname: '/news/categories',
-                    search: '?category=Finance',
+                    pathname: "/news/categories",
+                    search: "?category=Commentary",
                   }}
                   className="footer-link"
                 >
-                  Finance
-                </Link>
-              </li>
-              <li className="footer-list-item">
-                <Link
-                   to={{
-                    pathname: '/news/categories',
-                    search: '?category=Investigation',
-                  }}
-                  className="footer-link"
-                >
-                  Investigation
+                  Commentary
                 </Link>
               </li>
               <li className="footer-list-item">
                 <Link
                   to={{
-                    pathname: '/news/categories',
-                    search: '?category=Sport Africa',
+                    pathname: "/news/categories",
+                    search: "?category=Fact Check Africa",
                   }}
                   className="footer-link"
                 >
-                  Sport Africa
+                  Fact Check Africa
+                </Link>
+              </li>
+              <li className="footer-list-item">
+                <Link
+                  to={{
+                    pathname: "/news/categories",
+                    search: "?category=In-Depth Africa",
+                  }}
+                  className="footer-link"
+                >
+                  In-Depth Africa
                 </Link>
               </li>
             </ul>
@@ -136,26 +136,26 @@ const Footer = () => {
             <ul className="download-list">
               <li className="download-list-item">
                 <Link to="/" className="download-link">
-                  {' '}
-                  <i className="fab fa-instagram"></i>{' '}
+                  {" "}
+                  <i className="fab fa-instagram"></i>{" "}
                 </Link>
               </li>
               <li className="download-list-item">
                 <Link to="/" className="download-link">
-                  {' '}
-                  <i className="fab fa-facebook"></i>{' '}
+                  {" "}
+                  <i className="fab fa-facebook"></i>{" "}
                 </Link>
               </li>
               <li className="download-list-item">
                 <Link to="/" className="download-link">
-                  {' '}
-                  <i className="fab fa-twitter"></i>{' '}
+                  {" "}
+                  <i className="fab fa-twitter"></i>{" "}
                 </Link>
               </li>
               <li className="download-list-item">
                 <Link to="/" className="download-link">
-                  {' '}
-                  <i className="fab fa-youtube"></i>{' '}
+                  {" "}
+                  <i className="fab fa-youtube"></i>{" "}
                 </Link>
               </li>
             </ul>
@@ -163,10 +163,10 @@ const Footer = () => {
         </div>
         <div className="rights">
           <p className="copy-rights">
-            &copy; 2021 TV24 Africa Newspaper Limited,{' '}
-            <span className="copy-right-red">
+            &copy; 2021 Journal Africa Newspaper Limited,{" "}
+            <a href="https://newsmediaafrica.com/" className="copy-right-red">
               A Subsidiary of News Media Africa Limited
-            </span>
+            </a>
           </p>
         </div>
       </div>

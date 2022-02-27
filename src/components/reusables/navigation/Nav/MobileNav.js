@@ -77,7 +77,7 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
               }`}
               onClick={() => setActive(3)}
             >
-              politics and governance
+              politics and government
             </Link>
           </li>
 

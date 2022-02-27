@@ -153,3 +153,8 @@
     margin-top: 108px;
   }
 }
+@media(max-width: 350px){
+  .caro-link {
+    font-size: inherit;
+  }
+}

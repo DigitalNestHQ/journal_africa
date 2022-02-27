@@ -1,12 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import logo from '../../../../assets/images/logo white.png'
+import React from "react"
+import { Link } from "react-router-dom"
+import logo from "../../../../assets/images/logo white.png"
 
 const FormHeader = () => {
   return (
     <nav className="register-nav subscribe-nav">
       <Link to="/" className="reg-nav-img-container">
-        <img src={logo} alt="logo" className="reg-logo"/>
+        <img src={logo} alt="logo" className="reg-logo" />
       </Link>
       <ul className="reg-nav-list">
         <li className="reg-nav-list-item">

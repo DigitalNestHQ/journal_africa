@@ -24,39 +24,42 @@ import Moment from 'react-moment'
 
 const GetNews = () => {
   const [currentPage, setCurrentPage] = useState(1)
+  const [loggedIn, setLoggedIn] = useState({})
   const userContext = useContext(authContext)
   const { user, isAuthenticated } = userContext
   const newsFeedContext = useContext(newsContext)
   const { news, loading, singleNews, getNews, getSingleNews } = newsFeedContext
   const { slug } = useParams()
   const { width } = useViewPort()
-  const breakpoint = 1150
   const breakpoint2 = 994
 
-  const getAdjacentPosts = (slug) => {
-    if (singleNews.length === 0) return ''
-    const currentCategoryNews = news.filter(
-      (news) => news.category_id === singleNews[0].category_id,
-    )
-    const postIndex = currentCategoryNews.findIndex(
-      (postHeader) => postHeader?.slug === slug,
-    )
+  const getAdjacentPosts = React.useCallback(
+    (slug) => {
+      if (singleNews.length === 0) return ''
+      const currentCategoryNews = news.filter(
+        (news) => news.category_id === singleNews[0].category_id,
+      )
+      const postIndex = currentCategoryNews.findIndex(
+        (postHeader) => postHeader?.slug === slug,
+      )
 
-    return {
-      previous:
-        postIndex <= 0
-          ? ''
-          : {
-              slug: currentCategoryNews[postIndex - 1].slug,
-            },
-      next:
-        postIndex >= currentCategoryNews.length - 1
-          ? ''
-          : {
-              slug: currentCategoryNews[postIndex + 1].slug,
-            },
-    }
-  }
+      return {
+        previous:
+          postIndex <= 0
+            ? ''
+            : {
+                slug: currentCategoryNews[postIndex - 1].slug,
+              },
+        next:
+          postIndex >= currentCategoryNews.length - 1
+            ? ''
+            : {
+                slug: currentCategoryNews[postIndex + 1].slug,
+              },
+      }
+    },
+    [news, singleNews],
+  )
 
   useEffect(() => {
     getSingleNews(slug)
@@ -84,8 +87,15 @@ const GetNews = () => {
 
   useEffect(() => {
     getNews()
+    if (isAuthenticated) {
+      if (user !== null) {
+        setLoggedIn(user)
+      }
+    } else {
+      setLoggedIn({})
+    }
     //eslint-disable-next-line
-  }, [])
+  }, [isAuthenticated])
 
   if (loading || singleNews === null || news === null) {
     return <Loader />
@@ -150,7 +160,7 @@ const GetNews = () => {
                         `${
                           singleNews[0].post_type === 'premium' &&
                           isAuthenticated
-                            ? user.subscription_status
+                            ? loggedIn.subscription_status
                               ? singleNews[0].post_description
                               : singleNews[0].post_description.substring(
                                   0,
@@ -166,7 +176,7 @@ const GetNews = () => {
                     </div>
                     {singleNews[0].post_type === 'premium' &&
                     isAuthenticated ? (
-                      user.subscription_status ? (
+                      loggedIn.subscription_status ? (
                         <div></div>
                       ) : (
                         <div className="blur-content"></div>
@@ -178,12 +188,17 @@ const GetNews = () => {
                       <div className=""></div>
                     )}
                     <div className="check-mate">
-                      {!isAuthenticated ? (
-                        <NotLoggedIn />
-                      ) : isAuthenticated && !user.subscription_status ? (
+                      {singleNews[0].post_type === 'premium' &&
+                      isAuthenticated ? (
+                        loggedIn.subscription_status ? (
+                          ''
+                        ) : (
+                          <LoggedInNotSubscribed />
+                        )
+                      ) : singleNews[0].post_type === 'free' ? (
                         <LoggedInNotSubscribed />
                       ) : (
-                        ''
+                        <NotLoggedIn />
                       )}
                     </div>
                     <ShareNews next={next} previous={previous} />
@@ -226,41 +241,37 @@ const GetNews = () => {
                   </div>
                 )}
               </div>
-              {width > breakpoint ? (
-                <div className="cat-left-content s-n-right-content">
-                  <h5 className="cat-left-heading section-heading-default">
-                    Trending Posts
-                  </h5>
-                  <div className="trend-img-container">
-                    <img src={cybertruck} alt="tesla" className="trend-img" />
-                  </div>
-                  <div className="trending-posts">
-                    {!loading && news.length === 0 ? (
-                      <h5 className="text-dark">No trending news available</h5>
-                    ) : (
-                      news
-                        .sort((a, b) =>
-                          parseInt(a.views) > parseInt(b.views) ? -1 : 1,
-                        )
-                        .slice(0, 3)
-                        .map((eachCard) => (
-                          <Link
-                            to={`/post/${eachCard.slug}`}
-                            className="trending-card lastest-card-link"
-                            key={eachCard.id}
-                          >
-                            <TeaserCard eachCard={eachCard} />
-                          </Link>
-                        ))
-                    )}
-                  </div>
-                  <div className="trend--img-container">
-                    <img src={cybertruck} alt="tesla" className="trend-img" />
-                  </div>
+              <div className="cat-left-content s-n-right-content">
+                <h5 className="cat-left-heading section-heading-default">
+                  Trending Posts
+                </h5>
+                <div className="trend-img-container">
+                  <img src={cybertruck} alt="tesla" className="trend-img" />
                 </div>
-              ) : (
-                ''
-              )}
+                <div className="trending-posts">
+                  {!loading && news.length === 0 ? (
+                    <h5 className="text-dark">No trending news available</h5>
+                  ) : (
+                    news
+                      .sort((a, b) =>
+                        parseInt(a.views) > parseInt(b.views) ? -1 : 1,
+                      )
+                      .slice(0, 3)
+                      .map((eachCard) => (
+                        <Link
+                          to={`/post/${eachCard.slug}`}
+                          className="trending-card lastest-card-link"
+                          key={eachCard.id}
+                        >
+                          <TeaserCard eachCard={eachCard} />
+                        </Link>
+                      ))
+                  )}
+                </div>
+                <div className="trend--img-container">
+                  <img src={cybertruck} alt="tesla" className="trend-img" />
+                </div>
+              </div>
             </div>
           </main>
         </div>

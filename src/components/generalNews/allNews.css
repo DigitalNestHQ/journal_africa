@@ -316,6 +316,7 @@
   }
   .main-content {
     width: 100% !important;
+    max-width: 100% !important;
   }
   .main-content p img {
     width: 100% !important;

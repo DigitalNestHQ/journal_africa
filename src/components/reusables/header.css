@@ -13,6 +13,8 @@
   font-weight: bold;
   font-size: 11px;
   text-transform: capitalize;
+  display: block;
+  width: 100%;
 }
 ul {
   list-style: none;
@@ -53,6 +55,10 @@ ul {
 @media (max-width: 1250px) {
   .soc-nav {
     display: none;
+  }
+  .welcome-list {
+    justify-content: space-between;
+    gap: unset;
   }
 }
 @media (max-width: 1475px) {

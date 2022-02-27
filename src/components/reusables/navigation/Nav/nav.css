@@ -11,10 +11,13 @@
 }
 
 .navigation-header {
-  background-color: #000;
+  background-color: #fff;
   width: 100%;
   height: auto;
-  color: #fff;
+  color: #000000;
+  box-shadow: 0px 6px 5px -2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 6px 5px -2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 6px 5px -2px rgba(0, 0, 0, 0.1);
 }
 
 .header-wrapper {
@@ -44,7 +47,7 @@ ul.nav-links {
 
 .cta-item a,
 .nav-item a {
-  color: #fff;
+  color: inherit;
   font-size: 14px;
   line-height: 17px;
   text-transform: uppercase;
@@ -60,11 +63,11 @@ ul.nav-links {
 }
 
 .mobile-cta-list > * + * {
-  margin: 1rem 0 0 0;
+  margin: 2rem 0 0 0;
 }
 
-.mobile-cta-item a {
-  color: #fff;
+.mobile-cta-item {
+  color: #000;
   line-height: 12px;
   text-transform: uppercase;
 }
@@ -88,16 +91,18 @@ ul.nav-links {
 }
 
 .logo {
-  width: 60px;
+  width: 100px;
   height: 63px;
+  object-fit: cover;
 }
 
 .img-container {
   margin-right: 2.438rem;
 }
 
-.subscribe {
+.subscribe a {
   background-color: #ff0000;
+  color: #fff;
   padding: 3px;
   transition: all 0.3s ease-in-out;
   font-weight: 600;
@@ -117,10 +122,10 @@ ul.nav-links {
 .mobile-menu {
   position: fixed;
   left: 0;
-  top: 6.474rem;
+  top: 6.975rem;
   width: 18rem;
   height: 100%;
-  background-color: #000;
+  background-color: #fff;
   color: #fff;
   transform: translateX(0%);
   transition: all 0.5s ease-in-out;
@@ -146,25 +151,20 @@ ul.nav-links {
 
 .mobile-list-item {
   width: 100%;
-  border-top: 1px solid #555555;
-  border-bottom: 1px solid #555555;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
   margin: 10px 0;
   padding: 5px 0;
 }
 
-.mobile-list-item:hover {
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-}
-
 .mobile-active {
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
   text-transform: uppercase;
 }
 
 .mobile-link-active {
-  color: #fff;
+  color: #000;
   text-transform: uppercase;
   display: block;
   width: 100%;
@@ -173,11 +173,11 @@ ul.nav-links {
 .mobile-link-inactive {
   display: block;
   width: 100%;
-  color: #999999;
+  color: #000;
   text-transform: uppercase;
 }
 .mobile-list-item a:hover {
-  color: #fff;
+  color: #000;
 }
 
 @media (max-width: 1475px) {

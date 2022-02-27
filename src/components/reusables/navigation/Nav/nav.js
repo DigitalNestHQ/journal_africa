@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react"
 import { Link } from "react-router-dom"
-import logo from "../../../../assets/images/TV24Ergb.png"
-import newLogo from "../../../../assets/images/newlogo.svg"
+import newLogo from "../../../../assets/images/main logo.png"
 import hamburger from "../../../../assets/images/hamburger.svg"
 import close from "../../../../assets/images/close.svg"
 import { useViewPort } from "../../../../components/hooks/Viewport"

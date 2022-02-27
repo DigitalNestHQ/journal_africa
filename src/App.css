@@ -1,4 +1,4 @@
-@import url('http://fonts.cdnfonts.com/css/nimbussanl');
+@import url("http://fonts.cdnfonts.com/css/nimbussanl");
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +10,12 @@ body {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'NimbusSanL', sans-serif;
-  font-family: 'NimbusSanLCon', sans-serif;
+  font-family: "NimbusSanL", sans-serif;
+  font-family: "NimbusSanLCon", sans-serif;
   font-size: clamp(0.9rem, 2vw, 1rem);
+}
+a {
+  color: black;
 }
 a:hover {
   text-decoration: none;
@@ -26,10 +29,10 @@ ol {
 .app {
   margin: 0;
 }
-ins strong{
+ins strong {
   font-weight: normal;
   text-decoration: none;
-  font-size:  clamp(0.9rem, 2vw, 1rem);
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 .card-img-overlay {
   border: none;
@@ -122,14 +125,14 @@ ins strong{
   }
 }
 
-@media (max-width: 400px){
+@media (max-width: 400px) {
   .section-heading-default {
     line-height: 20px;
     font-size: clamp(0.9rem, 2vw, 1.25rem);
   }
 }
-@media (max-width: 280px){
+@media (max-width: 280px) {
   .section-heading-default {
-    font-size:0.7rem;
+    font-size: 0.7rem;
   }
 }

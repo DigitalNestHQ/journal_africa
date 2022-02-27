@@ -26,7 +26,7 @@ function TopNav() {
   const guestLinks = (
     <Fragment>
       <li className="welcome-item-w">
-        <span className="welcome">Welcome to Journal Africa News</span>
+        <span className="welcome">Welcome to Journal Africa</span>
       </li>
       <li className="welcome-item-d">
         <span>{date}</span>

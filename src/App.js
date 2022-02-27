@@ -5,7 +5,6 @@ import HomePage from "./components/homepage/homepage"
 import AboutUs from "./components/about/AboutComponent"
 import TermsAndConditions from "./components/privacyPolicy/TermsAndConditions"
 import PrivacyPolicy from "./components/privacyPolicy/PrivacyPolicy"
-import CookiePolicy from "./components/cookie/CookiePolicy"
 import Login from "./components/login/Login"
 import Signup from "./components/signup/Signup"
 import Subscribe from "./components/subscription/Subscribe"
@@ -31,6 +30,7 @@ import { SoundLayer } from "./context/podcast/SoundLayer"
 import soundReducer, { soundInitialState } from "./context/podcast/soundReducer"
 import AuthState from "./context/auth/AuthState"
 import AlertState from "./context/alert/AlertState"
+import ScrollTopBotton from "./components/reusables/scrollButton/ScrollTopBotton"
 import "./../src/components/reusables/utilities/index.css"
 import "./App.css"
 
@@ -93,16 +93,12 @@ const App = () => {
                   path={pageurl.TERMSANDCONDITIONS}
                   component={TermsAndConditions}
                 />
-                <Route
-                  exact
-                  path={pageurl.COOKIEPOLICY}
-                  component={CookiePolicy}
-                />
                 <Route path="/login" component={Login} />
                 <Route exact path={pageurl.CONTACTUS} component={ContactUs} />
                 <Route exact path={pageurl.SIGNUP} component={Signup} />
                 <Route component={Error404} />
               </Switch>
+              <ScrollTopBotton />
             </NewState>
           </AlertState>
         </AuthState>

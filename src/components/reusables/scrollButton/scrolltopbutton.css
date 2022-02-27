@@ -1,0 +1,20 @@
+.scroll-component {
+  height: 60px;
+  width: 60px;
+  position: fixed;
+  top: 86%;
+  right: 1%;
+  border-radius: 50%;
+  color: #fff;
+  background-color: red;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.none {
+  display: none;
+}

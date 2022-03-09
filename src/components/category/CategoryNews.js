@@ -1,17 +1,16 @@
-import React, { useState, useEffect, Fragment, useContext } from 'react'
-import Footer from '../reusables/navigation/Footer/footer'
-import CategoryCard from './CategoryCard'
-import { useLocation, Link } from 'react-router-dom'
-import Loader from '../loader/Loader'
-import './newscategory.css'
-import Nav from '../reusables/navigation/Nav/nav'
-import newsContext from '../../context/news/NewsContext'
-import LargeAds from '../../assets/images/bannerads.png'
-import '../homepage/ads/ads.css'
-import { LargeSizeAds } from '../homepage/ads/Ads'
-import TeaserCard from '../homepage/homepageTeaser/TeaserCard'
-import cybertruck from '../../assets/images/cybertruck1.jpg'
-
+import React, { useState, useEffect, Fragment, useContext } from "react"
+import Footer from "../reusables/navigation/Footer/footer"
+import CategoryCard from "./CategoryCard"
+import { useLocation, Link } from "react-router-dom"
+import Loader from "../loader/Loader"
+import "./newscategory.css"
+import Nav from "../reusables/navigation/Nav/nav"
+import newsContext from "../../context/news/NewsContext"
+import LargeAds from "../../assets/images/bannerads.png"
+import "../homepage/ads/ads.css"
+import { LargeSizeAds } from "../homepage/ads/Ads"
+import TeaserCard from "../homepage/homepageTeaser/TeaserCard"
+import cybertruck from "../../assets/images/cybertruck1.jpg"
 
 const CategoryNews = () => {
   const context = useContext(newsContext)
@@ -19,8 +18,7 @@ const CategoryNews = () => {
   const [numberOfCategCard, setNumberOfCategCard] = useState(5)
   const { search } = useLocation()
   const x = new URLSearchParams(search)
-  const category = x.get('category')
-
+  const category = x.get("category")
 
   const handleMore = () => {
     setNumberOfCategCard((prev) => prev + 2)
@@ -83,7 +81,7 @@ const CategoryNews = () => {
                     Load More...
                   </button>
                 ) : (
-                  ''
+                  ""
                 )}
               </div>
               <div className="cat-left-content">
@@ -99,7 +97,7 @@ const CategoryNews = () => {
                   ) : (
                     news
                       .sort((a, b) =>
-                        parseInt(a.views) > parseInt(b.views) ? -1 : 1,
+                        parseInt(a.views) > parseInt(b.views) ? -1 : 1
                       )
                       .slice(0, 3)
                       .map((eachCard) => (

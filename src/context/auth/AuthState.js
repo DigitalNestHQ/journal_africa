@@ -1,8 +1,8 @@
-import React, { useReducer } from 'react'
-import axios from 'axios'
-import AuthContext from './authContext'
-import authReducer from './authReducer'
-import setHeaderToken from '../../utils/setHeaderToken'
+import React, { useReducer } from "react"
+import axios from "axios"
+import AuthContext from "./authContext"
+import authReducer from "./authReducer"
+import setHeaderToken from "../../utils/setHeaderToken"
 
 import {
   REGISTER_SUCCESS,
@@ -16,11 +16,11 @@ import {
   SET_LOADING,
   EMAIL_SUBSCRIPTION,
   EMAIL_SUBSCRIPTION_FAIL,
-} from '../types'
+} from "../types"
 
 const AuthState = (props) => {
   const initialState = {
-    token: localStorage.getItem('token'),
+    token: localStorage.getItem("token"),
     isAuthenticated: null,
     loading: false,
     error: null,
@@ -40,7 +40,7 @@ const AuthState = (props) => {
       setHeaderToken(localStorage.token)
     }
     try {
-      const res = await axios.get('https://api.tv24africa.com/api/v1/user')
+      const res = await axios.get("https://api.journal.africa/api/v1/user")
       // const userProfile = {
       //   ...res.data.data,
       //   hasSubscribed: res.data.subscription_status,
@@ -61,14 +61,14 @@ const AuthState = (props) => {
     setLoading()
     const config = {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     }
     try {
       const res = await axios.post(
-        'https://api.tv24africa.com/api/v1/register',
+        "https://api.journal.africa/api/v1/register",
         formData,
-        config,
+        config
       )
       dispatch({
         type: REGISTER_SUCCESS,
@@ -87,14 +87,14 @@ const AuthState = (props) => {
     setLoading()
     const config = {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     }
     try {
       const res = await axios.post(
-        'https://api.tv24africa.com/api/v1/login',
+        "https://api.journal.africa/api/v1/login",
         formData,
-        config,
+        config
       )
       dispatch({
         type: LOGIN_SUCCESS,
@@ -116,13 +116,13 @@ const AuthState = (props) => {
     setLoading()
     const config = {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     }
     try {
       const res = await axios.post(
-        `https://api.tv24africa.com/api/v1/newsletter?email=${formData.email}`,
-        config,
+        `https://api.journal.africa/api/v1/newsletter?email=${formData.email}`,
+        config
       )
       dispatch({ type: EMAIL_SUBSCRIPTION, payload: res.data })
     } catch (error) {

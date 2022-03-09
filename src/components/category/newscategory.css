@@ -140,12 +140,13 @@
     margin-top: 90px;
     padding: unset;
     display: inline-block;
-    width: fit-content;
     z-index: 999;
     top: -3.8%;
-    left: 53%;
-    /* border: 2px solid red; */
-    transform: translateX(-50%);
+    left: 50%;
+    box-shadow: unset;
+    -webkit-box-shadow: unset;
+    -moz-box-shadow: unset;
+    transform: translateX(-35%);
     right: unset;
   }
   .cat-section {

@@ -1,26 +1,26 @@
-import React, { useContext, useEffect, Fragment, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
-import newsContext from '../../../context/news/NewsContext'
-import Navbar from '../navigation/Nav/nav'
-import bannerAds from '../../../assets/images/bannerads.png'
-import Loader from '../../loader/Loader'
-import { LargeSizeAds } from '../../homepage/ads/Ads'
+import React, { useContext, useEffect, Fragment, useState } from "react"
+import { useParams, Link } from "react-router-dom"
+import newsContext from "../../../context/news/NewsContext"
+import Navbar from "../navigation/Nav/nav"
+import bannerAds from "../../../assets/images/bannerads.png"
+import Loader from "../../loader/Loader"
+import { LargeSizeAds } from "../../homepage/ads/Ads"
 import {
   NotLoggedIn,
   LoggedInNotSubscribed,
-} from '../../generalNews/FreeReaderPersuader'
-import ReactHtmlParser from 'react-html-parser'
-import authContext from '../../../context/auth/authContext'
-import { Row } from 'react-bootstrap'
-import cybertruck from '../../../assets/images/cybertruck1.jpg'
-import { HtmlParseOptions } from '../../../_helper/parseNewsHtml'
-import { useViewPort } from '../../hooks/Viewport'
-import LatestRelatedNews from '../../generalNews/LatestRelatedNews'
-import LatestShareNews from '../../generalNews/LatestShareNews'
-import Footer from '../../reusables/navigation/Footer/footer'
-import TeaserCard from '../../homepage/homepageTeaser/TeaserCard'
-import Paging from '../../reusables/Paging'
-import Moment from 'react-moment'
+} from "../../generalNews/FreeReaderPersuader"
+import ReactHtmlParser from "react-html-parser"
+import authContext from "../../../context/auth/authContext"
+import { Row } from "react-bootstrap"
+import cybertruck from "../../../assets/images/cybertruck1.jpg"
+import { HtmlParseOptions } from "../../../_helper/parseNewsHtml"
+import { useViewPort } from "../../hooks/Viewport"
+import LatestRelatedNews from "../../generalNews/LatestRelatedNews"
+import LatestShareNews from "../../generalNews/LatestShareNews"
+import Footer from "../../reusables/navigation/Footer/footer"
+import TeaserCard from "../../homepage/homepageTeaser/TeaserCard"
+import Paging from "../../reusables/Paging"
+import Moment from "react-moment"
 
 const LatestDaily = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -29,14 +29,8 @@ const LatestDaily = () => {
   const { user, isAuthenticated } = auth
   const { width } = useViewPort()
   const breakpoint2 = 994
-  const {
-    latestLoading,
-    latestNews,
-    getLatestNews,
-    getNews,
-    news,
-    loading,
-  } = context
+  const { latestLoading, latestNews, getLatestNews, getNews, news, loading } =
+    context
   const { slug } = useParams()
 
   useEffect(() => {
@@ -53,38 +47,31 @@ const LatestDaily = () => {
 
   const getAdjacentPosts = (slug) => {
     const postIndex = latestNews.findIndex(
-      (postHeader) => postHeader?.post_title === slug,
+      (postHeader) => postHeader?.post_title === slug
     )
 
     return {
       previous:
         postIndex <= 0
-          ? ''
+          ? ""
           : {
               slug: latestNews[postIndex - 1].post_title,
             },
       next:
         postIndex >= latestNews.length - 1
-          ? ''
+          ? ""
           : {
               slug: latestNews[postIndex + 1].post_title,
             },
     }
   }
   const currentCategoryNewsWithoutSingleNews = latestNews.filter(
-    (news) => news.post_title !== currentNews.post_title,
+    (news) => news.post_title !== currentNews.post_title
   )
 
   const { previous, next } = getAdjacentPosts(slug)
   const firstPageIndex = (currentPage - 1) * 4
   const lastPageIndex = firstPageIndex + 4
-
-  console.log(news)
-  console.log(latestNews)
-  console.log(currentNews)
-  console.log(previous)
-  console.log(next)
-
   return (
     <Fragment>
       <Navbar />
@@ -102,7 +89,7 @@ const LatestDaily = () => {
                   </h5>
                   <div className="news-author-details">
                     <p className="post-comp">
-                      Posted on{' '}
+                      Posted on{" "}
                       <Moment format="MMMM Do YYYY">
                         {currentNews.post_date}
                       </Moment>
@@ -115,7 +102,7 @@ const LatestDaily = () => {
                           ? currentNews.post_content
                           : currentNews.post_content.substring(0, 1500)
                       }`,
-                      HtmlParseOptions,
+                      HtmlParseOptions
                     )}
                   </div>
                   {isAuthenticated ? (
@@ -129,7 +116,7 @@ const LatestDaily = () => {
                     ) : isAuthenticated && !user.subscription_status ? (
                       <LoggedInNotSubscribed />
                     ) : (
-                      ''
+                      ""
                     )}
                   </div>
                   <LatestShareNews next={next} previous={previous} />
@@ -162,12 +149,12 @@ const LatestDaily = () => {
                             onPageChange={(page) => setCurrentPage(page)}
                           />
                         ) : (
-                          ''
+                          ""
                         )}
                       </div>
                     </div>
                   ) : (
-                    ''
+                    ""
                   )}
                 </div>
               </div>
@@ -183,7 +170,7 @@ const LatestDaily = () => {
                   ) : (
                     news
                       .sort((a, b) =>
-                        parseInt(a.views) > parseInt(b.views) ? -1 : 1,
+                        parseInt(a.views) > parseInt(b.views) ? -1 : 1
                       )
                       .slice(0, 3)
                       .map((eachCard) => (

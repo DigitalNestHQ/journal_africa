@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import logo from "../../../../assets/images/logo white.png"
+import logo from "../../../../assets/images/main logo.png"
 
 const FormHeader = () => {
   return (

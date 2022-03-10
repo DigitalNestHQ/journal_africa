@@ -28,6 +28,7 @@ ol {
 }
 .app {
   margin: 0;
+  position: relative;
 }
 ins strong {
   font-weight: normal;

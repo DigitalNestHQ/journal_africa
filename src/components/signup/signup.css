@@ -79,7 +79,7 @@
 .reg-logo {
   object-fit: cover;
   display: block;
-  width: 100%;
+  width: 150px;
   height: 70px;
 }
 .reg-showcase {

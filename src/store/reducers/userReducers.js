@@ -67,6 +67,15 @@ export const loginUserReducer = (
         user: null,
         token: null,
       }
+    case userTypes.USER_LOGOUT:
+      return {
+        ...state,
+        error: null,
+        loading: false,
+        message: null,
+        user: null,
+        token: null,
+      }
     case userTypes.CLEAR_USER_ERRORS:
       return {
         ...state,

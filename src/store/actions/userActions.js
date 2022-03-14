@@ -50,6 +50,12 @@ export const loginUser = (formData) => async (dispatch) => {
   }
 }
 
+export const logout = () => (dispatch) => {
+  dispatch({ type: userTypes.USER_LOGOUT })
+  localStorage.removeItem("user")
+  localStorage.removeItem("token")
+}
+
 export const clearErrors = () => (dispatch) => {
   dispatch({ type: userTypes.CLEAR_USER_ERRORS })
 }

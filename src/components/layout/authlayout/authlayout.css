@@ -1,0 +1,46 @@
+.register {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(rgba(224, 20, 20, 0.775), rgba(113, 8, 8, 0.884)),
+    url("../../../assets/images/elephant.jpg") center/cover scroll no-repeat;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 10px 12px;
+}
+
+.register::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 30px 50px 150px #000000, inset -30px -50px 150px #000000;
+}
+.register-signup-wrapper {
+  max-width: 78.125rem;
+  margin: 0 auto;
+  display: block;
+  padding: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 993px) {
+  .register-signup-wrapper {
+    max-width: unset;
+    margin: unset;
+    padding-left: unset;
+    padding-right: unset;
+    padding-top: unset;
+    padding-bottom: 1rem;
+  }
+  .register {
+    height: auto;
+  }
+}

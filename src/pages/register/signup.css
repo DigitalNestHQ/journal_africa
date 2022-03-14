@@ -1,87 +1,3 @@
-.register {
-  width: 100%;
-  height: 120vh;
-  position: relative;
-  background: linear-gradient(rgba(85, 22, 22, 0.5), rgba(85, 22, 22, 0.5)),
-    url("../../assets/images/elephant.jpg") center/cover fixed no-repeat;
-  background: linear-gradient(rgba(224, 20, 20, 0.775), rgba(113, 8, 8, 0.884)),
-    url("../../assets/images/elephant.jpg") center/cover fixed no-repeat;
-  display: block;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 10px 12px;
-}
-
-.register::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.1);
-  box-shadow: inset 30px 50px 150px #000000, inset -30px -50px 150px #000000;
-}
-.register-signup-wrapper {
-  max-width: 78.125rem;
-  margin: 0 auto;
-  display: block;
-  padding: 1rem;
-  position: relative;
-  z-index: 2;
-}
-.register-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-.reg-nav-list {
-  display: flex;
-  align-items: center;
-  justify-content: stretch;
-}
-
-.reg-nav-list > * + * {
-  margin: 0 0 0 2rem;
-}
-
-.reg-nav-list-item {
-  display: block;
-}
-.reg-signup {
-  display: block;
-  width: 100%;
-  font-weight: bold;
-  color: #fff;
-  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-  text-transform: capitalize;
-}
-.reg-signup:hover {
-  color: #fff;
-}
-
-.reg-subscribe {
-  display: block;
-  width: 100%;
-  font-weight: bold;
-  color: red;
-  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-  text-transform: capitalize;
-  background-color: #fff;
-  padding: 0.3rem 1rem;
-}
-
-.reg-subscribe:hover {
-  color: red;
-}
-.reg-logo {
-  object-fit: cover;
-  display: block;
-  width: 150px;
-  height: 70px;
-}
 .reg-showcase {
   display: block;
   width: 100%;
@@ -105,7 +21,7 @@
 .reg-benefits-list-item {
   margin-bottom: 1.3rem;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   text-align: left;
 }
 
@@ -126,13 +42,14 @@
 .reg-label {
   display: block;
   width: 100%;
-  font-size: 0.9rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 .form-group {
   width: 100%;
   display: block;
   margin-bottom: 1.3rem;
   position: relative;
+  font-size: inherit;
 }
 .show-password {
   position: absolute;
@@ -150,8 +67,6 @@
 
 .reg-input {
   border-radius: unset;
-  padding: 1.4rem 0.75rem;
-  font-size: inherit;
 }
 .already-have-account {
   display: flex;
@@ -203,11 +118,6 @@
 }
 
 @media (max-width: 993px) {
-  .register-signup-wrapper {
-    max-width: unset;
-    margin: unset;
-    padding: unset;
-  }
   .reg-content-grid {
     grid-template-columns: 1fr;
     width: 100%;
@@ -225,21 +135,9 @@
   .reg-showcase {
     margin-top: 2.3rem;
   }
-  .register {
-    height: 200vh;
-  }
 }
 
 @media (max-width: 400px) {
-  .register-nav {
-    flex-direction: column;
-    justify-content: stretch;
-  }
-
-  .register-nav > * + * {
-    margin: 2rem 0 0 0;
-  }
-
   .already-have-account {
     flex-direction: column;
   }

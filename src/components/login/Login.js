@@ -1,24 +1,23 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Link, useHistory, useLocation } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 import Alerts from "../alert/Alerts"
-import AlertContext from "../../context/alert/alertContext"
-import AuthContext from "../../context/auth/authContext"
-import FormHeader from "../reusables/navigation/formsReusables/FormHeader"
+import AuthLayout from "../layout/authlayout/AuthLayout"
+import * as userActions from "../../store/actions/userActions"
+import { showAlert } from "../../store/actions/alertActions"
 import "./login.css"
-import "../signup/signup.css"
+import "../../pages/register/signup.css"
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
+  const dispatch = useDispatch()
+  const loginUser = useSelector((state) => state.loginUser)
+  const { loading, error, message, token } = loginUser
   const history = useHistory()
-  const alertContext = useContext(AlertContext)
-  const authContext = useContext(AuthContext)
-  const { setAlert } = alertContext
   const location = useLocation()
 
-  const { login, error, clearErrors, isAuthenticated, loading } = authContext
-
   useEffect(() => {
-    if (isAuthenticated) {
+    if (token) {
       const fromSuccessPage = location.state && location.state.fromSuccessPage
       if (fromSuccessPage) {
         history.push("/")
@@ -26,12 +25,14 @@ const Login = () => {
         history.goBack()
       }
     }
-    if (error === "invalid_credentials") {
-      setAlert(error, "danger")
-      clearErrors()
+    if (message) {
+      dispatch(showAlert(message, "success"))
     }
-    // eslint-disable-next-line
-  }, [error, isAuthenticated, history])
+    if (error) {
+      dispatch(showAlert(error, "danger"))
+      dispatch(userActions.clearErrors())
+    }
+  }, [dispatch, error, token, history, location.state, message])
 
   const [user, setUser] = useState({
     email: "",
@@ -44,89 +45,82 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
+
     if (email === "" || password === "") {
-      setAlert("email or password not correct", "danger")
+      dispatch(showAlert("Please fill in your email and password", "danger"))
     }
-    login({
-      email,
-      password,
-    })
+    dispatch(userActions.loginUser({ email, password }))
   }
 
   return (
-    <header className="login">
-      <div className="register-signup-wrapper login-wrapper">
-        <FormHeader />
-        <div className="log-showcase">
-          <div className="reg-content-grid">
-            <div className="reg-benefits">
-              <h1 className="african-story">
-                {" "}
-                Telling the untold African Story
-              </h1>
-            </div>
-            <div className="reg-form-outer-container">
-              <h5 className="reg-form-header">Sign In</h5>
-              <Alerts />
-              <form onSubmit={onSubmit}>
-                <div className="form-group">
-                  <label htmlFor="email" className="reg-label">
-                    Email
-                  </label>
-                  <input
-                    type="text"
-                    name="email"
-                    placeholder="Enter email..."
-                    className="form-control reg-input"
-                    value={email}
-                    onChange={onChange}
-                    required
-                  />
-                </div>
-                <div className="form-group password-input">
-                  <label htmlFor="password" className="reg-label">
-                    Password
-                  </label>
-                  <input
-                    type={`${showPassword ? "text" : "password"}`}
-                    name="password"
-                    placeholder="Enter Password"
-                    className="form-control reg-input"
-                    value={password}
-                    onChange={onChange}
-                    minLength="6"
-                    required
-                  />
-                  <span
-                    className="show-password"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? "hide" : "show"}
-                  </span>
-                </div>
+    <AuthLayout>
+      <div className="log-showcase">
+        <div className="reg-content-grid">
+          <div className="reg-benefits">
+            <h1 className="african-story"> Telling the untold African Story</h1>
+          </div>
+          <div className="reg-form-outer-container">
+            <h5 className="reg-form-header">Sign In</h5>
+            {error && <Alerts />}
+            {message && <Alerts />}
+            <form onSubmit={onSubmit}>
+              <div className="form-group">
+                <label htmlFor="email" className="reg-label">
+                  Email
+                </label>
                 <input
-                  type="submit"
-                  value={`${loading ? "Please wait..." : "Continue"}`}
-                  className="btn btn-red btn-block mb-3"
-                  disabled={loading}
+                  type="text"
+                  name="email"
+                  placeholder="Enter email..."
+                  className="form-control reg-input"
+                  value={email}
+                  onChange={onChange}
+                  required
                 />
-              </form>
-              <div className="forgot-password">
-                <Link to="/" className="forgot-password-link">
-                  Forgot password?
-                </Link>
               </div>
-              <div className="already-have-account">
-                <p className="m-0 reg-dont-account">Don't have an Account?</p>
-                <Link to="/signup" className="reg-sign-in">
-                  Sign up
-                </Link>
+              <div className="form-group password-input">
+                <label htmlFor="password" className="reg-label">
+                  Password
+                </label>
+                <input
+                  type={`${showPassword ? "text" : "password"}`}
+                  name="password"
+                  placeholder="Enter Password"
+                  className="form-control reg-input"
+                  value={password}
+                  onChange={onChange}
+                  minLength="6"
+                  required
+                />
+                <span
+                  className="show-password"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? "hide" : "show"}
+                </span>
               </div>
+              <input
+                type="submit"
+                value={`${loading ? "Please wait..." : "Continue"}`}
+                className="btn btn-red btn-block mb-3"
+                disabled={loading}
+              />
+            </form>
+            <div className="forgot-password">
+              <Link to="/" className="forgot-password-link">
+                Forgot password?
+              </Link>
+            </div>
+            <div className="already-have-account">
+              <p className="m-0 reg-dont-account">Don't have an Account?</p>
+              <Link to="/signup" className="reg-sign-in">
+                Sign up
+              </Link>
             </div>
           </div>
         </div>
       </div>
-    </header>
+    </AuthLayout>
   )
 }
 

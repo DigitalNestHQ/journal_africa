@@ -1,31 +1,30 @@
-import React, { useContext } from 'react'
-import 'aos/dist/aos.css'
-import { Link } from 'react-router-dom'
-import cybertruck from '../../../assets/images/cybertruck1.jpg'
-import { useViewPort } from '../../../components/hooks/Viewport'
-import './teaser.css'
-import TeaserLatestCard from './TeaserLatestCard'
-import TeaserPolitics from './TeaserPolitics'
-import newsContext from '../../../context/news/NewsContext'
+import React, { useContext } from "react"
+import { Link } from "react-router-dom"
+import cybertruck from "../../../assets/images/cybertruck1.jpg"
+import { useViewPort } from "../../../components/hooks/Viewport"
+import "./teaser.css"
+import TeaserLatestCard from "./TeaserLatestCard"
+import TeaserPolitics from "./TeaserPolitics"
+import newsContext from "../../../context/news/NewsContext"
 
 const TeaserSection = ({ data }) => {
   const context = useContext(newsContext)
   const { latestLoading, latestNews } = context
 
-  const politics = data.filter((post) => post.category_id === 'Politics')
+  const politics = data.filter((post) => post.category_id === "Politics")
   const discoverAfrica = data.filter(
-    (post) => post.category_id === 'Discover Africa',
+    (post) => post.category_id === "Discover Africa"
   )
 
   const culture = discoverAfrica.filter(
-    (post) => post.sub_category === 'Culture',
+    (post) => post.sub_category === "Culture"
   )
-  const places = discoverAfrica.filter((post) => post.sub_category === 'Places')
+  const places = discoverAfrica.filter((post) => post.sub_category === "Places")
   const lifestyle = discoverAfrica.filter(
-    (post) => post.sub_category === 'Lifestyle',
+    (post) => post.sub_category === "Lifestyle"
   )
 
-  const people = discoverAfrica.filter((post) => post.sub_category === 'People')
+  const people = discoverAfrica.filter((post) => post.sub_category === "People")
   const { width } = useViewPort()
   const breakpoint = 991
 
@@ -33,7 +32,7 @@ const TeaserSection = ({ data }) => {
   const selectedTeasers = [culture[0], places[0], lifestyle[0], people[0]]
 
   if (selectedTeasers.length === 0 || latestNews === null) {
-    return null;
+    return null
   }
 
   return (
@@ -58,7 +57,7 @@ const TeaserSection = ({ data }) => {
                       </div>
                       <Link
                         to={{
-                          pathname: '/news/sub-categories',
+                          pathname: "/news/sub-categories",
                           search: `?subcategory=${eachCard.sub_category}`,
                         }}
                         className="dest slug-default"
@@ -76,7 +75,7 @@ const TeaserSection = ({ data }) => {
                 </div>
                 <Link
                   to={{
-                    pathname: '/news/categories',
+                    pathname: "/news/categories",
                     search: `?category=Discovery Africa`,
                   }}
                   className="explore-white-btn"
@@ -103,7 +102,7 @@ const TeaserSection = ({ data }) => {
                 </div>
                 <Link
                   to={{
-                    pathname: '/news/categories',
+                    pathname: "/news/categories",
                     search: `?category=Politics`,
                   }}
                   className="explore-red-btn"
@@ -144,7 +143,7 @@ const TeaserSection = ({ data }) => {
               </div>
             </div>
           ) : (
-            ''
+            ""
           )}
         </div>
       </div>

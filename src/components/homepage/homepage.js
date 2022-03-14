@@ -4,8 +4,6 @@ import Banner from "./Banner"
 import TeaserSection from "./homepageTeaser/TeaserSection"
 import PoliticsAndGovernance from "./politics/PoliticsAndGovernance"
 import Tech from "./lifestyle/LifeStyle"
-import AOS from "aos"
-import "aos/dist/aos.css"
 import Footer from "../reusables/navigation/Footer/footer"
 import "./homepage.css"
 import FactCheck from "./development/FactCheck"
@@ -22,7 +20,6 @@ function Homepage() {
   const { news, loading, getNews, getLatestNews, latestLoading } = context
 
   useEffect(() => {
-    AOS.init()
     getNews()
     getLatestNews()
     // eslint-disable-next-line

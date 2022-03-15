@@ -1,11 +1,11 @@
 import React from "react"
 import { Card, Carousel, Row, Col } from "react-bootstrap"
-import { useViewPort } from "../hooks/Viewport"
+import { useViewPort } from "../../hooks/Viewport"
 import { Link } from "react-router-dom"
-import "./homepage.css"
-import "./ads/ads.css"
-import { LargeSizeAds } from "./ads/Ads"
-import bannerAds from "./../../assets/images/bannerads.png"
+import "../../../pages/home/homepage.css"
+import "../ads/ads.css"
+import { LargeSizeAds } from "../ads/Ads"
+import bannerAds from "../../../assets/images/bannerads.png"
 
 const Showcase = ({ data }) => {
   const { width } = useViewPort()

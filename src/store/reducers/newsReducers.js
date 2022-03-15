@@ -67,3 +67,37 @@ export const getWordpressReducer = (
       return state
   }
 }
+
+export const getCategoryReducer = (
+  state = { loading: true, error: null, categoryNews: [] },
+  { type, payload }
+) => {
+  switch (type) {
+    case newsTypes.GET_CATEGORY_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      }
+
+    case newsTypes.GET_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        categoryNews: payload,
+      }
+    case newsTypes.GET_CATEGORY_ERROR:
+      return {
+        ...state,
+        error: payload,
+        loading: false,
+        categoryNews: [],
+      }
+    case newsTypes.CLEAR_NEWS_ERRORS:
+      return {
+        ...state,
+        error: null,
+      }
+    default:
+      return state
+  }
+}

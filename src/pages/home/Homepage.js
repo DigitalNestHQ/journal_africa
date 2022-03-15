@@ -1,21 +1,21 @@
 import React, { useEffect } from "react"
-import Showcase from "./Showcase"
-import TeaserSection from "./homepageTeaser/TeaserSection"
-import PoliticsAndGovernance from "./politics/PoliticsAndGovernance"
-import Tech from "./lifestyle/LifeStyle"
+import Showcase from "../../components/homepage/showcase/Showcase"
+import TeaserSection from "../../components/homepage/homepageTeaser/TeaserSection"
+import PoliticsAndGovernance from "../../components/homepage/politics/PoliticsAndGovernance"
+import Tech from "../../components/homepage/lifestyle/LifeStyle"
 import "./homepage.css"
-import FactCheck from "./development/FactCheck"
-import Economy from "./economy/EconomyComponent"
-import Business from "./business/Business"
-import { SignupTeaser } from "../reusables/news/SignupTeaser"
-import LatestNews from "./latestnews/LatestNews"
-import Loader from "../loader/Loader"
-import HomepagePodcast from "./homepage-podcast/HomepagePodcast"
+import FactCheck from "../../components/homepage/development/FactCheck"
+import Economy from "../../components/homepage/economy/EconomyComponent"
+import Business from "../../components/homepage/business/Business"
+import { SignupTeaser } from "../../components/reusables/news/SignupTeaser"
+import LatestNews from "../../components/homepage/latestnews/LatestNews"
+import Loader from "../../components/loader/Loader"
+import HomepagePodcast from "../../components/homepage/homepage-podcast/HomepagePodcast"
 import Layout from "../../components/layout/mainlayout/Layout"
 import { useDispatch, useSelector } from "react-redux"
 import * as newsActions from "../../store/actions/newsActions"
 
-function Homepage() {
+const Homepage = () => {
   const dispatch = useDispatch()
   const getNews = useSelector((state) => state.getNews)
   const { loading, news } = getNews

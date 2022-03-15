@@ -44,6 +44,10 @@ ins strong {
   border: none;
   border-radius: 0;
 }
+.card-text {
+  list-style: none;
+  font-weight: normal;
+}
 
 .card-img-top {
   border-radius: 0;

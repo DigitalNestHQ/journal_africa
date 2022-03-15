@@ -1,7 +1,7 @@
 import React from "react"
 import { pageurl } from "./utils/constants.js"
 import { Route, Switch } from "react-router-dom"
-import HomePage from "./components/homepage/homepage"
+import HomePage from "./pages/home/Homepage"
 import AboutUs from "./components/about/AboutComponent"
 import TermsAndConditions from "./components/privacyPolicy/TermsAndConditions"
 import PrivacyPolicy from "./components/privacyPolicy/PrivacyPolicy"

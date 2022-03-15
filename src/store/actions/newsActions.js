@@ -53,3 +53,28 @@ export const getWordpressNews = () => async (dispatch) => {
     })
   }
 }
+
+export const getCategoryNews = (category) => async (dispatch) => {
+  try {
+    dispatch({
+      type: newsTypes.GET_CATEGORY_REQUEST,
+    })
+
+    const {
+      data: { data },
+    } = await withoutAuthToken.get(`/categories?category=${category}`)
+
+    dispatch({
+      type: newsTypes.GET_CATEGORY_SUCCESS,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: newsTypes.GET_CATEGORY_ERROR,
+      payload:
+        error.message && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}

@@ -1,4 +1,6 @@
 import React, { useEffect, Fragment, useContext, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import * as newsActions from "../../store/actions/newsActions"
 import bannerAds from "./../../assets/images/bannerads.png"
 import ReactHtmlParser from "react-html-parser"
 import Nav from "../reusables/navigation/Nav/Nav"
@@ -23,6 +25,11 @@ import axios from "axios"
 import Moment from "react-moment"
 
 const GetNews = () => {
+  const dispatch = useDispatch()
+  // const loginUser = useSelector((state) => state.loginUser)
+  // const getNews = useSelector((state) => state.getNews)
+  // const getCategory = useSelector((state) => state.getCategory)
+
   const [currentPage, setCurrentPage] = useState(1)
   const [loggedIn, setLoggedIn] = useState({})
   const userContext = useContext(authContext)

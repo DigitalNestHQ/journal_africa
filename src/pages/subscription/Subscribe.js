@@ -24,15 +24,12 @@ const Subscribe = () => {
 
     if (message) {
       dispatch(showAlert(message, "success"))
-      dispatch(userActions.clearUserMessages())
     }
     if (error) {
       dispatch(showAlert(error, "danger"))
-      dispatch(userActions.clearErrors())
     }
     if (payError) {
       dispatch(showAlert(payError, "danger"))
-      dispatch(userActions.clearErrors())
     }
   }, [dispatch, error, message, payError, plans.length])
 

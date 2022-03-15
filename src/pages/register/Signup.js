@@ -40,12 +40,10 @@ const Signup = () => {
         password: "",
       })
       dispatch(showAlert(message, "success"))
-      dispatch(userActions.clearUserMessages())
     }
 
     if (error) {
       dispatch(showAlert(error, "danger"))
-      dispatch(userActions.clearErrors())
     }
   }, [dispatch, error, history, message, token])
 

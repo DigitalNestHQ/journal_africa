@@ -1,10 +1,8 @@
-import React, { Fragment, useEffect, useContext } from "react"
-import Nav from "../reusables/navigation/Nav/nav"
-import Banner from "./Banner"
+import React, { useEffect } from "react"
+import Showcase from "./Showcase"
 import TeaserSection from "./homepageTeaser/TeaserSection"
 import PoliticsAndGovernance from "./politics/PoliticsAndGovernance"
 import Tech from "./lifestyle/LifeStyle"
-import Footer from "../reusables/navigation/Footer/footer"
 import "./homepage.css"
 import FactCheck from "./development/FactCheck"
 import Economy from "./economy/EconomyComponent"
@@ -13,27 +11,30 @@ import { SignupTeaser } from "../reusables/news/SignupTeaser"
 import LatestNews from "./latestnews/LatestNews"
 import Loader from "../loader/Loader"
 import HomepagePodcast from "./homepage-podcast/HomepagePodcast"
-import newsContext from "../../context/news/NewsContext"
+import Layout from "../../components/layout/mainlayout/Layout"
+import { useDispatch, useSelector } from "react-redux"
+import * as newsActions from "../../store/actions/newsActions"
 
 function Homepage() {
-  const context = useContext(newsContext)
-  const { news, loading, getNews, getLatestNews, latestLoading } = context
+  const dispatch = useDispatch()
+  const getNews = useSelector((state) => state.getNews)
+  const { loading, news } = getNews
+  const getWordpress = useSelector((state) => state.getWordpress)
+  const { loading: wordpressLoading } = getWordpress
 
   useEffect(() => {
-    getNews()
-    getLatestNews()
-    // eslint-disable-next-line
-  }, [])
+    dispatch(newsActions.getNews())
+    dispatch(newsActions.getWordpressNews())
+  }, [dispatch])
 
-  if (loading || latestLoading) {
+  if (loading || wordpressLoading) {
     return <Loader />
   } else if (!loading && news.length !== 0) {
     const sorted = news.sort((a, b) => (a.created_at > b.created_at ? -1 : 1))
     return (
-      <Fragment>
-        <Nav />
+      <Layout>
         <main>
-          <Banner data={sorted} />
+          <Showcase data={sorted} />
           <LatestNews data={sorted} />
           <TeaserSection data={sorted} />
           <Business data={sorted} />
@@ -44,19 +45,16 @@ function Homepage() {
           <HomepagePodcast data={sorted} />
           <SignupTeaser />
         </main>
-
-        <Footer />
-      </Fragment>
+      </Layout>
     )
   } else {
     return (
-      <>
-        <Nav />
+      <Layout>
         <p style={{ textAlign: "center" }}>
           No news Found - Please check your internet connection or reload the
           page
         </p>
-      </>
+      </Layout>
     )
   }
 }

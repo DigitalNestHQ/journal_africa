@@ -1,6 +1,6 @@
 import React, { Fragment } from "react"
-import Nav from "../reusables/navigation/Nav/nav"
-import Footer from "../reusables/navigation/Footer/footer"
+import Nav from "../reusables/navigation/Nav/Nav"
+import Footer from "../reusables/navigation/Footer/Footer"
 
 import "./privacyPolicy.css"
 

@@ -1,7 +1,7 @@
 // React
 import React from "react"
-import Footer from "../reusables/navigation/Footer/footer"
-import Navbar from "../reusables/navigation/Nav/nav"
+import Footer from "../reusables/navigation/Footer/Footer"
+import Navbar from "../reusables/navigation/Nav/Nav"
 import { Row, Col } from "react-bootstrap"
 import "./faq.css"
 

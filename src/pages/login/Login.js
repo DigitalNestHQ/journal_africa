@@ -30,7 +30,6 @@ const Login = () => {
     }
     if (error) {
       dispatch(showAlert(error, "danger"))
-      dispatch(userActions.clearErrors())
     }
   }, [dispatch, error, token, history, location.state, message])
 

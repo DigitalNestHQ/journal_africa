@@ -1,13 +1,13 @@
-import React from 'react'
-import { Card, Carousel, Row, Col } from 'react-bootstrap'
-import { useViewPort } from '../hooks/Viewport'
-import { Link } from 'react-router-dom'
-import './homepage.css'
-import './ads/ads.css'
-import { LargeSizeAds } from './ads/Ads'
-import bannerAds from './../../assets/images/bannerads.png'
+import React from "react"
+import { Card, Carousel, Row, Col } from "react-bootstrap"
+import { useViewPort } from "../hooks/Viewport"
+import { Link } from "react-router-dom"
+import "./homepage.css"
+import "./ads/ads.css"
+import { LargeSizeAds } from "./ads/Ads"
+import bannerAds from "./../../assets/images/bannerads.png"
 
-const Banner = ({ data }) => {
+const Showcase = ({ data }) => {
   const { width } = useViewPort()
   const breakpoint = 991
 
@@ -39,7 +39,7 @@ const Banner = ({ data }) => {
                       <Carousel.Caption className="caro-capxn">
                         <Link
                           to={{
-                            pathname: '/news/categories',
+                            pathname: "/news/categories",
                             search: `?category=${category_id}`,
                           }}
                           className="caro-link text-decoration-none p-2 text-left cap-ancor"
@@ -71,7 +71,7 @@ const Banner = ({ data }) => {
                       <Card.ImgOverlay className="cnt-txt-wrap">
                         <Link
                           to={{
-                            pathname: '/news/categories',
+                            pathname: "/news/categories",
                             search: `?category=${categ.category_id}`,
                           }}
                           className="card-tag text-decoration-none p-2 cap-anco text-left"
@@ -100,7 +100,7 @@ const Banner = ({ data }) => {
                       <Card.ImgOverlay className="cnt-txt-wrap">
                         <Link
                           to={{
-                            pathname: '/news/categories',
+                            pathname: "/news/categories",
                             search: `?category=${categ.category_id}`,
                           }}
                           className="card-tag text-decoration-none p-2 cap-anco text-left"
@@ -119,7 +119,7 @@ const Banner = ({ data }) => {
                 ))}
               </Col>
             ) : (
-              ''
+              ""
             )}
           </Row>
         </div>
@@ -128,4 +128,4 @@ const Banner = ({ data }) => {
   )
 }
 
-export default Banner
+export default Showcase

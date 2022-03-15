@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
-import NavBar from '../../../components/reusables/navigation/Nav/nav'
-import Footer from '../../../components/reusables/navigation/Footer/footer'
-import Loader from '../../../components/loader/Loader'
-import { BASE_URL } from '../../../utils/constants'
-import CurrentPodcastDetails from './CurrentPodcastDetails'
-import CurrentPodcastHeader from './CurrentPodcastHeader'
-import './currentpodcast-style.css'
+import React, { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
+import axios from "axios"
+import NavBar from "../../../components/reusables/navigation/Nav/Nav"
+import Footer from "../../../components/reusables/navigation/Footer/Footer"
+import Loader from "../../../components/loader/Loader"
+import { BASE_URL } from "../../../utils/constants"
+import CurrentPodcastDetails from "./CurrentPodcastDetails"
+import CurrentPodcastHeader from "./CurrentPodcastHeader"
+import "./currentpodcast-style.css"
 
 const CurrentPodCast = () => {
   const { collectionId } = useParams()
@@ -58,7 +58,7 @@ export default CurrentPodCast
 
 const getPodcast = async (collectionId) => {
   const response = await axios.get(
-    `${BASE_URL}lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=400`,
+    `${BASE_URL}lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=400`
   )
 
   return response.data.results

@@ -1,26 +1,26 @@
-import React, { useEffect, Fragment, useContext, useState } from 'react'
-import bannerAds from './../../assets/images/bannerads.png'
-import ReactHtmlParser from 'react-html-parser'
-import Nav from '../reusables/navigation/Nav/nav'
-import Footer from '../reusables/navigation/Footer/footer'
-import { useParams, Link } from 'react-router-dom'
-import Loader from '../loader/Loader'
-import './allNews.css'
-import { NotLoggedIn, LoggedInNotSubscribed } from './FreeReaderPersuader'
-import authContext from '../../context/auth/authContext'
-import newsContext from '../../context/news/NewsContext'
-import { LargeSizeAds } from '../homepage/ads/Ads'
-import TeaserCard from '../homepage/homepageTeaser/TeaserCard'
-import { Row } from 'react-bootstrap'
-import cybertruck from '../../assets/images/cybertruck1.jpg'
-import { HtmlParseOptions } from '../../_helper/parseNewsHtml'
-import { useViewPort } from '../../components/hooks/Viewport'
-import '../category/newscategory.css'
-import RelatedNews from './RelatedNews'
-import ShareNews from './ShareNews'
-import Paging from '../reusables/Paging'
-import axios from 'axios'
-import Moment from 'react-moment'
+import React, { useEffect, Fragment, useContext, useState } from "react"
+import bannerAds from "./../../assets/images/bannerads.png"
+import ReactHtmlParser from "react-html-parser"
+import Nav from "../reusables/navigation/Nav/Nav"
+import Footer from "../reusables/navigation/Footer/Footer"
+import { useParams, Link } from "react-router-dom"
+import Loader from "../loader/Loader"
+import "./allNews.css"
+import { NotLoggedIn, LoggedInNotSubscribed } from "./FreeReaderPersuader"
+import authContext from "../../context/auth/authContext"
+import newsContext from "../../context/news/NewsContext"
+import { LargeSizeAds } from "../homepage/ads/Ads"
+import TeaserCard from "../homepage/homepageTeaser/TeaserCard"
+import { Row } from "react-bootstrap"
+import cybertruck from "../../assets/images/cybertruck1.jpg"
+import { HtmlParseOptions } from "../../_helper/parseNewsHtml"
+import { useViewPort } from "../../components/hooks/Viewport"
+import "../category/newscategory.css"
+import RelatedNews from "./RelatedNews"
+import ShareNews from "./ShareNews"
+import Paging from "../reusables/Paging"
+import axios from "axios"
+import Moment from "react-moment"
 
 const GetNews = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -35,30 +35,30 @@ const GetNews = () => {
 
   const getAdjacentPosts = React.useCallback(
     (slug) => {
-      if (singleNews.length === 0) return ''
+      if (singleNews.length === 0) return ""
       const currentCategoryNews = news.filter(
-        (news) => news.category_id === singleNews[0].category_id,
+        (news) => news.category_id === singleNews[0].category_id
       )
       const postIndex = currentCategoryNews.findIndex(
-        (postHeader) => postHeader?.slug === slug,
+        (postHeader) => postHeader?.slug === slug
       )
 
       return {
         previous:
           postIndex <= 0
-            ? ''
+            ? ""
             : {
                 slug: currentCategoryNews[postIndex - 1].slug,
               },
         next:
           postIndex >= currentCategoryNews.length - 1
-            ? ''
+            ? ""
             : {
                 slug: currentCategoryNews[postIndex + 1].slug,
               },
       }
     },
-    [news, singleNews],
+    [news, singleNews]
   )
 
   useEffect(() => {
@@ -69,8 +69,8 @@ const GetNews = () => {
       }
       try {
         const res = await axios.post(
-          'https://api.tv24africa.com/api/v1/add/view',
-          id,
+          "https://api.tv24africa.com/api/v1/add/view",
+          id
         )
       } catch (error) {
         console.log(error)
@@ -102,15 +102,15 @@ const GetNews = () => {
   }
 
   const currentCategoryNews = news.filter((news) => {
-    if (singleNews.length === 0) return ''
+    if (singleNews.length === 0) return ""
     return news.category_id === singleNews[0].category_id
   })
 
   const currentCategoryNewsWithoutSingleNews = currentCategoryNews.filter(
     (news) => {
-      if (singleNews.length === 0) return ''
+      if (singleNews.length === 0) return ""
       return news.id !== singleNews[0].id
-    },
+    }
   )
 
   const { previous, next } = getAdjacentPosts(slug)
@@ -141,7 +141,7 @@ const GetNews = () => {
                         By <strong>{singleNews[0].author_name}</strong>
                       </p>
                       <p className="post-comp">
-                        Posted on{' '}
+                        Posted on{" "}
                         <Moment format="MMMM Do YYYY">
                           {singleNews[0].updated_at}
                         </Moment>
@@ -158,44 +158,44 @@ const GetNews = () => {
                     <div className="main-content">
                       {ReactHtmlParser(
                         `${
-                          singleNews[0].post_type === 'premium' &&
+                          singleNews[0].post_type === "premium" &&
                           isAuthenticated
                             ? loggedIn.subscription_status
                               ? singleNews[0].post_description
                               : singleNews[0].post_description.substring(
                                   0,
-                                  1500,
+                                  1500
                                 )
-                            : singleNews[0].post_type === 'premium' &&
+                            : singleNews[0].post_type === "premium" &&
                               !isAuthenticated
                             ? singleNews[0].post_description.substring(0, 1500)
                             : singleNews[0].post_description
                         }`,
-                        HtmlParseOptions,
+                        HtmlParseOptions
                       )}
                     </div>
-                    {singleNews[0].post_type === 'premium' &&
+                    {singleNews[0].post_type === "premium" &&
                     isAuthenticated ? (
                       loggedIn.subscription_status ? (
                         <div></div>
                       ) : (
                         <div className="blur-content"></div>
                       )
-                    ) : singleNews[0].post_type === 'premium' &&
+                    ) : singleNews[0].post_type === "premium" &&
                       !isAuthenticated ? (
                       <div className="blur-content"></div>
                     ) : (
                       <div className=""></div>
                     )}
                     <div className="check-mate">
-                      {singleNews[0].post_type === 'premium' &&
+                      {singleNews[0].post_type === "premium" &&
                       isAuthenticated ? (
                         loggedIn.subscription_status ? (
-                          ''
+                          ""
                         ) : (
                           <LoggedInNotSubscribed />
                         )
-                      ) : singleNews[0].post_type === 'free' ? (
+                      ) : singleNews[0].post_type === "free" ? (
                         <LoggedInNotSubscribed />
                       ) : (
                         <NotLoggedIn />
@@ -231,12 +231,12 @@ const GetNews = () => {
                               onPageChange={(page) => setCurrentPage(page)}
                             />
                           ) : (
-                            ''
+                            ""
                           )}
                         </div>
                       </div>
                     ) : (
-                      ''
+                      ""
                     )}
                   </div>
                 )}
@@ -254,7 +254,7 @@ const GetNews = () => {
                   ) : (
                     news
                       .sort((a, b) =>
-                        parseInt(a.views) > parseInt(b.views) ? -1 : 1,
+                        parseInt(a.views) > parseInt(b.views) ? -1 : 1
                       )
                       .slice(0, 3)
                       .map((eachCard) => (

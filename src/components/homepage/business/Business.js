@@ -1,21 +1,22 @@
-import React from 'react'
-// import BusinessCard from './BusinessCard'
-import './business.css'
-import { Link } from 'react-router-dom'
-import { HtmlParseOptions } from '../../../_helper/parseNewsHtml'
-import ReactHtmlParser from 'react-html-parser'
-import { Row, Col, Card } from 'react-bootstrap'
-import { LargeSizeAds } from '../ads/Ads'
-import bannerAds from '../../../assets/images/bannerads.png'
-import '../ads/ads.css'
+import React from "react"
+import "./business.css"
+import { Link } from "react-router-dom"
+import { HtmlParseOptions } from "../../../_helper/parseNewsHtml"
+import ReactHtmlParser from "react-html-parser"
+import { Row, Col, Card } from "react-bootstrap"
+import { LargeSizeAds } from "../ads/Ads"
+import bannerAds from "../../../assets/images/bannerads.png"
+import "../ads/ads.css"
 
 const Business = ({ data }) => {
-  const businessNews = data.filter((news) => news.category_id === 'Business')
+  const businessNews = data.filter((news) => news.category_id === "Business")
 
   return (
     <section className="business-section section-content-default">
       <div className="section-wrapper-default">
-          <h5 className="business-heading section-heading-default">Business and Economy</h5>
+        <h5 className="business-heading section-heading-default">
+          Business and Economy
+        </h5>
         <div className="business-content">
           <Row xs={1} lg={3} className="g-4">
             {businessNews.slice(0, 3).map((categ, idx) => (
@@ -28,9 +29,9 @@ const Business = ({ data }) => {
                       className="mb-3 card-img-business"
                     />
                     <p className="premium-badge">
-                      {categ.post_type === 'premium'
+                      {categ.post_type === "premium"
                         ? `${categ.post_type}`
-                        : ''}
+                        : ""}
                     </p>
                     <Card.Body className="bus-card-body">
                       <Card.Subtitle className="text-danger mb-3 font-bold slug-default">
@@ -39,7 +40,7 @@ const Business = ({ data }) => {
                       <Card.Text>
                         {ReactHtmlParser(
                           `${categ.post_description.substring(0, 130)}...`,
-                          HtmlParseOptions,
+                          HtmlParseOptions
                         )}
                       </Card.Text>
                     </Card.Body>
@@ -51,7 +52,7 @@ const Business = ({ data }) => {
         </div>
         <Link
           to={{
-            pathname: '/news/categories',
+            pathname: "/news/categories",
             search: `?category=Business`,
           }}
           className="explore-red-btn"

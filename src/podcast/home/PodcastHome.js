@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import PodcastCategories from './podcategories/PodcastCategories'
-import { useViewPort } from '../../components/hooks/Viewport'
-import axios from 'axios'
-import '../../components/homepage/politics/politicsandgovernance.css'
-import './podcasthome.css'
-import NavBar from '../../components/reusables/navigation/Nav/nav'
-import Footer from '../../components/reusables/navigation/Footer/footer'
-import { HOMESCREEN_API_URL } from '../../utils/constants'
-import Loader from '../../components/loader/Loader'
-import cybertruck from '../../assets/images/cybertruck1.jpg'
-
+import React, { useEffect, useState } from "react"
+import PodcastCategories from "./podcategories/PodcastCategories"
+import { useViewPort } from "../../components/hooks/Viewport"
+import axios from "axios"
+import "../../components/homepage/politics/politicsandgovernance.css"
+import "./podcasthome.css"
+import NavBar from "../../components/reusables/navigation/Nav/Nav"
+import Footer from "../../components/reusables/navigation/Footer/Footer"
+import { HOMESCREEN_API_URL } from "../../utils/constants"
+import Loader from "../../components/loader/Loader"
+import cybertruck from "../../assets/images/cybertruck1.jpg"
 
 const PodcastHome = () => {
   const [podcasts, setPodcasts] = useState(null)
@@ -49,11 +48,11 @@ const PodcastHome = () => {
             ) : (
               <div className="pod-categories">
                 <PodcastCategories
-                  header={'Digital Podcasts'}
+                  header={"Digital Podcasts"}
                   podcasts={digitalPodcasts}
                 />
                 <PodcastCategories
-                  header={'Radio & TV Podcasts'}
+                  header={"Radio & TV Podcasts"}
                   podcasts={radioPodcasts}
                 />
               </div>
@@ -83,7 +82,7 @@ const PodcastHome = () => {
                 </div>
               </div>
             ) : (
-              ''
+              ""
             )}
           </div>
         </div>
@@ -97,7 +96,7 @@ export default PodcastHome
 
 const getPodcasts = async () => {
   const headers = {
-    'Access-Control-Allow-Origin': '*',
+    "Access-Control-Allow-Origin": "*",
   }
   const response = await axios.get(HOMESCREEN_API_URL, headers)
 

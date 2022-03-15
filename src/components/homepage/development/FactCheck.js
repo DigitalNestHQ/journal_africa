@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './development.css'
+import React from "react"
+import { Link } from "react-router-dom"
+import "./development.css"
 
 export const FactCheck = ({ data }) => {
   const factCheck = data.filter(
-    (news) => news.category_id === 'Fact Check Africa',
+    (news) => news.category_id === "Fact Check Africa"
   )
   const indepthAfrica = data.filter(
-    (news) => news.category_id === 'In-Depth Africa',
+    (news) => news.category_id === "In-Depth Africa"
   )
   return (
     <section className="fact-check-section section-content-default">
@@ -16,7 +16,7 @@ export const FactCheck = ({ data }) => {
           <div className="right-check">
             <Link
               to={{
-                pathname: '/news/categories',
+                pathname: "/news/categories",
                 search: `?category=${factCheck[0].category_id}`,
               }}
               className="fact-heading"
@@ -24,7 +24,7 @@ export const FactCheck = ({ data }) => {
               <h5 className="fact-check-heading section-heading-default">
                 Fact Check Africa
               </h5>
-              <i className="fas fa-arrow-right"></i>
+              <i className="fas fa-arrow-right section-heading-default"></i>
             </Link>
             <div className="fact-img-container">
               <img
@@ -55,13 +55,15 @@ export const FactCheck = ({ data }) => {
           <div className="left-check">
             <Link
               to={{
-                pathname: '/news/categories',
+                pathname: "/news/categories",
                 search: `?category=${indepthAfrica[0].category_id}`,
               }}
               className="fact-heading"
             >
-              <h5 className="fact-check-heading section-heading-default">In-depth Africa</h5>
-              <i className="fas fa-arrow-right"></i>
+              <h5 className="fact-check-heading section-heading-default">
+                In-depth Africa
+              </h5>
+              <i className="fas fa-arrow-right section-heading-default"></i>
             </Link>
             <div className="fact-img-container">
               <img

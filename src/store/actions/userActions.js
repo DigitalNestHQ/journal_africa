@@ -98,6 +98,29 @@ export const userPay = (paymentData) => async (dispatch) => {
   }
 }
 
+export const userEmailSub = (email) => async (dispatch) => {
+  try {
+    dispatch({
+      type: userTypes.USER_SUB_REQUEST,
+    })
+
+    const { data } = await withoutAuthToken.post(`/newsletter?email=${email}`)
+
+    dispatch({
+      type: userTypes.USER_SUB_SUCCESS,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: userTypes.USER_SUB_ERROR,
+      payload:
+        error.message && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
 export const logout = () => (dispatch) => {
   dispatch({ type: userTypes.USER_LOGOUT })
   localStorage.removeItem("user")

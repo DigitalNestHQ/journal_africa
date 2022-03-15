@@ -1,10 +1,10 @@
-import React, { Fragment, useContext, useEffect } from 'react'
-import Navbar from '../../reusables/navigation/Nav/nav'
-import Footer from '../../reusables/navigation/Footer/footer'
-import SearchForm from './SearchForm'
-import newsContext from '../../../context/news/NewsContext'
-import SearchComponent from './SearchComponent'
-import Loader from '../../loader/Loader'
+import React, { Fragment, useContext, useEffect } from "react"
+import Navbar from "../../reusables/navigation/Nav/Nav"
+import Footer from "../../reusables/navigation/Footer/Footer"
+import SearchForm from "./SearchForm"
+import newsContext from "../../../context/news/NewsContext"
+import SearchComponent from "./SearchComponent"
+import Loader from "../../loader/Loader"
 
 const SearchNews = () => {
   const context = useContext(newsContext)
@@ -15,8 +15,8 @@ const SearchNews = () => {
     //eslint-disable-next-line
   }, [])
 
-  if ( news === null || loading ){
-    <Loader/>
+  if (news === null || loading) {
+    ;<Loader />
   }
 
   return (

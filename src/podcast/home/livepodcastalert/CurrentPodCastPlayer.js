@@ -1,18 +1,18 @@
-import React from 'react'
-import { useLocation, useParams, useHistory } from 'react-router-dom'
-import axios from 'axios'
-import { BASE_URL } from '../../../utils/constants'
-import Loader from '../../../components/loader/Loader'
-import NavBar from '../../../components/reusables/navigation/Nav/nav'
-import Footer from '../../../components/reusables/navigation/Footer/footer'
-import ReleaseDate from '../currentPodcast/ReleaseDate'
-import cybertruck from '../../../assets/images/cybertruck1.jpg'
-import PodcastPlayer from './PodcastPlayer'
+import React from "react"
+import { useLocation, useParams, useHistory } from "react-router-dom"
+import axios from "axios"
+import { BASE_URL } from "../../../utils/constants"
+import Loader from "../../../components/loader/Loader"
+import NavBar from "../../../components/reusables/navigation/Nav/Nav"
+import Footer from "../../../components/reusables/navigation/Footer/Footer"
+import ReleaseDate from "../currentPodcast/ReleaseDate"
+import cybertruck from "../../../assets/images/cybertruck1.jpg"
+import PodcastPlayer from "./PodcastPlayer"
 
 const CurrentPodCastPlayer = () => {
   const { search } = useLocation()
   const x = new URLSearchParams(search)
-  const currentPod = x.get('searchpod')
+  const currentPod = x.get("searchpod")
   const { collectionId } = useParams()
   const [podcast, setPodcast] = React.useState(null)
   const [loading, setLoading] = React.useState(false)
@@ -38,7 +38,7 @@ const CurrentPodCastPlayer = () => {
   const realPodcast = podcast.slice(1)
 
   const getCurrentPod = realPodcast?.filter(
-    (pod) => pod.trackId === parseInt(currentPod),
+    (pod) => pod.trackId === parseInt(currentPod)
   )
 
   // console.log(getCurrentPod)
@@ -107,7 +107,7 @@ export default CurrentPodCastPlayer
 
 const getPodcast = async (collectionId) => {
   const response = await axios.get(
-    `${BASE_URL}lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=400`,
+    `${BASE_URL}lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=400`
   )
 
   return response.data.results

@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import { pageurl } from '../../utils/constants';
-import Nav from '../reusables/navigation/Nav/nav';
-import Footer from '../reusables/navigation/Footer/footer';
+import React, { Fragment } from "react"
+import { Link } from "react-router-dom"
+import { pageurl } from "../../utils/constants"
+import Nav from "../reusables/navigation/Nav/Nav"
+import Footer from "../reusables/navigation/Footer/Footer"
 
-import './error404.css';
+import "./error404.css"
 
 const Error404 = () => {
   return (
@@ -21,7 +21,7 @@ const Error404 = () => {
       </div>
       <Footer />
     </Fragment>
-  );
-};
+  )
+}
 
-export default Error404;
+export default Error404

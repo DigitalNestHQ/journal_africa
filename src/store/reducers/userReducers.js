@@ -163,3 +163,42 @@ export const userPayReducer = (
       return state
   }
 }
+
+export const userSubReducer = (
+  state = { loading: false, message: null, error: null },
+  { type, payload }
+) => {
+  switch (type) {
+    case userTypes.USER_SUB_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      }
+
+    case userTypes.USER_SUB_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        message: payload.message,
+      }
+    case userTypes.USER_SUB_ERROR:
+      return {
+        ...state,
+        error: payload,
+        loading: false,
+        message: null,
+      }
+    case userTypes.CLEAR_USER_ERRORS:
+      return {
+        ...state,
+        error: null,
+      }
+    case userTypes.CLEAR_USER_MESSAGES:
+      return {
+        ...state,
+        message: null,
+      }
+    default:
+      return state
+  }
+}

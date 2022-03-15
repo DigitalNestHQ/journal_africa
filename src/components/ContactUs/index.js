@@ -1,9 +1,9 @@
-import Navbar from 'components/reusables/navigation/Nav/nav'
-import React from 'react'
-import Footer from '../reusables/navigation/Footer/footer'
-import Header from './Header'
-import MainSection from './mainSection'
-import './index.css'
+import Navbar from "components/reusables/navigation/Nav/Nav"
+import React from "react"
+import Footer from "../reusables/navigation/Footer/Footer"
+import Header from "./Header"
+import MainSection from "./mainSection"
+import "./index.css"
 
 const ContactUs = () => (
   <React.Fragment>

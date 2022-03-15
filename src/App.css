@@ -54,8 +54,8 @@ ins strong {
   position: absolute;
   color: #fff;
   background: red;
-  top: 1.5%;
-  left: 1.5%;
+  top: 0;
+  left: 0;
   padding: 0 0.1rem;
   z-index: 100;
   font-size: 0.7rem;
@@ -65,8 +65,8 @@ ins strong {
   position: absolute;
   color: #fff;
   background: red;
-  top: 1.5%;
-  right: 1.5%;
+  top: 0;
+  right: 0;
   padding: 0 0.1rem;
   z-index: 100;
   font-size: 0.7rem;

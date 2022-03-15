@@ -50,6 +50,54 @@ export const loginUser = (formData) => async (dispatch) => {
   }
 }
 
+export const getPlans = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: userTypes.GET_PLANS_REQUEST,
+    })
+
+    const { data } = await withoutAuthToken.get("/plans")
+
+    dispatch({
+      type: userTypes.GET_PLANS_SUCCESS,
+      payload: data.plans,
+    })
+
+    localStorage.setItem("plans", JSON.stringify(data.plans))
+  } catch (error) {
+    dispatch({
+      type: userTypes.GET_PLANS_ERROR,
+      payload:
+        error.message && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+export const userPay = (paymentData) => async (dispatch) => {
+  try {
+    dispatch({
+      type: userTypes.USER_PAY_REQUEST,
+    })
+
+    const { data } = await withoutAuthToken.post("/pay", paymentData)
+
+    dispatch({
+      type: userTypes.USER_PAY_SUCCESS,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: userTypes.USER_PAY_ERROR,
+      payload:
+        error.message && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
 export const logout = () => (dispatch) => {
   dispatch({ type: userTypes.USER_LOGOUT })
   localStorage.removeItem("user")

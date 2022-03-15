@@ -1,15 +1,13 @@
-import React, { Fragment } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import { pageurl } from "../../utils/constants"
-import Nav from "../reusables/navigation/Nav/Nav"
-import Footer from "../reusables/navigation/Footer/Footer"
 
 import "./error404.css"
+import Layout from "../../components/layout/mainlayout/Layout"
 
 const Error404 = () => {
   return (
-    <Fragment>
-      <Nav />
+    <Layout category={true}>
       <div className="error404-page">
         <div className="text-center heading-title">
           <h1 className="error404-heading">Oops!</h1>
@@ -19,8 +17,7 @@ const Error404 = () => {
           </Link>
         </div>
       </div>
-      <Footer />
-    </Fragment>
+    </Layout>
   )
 }
 

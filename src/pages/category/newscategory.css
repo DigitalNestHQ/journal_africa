@@ -157,7 +157,6 @@
 @media (max-width: 993px) {
   .categ-content-grid {
     grid-template-columns: 1fr;
-    grid-gap: unset;
   }
 }
 

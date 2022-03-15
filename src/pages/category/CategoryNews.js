@@ -1,30 +1,23 @@
-import React, { useState, useEffect, Fragment, useContext } from "react"
+import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import * as newsActions from "../../store/actions/newsActions"
-import Footer from "../reusables/navigation/Footer/Footer"
-import CategoryCard from "./CategoryCard"
+import CategoryCard from "../../components/category/CategoryCard"
 import { useLocation, Link } from "react-router-dom"
-import Loader from "../loader/Loader"
+import Loader from "../../components/loader/Loader"
 import "./newscategory.css"
-import Nav from "../reusables/navigation/Nav/Nav"
-import newsContext from "../../context/news/NewsContext"
 import LargeAds from "../../assets/images/bannerads.png"
-import "../homepage/ads/ads.css"
-import { LargeSizeAds } from "../homepage/ads/Ads"
-import TeaserCard from "../homepage/homepageTeaser/TeaserCard"
+import "../../components/homepage/ads/ads.css"
+import { LargeSizeAds } from "../../components/homepage/ads/Ads"
+import TeaserCard from "../../components/homepage/homepageTeaser/TeaserCard"
 import cybertruck from "../../assets/images/cybertruck1.jpg"
-import Layout from "../layout/mainlayout/Layout"
+import Layout from "../../components/layout/mainlayout/Layout"
 
 const CategoryNews = () => {
   const dispatch = useDispatch()
   const getCategory = useSelector((state) => state.getCategory)
-  const {
-    loading: categoryLoading,
-    categoryNews,
-    error: categoryError,
-  } = getCategory
+  const { loading: categoryLoading, categoryNews } = getCategory
   const getNews = useSelector((state) => state.getNews)
-  const { loading: newsLoading, error: newsError, news } = getNews
+  const { loading: newsLoading, news } = getNews
   const [numberOfCategCard, setNumberOfCategCard] = useState(5)
   const { search } = useLocation()
   const x = new URLSearchParams(search)

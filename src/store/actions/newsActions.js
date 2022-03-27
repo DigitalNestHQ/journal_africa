@@ -78,3 +78,30 @@ export const getCategoryNews = (category) => async (dispatch) => {
     })
   }
 }
+
+export const getSingleNews = (slug) => async (dispatch) => {
+  try {
+    dispatch({
+      type: newsTypes.GET_NEWS_A_REQUEST,
+    })
+
+    const {
+      data: { data },
+    } = await withoutAuthToken.get(
+      `https://api.journal.africa/api/v1/getpost/${slug}`
+    )
+
+    dispatch({
+      type: newsTypes.GET_NEWS_A_SUCCESS,
+      payload: data && data[0] ? data[0] : null,
+    })
+  } catch (error) {
+    dispatch({
+      type: newsTypes.GET_NEWS_A_ERROR,
+      payload:
+        error.message && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}

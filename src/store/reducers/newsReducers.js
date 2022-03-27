@@ -101,3 +101,37 @@ export const getCategoryReducer = (
       return state
   }
 }
+
+export const getSingleNewsReducer = (
+  state = { loading: true, error: null, singleNews: null },
+  { type, payload }
+) => {
+  switch (type) {
+    case newsTypes.GET_NEWS_A_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      }
+
+    case newsTypes.GET_NEWS_A_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        singleNews: payload,
+      }
+    case newsTypes.GET_NEWS_A_ERROR:
+      return {
+        ...state,
+        error: payload,
+        loading: false,
+        singleNews: null,
+      }
+    case newsTypes.CLEAR_NEWS_ERRORS:
+      return {
+        ...state,
+        error: null,
+      }
+    default:
+      return state
+  }
+}

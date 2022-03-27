@@ -1,5 +1,5 @@
 import * as userTypes from "../constants/userTypes"
-import { withoutAuthToken } from "../../utils/axios"
+import { withoutAuthToken, withAuthToken } from "../../utils/axios"
 
 export const createUser = (formData) => async (dispatch) => {
   try {
@@ -113,6 +113,31 @@ export const userEmailSub = (email) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: userTypes.USER_SUB_ERROR,
+      payload:
+        error.message && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+export const getUser = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: userTypes.GET_USER_REQUEST,
+    })
+
+    const { data } = await withAuthToken.get("/user")
+
+    dispatch({
+      type: userTypes.GET_USER_SUCCESS,
+      payload: data,
+    })
+
+    localStorage.setItem("authuser", JSON.stringify(data))
+  } catch (error) {
+    dispatch({
+      type: userTypes.GET_USER_ERROR,
       payload:
         error.message && error.response.data.message
           ? error.response.data.message

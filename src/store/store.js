@@ -8,11 +8,13 @@ import {
   getPlansReducer,
   userPayReducer,
   userSubReducer,
+  getUserReducer,
 } from "./reducers/userReducers"
 import {
   getNewsReducer,
   getWordpressReducer,
   getCategoryReducer,
+  getSingleNewsReducer,
 } from "./reducers/newsReducers"
 
 const reducer = combineReducers({
@@ -25,6 +27,8 @@ const reducer = combineReducers({
   getWordpress: getWordpressReducer,
   userSub: userSubReducer,
   getCategory: getCategoryReducer,
+  getSingleNews: getSingleNewsReducer,
+  getUser: getUserReducer,
 })
 
 const tokenFromStorage = localStorage.getItem("token")

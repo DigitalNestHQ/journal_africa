@@ -202,3 +202,35 @@ export const userSubReducer = (
       return state
   }
 }
+
+export const getUserReducer = (
+  state = { loading: true, error: null, user: null },
+  { type, payload }
+) => {
+  switch (type) {
+    case userTypes.GET_USER_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      }
+    case userTypes.GET_USER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        user: payload,
+      }
+    case userTypes.GET_USER_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: payload,
+      }
+    case userTypes.CLEAR_USER_ERRORS:
+      return {
+        ...state,
+        error: null,
+      }
+    default:
+      return state
+  }
+}

@@ -1,7 +1,7 @@
 import * as newsTypes from "../constants/newsTypes"
 
 export const getNewsReducer = (
-  state = { loading: true, error: null, news: [] },
+  state = { loading: true, error: null, news: [], filtered: null },
   { type, payload }
 ) => {
   switch (type) {
@@ -17,6 +17,22 @@ export const getNewsReducer = (
         loading: false,
         news: payload,
       }
+
+    case newsTypes.FILTER_NEWS:
+      return {
+        ...state,
+        filtered: state.news.filter((news) => {
+          const regex = new RegExp(`${payload}`, "gi")
+          return news.post_title.match(regex) || news.slug.match(regex)
+        }),
+      }
+
+    case newsTypes.CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: null,
+      }
+
     case newsTypes.GET_NEWS_ERROR:
       return {
         ...state,

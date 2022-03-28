@@ -1,32 +1,31 @@
-import React, { Fragment, useEffect, useContext } from "react"
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import Nav from "../reusables/navigation/Nav/Nav"
 import { Card, Row, Col } from "react-bootstrap"
-import Loader from "../loader/Loader"
-import Footer from "../reusables/navigation/Footer/Footer"
+import Loader from "../../components/loader/Loader"
 import "./about.css"
-import newsContext from "../../context/news/NewsContext"
-import { LargeSizeAds } from "../homepage/ads/Ads"
+import * as newsActions from "../../store/actions/newsActions"
+import { LargeSizeAds } from "../../components/homepage/ads/Ads"
 import bannerAds from "./../../assets/images/bannerads.png"
-import { useViewPort } from "../hooks/Viewport"
+import { useViewPort } from "../../components/hooks/Viewport"
+import Layout from "../../components/layout/mainlayout/Layout"
 
 const AboutComponent = () => {
-  const context = useContext(newsContext)
-  const { loading, getNews, news } = context
+  const dispatch = useDispatch()
+  const getAllNews = useSelector((state) => state.getNews)
+  const { loading, news } = getAllNews
   const { width } = useViewPort()
   const breakPoint = 991
 
   useEffect(() => {
-    getNews()
-    //eslint-disable-next-line
-  }, [])
+    dispatch(newsActions.getNews())
+  }, [dispatch])
 
-  if (news === null || loading) {
+  if (loading) {
     return <Loader />
   }
   return (
-    <Fragment>
-      <Nav />
+    <Layout>
       <div className="cnt-page">
         <div className="about-us-header"></div>
         <div className="contact-section">
@@ -61,7 +60,7 @@ const AboutComponent = () => {
                     </div>
                     <div className="about-board-cards">
                       <Row xs={1} md={2} className="g-4">
-                        {news === null || loading ? (
+                        {loading ? (
                           <div></div>
                         ) : !loading && news.length === 0 ? (
                           <div></div>
@@ -104,7 +103,7 @@ const AboutComponent = () => {
                   </div>
                   {width > breakPoint ? (
                     <div className="trump-board">
-                      {news === null || loading ? (
+                      {loading ? (
                         ""
                       ) : !loading && news.length === 0 ? (
                         <h5>No trends</h5>
@@ -155,8 +154,7 @@ const AboutComponent = () => {
           </div>
         </div>
       </div>
-      <Footer />
-    </Fragment>
+    </Layout>
   )
 }
 

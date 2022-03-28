@@ -1,22 +1,24 @@
-import React, { useContext, useRef, useEffect } from 'react'
-import newsContext from '../../../context/news/NewsContext'
+import React, { useRef, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import * as newsActions from "../../../store/actions/newsActions"
 
 const SearchForm = () => {
-  const context = useContext(newsContext)
-  const { filterNews, clearFilterNews, filtered } = context
-  const text = useRef('')
+  const dispatch = useDispatch()
+  const getNews = useSelector((state) => state.getNews)
+  const { filtered } = getNews
+  const text = useRef("")
 
   useEffect(() => {
     if (filtered === null) {
-      text.current.value = ''
+      text.current.value = ""
     }
   }, [filtered])
 
   const handleChange = (e) => {
-    if (text.current.value !== '') {
-      filterNews(e.target.value)
+    if (text.current.value !== "") {
+      dispatch(newsActions.filterNews(e.target.value))
     } else {
-      clearFilterNews()
+      dispatch(newsActions.clearFilterNews())
     }
   }
 

@@ -111,3 +111,11 @@ export const addView = (formData) => async (dispatch) => {
     })
   }
 }
+
+export const filterNews = (text) => (dispatch) => {
+  dispatch({ type: newsTypes.FILTER_NEWS, payload: text })
+}
+
+export const clearFilterNews = () => (dispatch) => {
+  dispatch({ type: newsTypes.CLEAR_FILTER })
+}

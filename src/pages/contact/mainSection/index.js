@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
-import './index.css'
-import ContactAds from './ContactsAds'
-import { useViewPort } from '../../hooks/Viewport'
+import React, { useState } from "react"
+import "./index.css"
+import ContactAds from "./ContactsAds"
+import { useViewPort } from "../../../components/hooks/Viewport"
 
 const MainSection = () => {
   const [contact, setContact] = useState({
-    subject: '',
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
+    subject: "",
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   })
-  
+
   const { width } = useViewPort()
   const breakpoint = 762
 
@@ -23,11 +23,11 @@ const MainSection = () => {
     e.preventDefault()
     console.log(contact)
     setContact({
-      subject: '',
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
+      subject: "",
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
     })
   }
 
@@ -109,7 +109,7 @@ const MainSection = () => {
                   <ContactAds />
                 </div>
               ) : (
-                ''
+                ""
               )}
             </div>
           </div>

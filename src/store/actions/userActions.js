@@ -1,5 +1,6 @@
 import * as userTypes from "../constants/userTypes"
 import { withoutAuthToken, withAuthToken } from "../../utils/axios"
+import axios from "axios"
 
 export const createUser = (formData) => async (dispatch) => {
   try {
@@ -24,6 +25,42 @@ export const createUser = (formData) => async (dispatch) => {
   }
 }
 
+export const getUser = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: userTypes.GET_USER_REQUEST,
+    })
+
+    const {
+      loginUser: { token },
+    } = getState()
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_BASE_URL}user`,
+      config
+    )
+
+    dispatch({
+      type: userTypes.GET_USER_SUCCESS,
+      payload: data,
+    })
+
+    localStorage.setItem("authuser", JSON.stringify(data))
+  } catch (error) {
+    dispatch({
+      type: userTypes.GET_USER_ERROR,
+      payload: error && error.message,
+    })
+  }
+}
+
 export const loginUser = (formData) => async (dispatch) => {
   try {
     dispatch({
@@ -36,9 +73,8 @@ export const loginUser = (formData) => async (dispatch) => {
       type: userTypes.USER_LOGIN_SUCCESS,
       payload: data,
     })
-
-    localStorage.setItem("user", JSON.stringify(data.data))
     localStorage.setItem("token", data.token)
+    localStorage.setItem("user", JSON.stringify(data.data))
   } catch (error) {
     dispatch({
       type: userTypes.USER_LOGIN_ERROR,
@@ -67,10 +103,7 @@ export const getPlans = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: userTypes.GET_PLANS_ERROR,
-      payload:
-        error.message && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error && error.message,
     })
   }
 }
@@ -113,31 +146,6 @@ export const userEmailSub = (email) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: userTypes.USER_SUB_ERROR,
-      payload:
-        error.message && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    })
-  }
-}
-
-export const getUser = () => async (dispatch) => {
-  try {
-    dispatch({
-      type: userTypes.GET_USER_REQUEST,
-    })
-
-    const { data } = await withAuthToken.get("/user")
-
-    dispatch({
-      type: userTypes.GET_USER_SUCCESS,
-      payload: data,
-    })
-
-    localStorage.setItem("authuser", JSON.stringify(data))
-  } catch (error) {
-    dispatch({
-      type: userTypes.GET_USER_ERROR,
       payload:
         error.message && error.response.data.message
           ? error.response.data.message

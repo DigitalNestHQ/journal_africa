@@ -15,6 +15,7 @@ import {
   getWordpressReducer,
   getCategoryReducer,
   getSingleNewsReducer,
+  addViewReducer,
 } from "./reducers/newsReducers"
 
 const reducer = combineReducers({
@@ -29,6 +30,7 @@ const reducer = combineReducers({
   getCategory: getCategoryReducer,
   getSingleNews: getSingleNewsReducer,
   getUser: getUserReducer,
+  addView: addViewReducer,
 })
 
 const tokenFromStorage = localStorage.getItem("token")

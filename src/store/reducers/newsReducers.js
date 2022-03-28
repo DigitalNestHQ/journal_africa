@@ -135,3 +135,36 @@ export const getSingleNewsReducer = (
       return state
   }
 }
+
+export const addViewReducer = (
+  state = { loading: false, error: null, message: null },
+  { type, payload }
+) => {
+  switch (type) {
+    case newsTypes.ADD_VIEW_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      }
+
+    case newsTypes.ADD_VIEW_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        message: payload.message,
+      }
+    case newsTypes.ADD_VIEW_ERROR:
+      return {
+        ...state,
+        error: payload,
+        loading: false,
+      }
+    case newsTypes.CLEAR_NEWS_ERRORS:
+      return {
+        ...state,
+        error: null,
+      }
+    default:
+      return state
+  }
+}

@@ -19,28 +19,20 @@ import "../../pages/category/newscategory.css"
 import RelatedNews from "./RelatedNews"
 import ShareNews from "./ShareNews"
 import Paging from "../reusables/Paging"
-import axios from "axios"
 import Moment from "react-moment"
 
 const GetNews = () => {
   const dispatch = useDispatch()
+  // declaring redux reducers states and destructring thier property values
   const loginUser = useSelector((state) => state.loginUser)
-  const { token, user: loggedInUser } = loginUser
+  const { token } = loginUser
   const getUser = useSelector((state) => state.getUser)
-  const {
-    loading: getUserLoading,
-    user: authUser,
-    error: getUserError,
-  } = getUser
+  const { user: authUser } = getUser
   const getAllNews = useSelector((state) => state.getNews)
-  const { loading: getNewsLoading, error: getNewsError, news } = getAllNews
+  const { loading: getNewsLoading, news } = getAllNews
 
   const getSinglePost = useSelector((state) => state.getSingleNews)
-  const {
-    loading: singlePostLoading,
-    error: singlePostError,
-    singleNews,
-  } = getSinglePost
+  const { loading: singlePostLoading, singleNews } = getSinglePost
 
   const [currentPage, setCurrentPage] = useState(1)
   const { slug } = useParams()
@@ -77,23 +69,21 @@ const GetNews = () => {
   useEffect(() => {
     dispatch(newsActions.getSingleNews(slug))
     dispatch(newsActions.getNews())
-    dispatch(userActions.getUser())
-    // const addView = async () => {
-    //   const id = {
-    //     id: `${singleNews && singleNews.id}`,
-    //   }
-    //   try {
-    //     const res = await axios.post(
-    //       "https://api.tv24africa.com/api/v1/add/view",
-    //       id
-    //     )
-    //     console.log(res)
-    //   } catch (error) {
-    //     console.log(error)
-    //   }
-    // }
-    // addView()
   }, [dispatch, slug])
+
+  useEffect(() => {
+    if (token) dispatch(userActions.getUser())
+  }, [dispatch, token])
+
+  useEffect(() => {
+    if (singleNews === null) {
+      return
+    } else {
+      if (singleNews.id) {
+        dispatch(newsActions.addView({ id: `${singleNews.id}` }))
+      }
+    }
+  }, [dispatch, singleNews])
 
   if (singlePostLoading || getNewsLoading) {
     return <Loader />
@@ -123,7 +113,7 @@ const GetNews = () => {
         <div className="s-n-content-grid">
           <div className="s-n-left-content">
             {!singlePostLoading && singleNews === null ? (
-              <h5>Post Unavailable</h5>
+              <h5>Post Unavailable - Please check your internet connection</h5>
             ) : (
               <div className="available-content">
                 <h5 className="news-post-title section-heading-default">
@@ -151,37 +141,37 @@ const GetNews = () => {
                 <div className="main-content">
                   {ReactHtmlParser(
                     `${
-                      singleNews.post_type === "premium" && token
-                        ? authUser.subscription_status
-                          ? singleNews.post_description
-                          : singleNews.post_description.substring(0, 1500)
-                        : singleNews.post_type === "premium" && token === null
-                        ? singleNews.post_description.substring(0, 1500)
-                        : singleNews.post_description
+                      singleNews?.post_type === "premium" && token !== null
+                        ? authUser?.subscription_status
+                          ? singleNews?.post_description
+                          : singleNews?.post_description.substring(0, 1500)
+                        : singleNews?.post_type === "premium" && token === null
+                        ? singleNews?.post_description.substring(0, 1500)
+                        : singleNews?.post_description
                     }`,
                     HtmlParseOptions
                   )}
                 </div>
-                {singleNews.post_type === "premium" && token ? (
-                  authUser.subscription_status ? (
+                {singleNews?.post_type === "premium" && token ? (
+                  authUser?.subscription_status ? (
                     <div></div>
                   ) : (
                     <div className="blur-content"></div>
                   )
-                ) : singleNews.post_type === "premium" && token === null ? (
+                ) : singleNews?.post_type === "premium" && token === null ? (
                   <div className="blur-content"></div>
                 ) : (
                   <div className=""></div>
                 )}
                 <div className="check-mate">
-                  {singleNews.post_type === "premium" && token ? (
-                    authUser.subscription_status ? (
+                  {singleNews?.post_type === "premium" && token === null ? (
+                    <LoggedInNotSubscribed />
+                  ) : singleNews?.post_type === "premium" && token !== null ? (
+                    authUser?.subscription_status ? (
                       ""
                     ) : (
                       <LoggedInNotSubscribed />
                     )
-                  ) : singleNews.post_type === "free" ? (
-                    <LoggedInNotSubscribed />
                   ) : (
                     <NotLoggedIn />
                   )}
@@ -235,7 +225,10 @@ const GetNews = () => {
             </div>
             <div className="trending-posts">
               {!getNewsLoading && news.length === 0 ? (
-                <h5 className="text-dark">No trending news available</h5>
+                <h5 className="text-dark">
+                  No trending news available - Please check your internet
+                  connection
+                </h5>
               ) : (
                 news
                   .sort((a, b) =>

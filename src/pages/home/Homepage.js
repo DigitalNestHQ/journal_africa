@@ -49,11 +49,11 @@ const Homepage = () => {
     )
   } else {
     return (
-      <Layout>
-        <p style={{ textAlign: "center" }}>
+      <Layout category={true}>
+        <h3 className="error-message">
           No news Found - Please check your internet connection or reload the
           page
-        </p>
+        </h3>
       </Layout>
     )
   }

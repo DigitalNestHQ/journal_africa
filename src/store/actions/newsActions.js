@@ -19,10 +19,7 @@ export const getNews = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: newsTypes.GET_NEWS_ERROR,
-      payload:
-        error.message && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error && error.message,
     })
   }
 }
@@ -46,10 +43,7 @@ export const getWordpressNews = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: newsTypes.GET_WORDPRESS_NEWS_ERROR,
-      payload:
-        error.message && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error && error.message,
     })
   }
 }
@@ -71,10 +65,7 @@ export const getCategoryNews = (category) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: newsTypes.GET_CATEGORY_ERROR,
-      payload:
-        error.message && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error && error.message,
     })
   }
 }
@@ -87,9 +78,7 @@ export const getSingleNews = (slug) => async (dispatch) => {
 
     const {
       data: { data },
-    } = await withoutAuthToken.get(
-      `https://api.journal.africa/api/v1/getpost/${slug}`
-    )
+    } = await withoutAuthToken.get(`/getpost/${slug}`)
 
     dispatch({
       type: newsTypes.GET_NEWS_A_SUCCESS,
@@ -98,10 +87,27 @@ export const getSingleNews = (slug) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: newsTypes.GET_NEWS_A_ERROR,
-      payload:
-        error.message && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error && error.message,
+    })
+  }
+}
+
+export const addView = (formData) => async (dispatch) => {
+  try {
+    dispatch({
+      type: newsTypes.ADD_VIEW_REQUEST,
+    })
+
+    const { data } = await withoutAuthToken.post(`/add/view`, formData)
+
+    dispatch({
+      type: newsTypes.ADD_VIEW_SUCCESS,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: newsTypes.ADD_VIEW_ERROR,
+      payload: error,
     })
   }
 }

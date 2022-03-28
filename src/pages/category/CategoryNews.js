@@ -41,7 +41,7 @@ const CategoryNews = () => {
       {!categoryLoading && categoryNews.length === 0 ? (
         <div className="category-comp-heading">
           <h5 className="category-header section-heading-default">
-            No news available
+            No news available - Please check your internet connection
           </h5>
         </div>
       ) : (
@@ -59,7 +59,9 @@ const CategoryNews = () => {
         <div className="categ-content-grid">
           <div className="cat-right-content">
             {!categoryLoading && categoryNews.length === 0 ? (
-              <h5 className="text-dark">No news available</h5>
+              <h5 className="text-dark">
+                No news available- Please check your internet connection
+              </h5>
             ) : (
               categoryNews.slice(0, numberOfCategCard).map((eachCard) => (
                 <Link
@@ -93,7 +95,10 @@ const CategoryNews = () => {
             </div>
             <div className="trending-posts">
               {!newsLoading && news.length === 0 ? (
-                <h5 className="text-dark">No trending news available</h5>
+                <h5 className="text-dark">
+                  No trending news available - Please check your internet
+                  connection
+                </h5>
               ) : (
                 news
                   .sort((a, b) =>

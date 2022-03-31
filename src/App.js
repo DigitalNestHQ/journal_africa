@@ -25,8 +25,6 @@ import { WriteForUs } from "./pages/writeforus/WriteForUs"
 import Copyright from "./pages/privacyPolicy/Copyright"
 
 import SearchNews from "./components/generalNews/searchComponent/SearchNews"
-import { SoundLayer } from "./context/podcast/SoundLayer"
-import soundReducer, { soundInitialState } from "./context/podcast/soundReducer"
 import ScrollTopBotton from "./components/reusables/scrollButton/ScrollTopBotton"
 import "./../src/components/reusables/utilities/index.css"
 import "./App.css"
@@ -34,54 +32,40 @@ import "./App.css"
 const App = () => {
   return (
     <div className="app">
-      <SoundLayer initialState={soundInitialState} reducer={soundReducer}>
-        <Switch>
-          <Route exact path={pageurl.HOMEPAGE} component={HomePage} />
-          <Route exact path={pageurl.PRIVACYPOLICY} component={PrivacyPolicy} />
-          <Route exact path="/copyright" component={Copyright} />
-          <Route exact path={pageurl.SUBSCRIBE} component={Subscribe} />
-          <Route exact path={pageurl.FAQ} component={Faq} />
-          <Route exact path={pageurl.ADVERTISING} component={Advertising} />
-          <Route
-            exact
-            path={pageurl.SIGNUPSUCCESSFUL}
-            component={SuccessPage}
-          />
-          <Route exact path="/about" component={AboutUs} />
-          <Route exact path={pageurl.CODEOFETHICS} component={CodeOfEthics} />
-          <Route exact path={pageurl.WRITEFORUS} component={WriteForUs} />
-          <Route exact path="/post/:slug" component={NewsFeeds} />
-          <Route exact path="/latest/:slug" component={LatestDaily} />
-          <Route exact path="/news/categories" component={CategoryNews} />
-          <Route exact path="/search" component={SearchNews} />
-          <Route
-            exact
-            path="/news/sub-categories"
-            component={SubcategoryNews}
-          />
-          <Route exact path={pageurl.PODCAST} component={PodcastHome} />
-          <Route
-            exact
-            path="/podcast/single/:collectionId"
-            component={CurrentPodCastPlayer}
-          />
-          <Route
-            exact
-            path="/podcast/:collectionId"
-            component={CurrentPodCast}
-          />
-          <Route
-            exact
-            path={pageurl.TERMSANDCONDITIONS}
-            component={TermsAndConditions}
-          />
-          <Route path="/login" component={Login} />
-          <Route exact path={pageurl.CONTACTUS} component={ContactUs} />
-          <Route exact path={pageurl.SIGNUP} component={Signup} />
-          <Route component={Error404} />
-        </Switch>
-        <ScrollTopBotton />
-      </SoundLayer>
+      <Switch>
+        <Route exact path={pageurl.HOMEPAGE} component={HomePage} />
+        <Route exact path={pageurl.PRIVACYPOLICY} component={PrivacyPolicy} />
+        <Route exact path="/copyright" component={Copyright} />
+        <Route exact path={pageurl.SUBSCRIBE} component={Subscribe} />
+        <Route exact path={pageurl.FAQ} component={Faq} />
+        <Route exact path={pageurl.ADVERTISING} component={Advertising} />
+        <Route exact path={pageurl.SIGNUPSUCCESSFUL} component={SuccessPage} />
+        <Route exact path="/about" component={AboutUs} />
+        <Route exact path={pageurl.CODEOFETHICS} component={CodeOfEthics} />
+        <Route exact path={pageurl.WRITEFORUS} component={WriteForUs} />
+        <Route exact path="/post/:slug" component={NewsFeeds} />
+        <Route exact path="/latest/:slug" component={LatestDaily} />
+        <Route exact path="/news/categories" component={CategoryNews} />
+        <Route exact path="/search" component={SearchNews} />
+        <Route exact path="/news/sub-categories" component={SubcategoryNews} />
+        <Route exact path={pageurl.PODCAST} component={PodcastHome} />
+        <Route
+          exact
+          path="/podcast/single/:collectionId"
+          component={CurrentPodCastPlayer}
+        />
+        <Route exact path="/podcast/:collectionId" component={CurrentPodCast} />
+        <Route
+          exact
+          path={pageurl.TERMSANDCONDITIONS}
+          component={TermsAndConditions}
+        />
+        <Route path="/login" component={Login} />
+        <Route exact path={pageurl.CONTACTUS} component={ContactUs} />
+        <Route exact path={pageurl.SIGNUP} component={Signup} />
+        <Route component={Error404} />
+      </Switch>
+      <ScrollTopBotton />
     </div>
   )
 }

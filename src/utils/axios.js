@@ -6,6 +6,7 @@ export const withAuthToken = axios.create({
   baseURL: baseURL,
   headers: {
     "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
     Authorization: `Bearer ${token}`,
   },
 })
@@ -14,5 +15,6 @@ export const withoutAuthToken = axios.create({
   baseURL: baseURL,
   headers: {
     "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
   },
 })

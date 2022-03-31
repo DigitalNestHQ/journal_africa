@@ -1,34 +1,25 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import { useParams } from "react-router-dom"
-import axios from "axios"
+import { useSelector, useDispatch } from "react-redux"
+import * as podcastsActions from "../../../store/actions/podcastActions"
 import NavBar from "../../../components/reusables/navigation/Nav/Nav"
 import Footer from "../../../components/reusables/navigation/Footer/Footer"
 import Loader from "../../../components/loader/Loader"
-import { BASE_URL } from "../../../utils/constants"
 import CurrentPodcastDetails from "./CurrentPodcastDetails"
 import CurrentPodcastHeader from "./CurrentPodcastHeader"
 import "./currentpodcast-style.css"
 
 const CurrentPodCast = () => {
   const { collectionId } = useParams()
-  const [podcast, setPodcast] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch()
+  const getSinglePodcasts = useSelector((state) => state.getSinglePodcasts)
+  const { loading, error, podcast } = getSinglePodcasts
 
   useEffect(() => {
-    const fetchPods = async () => {
-      setLoading(true)
-      getPodcast(collectionId)
-        .then((data) => {
-          setPodcast(data)
-          setLoading(false)
-        })
-        .catch((error) => console.log(error))
-    }
-    fetchPods()
-    // gettPodcast()
-  }, [collectionId])
+    dispatch(podcastsActions.getSinglePodcasts(collectionId))
+  }, [collectionId, dispatch])
 
-  if (podcast === null || loading) {
+  if (loading) {
     return <Loader />
   }
 
@@ -40,8 +31,10 @@ const CurrentPodCast = () => {
       <NavBar />
       <div className="section-content-default pod-content">
         <div className="section-wrapper-default">
-          {podcast.length === 0 && !loading ? (
-            <h5>No episodes available</h5>
+          {(podcast.length === 0 && !loading) || error ? (
+            <h5>
+              No episodes available - Please check your internet connection
+            </h5>
           ) : (
             <div>
               <CurrentPodcastHeader podcastDetails={podcastDetails} />
@@ -55,11 +48,3 @@ const CurrentPodCast = () => {
   )
 }
 export default CurrentPodCast
-
-const getPodcast = async (collectionId) => {
-  const response = await axios.get(
-    `${BASE_URL}lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=400`
-  )
-
-  return response.data.results
-}

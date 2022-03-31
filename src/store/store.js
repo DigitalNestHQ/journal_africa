@@ -18,6 +18,12 @@ import {
   addViewReducer,
 } from "./reducers/newsReducers"
 
+import {
+  getPodcastReducer,
+  getSinglePodcastsReducer,
+  playEpisodeReducer,
+} from "./reducers/podcastReducers"
+
 const reducer = combineReducers({
   alert: alertReducer,
   createUser: createUserReducer,
@@ -31,6 +37,9 @@ const reducer = combineReducers({
   getSingleNews: getSingleNewsReducer,
   getUser: getUserReducer,
   addView: addViewReducer,
+  getPodcast: getPodcastReducer,
+  getSinglePodcasts: getSinglePodcastsReducer,
+  currentTrack: playEpisodeReducer,
 })
 
 const tokenFromStorage = localStorage.getItem("token")

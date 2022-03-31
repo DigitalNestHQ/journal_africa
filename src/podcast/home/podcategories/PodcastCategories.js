@@ -1,8 +1,8 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import play_button from '../../../assets/images/play_button.svg'
-import './podnavbar.css'
+import React from "react"
+import { useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
+import play_button from "../../../assets/images/play_button.svg"
+import "./podnavbar.css"
 const PodcastCategories = ({ header, podcasts }) => {
   const history = useHistory()
   return (
@@ -17,7 +17,6 @@ const PodcastCategories = ({ header, podcasts }) => {
           <div key={podcast.collectionName} className="pod-collections">
             <div className="pod-grid">
               <div className="pod-img-container">
-                {/* <p className="pod-title">{podcast.collectionName}</p> */}
                 <img
                   src={podcast.artworkUrl600}
                   alt="podcast-artwork"

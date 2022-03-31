@@ -1,41 +1,39 @@
-import React, { Fragment, useContext, useEffect } from 'react'
-import Navbar from '../../reusables/navigation/Nav/nav'
-import Footer from '../../reusables/navigation/Footer/footer'
-import SearchForm from './SearchForm'
-import newsContext from '../../../context/news/NewsContext'
-import SearchComponent from './SearchComponent'
-import Loader from '../../loader/Loader'
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import * as newsActions from "../../../store/actions/newsActions"
+import Layout from "../../../components/layout/mainlayout/Layout"
+import SearchForm from "./SearchForm"
+import SearchComponent from "./SearchComponent"
+import Loader from "../../loader/Loader"
 
 const SearchNews = () => {
-  const context = useContext(newsContext)
-  const { news, filtered, getNews, loading } = context
+  const dispatch = useDispatch()
+  const getAllNews = useSelector((state) => state.getNews)
+  const { loading, news, filtered, error } = getAllNews
 
   useEffect(() => {
-    getNews()
-    //eslint-disable-next-line
-  }, [])
+    dispatch(newsActions.getNews())
+  }, [dispatch])
 
-  if ( news === null || loading ){
-    <Loader/>
+  if (loading) {
+    return <Loader />
   }
 
   return (
-    <Fragment>
-      <Navbar />
-      <main className="cat-section section-content-default">
-        <div className="section-wrapper-default">
-          <SearchForm />
-          <div className="categ-content py-3 px-3">
-            <div className="search-news">
-              <div className="main-search-content">
-                <SearchComponent filtered={filtered} news={news} />
-              </div>
-            </div>
+    <Layout category={true}>
+      <SearchForm />
+      <div className="categ-content py-3 px-3">
+        <div className="search-news">
+          <div className="main-search-content">
+            {!loading && news.length === 0 ? (
+              <h4>No news available</h4>
+            ) : (
+              <SearchComponent filtered={filtered} news={news} />
+            )}
           </div>
         </div>
-      </main>
-      <Footer />
-    </Fragment>
+      </div>
+    </Layout>
   )
 }
 

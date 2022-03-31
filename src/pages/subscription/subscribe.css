@@ -1,0 +1,139 @@
+.subscribe-heading {
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  margin: 1.9rem 0;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+.pay-currency-option {
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  margin-bottom: 2.5rem;
+}
+.pay-in-currency {
+  margin-bottom: 1.5rem;
+  display: block;
+  width: 100%;
+}
+.sub-curency {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-curency > * + * {
+  margin: 0 0 0 2rem;
+}
+
+.sub-curency_ngn,
+.sub-curency_usd {
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.sub-curency_ngn:hover,
+.sub-curency_usd:hover {
+  opacity: 0.9;
+}
+.sub-curency_ngn {
+  background-color: rgb(2, 78, 2);
+  color: #fff;
+}
+.sub-curency_usd {
+  background-color: red;
+  color: #fff;
+}
+
+.subscirbe-flex-cards {
+  padding: 0 7.125rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.subscirbe-flex-cards > * + * {
+  margin: 0 0 0 2rem;
+}
+
+.subscription-cards {
+  padding: 1.5rem;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+}
+.subscribtion-header {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  line-height: 21px;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+.subscription-desc {
+  font-size: inherit;
+  font-weight: 300;
+}
+.pricing {
+  color: red;
+  font-weight: bold;
+  font-size: inherit;
+}
+.monthly-pricing {
+  font-size: inherit;
+  line-height: 14px;
+  display: block;
+}
+.subscription-btn {
+  border: none;
+  margin-top: 0.7rem;
+  padding: 0.5rem;
+  border-radius: 7px;
+  outline: none;
+  background-color: red;
+  color: #fff;
+  display: block;
+  width: 100%;
+}
+.subscription-btn:hover {
+  opacity: 0.9;
+  color: #fff;
+}
+
+@media (max-width: 993px) {
+  .subscirbe-flex-cards {
+    padding: 2rem 7.125rem;
+    display: block;
+  }
+  .subscirbe-flex-cards > * + * {
+    margin: 2rem 0 0 0;
+  }
+  .subscribe-main-content {
+    display: block;
+  }
+  .subscription-cards {
+    margin-bottom: 1.3rem;
+  }
+  .subscribe-board {
+    height: 70.063rem;
+  }
+  .pay-currency-option {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+  }
+}
+@media (max-width: 650px) {
+  .subscirbe-flex-cards {
+    padding: 2rem;
+  }
+  .subscribe-heading {
+    margin: 3.5rem 0 0 0;
+  }
+}

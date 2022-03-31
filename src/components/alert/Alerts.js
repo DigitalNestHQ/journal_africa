@@ -1,16 +1,23 @@
-import React, { useContext } from "react";
-import AlertContext from "../../context/alert/alertContext";
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { removeAlert } from "../../store/actions/alertActions"
 
 const Alerts = () => {
-  const alertContext = useContext(AlertContext);
+  const dispatch = useDispatch()
+  const alert = useSelector((state) => state.alert)
   return (
-    alertContext.alerts.length > 0 &&
-    alertContext.alerts.map((alert) => {
-     return <div key={alert.id} className={`alert alert-${alert.type}`}>
-        {alert.msg}
-      </div>;
+    alert.length > 0 &&
+    alert.map(({ type, message, id }) => {
+      return (
+        <div key={id} className={`alert alert-${type}`}>
+          {message}
+          <button type="button" className="close">
+            <span onClick={() => dispatch(removeAlert(id))}>&times;</span>
+          </button>
+        </div>
+      )
     })
-  );
-};
+  )
+}
 
-export default Alerts;
+export default Alerts

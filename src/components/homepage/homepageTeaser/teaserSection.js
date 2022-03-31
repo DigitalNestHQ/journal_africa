@@ -1,40 +1,34 @@
-import React, { useContext } from 'react'
-import 'aos/dist/aos.css'
-import { Link } from 'react-router-dom'
-import cybertruck from '../../../assets/images/cybertruck1.jpg'
-import { useViewPort } from '../../../components/hooks/Viewport'
-import './teaser.css'
-import TeaserLatestCard from './TeaserLatestCard'
-import TeaserPolitics from './TeaserPolitics'
-import newsContext from '../../../context/news/NewsContext'
+import React from "react"
+import { Link } from "react-router-dom"
+import cybertruck from "../../../assets/images/cybertruck1.jpg"
+import { useViewPort } from "../../../components/hooks/Viewport"
+import "./teaser.css"
+import TeaserLatestCard from "./TeaserLatestCard"
+import TeaserPolitics from "./TeaserPolitics"
+import { useSelector } from "react-redux"
 
 const TeaserSection = ({ data }) => {
-  const context = useContext(newsContext)
-  const { latestLoading, latestNews } = context
+  const getWordpress = useSelector((state) => state.getWordpress)
+  const { loading, wordpressNews } = getWordpress
 
-  const politics = data.filter((post) => post.category_id === 'Politics')
+  const politics = data.filter((post) => post.category_id === "Politics")
   const discoverAfrica = data.filter(
-    (post) => post.category_id === 'Discover Africa',
+    (post) => post.category_id === "Discover Africa"
   )
 
   const culture = discoverAfrica.filter(
-    (post) => post.sub_category === 'Culture',
+    (post) => post.sub_category === "Culture"
   )
-  const places = discoverAfrica.filter((post) => post.sub_category === 'Places')
+  const places = discoverAfrica.filter((post) => post.sub_category === "Places")
   const lifestyle = discoverAfrica.filter(
-    (post) => post.sub_category === 'Lifestyle',
+    (post) => post.sub_category === "Lifestyle"
   )
 
-  const people = discoverAfrica.filter((post) => post.sub_category === 'People')
+  const people = discoverAfrica.filter((post) => post.sub_category === "People")
   const { width } = useViewPort()
   const breakpoint = 991
 
-  // Select 1 news from each category
   const selectedTeasers = [culture[0], places[0], lifestyle[0], people[0]]
-
-  if (selectedTeasers.length === 0 || latestNews === null) {
-    return null;
-  }
 
   return (
     <section className="discover section-content-default ">
@@ -47,36 +41,40 @@ const TeaserSection = ({ data }) => {
                   Discover Africa
                 </h5>
                 <div className="africa-cards">
-                  {selectedTeasers.map((eachCard) => (
-                    <div className="sub-categ-card" key={eachCard.id}>
-                      <div className="a-img-container">
-                        <img
-                          src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
-                          alt={eachCard.sub_category}
-                          className="f-img"
-                        />
+                  {selectedTeasers.length === 0 ? (
+                    <p className="text-white">No news found</p>
+                  ) : (
+                    selectedTeasers.map((eachCard) => (
+                      <div className="sub-categ-card" key={eachCard.id}>
+                        <div className="a-img-container">
+                          <img
+                            src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
+                            alt={eachCard.sub_category}
+                            className="f-img"
+                          />
+                        </div>
+                        <Link
+                          to={{
+                            pathname: "/news/sub-categories",
+                            search: `?subcategory=${eachCard.sub_category}`,
+                          }}
+                          className="dest slug-default"
+                        >
+                          {eachCard.sub_category}
+                        </Link>
+                        <Link
+                          to={`/post/${eachCard.slug}`}
+                          className="a-text africa-discover-link"
+                        >
+                          {eachCard.slug}
+                        </Link>
                       </div>
-                      <Link
-                        to={{
-                          pathname: '/news/sub-categories',
-                          search: `?subcategory=${eachCard.sub_category}`,
-                        }}
-                        className="dest slug-default"
-                      >
-                        {eachCard.sub_category}
-                      </Link>
-                      <Link
-                        to={`/post/${eachCard.slug}`}
-                        className="a-text africa-discover-link"
-                      >
-                        {eachCard.slug}
-                      </Link>
-                    </div>
-                  ))}
+                    ))
+                  )}
                 </div>
                 <Link
                   to={{
-                    pathname: '/news/categories',
+                    pathname: "/news/categories",
                     search: `?category=Discovery Africa`,
                   }}
                   className="explore-white-btn"
@@ -103,7 +101,7 @@ const TeaserSection = ({ data }) => {
                 </div>
                 <Link
                   to={{
-                    pathname: '/news/categories',
+                    pathname: "/news/categories",
                     search: `?category=Politics`,
                   }}
                   className="explore-red-btn"
@@ -123,10 +121,10 @@ const TeaserSection = ({ data }) => {
                   <img src={cybertruck} alt="tesla" className="l-img" />
                 </div>
                 <div className="latest-content">
-                  {!latestLoading && latestNews.length === 0 ? (
+                  {!loading && wordpressNews.length === 0 ? (
                     <h5>No news Available</h5>
                   ) : (
-                    latestNews.slice(0, 4).map((eachCard) => (
+                    wordpressNews.slice(0, 4).map((eachCard) => (
                       <Link
                         to={`/latest/${eachCard.post_title}`}
                         className="lastest-card-link"
@@ -144,7 +142,7 @@ const TeaserSection = ({ data }) => {
               </div>
             </div>
           ) : (
-            ''
+            ""
           )}
         </div>
       </div>

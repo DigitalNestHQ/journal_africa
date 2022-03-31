@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { pageurl } from '../../../../utils/constants'
-import { Link } from 'react-router-dom'
-import './nav.css'
+import React, { useState, useEffect } from "react"
+import { pageurl } from "../../../../utils/constants"
+import { Link } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { logout } from "../../../../store/actions/userActions"
+import "./nav.css"
 
-const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
+const MobileNav = ({ menu, handleMenuClick, token }) => {
+  const dispatch = useDispatch()
   const [active, setActive] = useState(1)
 
   useEffect(() => {
@@ -11,32 +14,32 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
       handleMenuClick()
     }
 
-    const list = document.getElementById('list')
-    const links = list.getElementsByTagName('a')
+    const list = document.getElementById("list")
+    const links = list.getElementsByTagName("a")
     Array.from(links).forEach((link) => {
-      link.addEventListener('click', handleMenuHide)
+      link.addEventListener("click", handleMenuHide)
     })
 
     return () => {
       Array.from(links).forEach((link) => {
-        link.removeEventListener('click', handleMenuHide)
+        link.removeEventListener("click", handleMenuHide)
       })
     }
   }, [handleMenuClick])
 
   return (
-    <div className={`mobile-menu ${menu ? 'display' : 'hide'}`}>
+    <div className={`mobile-menu ${menu ? "display" : "hide"}`}>
       <div className="mobile-link-container" id="list">
         <ul className="mobile-list">
           <li
             className={`mobile-list-item ${
-              active === 1 ? 'mobile-active' : ''
+              active === 1 ? "mobile-active" : ""
             }`}
           >
             <Link
               to={pageurl.HOMEPAGE}
               className={`${
-                active === 1 ? 'mobile-link-active' : 'mobile-link-inactive'
+                active === 1 ? "mobile-link-active" : "mobile-link-inactive"
               }`}
               onClick={() => setActive(1)}
             >
@@ -45,16 +48,16 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
           </li>
           <li
             className={`mobile-list-item ${
-              active === 2 ? 'mobile-active' : ''
+              active === 2 ? "mobile-active" : ""
             }`}
           >
             <Link
               to={{
-                pathname: '/news/categories',
+                pathname: "/news/categories",
                 search: `?category=Discover Africa`,
               }}
               className={`${
-                active === 2 ? 'mobile-link-active' : 'mobile-link-inactive'
+                active === 2 ? "mobile-link-active" : "mobile-link-inactive"
               }`}
               onClick={() => setActive(2)}
             >
@@ -64,16 +67,16 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
 
           <li
             className={`mobile-list-item ${
-              active === 3 ? 'mobile-active' : ''
+              active === 3 ? "mobile-active" : ""
             }`}
           >
             <Link
               to={{
-                pathname: '/news/categories',
+                pathname: "/news/categories",
                 search: `?category=Politics`,
               }}
               className={`${
-                active === 3 ? 'mobile-link-active' : 'mobile-link-inactive'
+                active === 3 ? "mobile-link-active" : "mobile-link-inactive"
               }`}
               onClick={() => setActive(3)}
             >
@@ -83,16 +86,16 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
 
           <li
             className={`mobile-list-item ${
-              active === 4 ? 'mobile-active' : ''
+              active === 4 ? "mobile-active" : ""
             }`}
           >
             <Link
               to={{
-                pathname: '/news/categories',
+                pathname: "/news/categories",
                 search: `?category=Business`,
               }}
               className={`${
-                active === 4 ? 'mobile-link-active' : 'mobile-link-inactive'
+                active === 4 ? "mobile-link-active" : "mobile-link-inactive"
               }`}
               onClick={() => setActive(4)}
             >
@@ -101,16 +104,16 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
           </li>
           <li
             className={`mobile-list-item ${
-              active === 5 ? 'mobile-active' : ''
+              active === 5 ? "mobile-active" : ""
             }`}
           >
             <Link
               to={{
-                pathname: '/news/categories',
+                pathname: "/news/categories",
                 search: `?category=Development`,
               }}
               className={`${
-                active === 5 ? 'mobile-link-active' : 'mobile-link-inactive'
+                active === 5 ? "mobile-link-active" : "mobile-link-inactive"
               }`}
               onClick={() => setActive(5)}
             >
@@ -120,13 +123,13 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
 
           <li
             className={`mobile-list-item ${
-              active === 6 ? 'mobile-active' : ''
+              active === 6 ? "mobile-active" : ""
             }`}
           >
             <Link
-              to='/podcast'
+              to="/podcast"
               className={`${
-                active === 6 ? 'mobile-link-active' : 'mobile-link-inactive'
+                active === 6 ? "mobile-link-active" : "mobile-link-inactive"
               }`}
               onClick={() => setActive(6)}
             >
@@ -137,8 +140,8 @@ const MobileNav = ({ menu, handleMenuClick, isAuthenticated, logout }) => {
         <div className="mobile-cta-buttons">
           <ul className="mobile-cta-list">
             <li className="mobile-cta-item">
-              {isAuthenticated ? (
-                <a href="#!" onClick={logout}>
+              {token ? (
+                <a href="#!" onClick={() => dispatch(logout())}>
                   <span className="hide-sm">Sign out</span>
                 </a>
               ) : (

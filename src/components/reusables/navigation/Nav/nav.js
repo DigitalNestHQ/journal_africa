@@ -1,30 +1,27 @@
-import React, { useState, useContext } from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
 import newLogo from "../../../../assets/images/main logo.png"
 import hamburger from "../../../../assets/images/hamburger.svg"
 import close from "../../../../assets/images/close.svg"
-import { useViewPort } from "../../../../components/hooks/Viewport"
+import { useViewPort } from "../../../hooks/Viewport"
 import { pageurl } from "../../../../utils/constants"
 import TopNav from "../../topnav"
 import "./nav.css"
 import "../../header.css"
-import authContext from "../../../../context/auth/authContext"
 import MobileNav from "./MobileNav"
+import { logout } from "../../../../store/actions/userActions"
 
 const Navbar = () => {
-  const userContext = useContext(authContext)
   const { width } = useViewPort()
   const breakpoint = 1250
   const [menu, setMenu] = useState(false)
-  const { isAuthenticated, logOut } = userContext
+  const dispatch = useDispatch()
+  const loginUser = useSelector((state) => state.loginUser)
+  const { token } = loginUser
 
   const handleMenuClick = () => {
     setMenu((prev) => !prev)
-  }
-
-  const logout = (e) => {
-    e.preventDefault()
-    logOut()
   }
 
   return (
@@ -91,8 +88,8 @@ const Navbar = () => {
             <div className="cta-buttons">
               <ul className="cta-list">
                 <li className="cta-item">
-                  {isAuthenticated ? (
-                    <a href="#!" onClick={logout}>
+                  {token ? (
+                    <a href="#!" onClick={() => dispatch(logout())}>
                       <span className="hide-sm">Sign out</span>
                     </a>
                   ) : (
@@ -122,8 +119,7 @@ const Navbar = () => {
         <MobileNav
           menu={menu}
           handleMenuClick={handleMenuClick}
-          isAuthenticated={isAuthenticated}
-          logout={logout}
+          token={token}
         />
       ) : (
         ""

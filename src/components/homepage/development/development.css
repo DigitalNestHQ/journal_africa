@@ -15,7 +15,7 @@
   flex-direction: row;
   align-items: center;
   margin-bottom: 0.7rem;
-  justify-content: stretch;
+  justify-content: space-between;
 }
 
 .fact-check-heading {
@@ -24,13 +24,14 @@
   background-color: red;
   width: 100%;
   padding: 0.5rem;
+  display: block;
+  height: 100%;
 }
 .fa-arrow-right {
-  margin-left: auto;
-  padding: 1rem;
-  height: 100%;
+  padding: 0.5rem;
   color: #fff;
   background-color: #000;
+  display: block;
 }
 
 .fact-img-container {
@@ -76,6 +77,13 @@
   height: 100%;
   display: block;
 }
+.right-check,
+.left-check {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+}
 @media (max-width: 1000px) {
   .fact-content-grid {
     width: 100%;
@@ -93,7 +101,7 @@
   }
 }
 
-@media (max-width: 400px){
+@media (max-width: 400px) {
   .fact-check-list-item > * + * {
     margin: 0 0 0 0.85rem;
   }

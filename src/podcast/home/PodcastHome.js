@@ -1,37 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import PodcastCategories from './podcategories/PodcastCategories'
-import { useViewPort } from '../../components/hooks/Viewport'
-import axios from 'axios'
-import '../../components/homepage/politics/politicsandgovernance.css'
-import './podcasthome.css'
-import NavBar from '../../components/reusables/navigation/Nav/nav'
-import Footer from '../../components/reusables/navigation/Footer/footer'
-import { HOMESCREEN_API_URL } from '../../utils/constants'
-import Loader from '../../components/loader/Loader'
-import cybertruck from '../../assets/images/cybertruck1.jpg'
-
+import React, { useEffect } from "react"
+import PodcastCategories from "./podcategories/PodcastCategories"
+import { useViewPort } from "../../components/hooks/Viewport"
+import "../../components/homepage/politics/politicsandgovernance.css"
+import "./podcasthome.css"
+import NavBar from "../../components/reusables/navigation/Nav/Nav"
+import Footer from "../../components/reusables/navigation/Footer/Footer"
+import Loader from "../../components/loader/Loader"
+import cybertruck from "../../assets/images/cybertruck1.jpg"
+import { useDispatch, useSelector } from "react-redux"
+import * as podcastsActions from "../../store/actions/podcastActions"
 
 const PodcastHome = () => {
-  const [podcasts, setPodcasts] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch()
+  const getPodcast = useSelector((state) => state.getPodcast)
+  const { loading, error, podcasts } = getPodcast
   const { width } = useViewPort()
   const breakpoint = 993
   useEffect(() => {
-    const fetchPods = async () => {
-      setLoading(true)
-      getPodcasts()
-        .then((data) => {
-          setPodcasts(data)
-          setLoading(false)
-        })
-        .catch((err) => console.log(err))
-    }
-    fetchPods()
-  }, [])
+    dispatch(podcastsActions.getPodcasts())
+  }, [dispatch])
 
   let digitalPodcasts, radioPodcasts
 
-  if (podcasts === null || loading) {
+  if (loading) {
     return <Loader />
   }
 
@@ -44,16 +35,18 @@ const PodcastHome = () => {
       <div className="section-content-default pod-content">
         <div className="section-wrapper-default">
           <div className="pod-content-grid">
-            {podcasts.length === 0 && !loading ? (
-              <h5>Podcast unavailable</h5>
+            {(podcasts.length === 0 && !loading) || error ? (
+              <h5>
+                Podcast unavailable - Please check your internet connection
+              </h5>
             ) : (
               <div className="pod-categories">
                 <PodcastCategories
-                  header={'Digital Podcasts'}
+                  header={"Digital Podcasts"}
                   podcasts={digitalPodcasts}
                 />
                 <PodcastCategories
-                  header={'Radio & TV Podcasts'}
+                  header={"Radio & TV Podcasts"}
                   podcasts={radioPodcasts}
                 />
               </div>
@@ -83,7 +76,7 @@ const PodcastHome = () => {
                 </div>
               </div>
             ) : (
-              ''
+              ""
             )}
           </div>
         </div>
@@ -94,12 +87,3 @@ const PodcastHome = () => {
 }
 
 export default PodcastHome
-
-const getPodcasts = async () => {
-  const headers = {
-    'Access-Control-Allow-Origin': '*',
-  }
-  const response = await axios.get(HOMESCREEN_API_URL, headers)
-
-  return response.data.results
-}

@@ -1,10 +1,10 @@
-import React, { useContext, useState, Fragment } from "react"
-import authContext from "../../context/auth/authContext"
+import React, { useState, Fragment } from "react"
 import "./header.css"
+import { useSelector } from "react-redux"
 
 function TopNav() {
-  const userContext = useContext(authContext)
-  const { user, isAuthenticated } = userContext
+  const loginUser = useSelector((state) => state.loginUser)
+  const { token, user } = loginUser
 
   let options = { year: "numeric", month: "long", day: "numeric" }
 
@@ -14,7 +14,7 @@ function TopNav() {
     <Fragment>
       <li className="welcome-item-w">
         <span className="welcome">
-          {user && `Welcome ${user.data.firstname} ${user.data.lastname}`}
+          {user && `Welcome ${user.firstname} ${user.lastname}`}
         </span>
       </li>
       <li className="welcome-item">
@@ -26,7 +26,7 @@ function TopNav() {
   const guestLinks = (
     <Fragment>
       <li className="welcome-item-w">
-        <span className="welcome">Welcome to Journal Africa News</span>
+        <span className="welcome">Welcome to Journal Africa</span>
       </li>
       <li className="welcome-item-d">
         <span>{date}</span>
@@ -37,9 +37,7 @@ function TopNav() {
   return (
     <nav className="top-nav">
       <div className="text-white name-sp">
-        <ul className="welcome-list">
-          {isAuthenticated ? authLinks : guestLinks}
-        </ul>
+        <ul className="welcome-list">{token ? authLinks : guestLinks}</ul>
       </div>
       <ul className="soc-nav">
         <li>

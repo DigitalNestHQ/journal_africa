@@ -11,7 +11,7 @@
   line-height: 30px;
 }
 .business-heading::after {
-  content: ' ';
+  content: " ";
   height: 3px;
   width: 930px;
   background-color: #c4c4c4;
@@ -35,15 +35,6 @@
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
-}
-
-.bus-link {
-  color: #000;
-  font-size: 0.9rem;
-  line-height: 30px;
-}
-.bus-link:hover {
-  color: #000;
 }
 
 .card-img-business {

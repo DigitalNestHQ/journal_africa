@@ -28,8 +28,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to="/cookie-policy" className="footer-link">
-                  Cookie Policy
+                <Link to={pageurl.PRIVACYPOLICY} className="footer-link">
+                  Privacy Policy
                 </Link>
               </li>
               <li className="footer-list-item">
@@ -63,8 +63,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="footer-list-item">
-                <Link to={pageurl.PRIVACYPOLICY} className="footer-link">
-                  Privacy Policy
+                <Link to="/copyright" className="footer-link">
+                  Copyright Policy
                 </Link>
               </li>
             </ul>
@@ -73,8 +73,8 @@ const Footer = () => {
             <h6 className="footer-heading">Section</h6>
             <ul className="footer-list">
               <li className="footer-list-item">
-                <Link to="/copyright" className="footer-link">
-                  Copyright Policy
+                <Link to="/podcast" className="footer-link">
+                  Podcast
                 </Link>
               </li>
               <li className="footer-list-item">

@@ -1,35 +1,33 @@
-import React, { useContext, useState, useEffect } from 'react'
-import './signupteaser.css'
-import Alerts from '../../alert/Alerts'
-import AlertContext from '../../../context/alert/alertContext'
-import authContext from '../../../context/auth/authContext'
+import React, { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import * as userActions from "../../../store/actions/userActions"
+import { showAlert } from "../../../store/actions/alertActions"
+import "./signupteaser.css"
+import Alerts from "../../alert/Alerts"
 
 export const SignupTeaser = () => {
-  const [emailAddress, setEmailAddress] = useState({ email: '' })
-  const alertContext = useContext(AlertContext)
-  const userContext = useContext(authContext)
-  const { loading, message, emailSub } = userContext
-  const { setAlert } = alertContext
+  const dispatch = useDispatch()
+  const userSub = useSelector((state) => state.userSub)
+  const { loading, message, error } = userSub
+  const [emailAddress, setEmailAddress] = useState({ email: "" })
+
+  useEffect(() => {
+    if (message) {
+      dispatch(showAlert(message, "success"))
+    }
+    if (error) {
+      dispatch(showAlert(error, "danger"))
+    }
+  }, [dispatch, error, message])
 
   const handleChange = (e) => {
-    setEmailAddress({ [e.target.name]: e.target.value })
+    setEmailAddress({ ...emailAddress, [e.target.name]: e.target.value })
   }
 
   const handleNewLetterSubscription = (event) => {
     event.preventDefault()
-    emailSub(emailAddress)
-    setEmailAddress({ email: '' })
+    dispatch(userActions.userEmailSub(emailAddress.email))
   }
-
-  useEffect(() => {
-    if (message === 'Email Already Subscribed') {
-      setAlert(message, 'danger')
-    }
-    if (message === 'succesful') {
-      setAlert(message, 'success')
-    }
-    // eslint-disable-next-line
-  }, [message])
 
   return (
     <section className="signup-teaser section-content-default">
@@ -38,7 +36,8 @@ export const SignupTeaser = () => {
           Get exclusive stories, expert curation and expansive coverage on
           Africa every day in your inbox
         </h5>
-        <Alerts />
+        {error && <Alerts />}
+        {message && <Alerts />}
         <form onSubmit={handleNewLetterSubscription} className="signup-form">
           <div className="forms-group">
             <input
@@ -53,7 +52,7 @@ export const SignupTeaser = () => {
             />
           </div>
           <button className="submit-btn" type="submit">
-            {loading ? 'Please wait...' : 'Subscribe'}
+            {loading ? "Please wait..." : "Subscribe"}
           </button>
         </form>
       </div>

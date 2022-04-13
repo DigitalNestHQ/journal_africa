@@ -1,0 +1,81 @@
+.about-left-text {
+  width: 100%;
+  display: block;
+  margin: 0;
+}
+.about-board-cards {
+  margin-top: 1.8rem;
+  width: 100%;
+}
+.about-link-tag {
+  background-color: #fff;
+  color: red;
+  font-weight: 600;
+}
+.about-link-tag:hover {
+  color: red;
+}
+.about-card-msg {
+  margin: 0.5rem 0 0 0;
+  text-transform: capitalize;
+}
+.trump-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.aboutimg-container {
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+.about-card-left-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.about-trends {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 1rem 0;
+  color: #fff;
+  background-color: red;
+  padding: 0.3rem;
+  text-transform: uppercase;
+}
+.about-left-overlay {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  left: 0;
+  color: #fff;
+  padding: 0.5rem;
+}
+.add-container {
+  margin-top: 1.5rem;
+  display: block;
+  width: 100%;
+}
+.rem-text-container {
+  margin-top: 1.5rem;
+  display: block;
+  width: 100%;
+}
+.about-board-content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 993px) {
+  .about-board-content-grid {
+    grid-template-columns: 1fr;
+    gap: unset;
+  }
+  .about-us-each-card {
+    margin-bottom: 1rem;
+  }
+}

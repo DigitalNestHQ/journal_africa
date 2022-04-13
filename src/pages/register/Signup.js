@@ -1,55 +1,55 @@
-import React, { useState, useEffect } from "react"
-import { Link, useHistory } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import * as userActions from "../../store/actions/userActions"
-import Alerts from "../../components/alert/Alerts"
-import "./signup.css"
-import AuthLayout from "../../components/layout/authlayout/AuthLayout"
-import { showAlert } from "../../store/actions/alertActions"
+import React, { useState, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import * as userActions from "../../store/actions/userActions";
+import Alerts from "../../components/alert/Alerts";
+import "./signup.css";
+import AuthLayout from "../../components/layout/authlayout/AuthLayout";
+import { showAlert } from "../../store/actions/alertActions";
 
 const Signup = () => {
-  const history = useHistory()
-  const dispatch = useDispatch()
-  const createUser = useSelector((state) => state.createUser)
-  const { loading, error, message } = createUser
-  const loginUser = useSelector((state) => state.loginUser)
-  const { token } = loginUser
-  const [showPassword, setShowPassword] = useState(false)
-  const [checked, setChecked] = useState(false)
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const createUser = useSelector((state) => state.createUser);
+  const { loading, error, message } = createUser;
+  const loginUser = useSelector((state) => state.loginUser);
+  const { token } = loginUser;
+  const [showPassword, setShowPassword] = useState(false);
+  const [checked, setChecked] = useState(false);
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
     email: "",
     phone: "",
     password: "",
-  })
-  const { firstname, lastname, email, phone, password } = user
+  });
+  const { firstname, lastname, email, phone, password } = user;
 
   useEffect(() => {
     if (token) {
-      history.push("/")
+      history.push("/");
     }
 
     if (message) {
-      history.push("/success")
+      history.push("/success");
       setUser({
         firstname: "",
         lastname: "",
         email: "",
         phone: "",
         password: "",
-      })
-      dispatch(showAlert(message, "success"))
+      });
+      dispatch(showAlert(message, "success"));
     }
 
     if (error) {
-      dispatch(showAlert(error, "danger"))
+      dispatch(showAlert(error, "danger"));
     }
-  }, [dispatch, error, history, message, token])
+  }, [dispatch, error, history, message, token]);
 
-  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value })
+  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
   const onSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (
       firstname.length < 2 ||
       lastname.length < 2 ||
@@ -57,11 +57,11 @@ const Signup = () => {
       phone === "" ||
       password === ""
     ) {
-      dispatch(showAlert("Please provide all the details", "danger"))
+      dispatch(showAlert("Please provide all the details", "danger"));
     } else if (password.length < 6) {
-      dispatch(showAlert("Password is too short", "danger"))
+      dispatch(showAlert("Password is too short", "danger"));
     } else if (!checked) {
-      dispatch(showAlert("Agree to Terms and Conditions", "danger"))
+      dispatch(showAlert("Agree to Terms and Conditions", "danger"));
     } else {
       dispatch(
         userActions.createUser({
@@ -71,9 +71,9 @@ const Signup = () => {
           phone,
           password,
         })
-      )
+      );
     }
-  }
+  };
 
   return (
     <AuthLayout>
@@ -195,17 +195,26 @@ const Signup = () => {
                 <label htmlFor="agree" className="reg-agree-label">
                   I agree to the{" "}
                   <span>
-                    {" "}
-                    <Link to="/privacy-policy" className="reg-conditions">
+                    <a
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      href="/privacy-policy"
+                      className="reg-conditions"
+                    >
                       Terms and Conditions
-                    </Link>
+                    </a>
                   </span>{" "}
                   and{" "}
                   <span>
                     {" "}
-                    <Link to="/privacy-policy" className="reg-policy">
+                    <a
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      href="/privacy-policy"
+                      className="reg-policy"
+                    >
                       Privacy Policy
-                    </Link>
+                    </a>
                   </span>
                 </label>
               </div>
@@ -226,7 +235,7 @@ const Signup = () => {
         </div>
       </div>
     </AuthLayout>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;

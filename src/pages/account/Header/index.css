@@ -1,0 +1,49 @@
+.contact-header,
+.reg-sub-header,
+.about-us-header {
+  height: 24rem;
+  width: 100%;
+  position: relative;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+}
+
+.reg-sub-header {
+  background: black;
+  padding: 1rem;
+}
+
+.account-header {
+  background: linear-gradient(rgba(224, 20, 20, 0.775), rgba(113, 8, 8, 0.884)),
+    url("../../../assets/images/accountHeader.png") center/cover scroll
+      no-repeat;
+  padding: 0 1rem;
+  height: 284px;
+  position: relative;
+}
+
+.header-logo {
+  height: 192px;
+  width: 192px;
+  margin: auto;
+}
+
+.header-logo-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.about-us-header {
+  background: linear-gradient(rgba(22, 7, 233, 0.541), rgba(51, 65, 126, 0.61)),
+    url("../../../assets/images/accountHeader.png") top/cover scroll no-repeat;
+  padding: 0 1rem;
+  margin: 0;
+}

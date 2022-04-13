@@ -1,27 +1,28 @@
-import React, { useState, Fragment } from "react"
-import "./header.css"
-import { useSelector } from "react-redux"
+import React, { useState, Fragment } from "react";
+import "./header.css";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function TopNav() {
-  const loginUser = useSelector((state) => state.loginUser)
-  const { token, user } = loginUser
+  const loginUser = useSelector((state) => state.loginUser);
+  const { token, user } = loginUser;
 
-  let options = { year: "numeric", month: "long", day: "numeric" }
+  let options = { year: "numeric", month: "long", day: "numeric" };
 
-  const [date] = useState(new Date().toLocaleDateString("en-US", options))
+  const [date] = useState(new Date().toLocaleDateString("en-US", options));
 
   const authLinks = (
     <Fragment>
       <li className="welcome-item-w">
-        <span className="welcome">
+        <Link to="/account" className="welcome">
           {user && `Welcome ${user.firstname} ${user.lastname}`}
-        </span>
+        </Link>
       </li>
       <li className="welcome-item">
         <span>{date}</span>
       </li>
     </Fragment>
-  )
+  );
 
   const guestLinks = (
     <Fragment>
@@ -32,7 +33,7 @@ function TopNav() {
         <span>{date}</span>
       </li>
     </Fragment>
-  )
+  );
 
   return (
     <nav className="top-nav">
@@ -78,7 +79,7 @@ function TopNav() {
         </li>
       </ul>
     </nav>
-  )
+  );
 }
 
-export default TopNav
+export default TopNav;

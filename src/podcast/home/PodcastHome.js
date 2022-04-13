@@ -1,33 +1,33 @@
-import React, { useEffect } from "react"
-import PodcastCategories from "./podcategories/PodcastCategories"
-import { useViewPort } from "../../components/hooks/Viewport"
-import "../../components/homepage/politics/politicsandgovernance.css"
-import "./podcasthome.css"
-import NavBar from "../../components/reusables/navigation/Nav/Nav"
-import Footer from "../../components/reusables/navigation/Footer/Footer"
-import Loader from "../../components/loader/Loader"
-import cybertruck from "../../assets/images/cybertruck1.jpg"
-import { useDispatch, useSelector } from "react-redux"
-import * as podcastsActions from "../../store/actions/podcastActions"
+import React, { useEffect } from "react";
+import PodcastCategories from "./podcategories/PodcastCategories";
+import { useViewPort } from "../../components/hooks/Viewport";
+import "../../components/homepage/politics/politicsandgovernance.css";
+import "./podcasthome.css";
+import NavBar from "../../components/reusables/navigation/Nav/Nav";
+import Footer from "../../components/reusables/navigation/Footer/Footer";
+import Loader from "../../components/loader/Loader";
+import cybertruck from "../../assets/images/cybertruck1.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import * as podcastsActions from "../../store/actions/podcastActions";
 
 const PodcastHome = () => {
-  const dispatch = useDispatch()
-  const getPodcast = useSelector((state) => state.getPodcast)
-  const { loading, error, podcasts } = getPodcast
-  const { width } = useViewPort()
-  const breakpoint = 993
+  const dispatch = useDispatch();
+  const getPodcast = useSelector((state) => state.getPodcast);
+  const { loading, error, podcasts } = getPodcast;
+  const { width } = useViewPort();
+  const breakpoint = 993;
   useEffect(() => {
-    dispatch(podcastsActions.getPodcasts())
-  }, [dispatch])
+    dispatch(podcastsActions.getPodcasts());
+  }, [dispatch]);
 
-  let digitalPodcasts, radioPodcasts
+  let digitalPodcasts, radioPodcasts;
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
 
-  digitalPodcasts = podcasts.slice(0, 10)
-  radioPodcasts = podcasts.slice(10, 20)
+  digitalPodcasts = podcasts.slice(0, 10);
+  radioPodcasts = podcasts.slice(10, 20);
 
   return (
     <section className="pod-bg">
@@ -83,7 +83,7 @@ const PodcastHome = () => {
       </div>
       <Footer />
     </section>
-  )
-}
+  );
+};
 
-export default PodcastHome
+export default PodcastHome;

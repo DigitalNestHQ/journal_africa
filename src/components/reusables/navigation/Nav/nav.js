@@ -1,28 +1,28 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
-import { useSelector, useDispatch } from "react-redux"
-import newLogo from "../../../../assets/images/main logo.png"
-import hamburger from "../../../../assets/images/hamburger.svg"
-import close from "../../../../assets/images/close.svg"
-import { useViewPort } from "../../../hooks/Viewport"
-import { pageurl } from "../../../../utils/constants"
-import TopNav from "../../topnav"
-import "./nav.css"
-import "../../header.css"
-import MobileNav from "./MobileNav"
-import { logout } from "../../../../store/actions/userActions"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import newLogo from "../../../../assets/images/main logo.png";
+import hamburger from "../../../../assets/images/hamburger.svg";
+import close from "../../../../assets/images/close.svg";
+import { useViewPort } from "../../../hooks/Viewport";
+import { pageurl } from "../../../../utils/constants";
+import TopNav from "../../topnav";
+import "./nav.css";
+import "../../header.css";
+import MobileNav from "./MobileNav";
+import { logout } from "../../../../store/actions/userActions";
 
 const Navbar = () => {
-  const { width } = useViewPort()
-  const breakpoint = 1250
-  const [menu, setMenu] = useState(false)
-  const dispatch = useDispatch()
-  const loginUser = useSelector((state) => state.loginUser)
-  const { token } = loginUser
+  const { width } = useViewPort();
+  const breakpoint = 1250;
+  const [menu, setMenu] = useState(false);
+  const dispatch = useDispatch();
+  const loginUser = useSelector((state) => state.loginUser);
+  const { token } = loginUser;
 
   const handleMenuClick = () => {
-    setMenu((prev) => !prev)
-  }
+    setMenu((prev) => !prev);
+  };
 
   return (
     <div className="navigation">
@@ -125,7 +125,7 @@ const Navbar = () => {
         ""
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

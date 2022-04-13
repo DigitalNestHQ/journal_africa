@@ -1,34 +1,38 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import cybertruck from "../../../assets/images/cybertruck1.jpg"
-import { useViewPort } from "../../../components/hooks/Viewport"
-import "./teaser.css"
-import TeaserLatestCard from "./TeaserLatestCard"
-import TeaserPolitics from "./TeaserPolitics"
-import { useSelector } from "react-redux"
+import React from "react";
+import { Link } from "react-router-dom";
+import cybertruck from "../../../assets/images/cybertruck1.jpg";
+import { useViewPort } from "../../hooks/Viewport";
+import "./teaser.css";
+import TeaserLatestCard from "./TeaserLatestCard";
+import TeaserPolitics from "./TeaserPolitics";
+import { useSelector } from "react-redux";
 
 const TeaserSection = ({ data }) => {
-  const getWordpress = useSelector((state) => state.getWordpress)
-  const { loading, wordpressNews } = getWordpress
+  const getWordpress = useSelector((state) => state.getWordpress);
+  const { loading, wordpressNews } = getWordpress;
 
-  const politics = data.filter((post) => post.category_id === "Politics")
+  const politics = data.filter((post) => post.category_id === "Politics");
   const discoverAfrica = data.filter(
     (post) => post.category_id === "Discover Africa"
-  )
+  );
 
   const culture = discoverAfrica.filter(
     (post) => post.sub_category === "Culture"
-  )
-  const places = discoverAfrica.filter((post) => post.sub_category === "Places")
+  );
+  const places = discoverAfrica.filter(
+    (post) => post.sub_category === "Places"
+  );
   const lifestyle = discoverAfrica.filter(
     (post) => post.sub_category === "Lifestyle"
-  )
+  );
 
-  const people = discoverAfrica.filter((post) => post.sub_category === "People")
-  const { width } = useViewPort()
-  const breakpoint = 991
+  const people = discoverAfrica.filter(
+    (post) => post.sub_category === "People"
+  );
+  const { width } = useViewPort();
+  const breakpoint = 991;
 
-  const selectedTeasers = [culture[0], places[0], lifestyle[0], people[0]]
+  const selectedTeasers = [culture[0], places[0], lifestyle[0], people[0]];
 
   return (
     <section className="discover section-content-default ">
@@ -147,7 +151,7 @@ const TeaserSection = ({ data }) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default TeaserSection
+export default TeaserSection;

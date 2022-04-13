@@ -22,6 +22,15 @@ ul {
   padding: 0;
 }
 
+.welcome {
+  color: white;
+  background-color: red;
+}
+
+.welcome:hover {
+  color: white;
+}
+
 .welcome-list {
   display: flex;
   flex-direction: row;

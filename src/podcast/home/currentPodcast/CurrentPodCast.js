@@ -1,30 +1,30 @@
-import React, { useEffect } from "react"
-import { useParams } from "react-router-dom"
-import { useSelector, useDispatch } from "react-redux"
-import * as podcastsActions from "../../../store/actions/podcastActions"
-import NavBar from "../../../components/reusables/navigation/Nav/Nav"
-import Footer from "../../../components/reusables/navigation/Footer/Footer"
-import Loader from "../../../components/loader/Loader"
-import CurrentPodcastDetails from "./CurrentPodcastDetails"
-import CurrentPodcastHeader from "./CurrentPodcastHeader"
-import "./currentpodcast-style.css"
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import * as podcastsActions from "../../../store/actions/podcastActions";
+import NavBar from "../../../components/reusables/navigation/Nav/Nav";
+import Footer from "../../../components/reusables/navigation/Footer/Footer";
+import Loader from "../../../components/loader/Loader";
+import CurrentPodcastDetails from "./CurrentPodcastDetails";
+import CurrentPodcastHeader from "./CurrentPodcastHeader";
+import "./currentpodcast-style.css";
 
 const CurrentPodCast = () => {
-  const { collectionId } = useParams()
-  const dispatch = useDispatch()
-  const getSinglePodcasts = useSelector((state) => state.getSinglePodcasts)
-  const { loading, error, podcast } = getSinglePodcasts
+  const { collectionId } = useParams();
+  const dispatch = useDispatch();
+  const getSinglePodcasts = useSelector((state) => state.getSinglePodcasts);
+  const { loading, error, podcast } = getSinglePodcasts;
 
   useEffect(() => {
-    dispatch(podcastsActions.getSinglePodcasts(collectionId))
-  }, [collectionId, dispatch])
+    dispatch(podcastsActions.getSinglePodcasts(collectionId));
+  }, [collectionId, dispatch]);
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
 
-  const podcastList = podcast.slice(0, 50)
-  const podcastDetails = podcast[0]
+  const podcastList = podcast.slice(0, 50);
+  const podcastDetails = podcast[0];
 
   return (
     <section className="pod-bg">
@@ -45,6 +45,6 @@ const CurrentPodCast = () => {
       </div>
       <Footer />
     </section>
-  )
-}
-export default CurrentPodCast
+  );
+};
+export default CurrentPodCast;

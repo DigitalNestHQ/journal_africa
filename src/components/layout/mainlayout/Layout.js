@@ -1,6 +1,6 @@
-import React from "react"
-import Nav from "../../reusables/navigation/Nav/Nav"
-import Footer from "../../reusables/navigation/Footer/Footer"
+import Footer from "components/reusables/navigation/Footer/Footer";
+import React from "react";
+import Nav from "../../reusables/navigation/Nav/Nav";
 
 const Layout = ({ children, category }) => {
   return (
@@ -15,7 +15,7 @@ const Layout = ({ children, category }) => {
       )}
       <Footer />
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

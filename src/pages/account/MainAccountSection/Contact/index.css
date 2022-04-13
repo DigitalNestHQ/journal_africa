@@ -1,0 +1,33 @@
+form {
+  margin-top: 32px;
+}
+
+.input-pair {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-alt-button {
+  padding: 0;
+  width: 164px;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.buttons-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.buttons-wrapper input {
+  max-width: 164px;
+  height: 45px;
+  margin: auto 0 !important;
+}
+
+.buttons-wrapper button {
+  max-width: 164px;
+}

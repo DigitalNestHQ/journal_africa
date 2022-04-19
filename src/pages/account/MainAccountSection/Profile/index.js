@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../index.css";
 import "./index.css";
 
@@ -23,12 +23,6 @@ export const Profile = () => {
       case "email":
         setUser((prevState) => ({ ...prevState, email: value }));
         break;
-      case "username":
-        setUser((prevState) => ({ ...prevState, username: value }));
-        break;
-      case "profession":
-        setUser((prevState) => ({ ...prevState, profession: value }));
-        break;
       case "password":
         setUser((prevState) => ({ ...prevState, password: value }));
         break;
@@ -42,51 +36,21 @@ export const Profile = () => {
     console.log(user);
   };
 
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log("user", user);
+    setUser({
+      ...user,
+      firstName: user.firstname,
+      lastName: user.lastname,
+    });
+  }, []);
+
   return (
     <div className="right-top">
       <h2>MY PROFILE</h2>
 
       <form onSubmit={onSubmit}>
-        <div className="input-pair">
-          <div className="form-group">
-            <label htmlFor="username" className="reg-label">
-              Username
-            </label>
-            <input
-              type="text"
-              name="username"
-              autoComplete="username"
-              placeholder="Username..."
-              className="form-control reg-input"
-              value={username}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group password-input">
-            <label htmlFor="password" className="reg-label">
-              Password
-            </label>
-            <input
-              type={`${showPassword ? "text" : "password"}`}
-              name="password"
-              autoComplete="new-password"
-              placeholder="Enter Password"
-              className="form-control reg-input"
-              value={password}
-              onChange={handleChange}
-              minLength="6"
-              required
-            />
-            <span
-              className="show-password"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? "hide" : "show"}
-            </span>
-          </div>
-        </div>
-
         <div className="input-pair">
           <div className="form-group">
             <label htmlFor="firstName" className="reg-label">
@@ -134,16 +98,49 @@ export const Profile = () => {
               required
             />
           </div>
+        </div>
+
+        <div className="buttons-wrapper">
+          <button type="button" className="profile-alt-button alt-button">
+            Cancel
+          </button>
+          <input
+            type="submit"
+            value={`${loading ? "Please wait..." : "Save Changes"}`}
+            className="btn btn-red btn-block mb-3"
+            disabled={loading}
+          />
+        </div>
+      </form>
+
+      <h2 style={{ marginTop: "56px" }}>CHANGE PASSWORD</h2>
+
+      <form onSubmit={onSubmit}>
+        <div className="input-pair">
           <div className="form-group">
-            <label htmlFor="profession" className="reg-label">
-              Profession
+            <label htmlFor="firstName" className="reg-label">
+              Current Password
             </label>
             <input
               type="text"
-              name="profession"
-              placeholder="Profession..."
+              name="password"
+              placeholder="Current password..."
               className="form-control reg-input"
-              value={profession}
+              value={firstName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="lastName" className="reg-label">
+              New Password
+            </label>
+            <input
+              type="text"
+              name="newPassword"
+              placeholder="New password..."
+              className="form-control reg-input"
+              value={lastName}
               onChange={handleChange}
               required
             />

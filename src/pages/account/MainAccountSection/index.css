@@ -8,6 +8,12 @@
   position: relative;
 }
 
+@media (max-width: 1200px) {
+  .main-account-section {
+    display: block;
+  }
+}
+
 .main-button {
   text-align: center;
   height: 45px;
@@ -15,7 +21,6 @@
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
-  padding: 0 64px;
   display: block;
   cursor: pointer;
   background-color: #ff2426;
@@ -33,7 +38,6 @@
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
-  padding: 0 64px;
   display: block;
   cursor: pointer;
   border: 2px solid black;
@@ -48,6 +52,12 @@
 .left {
   grid-column: span 4 / span 4;
   margin-top: -100px;
+}
+
+@media (max-width: 1200px) {
+  .left {
+    padding: 24px;
+  }
 }
 
 .left button {
@@ -68,6 +78,12 @@
 .right-top {
   background-color: #f5f2f2;
   padding: 40px;
+}
+
+@media (max-width: 1200px) {
+  .right-top {
+    padding: 24px;
+  }
 }
 
 .right-top h2 {
@@ -105,6 +121,7 @@
 
 .right-bottom {
   margin-top: 60px;
+  padding: 24px;
 }
 
 .right-bottom h2 {
@@ -219,6 +236,8 @@
   display: inline-block;
   width: 60px;
   height: 34px;
+  flex-shrink: 0;
+  margin-left: 12px;
 }
 
 .switch input {

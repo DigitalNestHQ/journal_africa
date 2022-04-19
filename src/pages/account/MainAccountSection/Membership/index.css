@@ -14,8 +14,24 @@
   align-items: middle;
 }
 
+@media screen and (max-width: 1200px) {
+  .main {
+    display: block;
+  }
+}
+
 .main .box {
   width: 100%;
+}
+
+.next-box {
+  margin-top: 0 !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .next-box {
+    margin-top: 16px !important;
+  }
 }
 
 p {
@@ -61,15 +77,20 @@ p {
   text-align: center !important;
 }
 
-.modal-child .buttons-holder {
-  display: flex !important;
+.buttons-holder {
+  display: block !important;
   align-items: center;
   margin-top: 0 !important;
   gap: 12px;
+  margin-left: -20px !important;
 }
 
-.buttons-holder {
-  display: flex !important;
-  margin-left: -20px !important;
-  align-items: center;
+.spacer {
+  margin: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .buttons-holder {
+    display: block !important;
+  }
 }

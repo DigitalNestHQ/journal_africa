@@ -36,6 +36,8 @@ export const MainAccountSection = () => {
     }
   };
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <section className="main-account-section">
       <div className="left">
@@ -49,7 +51,7 @@ export const MainAccountSection = () => {
               />
             </div>
 
-            <h1> Chidera Ugo</h1>
+            <h1 className="capitalize">{`${user.firstname} ${user.lastname}`}</h1>
           </div>
 
           <div className="left-bottom">
@@ -77,7 +79,9 @@ export const MainAccountSection = () => {
           </div>
         </div>
 
-        <button className="alt-button">Close Account</button>
+        <button className="alt-button" style={{ width: "320px" }}>
+          Close Account
+        </button>
       </div>
       <div className="right">
         {currentTab()}

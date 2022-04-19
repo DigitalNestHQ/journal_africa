@@ -121,6 +121,9 @@ ins strong {
 .text-danger {
   color: red !important;
 }
+.capitalize {
+  text-transform: capitalize;
+}
 @media (max-width: 993px) {
   .section-wrapper-default {
     max-width: unset;

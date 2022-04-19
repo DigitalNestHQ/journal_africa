@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { withAuthToken } from "utils/axios";
+import { mastercard, visa } from "utils/regex";
 
-export const Form = ({ buttonText }) => {
+export const Form = ({ buttonText, closeModal, currentCard }) => {
   const [user, setUser] = useState({});
-  const [loading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { cardNumber, exp, cvv, name } = user;
 
@@ -28,9 +30,43 @@ export const Form = ({ buttonText }) => {
     }
   };
 
-  const onSubmit = (e) => {
+  useEffect(() => {
+    console.log("currentCard", currentCard);
+
+    if (currentCard) {
+      setUser({
+        ...currentCard,
+        cardNumber: currentCard.number,
+        name: currentCard.holder,
+      });
+    }
+  }, [currentCard]);
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(user);
+    const isMasterCard = mastercard.test(user.cardNumber.split(" ").join(""));
+    const isVisa = visa.test(user.cardNumber.split(" ").join(""));
+
+    try {
+      setLoading(true);
+      const { data } = await withAuthToken.post(
+        currentCard ? `/edit-card/${currentCard.id}` : "/add-card",
+        {
+          number: user.cardNumber,
+          holder: user.name,
+          type: isMasterCard ? "mastercard" : isVisa ? "visa" : "other",
+          preferred: "true",
+          ...user,
+        }
+      );
+      setLoading(false);
+      closeModal();
+      console.log("add card", data);
+    } catch (e) {
+      setLoading(false);
+      closeModal();
+      console.log(e);
+    }
   };
 
   return (

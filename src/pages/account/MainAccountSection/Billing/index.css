@@ -9,15 +9,21 @@
   border: 2px solid #8d8d8d;
   margin-top: 12px;
   background-color: white;
-  padding: 24px;
-  display: flex;
+  padding: 12px 24px;
   align-items: middle;
 }
 
 .billing-box {
-  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin: 22px auto;
+}
+
+@media (max-width: 1200px) {
+  .billing-box {
+    display: block;
+  }
 }
 
 .border-b {
@@ -55,6 +61,12 @@
   align-items: center;
 }
 
+@media (max-width: 900px) {
+  .billing-actions {
+    margin-top: 12px;
+  }
+}
+
 .billing-actions span {
   font-style: normal;
   font-weight: 700;
@@ -71,6 +83,12 @@
 .billing-main .box {
   display: flex;
   align-items: middle;
+}
+
+@media (max-width: 1200px) {
+  .billing-main .box {
+    display: block;
+  }
 }
 
 .billing-main-button {

@@ -7,6 +7,9 @@ import { useState } from "react";
 export const Membership = () => {
   const [modalType, setModalType] = useState("");
 
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log("user", user);
+
   return (
     <div className="right-top">
       <h2>MY MEMBERSHIP</h2>
@@ -34,15 +37,25 @@ export const Membership = () => {
       )}
 
       <div className="main">
-        <div className="box">
-          <div className="label">My Plan</div>
-          <div className="value">NGN 2,300 / Month</div>
-        </div>
+        {user.subscribe ? (
+          <div>
+            <div className="box">
+              <div className="label">My Plan</div>
+              <div className="value">NGN 2,300 / Month</div>
+            </div>
 
-        <div className="box">
-          <div className="label">Next Billing Date</div>
-          <div className="value">May 4, 2022</div>
-        </div>
+            <div className="box next-box">
+              <div className="label">Next Billing Date</div>
+              <div className="value">May 4, 2022</div>
+            </div>
+          </div>
+        ) : (
+          <div className="box">
+            <div className="value" style={{ margin: 0 }}>
+              Not subscribed yet
+            </div>
+          </div>
+        )}
       </div>
 
       <p>
@@ -50,11 +63,18 @@ export const Membership = () => {
         a few days after the billing date for it to appear on your account.
       </p>
 
-      <div className="buttons-holder">
-        <button onClick={() => setModalType("cancel")} className="alt-button">
+      <div className="buttons-holders">
+        <button
+          onClick={() => setModalType("cancel")}
+          className="alt-button"
+          style={{ width: "100%" }}
+        >
           Cancel Subscription
         </button>
-        <button className="main-button">Upgrade Subscription</button>
+        <div className="spacer"></div>
+        <button className="main-button" style={{ width: "100%" }}>
+          Upgrade Subscription
+        </button>
       </div>
     </div>
   );

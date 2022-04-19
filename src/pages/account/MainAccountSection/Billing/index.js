@@ -5,17 +5,24 @@ import Mastercard from "../../../../assets/images/mastercard.png";
 import Cards from "../../../../assets/images/cards.png";
 import { useState } from "react";
 import { Form } from "./Form";
+import { withAuthToken } from "utils/axios";
+import { useEffect } from "react";
 
 export const Billing = () => {
   const [modalType, setModalType] = useState("");
+  const [cards, setCards] = useState([]);
+  const [currentCard, setCurrentCard] = useState(null);
 
-  const cards = [
-    {
-      number: "3455",
-      type: "mastercard",
-      prefferred: true,
-    },
-  ];
+  async function getCards() {
+    const { data } = await withAuthToken.get("/get-card");
+    setCards(data.data);
+  }
+
+  useEffect(() => {
+    if (modalType === "") {
+      getCards();
+    }
+  }, [modalType]);
 
   return (
     <div className="right-top">
@@ -34,6 +41,11 @@ export const Billing = () => {
               buttonText={
                 modalType === "add" ? "Save New Card" : "Save Changes"
               }
+              closeModal={() => {
+                setModalType("");
+                getCards();
+              }}
+              currentCard={currentCard}
             />
           </div>
         </Modal>
@@ -42,7 +54,9 @@ export const Billing = () => {
       <p>Edit your payment details or change your preferred payment method.</p>
 
       <div className="billing-main">
-        {cards.map(({ number, type, prefferred }, index) => {
+        {cards.map((cardItem, index) => {
+          const { number, type, preferred } = cardItem;
+
           const card = () => {
             switch (type) {
               case "mastercard":
@@ -54,19 +68,30 @@ export const Billing = () => {
 
           return (
             <div
-              key={number}
+              key={cardItem.id}
               className={`billing-box box ${
                 index < cards.length - 1 ? "border-b" : ""
               }`}
             >
               <div className="billing-wrapper">
                 <img src={card()} alt="card-icon" />
-                <div className="value">**** **** **** {number}</div>
+                <div className="value">
+                  **** **** ****{" "}
+                  {number.slice(number.length - 5, number.length - 1)}
+                </div>
               </div>
 
               <div className="billing-actions">
-                {prefferred && <span>PREFFERRED</span>}
-                <button className="billing-alt-button">Edit</button>
+                {preferred && <span>PREFFERRED</span>}
+                <button
+                  onClick={() => {
+                    setModalType("edit");
+                    setCurrentCard(cardItem);
+                  }}
+                  className="billing-alt-button"
+                >
+                  Edit
+                </button>
               </div>
             </div>
           );
@@ -76,6 +101,7 @@ export const Billing = () => {
       <button
         onClick={() => setModalType("add")}
         className="billing-main-button main-button"
+        style={{ width: "320px" }}
       >
         Add New Payment Method
       </button>

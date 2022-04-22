@@ -90,7 +90,7 @@ const Navbar = () => {
                 <li className="cta-item">
                   {token ? (
                     <a href="#!" onClick={() => dispatch(logout())}>
-                      <span className="hide-sm">Signed out</span>
+                      <span className="hide-sm">Sign out</span>
                     </a>
                   ) : (
                     <Link to="/login">sign in</Link>

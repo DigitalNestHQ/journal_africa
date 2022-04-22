@@ -43,7 +43,6 @@ export const getUserReducer = (
   state = { loading: true, error: null, user: null },
   { type, payload }
 ) => {
-  console.log("getUser", payload);
   switch (type) {
     case userTypes.GET_USER_REQUEST:
       return {
@@ -84,7 +83,6 @@ export const loginUserReducer = (
       };
 
     case userTypes.USER_LOGIN_SUCCESS:
-      console.log("login", payload);
       return {
         ...state,
         loading: false,

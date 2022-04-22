@@ -1,7 +1,6 @@
 import "./index.css";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Subscription } from "./Subscription";
 import { Profile } from "./Profile";
 import { Membership } from "./Membership";
 import { Billing } from "./Billing";
@@ -11,7 +10,6 @@ export const MainAccountSection = () => {
   const [checked, setChecked] = useState(false);
 
   const tabs = [
-    "My Account",
     "My Profile",
     "Membership Details",
     "Billing Details",
@@ -23,16 +21,14 @@ export const MainAccountSection = () => {
 
   const currentTab = () => {
     switch (current) {
-      case "my-profile":
-        return <Profile />;
+      case "contact":
+        return <Contact />;
       case "membership-details":
         return <Membership />;
       case "billing-details":
         return <Billing />;
-      case "contact":
-        return <Contact />;
       default:
-        return <Subscription />;
+        return <Profile />;
     }
   };
 
@@ -43,15 +39,10 @@ export const MainAccountSection = () => {
       <div className="left">
         <div className="left-main">
           <div className="left-top">
-            <div className="profile-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1618042164219-62c820f10723?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                alt="profile-pic"
-                className="profile-pic"
-              />
-            </div>
-
-            <h1 className="capitalize">{`${user.firstname} ${user.lastname}`}</h1>
+            <h1
+              style={{ marginTop: "12px" }}
+              className="capitalize"
+            >{`${user.firstname} ${user.lastname}`}</h1>
           </div>
 
           <div className="left-bottom">

@@ -23,7 +23,6 @@ export const createUser = (formData) => async (dispatch) => {
 };
 
 export const getUser = () => async (dispatch, getState) => {
-  alert("start");
   try {
     dispatch({
       type: userTypes.GET_USER_REQUEST,
@@ -44,7 +43,6 @@ export const getUser = () => async (dispatch, getState) => {
       `${process.env.REACT_APP_API_BASE_URL}user`,
       config
     );
-    console.log("data", data);
 
     dispatch({
       type: userTypes.GET_USER_SUCCESS,
@@ -68,14 +66,14 @@ export const loginUser = (formData) => async (dispatch) => {
 
     const { data } = await withoutAuthToken.post("/login", formData);
 
-    console.log("user", data);
-
     dispatch({
       type: userTypes.USER_LOGIN_SUCCESS,
       payload: data.data,
     });
     localStorage.setItem("token", data.token);
+    console.log(data.data);
     localStorage.setItem("user", JSON.stringify(data?.data));
+    window.location.replace("/");
   } catch (error) {
     dispatch({
       type: userTypes.USER_LOGIN_ERROR,

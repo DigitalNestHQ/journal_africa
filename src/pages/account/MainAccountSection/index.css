@@ -166,6 +166,10 @@
   justify-content: center;
 }
 
+.left-top {
+  padding-top: 28px;
+}
+
 .left-top h1 {
   font-style: normal;
   font-weight: 700;

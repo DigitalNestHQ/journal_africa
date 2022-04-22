@@ -29,10 +29,24 @@ import SearchNews from "./components/generalNews/searchComponent/SearchNews";
 import ScrollTopBotton from "./components/reusables/scrollButton/ScrollTopBotton";
 import "./../src/components/reusables/utilities/index.css";
 import "./App.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
     <div className="app">
+      <ToastContainer
+        theme="colored"
+        progressClassName="text-white"
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        draggable
+        pauseOnHover
+      />
+
       <Switch>
         <Route exact path={pageurl.HOMEPAGE} component={HomePage} />
         <Route exact path={pageurl.PRIVACYPOLICY} component={PrivacyPolicy} />

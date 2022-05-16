@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Showcase from "../../components/homepage/showcase/Showcase";
-import TeaserSection from "../../components/homepage/homepageTeaser/TeaserSection";
+import TeaserSection from "../../components/homepage/homepageTeaser/teaserSection";
 import PoliticsAndGovernance from "../../components/homepage/politics/PoliticsAndGovernance";
 import Tech from "../../components/homepage/lifestyle/LifeStyle";
 import "./homepage.css";

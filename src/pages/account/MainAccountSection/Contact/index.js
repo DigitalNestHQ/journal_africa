@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import "../index.css";
 import "./index.css";
 
 export const Contact = () => {
-  const [loading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({});
 
   const { fullName, message, subject, email, phoneNumber } = user;
@@ -33,9 +34,31 @@ export const Contact = () => {
     }
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(user);
+    setLoading(true);
+
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/send/contact`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setLoading(false);
+        if (res.status === "success") {
+          toast("Message sent successfully", { type: "success" });
+        } else {
+          toast("An error occurred", { type: "error" });
+        }
+      })
+      .catch((e) => {
+        setLoading(false);
+        toast(e.message, { type: "error" });
+      });
   };
 
   return (

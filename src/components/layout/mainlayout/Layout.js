@@ -1,6 +1,6 @@
-import Footer from "components/reusables/navigation/Footer/Footer";
+import Footer from "components/reusables/navigation/Footer/footer";
 import React from "react";
-import Nav from "../../reusables/navigation/Nav/Nav";
+import Nav from "../../reusables/navigation/Nav/nav";
 
 const Layout = ({ children, category }) => {
   return (

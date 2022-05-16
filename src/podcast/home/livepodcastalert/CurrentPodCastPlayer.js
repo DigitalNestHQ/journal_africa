@@ -1,38 +1,38 @@
-import React from "react"
-import { useLocation, useParams, useHistory } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import * as podcastsActions from "../../../store/actions/podcastActions"
-import Loader from "../../../components/loader/Loader"
-import NavBar from "../../../components/reusables/navigation/Nav/Nav"
-import Footer from "../../../components/reusables/navigation/Footer/Footer"
-import ReleaseDate from "../currentPodcast/ReleaseDate"
-import cybertruck from "../../../assets/images/cybertruck1.jpg"
-import PodcastPlayer from "./PodcastPlayer"
+import React from "react";
+import { useLocation, useParams, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import * as podcastsActions from "../../../store/actions/podcastActions";
+import Loader from "../../../components/loader/Loader";
+import NavBar from "../../../components/reusables/navigation/Nav/nav";
+import Footer from "../../../components/reusables/navigation/Footer/footer";
+import ReleaseDate from "../currentPodcast/ReleaseDate";
+import cybertruck from "../../../assets/images/cybertruck1.jpg";
+import PodcastPlayer from "./PodcastPlayer";
 
 const CurrentPodCastPlayer = () => {
-  const { search } = useLocation()
-  const x = new URLSearchParams(search)
-  const currentPod = x.get("searchpod")
-  const { collectionId } = useParams()
-  const dispatch = useDispatch()
-  const getSinglePodcasts = useSelector((state) => state.getSinglePodcasts)
-  const { loading, error, podcast } = getSinglePodcasts
+  const { search } = useLocation();
+  const x = new URLSearchParams(search);
+  const currentPod = x.get("searchpod");
+  const { collectionId } = useParams();
+  const dispatch = useDispatch();
+  const getSinglePodcasts = useSelector((state) => state.getSinglePodcasts);
+  const { loading, error, podcast } = getSinglePodcasts;
 
-  const history = useHistory()
+  const history = useHistory();
 
   React.useEffect(() => {
-    dispatch(podcastsActions.getSinglePodcasts(collectionId))
-  }, [dispatch, collectionId])
+    dispatch(podcastsActions.getSinglePodcasts(collectionId));
+  }, [dispatch, collectionId]);
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
 
-  const realPodcast = podcast?.slice(1)
+  const realPodcast = podcast?.slice(1);
 
   const getCurrentPod = realPodcast?.filter(
     (pod) => pod.trackId === parseInt(currentPod)
-  )
+  );
 
   return (
     <>
@@ -96,7 +96,7 @@ const CurrentPodCastPlayer = () => {
       </div>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default CurrentPodCastPlayer
+export default CurrentPodCastPlayer;

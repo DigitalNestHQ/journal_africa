@@ -1,4 +1,8 @@
 @import url("http://fonts.cdnfonts.com/css/nimbussanl");
+iframe {
+  display: none;
+}
+
 * {
   margin: 0;
   padding: 0;

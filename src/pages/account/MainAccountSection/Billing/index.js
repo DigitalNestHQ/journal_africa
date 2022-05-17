@@ -12,14 +12,17 @@ export const Billing = () => {
   const [modalType, setModalType] = useState("");
   const [cards, setCards] = useState([]);
   const [currentCard, setCurrentCard] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   async function getCards() {
     const { data } = await withAuthToken.get("/get-card");
     setCards(data.data);
+    setLoading(false);
   }
 
   useEffect(() => {
     if (modalType === "") {
+      setLoading(true);
       getCards();
     }
   }, [modalType]);
@@ -54,48 +57,68 @@ export const Billing = () => {
       <p>Edit your payment details or change your preferred payment method.</p>
 
       <div className="billing-main">
-        {cards.map((cardItem, index) => {
-          const { number, type, preferred } = cardItem;
+        {loading ? (
+          <div
+            style={{ padding: "22px", textAlign: "center" }}
+            className="value"
+          >
+            Loading Cards
+          </div>
+        ) : (
+          <div>
+            {cards.length ? (
+              cards.map((cardItem, index) => {
+                const { number, type, preferred } = cardItem;
 
-          const card = () => {
-            switch (type) {
-              case "mastercard":
-                return Mastercard;
-              default:
-                return Mastercard;
-            }
-          };
+                const card = () => {
+                  switch (type) {
+                    case "mastercard":
+                      return Mastercard;
+                    default:
+                      return Mastercard;
+                  }
+                };
 
-          return (
-            <div
-              key={cardItem.id}
-              className={`billing-box box ${
-                index < cards.length - 1 ? "border-b" : ""
-              }`}
-            >
-              <div className="billing-wrapper">
-                <img src={card()} alt="card-icon" />
-                <div className="value">
-                  **** **** ****{" "}
-                  {number.slice(number.length - 5, number.length - 1)}
-                </div>
+                return (
+                  <div
+                    key={cardItem.id}
+                    className={`billing-box box ${
+                      index < cards.length - 1 ? "border-b" : ""
+                    }`}
+                  >
+                    <div className="billing-wrapper">
+                      <img src={card()} alt="card-icon" />
+                      <div className="value">
+                        **** **** ****{" "}
+                        {number.slice(number.length - 5, number.length - 1)}
+                      </div>
+                    </div>
+
+                    <div className="billing-actions">
+                      {preferred && <span>PREFFERRED</span>}
+                      <button
+                        onClick={() => {
+                          setModalType("edit");
+                          setCurrentCard(cardItem);
+                        }}
+                        className="billing-alt-button"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <div
+                style={{ padding: "22px", textAlign: "center" }}
+                className="value"
+              >
+                No Payment Methods Yet
               </div>
-
-              <div className="billing-actions">
-                {preferred && <span>PREFFERRED</span>}
-                <button
-                  onClick={() => {
-                    setModalType("edit");
-                    setCurrentCard(cardItem);
-                  }}
-                  className="billing-alt-button"
-                >
-                  Edit
-                </button>
-              </div>
-            </div>
-          );
-        })}
+            )}
+          </div>
+        )}
       </div>
 
       <button

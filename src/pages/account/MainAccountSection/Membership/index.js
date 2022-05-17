@@ -8,8 +8,10 @@ import { toast } from "react-toastify";
 
 export const Membership = () => {
   const [modalType, setModalType] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const user = JSON.parse(localStorage.getItem("user"));
+  console.log("id", user);
 
   const [plans, setPlans] = useState([]);
 
@@ -20,6 +22,42 @@ export const Membership = () => {
     } catch (e) {
       toast(e.message, { type: "error" });
     }
+  }
+
+  function subscribe(plan) {
+    setLoading(true);
+
+    const body = {
+      user_id: user.id,
+      user_name: `${user.firstname} ${user.lastname}`,
+      package: plan.name,
+      package_id: plan.id,
+      amount: plan.price_ngn,
+      tx_ref: `${user.id}-${Date.now()}`,
+    };
+
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/pay`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(body),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setLoading(false);
+        setModalType("");
+        if (res.status === "success") {
+          toast("Subscription added  successfully", { type: "success" });
+        } else {
+          toast("An error occurred", { type: "error" });
+        }
+      })
+      .catch((e) => {
+        setLoading(false);
+        toast(e.message, { type: "error" });
+      });
   }
 
   useEffect(() => {
@@ -55,39 +93,66 @@ export const Membership = () => {
       {modalType === "plans" && (
         <Modal
           title="Choose Subscription Plan"
-          closeModal={() => setModalType("")}
+          closeModal={() => (!loading ? setModalType("") : null)}
         >
-          <div className="modal-child">
-            {plans.map(
-              ({ id, description, name, duration, price_ngn, price_usd }) => (
-                <button
-                  style={{
-                    maxWidth: "560px",
-                    padding: "28px 21px",
-                    margin: "12px auto",
-                  }}
-                  key={id}
-                >
-                  <div style={{ fontSize: "16px", fontWeight: "600" }}>
-                    {name}
-                  </div>
-                  <div
+          {!loading ? (
+            <div className="modal-child">
+              {plans.map((plan) => {
+                const {
+                  id,
+                  description,
+                  name,
+                  duration,
+                  price_ngn,
+                  price_usd,
+                } = plan;
+
+                return (
+                  <button
+                    onClick={() => subscribe(plan)}
                     style={{
-                      fontSize: "22px",
-                      fontWeight: "700",
-                      marginTop: "12px",
+                      maxWidth: "560px",
+                      padding: "28px 21px",
+                      margin: "12px auto",
                     }}
+                    key={id}
                   >
-                    <span>NGN {Number(price_ngn).toLocaleString()}</span> -{" "}
-                    <span>USD {price_usd}</span> for {duration}
-                  </div>
-                  <div style={{ marginTop: "12px" }}>
-                    <span>{description}</span>
-                  </div>
-                </button>
-              )
-            )}
-          </div>
+                    <div style={{ fontSize: "16px", fontWeight: "600" }}>
+                      {name}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: "22px",
+                        fontWeight: "700",
+                        marginTop: "12px",
+                      }}
+                    >
+                      <span>NGN {Number(price_ngn).toLocaleString()}</span> -{" "}
+                      <span>USD {price_usd}</span> for {duration}
+                    </div>
+                    <div style={{ marginTop: "12px" }}>
+                      <span>{description}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="modal-child">
+              <div>
+                <div
+                  style={{
+                    padding: "22px",
+                    textAlign: "center",
+                    width: "400px",
+                  }}
+                  className="value"
+                >
+                  Subscribing. Please Wait...
+                </div>
+              </div>
+            </div>
+          )}
         </Modal>
       )}
 
@@ -113,7 +178,7 @@ export const Membership = () => {
           </div>
         ) : (
           <div className="box">
-            <div className="value" style={{ margin: 0 }}>
+            <div className="value" style={{ margin: 0, textAlign: "center" }}>
               Not subscribed yet
             </div>
           </div>

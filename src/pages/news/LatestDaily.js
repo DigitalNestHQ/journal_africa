@@ -1,48 +1,48 @@
-import React, { useEffect, useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { useParams, Link } from "react-router-dom"
-import * as newsActions from "../../store/actions/newsActions"
-import * as userActions from "../../store/actions/userActions"
-import Layout from "../../components/layout/mainlayout/Layout"
-import bannerAds from "../../assets/images/bannerads.png"
-import Loader from "../../components/loader/Loader"
-import { LargeSizeAds } from "../../components/homepage/ads/Ads"
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams, Link } from "react-router-dom";
+import * as newsActions from "../../store/actions/newsActions";
+import * as userActions from "../../store/actions/userActions";
+import Layout from "../../components/layout/mainlayout/Layout";
+import bannerAds from "../../assets/images/bannerads.png";
+import Loader from "../../components/loader/Loader";
+import { LargeSizeAds } from "../../components/homepage/ads/Ads";
 import {
   NotLoggedIn,
   LoggedInNotSubscribed,
-} from "../../components/generalNews/FreeReaderPersuader"
-import ReactHtmlParser from "react-html-parser"
-import { Row } from "react-bootstrap"
-import cybertruck from "../../assets/images/cybertruck1.jpg"
-import { HtmlParseOptions } from "../../_helper/parseNewsHtml"
-import { useViewPort } from "../../components/hooks/Viewport"
-import LatestRelatedNews from "../../components/generalNews/LatestRelatedNews"
-import LatestShareNews from "../../components/generalNews/LatestShareNews"
-import TeaserCard from "../../components/homepage/homepageTeaser/TeaserCard"
-import Paging from "../../components/reusables/Paging"
-import Moment from "react-moment"
+} from "../../components/generalNews/FreeReaderPersuader";
+import ReactHtmlParser from "react-html-parser";
+import { Row } from "react-bootstrap";
+import cybertruck from "../../assets/images/cybertruck1.jpg";
+import { HtmlParseOptions } from "../../_helper/parseNewsHtml";
+import { useViewPort } from "../../components/hooks/Viewport";
+import LatestRelatedNews from "../../components/generalNews/LatestRelatedNews";
+import LatestShareNews from "../../components/generalNews/LatestShareNews";
+import TeaserCard from "../../components/homepage/homepageTeaser/TeaserCard";
+import Paging from "../../components/reusables/Paging";
+import Moment from "react-moment";
 
 const LatestDaily = () => {
-  const dispatch = useDispatch()
-  const loginUser = useSelector((state) => state.loginUser)
-  const { token } = loginUser
-  const getUser = useSelector((state) => state.getUser)
-  const { user: authUser } = getUser
-  const getAllNews = useSelector((state) => state.getNews)
-  const { loading: getNewsLoading, news } = getAllNews
-  const getWordpress = useSelector((state) => state.getWordpress)
-  const { loading: wordpressLoading, wordpressNews } = getWordpress
-  const [currentPage, setCurrentPage] = useState(1)
-  const { width } = useViewPort()
-  const breakpoint2 = 994
-  const { slug } = useParams()
+  const dispatch = useDispatch();
+  const loginUser = useSelector((state) => state.loginUser);
+  const { token } = loginUser;
+  const getUser = useSelector((state) => state.getUser);
+  const { user: authUser } = getUser;
+  const getAllNews = useSelector((state) => state.getNews);
+  const { loading: getNewsLoading, news } = getAllNews;
+  const getWordpress = useSelector((state) => state.getWordpress);
+  const { loading: wordpressLoading, wordpressNews } = getWordpress;
+  const [currentPage, setCurrentPage] = useState(1);
+  const { width } = useViewPort();
+  const breakpoint2 = 994;
+  const { slug } = useParams();
 
-  const currentNews = wordpressNews?.find((news) => news.post_title === slug)
+  const currentNews = wordpressNews?.find((news) => news.post_title === slug);
 
   const getAdjacentPosts = (slug) => {
     const postIndex = wordpressNews?.findIndex(
       (postHeader) => postHeader.post_title === slug
-    )
+    );
 
     return {
       previous:
@@ -57,39 +57,39 @@ const LatestDaily = () => {
           : {
               slug: wordpressNews[postIndex + 1].post_title,
             },
-    }
-  }
+    };
+  };
 
   useEffect(() => {
-    dispatch(newsActions.getWordpressNews())
-    dispatch(newsActions.getNews())
-  }, [dispatch, slug])
+    dispatch(newsActions.getWordpressNews());
+    dispatch(newsActions.getNews());
+  }, [dispatch, slug]);
 
   useEffect(() => {
-    if (token) dispatch(userActions.getUser())
-  }, [dispatch, token])
+    if (token) dispatch(userActions.getUser());
+  }, [dispatch, token]);
 
   useEffect(() => {
     if (!currentNews) {
-      return
+      return;
     } else {
       if (currentNews.ID) {
-        dispatch(newsActions.addView({ id: `${currentNews.ID}` }))
+        dispatch(newsActions.addView({ id: `${currentNews.ID}` }));
       }
     }
-  }, [dispatch, currentNews])
+  }, [dispatch, currentNews]);
 
   if (getNewsLoading || wordpressLoading) {
-    return <Loader />
+    return <Loader />;
   }
 
   const currentCategoryNewsWithoutSingleNews = wordpressNews?.filter(
     (news) => news.post_title !== currentNews.post_title
-  )
+  );
 
-  const { previous, next } = getAdjacentPosts(slug)
-  const firstPageIndex = (currentPage - 1) * 4
-  const lastPageIndex = firstPageIndex + 4
+  const { previous, next } = getAdjacentPosts(slug);
+  const firstPageIndex = (currentPage - 1) * 4;
+  const lastPageIndex = firstPageIndex + 4;
 
   return (
     <Layout category={true}>
@@ -223,7 +223,7 @@ const LatestDaily = () => {
         </div>
       </main>
     </Layout>
-  )
-}
+  );
+};
 
-export default LatestDaily
+export default LatestDaily;

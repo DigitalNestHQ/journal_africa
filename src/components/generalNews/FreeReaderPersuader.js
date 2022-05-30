@@ -27,9 +27,20 @@ export const LoggedInNotSubscribed = () => {
   return (
     <div className="logged-in-not-subscribed">
       <h5 className="beyond-premium">Read beyond the news</h5>
-      <p className="premium-content" style={{ textAlign: "center" }}>
-        Subscribe to our premium content or Sign in
-      </p>
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          margin: "auto",
+          textAlign: "center",
+        }}
+      >
+        <p style={{ marginTop: "18px" }}>
+          Subscribe to our premium content or Sign in
+        </p>
+      </div>
       <div className="signup-signin-cta">
         <Link to={pageurl.SUBSCRIBE} className="not-logged-in-signup-btn">
           Subscribe

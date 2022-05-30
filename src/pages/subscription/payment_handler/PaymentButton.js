@@ -1,64 +1,61 @@
-import React from "react"
-import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3"
-import { useDispatch } from "react-redux"
-import * as userActions from "../../../store/actions/userActions"
-import "../subscribe.css"
+import React from "react";
+import { useSelector } from "react-redux";
+import "../subscribe.css";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
-export default function PaymentButton({
-  title,
-  currency,
-  amount,
-  profile,
-  description,
-  packageID,
-  packageName,
-}) {
-  const { id, firstname, lastname, email, phone } = profile
-  const dispatch = useDispatch()
+export default function PaymentButton({ packageID, amount, packageName }) {
+  const [loading, setLoading] = useState(false);
+  const loginUser = useSelector((state) => state.loginUser);
+  const { user } = loginUser;
 
-  const config = {
-    public_key: process.env.REACT_APP_PAYMENT_PUBLIC_KEY,
-    tx_ref: Date.now(),
-    amount: amount,
-    currency: currency,
-    payment_options: "card,mobilemoney,ussd",
-    customer: {
-      email: email,
-      phonenumber: phone,
-      name: firstname + " " + lastname,
-    },
-    customizations: {
-      title: title,
-      description: description,
-    },
+  function subscribe() {
+    setLoading(true);
+
+    const body = {
+      user_id: user.id,
+      user_name: `${user.firstname} ${user.lastname}`,
+      package: packageName,
+      package_id: packageID,
+      amount,
+      tx_ref: `${user.id}-${Date.now()}`,
+    };
+
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/pay`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(body),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setLoading(false);
+        if (res.status === "success") {
+          toast("Subscription added  successfully", { type: "success" });
+        } else {
+          toast("An error occurred", { type: "error" });
+        }
+      })
+      .catch((e) => {
+        setLoading(false);
+        toast(e.message, { type: "error" });
+      });
   }
-
-  const handleFlutterPayment = useFlutterwave(config)
 
   return (
     <button
       className="subscription-btn"
       onClick={() => {
-        handleFlutterPayment({
-          callback: (response) => {
-            const { flw_ref, amount } = response
-            // send traction details to the backend
-            const newPaymentHistory = {
-              user_id: id,
-              user_name: firstname + " " + lastname,
-              package: packageName,
-              package_id: packageID,
-              amount,
-              tx_ref: flw_ref,
-            }
-            dispatch(userActions.userPay(newPaymentHistory))
-            closePaymentModal() // this will close the modal programmatically
-          },
-          onClose: () => {},
-        })
+        subscribe();
       }}
     >
-      Click to Subscribe
+      {loading ? (
+        <span>subscribing, please wait</span>
+      ) : (
+        <span>Click to Subscribe</span>
+      )}
     </button>
-  )
+  );
 }

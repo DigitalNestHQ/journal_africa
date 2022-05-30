@@ -1,7 +1,7 @@
-import React from "react"
-import { useSelector } from "react-redux"
-import { Link } from "react-router-dom"
-import { pageurl } from "../../utils/constants"
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { pageurl } from "../../utils/constants";
 
 export const NotLoggedIn = () => {
   return (
@@ -18,16 +18,16 @@ export const NotLoggedIn = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const LoggedInNotSubscribed = () => {
-  const loginUser = useSelector((state) => state.loginUser)
-  const { token } = loginUser
+  const loginUser = useSelector((state) => state.loginUser);
+  const { token } = loginUser;
   return (
     <div className="logged-in-not-subscribed">
       <h5 className="beyond-premium">Read beyond the news</h5>
-      <p className="premium-content">
+      <p className="premium-content" style={{ textAlign: "center" }}>
         Subscribe to our premium content or Sign in
       </p>
       <div className="signup-signin-cta">
@@ -42,5 +42,5 @@ export const LoggedInNotSubscribed = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};

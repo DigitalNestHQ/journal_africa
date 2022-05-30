@@ -1,40 +1,40 @@
-import React, { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import * as userActions from "../../store/actions/userActions"
-import "./subscribe.css"
-import PaymentButton from "./payment_handler/PaymentButton"
-import { Link } from "react-router-dom"
-import Loader from "../../components/loader/Loader"
-import AuthLayout from "../../components/layout/authlayout/AuthLayout"
-import Alerts from "../../components/alert/Alerts"
-import { showAlert } from "../../store/actions/alertActions"
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import * as userActions from "../../store/actions/userActions";
+import "./subscribe.css";
+import PaymentButton from "./payment_handler/PaymentButton";
+import { Link } from "react-router-dom";
+import Loader from "../../components/loader/Loader";
+import AuthLayout from "../../components/layout/authlayout/AuthLayout";
+import Alerts from "../../components/alert/Alerts";
+import { showAlert } from "../../store/actions/alertActions";
 
 const Subscribe = () => {
-  const dispatch = useDispatch()
-  const getPlans = useSelector((state) => state.getPlans)
-  const { loading, error, plans } = getPlans
-  const userPay = useSelector((state) => state.userPay)
-  const { error: payError, message } = userPay
-  const loginUser = useSelector((state) => state.loginUser)
-  const { user, token } = loginUser
-  const [currency, setCurrency] = useState("NGN")
+  const dispatch = useDispatch();
+  const getPlans = useSelector((state) => state.getPlans);
+  const { loading, error, plans } = getPlans;
+  const userPay = useSelector((state) => state.userPay);
+  const { error: payError, message } = userPay;
+  const loginUser = useSelector((state) => state.loginUser);
+  const { user, token } = loginUser;
+  const [currency, setCurrency] = useState("NGN");
 
   useEffect(() => {
-    if (plans.length === 0) dispatch(userActions.getPlans())
+    if (plans.length === 0) dispatch(userActions.getPlans());
 
     if (message) {
-      dispatch(showAlert(message, "success"))
+      dispatch(showAlert(message, "success"));
     }
     if (error) {
-      dispatch(showAlert(error, "danger"))
+      dispatch(showAlert(error, "danger"));
     }
     if (payError) {
-      dispatch(showAlert(payError, "danger"))
+      dispatch(showAlert(payError, "danger"));
     }
-  }, [dispatch, error, message, payError, plans.length])
+  }, [dispatch, error, message, payError, plans.length]);
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
 
   return (
@@ -115,7 +115,7 @@ const Subscribe = () => {
           ))}
       </div>
     </AuthLayout>
-  )
-}
+  );
+};
 
-export default Subscribe
+export default Subscribe;

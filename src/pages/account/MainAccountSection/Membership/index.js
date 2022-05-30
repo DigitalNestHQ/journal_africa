@@ -66,7 +66,7 @@ export const Membership = () => {
 
   return (
     <div className="right-top">
-      <h2>MY MEMBERSHIP as</h2>
+      <h2>MY MEMBERSHIP</h2>
 
       {modalType === "cancel" && (
         <Modal title="Cancel Subscription" closeModal={() => setModalType("")}>

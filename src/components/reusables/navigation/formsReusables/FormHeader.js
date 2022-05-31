@@ -1,7 +1,7 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import logo from "../../../../assets/images/main logo.png"
-import "./formHeader.css"
+import React from "react";
+import { Link } from "react-router-dom";
+import logo from "../../../../assets/images/main logo white.png";
+import "./formHeader.css";
 
 const FormHeader = () => {
   return (
@@ -27,7 +27,7 @@ const FormHeader = () => {
         </li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default FormHeader
+export default FormHeader;

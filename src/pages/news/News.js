@@ -1,55 +1,55 @@
-import React, { useEffect, useState, useCallback } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import * as newsActions from "../../store/actions/newsActions"
-import * as userActions from "../../store/actions/userActions"
-import Layout from "../../components/layout/mainlayout/Layout"
-import bannerAds from "./../../assets/images/bannerads.png"
-import ReactHtmlParser from "react-html-parser"
-import { useParams, Link } from "react-router-dom"
-import Loader from "../../components/loader/Loader"
-import "./allNews.css"
+import React, { useEffect, useState, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import * as newsActions from "../../store/actions/newsActions";
+import * as userActions from "../../store/actions/userActions";
+import Layout from "../../components/layout/mainlayout/Layout";
+import bannerAds from "./../../assets/images/bannerads.png";
+import ReactHtmlParser from "react-html-parser";
+import { useParams, Link } from "react-router-dom";
+import Loader from "../../components/loader/Loader";
+import "./allNews.css";
 import {
   NotLoggedIn,
   LoggedInNotSubscribed,
-} from "../../components/generalNews/FreeReaderPersuader"
-import { LargeSizeAds } from "../../components/homepage/ads/Ads"
-import TeaserCard from "../../components/homepage/homepageTeaser/TeaserCard"
-import { Row } from "react-bootstrap"
-import cybertruck from "../../assets/images/cybertruck1.jpg"
-import { HtmlParseOptions } from "../../_helper/parseNewsHtml"
-import { useViewPort } from "../../components/hooks/Viewport"
-import "../../pages/category/newscategory.css"
-import RelatedNews from "../../components/generalNews/RelatedNews"
-import ShareNews from "../../components/generalNews/ShareNews"
-import Paging from "../../components/reusables/Paging"
-import Moment from "react-moment"
+} from "../../components/generalNews/FreeReaderPersuader";
+import { LargeSizeAds } from "../../components/homepage/ads/Ads";
+import TeaserCard from "../../components/homepage/homepageTeaser/TeaserCard";
+import { Row } from "react-bootstrap";
+import cybertruck from "../../assets/images/cybertruck1.jpg";
+import { HtmlParseOptions } from "../../_helper/parseNewsHtml";
+import { useViewPort } from "../../components/hooks/Viewport";
+import "../../pages/category/newscategory.css";
+import RelatedNews from "../../components/generalNews/RelatedNews";
+import ShareNews from "../../components/generalNews/ShareNews";
+import Paging from "../../components/reusables/Paging";
+import Moment from "react-moment";
 
 const GetNews = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   // declaring redux reducers states and destructring thier property values
-  const loginUser = useSelector((state) => state.loginUser)
-  const { token } = loginUser
-  const getUser = useSelector((state) => state.getUser)
-  const { user: authUser } = getUser
-  const getAllNews = useSelector((state) => state.getNews)
-  const { loading: getNewsLoading, news } = getAllNews
+  const loginUser = useSelector((state) => state.loginUser);
+  const { token } = loginUser;
+  const getUser = useSelector((state) => state.getUser);
+  const { user: authUser } = getUser;
+  const getAllNews = useSelector((state) => state.getNews);
+  const { loading: getNewsLoading, news } = getAllNews;
 
-  const getSinglePost = useSelector((state) => state.getSingleNews)
-  const { loading: singlePostLoading, singleNews } = getSinglePost
+  const getSinglePost = useSelector((state) => state.getSingleNews);
+  const { loading: singlePostLoading, singleNews } = getSinglePost;
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const { slug } = useParams()
-  const { width } = useViewPort()
-  const breakpoint2 = 994
+  const [currentPage, setCurrentPage] = useState(1);
+  const { slug } = useParams();
+  const { width } = useViewPort();
+  const breakpoint2 = 994;
 
   const getAdjacentPosts = useCallback(
     (slug) => {
       const currentCategoryNews = news?.filter(
         (news) => news.category_id === singleNews?.category_id
-      )
+      );
       const postIndex = currentCategoryNews?.findIndex(
         (postHeader) => postHeader.slug === slug
-      )
+      );
 
       return {
         previous:
@@ -64,48 +64,48 @@ const GetNews = () => {
             : {
                 slug: currentCategoryNews[postIndex + 1].slug,
               },
-      }
+      };
     },
     [news, singleNews]
-  )
+  );
 
   useEffect(() => {
-    dispatch(newsActions.getSingleNews(slug))
-    dispatch(newsActions.getNews())
-  }, [dispatch, slug])
+    dispatch(newsActions.getSingleNews(slug));
+    dispatch(newsActions.getNews());
+  }, [dispatch, slug]);
 
   useEffect(() => {
-    if (token) dispatch(userActions.getUser())
-  }, [dispatch, token])
+    if (token) dispatch(userActions.getUser());
+  }, [dispatch, token]);
 
   useEffect(() => {
     if (singleNews === null) {
-      return
+      return;
     } else {
       if (singleNews.id) {
-        dispatch(newsActions.addView({ id: `${singleNews.id}` }))
+        dispatch(newsActions.addView({ id: `${singleNews.id}` }));
       }
     }
-  }, [dispatch, singleNews])
+  }, [dispatch, singleNews]);
 
   if (singlePostLoading || getNewsLoading) {
-    return <Loader />
+    return <Loader />;
   }
 
   const currentCategoryNews = news?.filter(
     (news) => news.category_id === singleNews?.category_id
-  )
+  );
 
   const currentCategoryNewsWithoutSingleNews = currentCategoryNews?.filter(
     (news) => {
-      return news.id !== singleNews?.id
+      return news.id !== singleNews?.id;
     }
-  )
+  );
 
-  const { previous, next } = getAdjacentPosts(slug)
+  const { previous, next } = getAdjacentPosts(slug);
 
-  const firstPageIndex = (currentPage - 1) * 4
-  const lastPageIndex = firstPageIndex + 4
+  const firstPageIndex = (currentPage - 1) * 4;
+  const lastPageIndex = firstPageIndex + 4;
 
   return (
     <Layout category={true}>
@@ -256,7 +256,7 @@ const GetNews = () => {
         </div>
       </main>
     </Layout>
-  )
-}
+  );
+};
 
-export default GetNews
+export default GetNews;

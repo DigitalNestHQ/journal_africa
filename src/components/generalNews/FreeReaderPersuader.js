@@ -7,7 +7,20 @@ export const NotLoggedIn = () => {
   return (
     <div className="not-logged-in">
       <h5 className="continue-sign-in">This story is free to read</h5>
-      <p>To Continue Reading, register for free or sign in</p>
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          margin: "auto",
+          textAlign: "center",
+        }}
+      >
+        <p style={{ marginTop: "18px" }}>
+          To Continue Reading, register for free or sign in
+        </p>
+      </div>
       <div className="signup-signin-cta">
         <Link to={pageurl.SIGNUP} className="not-logged-in-signup-btn">
           Sign Up

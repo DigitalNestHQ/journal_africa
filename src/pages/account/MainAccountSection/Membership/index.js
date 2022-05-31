@@ -11,7 +11,6 @@ export const Membership = () => {
   const [loading, setLoading] = useState(false);
 
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log("id", user);
 
   const [plans, setPlans] = useState([]);
 

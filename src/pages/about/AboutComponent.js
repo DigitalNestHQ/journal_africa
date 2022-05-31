@@ -1,28 +1,28 @@
-import React, { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
-import { Card, Row, Col } from "react-bootstrap"
-import Loader from "../../components/loader/Loader"
-import "./about.css"
-import * as newsActions from "../../store/actions/newsActions"
-import { LargeSizeAds } from "../../components/homepage/ads/Ads"
-import bannerAds from "./../../assets/images/bannerads.png"
-import { useViewPort } from "../../components/hooks/Viewport"
-import Layout from "../../components/layout/mainlayout/Layout"
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Card, Row, Col } from "react-bootstrap";
+import Loader from "../../components/loader/Loader";
+import "./about.css";
+import * as newsActions from "../../store/actions/newsActions";
+import { LargeSizeAds } from "../../components/homepage/ads/Ads";
+import bannerAds from "./../../assets/images/bannerads.png";
+import { useViewPort } from "../../components/hooks/Viewport";
+import Layout from "../../components/layout/mainlayout/Layout";
 
 const AboutComponent = () => {
-  const dispatch = useDispatch()
-  const getAllNews = useSelector((state) => state.getNews)
-  const { loading, news } = getAllNews
-  const { width } = useViewPort()
-  const breakPoint = 991
+  const dispatch = useDispatch();
+  const getAllNews = useSelector((state) => state.getNews);
+  const { loading, news } = getAllNews;
+  const { width } = useViewPort();
+  const breakPoint = 991;
 
   useEffect(() => {
-    dispatch(newsActions.getNews())
-  }, [dispatch])
+    dispatch(newsActions.getNews());
+  }, [dispatch]);
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
   return (
     <Layout>
@@ -155,7 +155,7 @@ const AboutComponent = () => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default AboutComponent
+export default AboutComponent;

@@ -1,9 +1,10 @@
-import React from "react"
-import GooglePlayImg from "../../../../assets/images/playstoreimg.png"
-import ApplePlayImg from "../../../../assets/images/apple.jpg"
-import "./footer.css"
-import { Link } from "react-router-dom"
-import { pageurl } from "../../../../utils/constants"
+/* eslint-disable no-restricted-globals */
+import React from "react";
+import GooglePlayImg from "../../../../assets/images/playstoreimg.png";
+import ApplePlayImg from "../../../../assets/images/apple.jpg";
+import "./footer.css";
+import { Link } from "react-router-dom";
+import { pageurl } from "../../../../utils/constants";
 const Footer = () => {
   return (
     <footer className="footer-section">
@@ -12,27 +13,67 @@ const Footer = () => {
           <div className="footer-grid">
             <h6 className="footer-heading">About</h6>
             <ul className="footer-list">
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link to="/about" className="footer-link">
                   About Us
                 </Link>
               </li>
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link to={pageurl.TERMSANDCONDITIONS} className="footer-link">
                   Terms and Conditions
                 </Link>
               </li>
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link to="/code-of-ethics" className="footer-link">
                   Code of Ethics
                 </Link>
               </li>
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link to={pageurl.PRIVACYPOLICY} className="footer-link">
                   Privacy Policy
                 </Link>
               </li>
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link to="/faq" className="footer-link">
                   FAQs
                 </Link>
@@ -42,27 +83,67 @@ const Footer = () => {
           <div className="footer-grid">
             <h6 className="footer-heading">Connect</h6>
             <ul className="footer-list">
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link to="/contact" className="footer-link">
                   Contact Us
                 </Link>
               </li>
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link to="/advertising" className="footer-link">
                   Advertise
                 </Link>
               </li>
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link to="/" className="footer-link">
                   Newsletters
                 </Link>
               </li>
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link to="/write-for-us" className="footer-link">
                   Write for us
                 </Link>
               </li>
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link to="/copyright" className="footer-link">
                   Copyright Policy
                 </Link>
@@ -72,12 +153,28 @@ const Footer = () => {
           <div className="footer-grid">
             <h6 className="footer-heading">Section</h6>
             <ul className="footer-list">
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link to="/podcast" className="footer-link">
                   Podcast
                 </Link>
               </li>
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link
                   to={{
                     pathname: "/news/categories",
@@ -88,7 +185,15 @@ const Footer = () => {
                   Gender and human rights
                 </Link>
               </li>
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link
                   to={{
                     pathname: "/news/categories",
@@ -99,7 +204,15 @@ const Footer = () => {
                   Commentary
                 </Link>
               </li>
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link
                   to={{
                     pathname: "/news/categories",
@@ -110,7 +223,15 @@ const Footer = () => {
                   Fact Check Africa
                 </Link>
               </li>
-              <li className="footer-list-item">
+              <li
+                className="footer-list-item"
+                onClick={() =>
+                  scrollTo({
+                    behavior: "auto",
+                    top: 0,
+                  })
+                }
+              >
                 <Link
                   to={{
                     pathname: "/news/categories",
@@ -171,7 +292,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

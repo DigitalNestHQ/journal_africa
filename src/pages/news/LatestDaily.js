@@ -136,7 +136,7 @@ const LatestDaily = () => {
                   <div className="blur-content"></div>
                 )}
                 <div className="check-mate">
-                  {token === null ? (
+                  {token !== null ? (
                     <LoggedInNotSubscribed />
                   ) : token !== null ? (
                     authUser?.subscription_status ? (

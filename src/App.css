@@ -21,6 +21,10 @@ body {
 a {
   color: black;
 }
+
+.pod-text {
+  color: white !important;
+}
 a:hover {
   text-decoration: none;
 }

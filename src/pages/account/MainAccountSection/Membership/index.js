@@ -209,7 +209,11 @@ export const Membership = () => {
         )}
         <div className="spacer"></div>
         {user.subscribe && (
-          <button className="main-button" style={{ width: "100%" }}>
+          <button
+            onClick={() => setModalType("plans")}
+            className="main-button"
+            style={{ width: "100%" }}
+          >
             Upgrade Subscription
           </button>
         )}

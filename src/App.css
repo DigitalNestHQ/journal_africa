@@ -23,7 +23,7 @@ a {
 }
 
 .pod-text {
-  color: white !important;
+  color: white;
 }
 a:hover {
   text-decoration: none;

@@ -3,6 +3,7 @@
   display: block;
   margin-left: 0;
   margin-right: 0;
+  color: black;
 }
 
 .pod-category-header {
@@ -11,6 +12,7 @@
   margin: 0 0 3rem 0;
 }
 .pod-header {
+  color: black;
   margin: 0;
 }
 .pod-category-list {
@@ -27,7 +29,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 1rem;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid black;
   padding: 0 0 1.3rem 0;
 }
 .pod-img-container {
@@ -40,12 +42,17 @@
   height: 100%;
   display: block;
   object-fit: cover;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 40%);
 }
 .pod-collection-details {
   display: block;
   width: 100%;
   text-align: left;
   margin: 0;
+  color: black;
+}
+.pod-text {
+  color: black !important;
 }
 .pod-cta {
   width: 100%;
@@ -60,13 +67,13 @@
 
 .pod-btn {
   background: transparent;
-  color: #fff;
+  color: black;
   outline: none;
   padding: 0.2rem 0.5rem;
   font-weight: bold;
 }
 .play-button {
-  border: 2px solid #fff;
+  border: 2px solid black;
   display: flex;
   align-items: center;
 }
@@ -82,12 +89,12 @@
 }
 .pod-episodes {
   margin: 0.3rem 0;
-  color: #fff;
+  color: black;
   display: block;
   width: 100%;
 }
 .pod-episodes:hover {
-  color: #fff;
+  color: red;
 }
 .pod-text{
   line-height:30px;

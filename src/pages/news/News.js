@@ -1,28 +1,28 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import * as newsActions from "../../store/actions/newsActions";
-import * as userActions from "../../store/actions/userActions";
-import Layout from "../../components/layout/mainlayout/Layout";
-import bannerAds from "./../../assets/images/bannerads.png";
-import ReactHtmlParser from "react-html-parser";
-import { useParams, Link } from "react-router-dom";
-import Loader from "../../components/loader/Loader";
-import "./allNews.css";
+import React, { useEffect, useState, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as newsActions from '../../store/actions/newsActions';
+import * as userActions from '../../store/actions/userActions';
+import Layout from '../../components/layout/mainlayout/Layout';
+import bannerAds from './../../assets/images/bannerads.png';
+import ReactHtmlParser from 'react-html-parser';
+import { useParams, Link } from 'react-router-dom';
+import Loader from '../../components/loader/Loader';
+import './allNews.css';
 import {
   NotLoggedIn,
   LoggedInNotSubscribed,
-} from "../../components/generalNews/FreeReaderPersuader";
-import { LargeSizeAds } from "../../components/homepage/ads/Ads";
-import TeaserCard from "../../components/homepage/homepageTeaser/TeaserCard";
-import { Row } from "react-bootstrap";
-import cybertruck from "../../assets/images/cybertruck1.jpg";
-import { HtmlParseOptions } from "../../_helper/parseNewsHtml";
-import { useViewPort } from "../../components/hooks/Viewport";
-import "../../pages/category/newscategory.css";
-import RelatedNews from "../../components/generalNews/RelatedNews";
-import ShareNews from "../../components/generalNews/ShareNews";
-import Paging from "../../components/reusables/Paging";
-import Moment from "react-moment";
+} from '../../components/generalNews/FreeReaderPersuader';
+import { LargeSizeAds } from '../../components/homepage/ads/Ads';
+import TeaserCard from '../../components/homepage/homepageTeaser/TeaserCard';
+import { Row } from 'react-bootstrap';
+import cybertruck from '../../assets/images/cybertruck1.jpg';
+import { HtmlParseOptions } from '../../_helper/parseNewsHtml';
+import { useViewPort } from '../../components/hooks/Viewport';
+import '../../pages/category/newscategory.css';
+import RelatedNews from '../../components/generalNews/RelatedNews';
+import ShareNews from '../../components/generalNews/ShareNews';
+import Paging from '../../components/reusables/Paging';
+import Moment from 'react-moment';
 
 const GetNews = () => {
   const dispatch = useDispatch();
@@ -54,13 +54,13 @@ const GetNews = () => {
       return {
         previous:
           postIndex <= 0
-            ? ""
+            ? ''
             : {
                 slug: currentCategoryNews[postIndex - 1].slug,
               },
         next:
           postIndex >= currentCategoryNews.length - 1
-            ? ""
+            ? ''
             : {
                 slug: currentCategoryNews[postIndex + 1].slug,
               },
@@ -109,69 +109,72 @@ const GetNews = () => {
 
   return (
     <Layout category={true}>
-      <div className="s-n-ads-container">
+      <div className='s-n-ads-container'>
         <LargeSizeAds img={bannerAds} />
       </div>
-      <main className="single-news-main-section">
-        <div className="s-n-content-grid">
-          <div className="s-n-left-content">
+      <main className='single-news-main-section'>
+        <div className='s-n-content-grid'>
+          <div className='s-n-left-content'>
             {!singlePostLoading && singleNews === null ? (
               <h5>Post Unavailable - Please check your internet connection</h5>
             ) : (
-              <div className="available-content">
-                <h5 className="news-post-title section-heading-default">
+              <div className='available-content'>
+                <h5 className='news-post-title section-heading-default'>
                   {singleNews.post_title}
                 </h5>
-                <div className="news-author-details">
-                  <p className="author-name-comp">
+                <div className='news-author-details'>
+                  <p className='author-name-comp'>
                     By <strong>{singleNews.author_name}</strong>
                   </p>
-                  <p className="post-comp">
-                    Posted on{" "}
-                    <Moment format="MMMM Do YYYY">
+                  <p className='post-comp'>
+                    Posted on{' '}
+                    <Moment format='MMMM Do YYYY'>
                       {singleNews.updated_at}
                     </Moment>
                   </p>
                 </div>
-                <div className="news-img-container">
+                <div className='news-img-container'>
                   <img
                     src={`https://api.tv24africa.com/public/storage/post_image/${singleNews.featured_image}`}
-                    alt="featuredImg"
-                    className="news-img"
+                    alt='featuredImg'
+                    className='news-img'
                   />
                 </div>
 
-                <div className="main-content">
+                <div className='main-content'>
                   {ReactHtmlParser(
                     `${
-                      singleNews?.post_type === "premium" && token !== null
+                      singleNews?.post_type === 'premium' && token !== null
                         ? authUser?.subscription_status
                           ? singleNews?.post_description
                           : singleNews?.post_description.substring(0, 1500)
-                        : singleNews?.post_type === "premium" && token === null
+                        : (singleNews?.post_type === 'premium' &&
+                            token === null) ||
+                          (singleNews?.post_type === 'free' && token === null)
                         ? singleNews?.post_description.substring(0, 1500)
                         : singleNews?.post_description
                     }`,
                     HtmlParseOptions
                   )}
                 </div>
-                {singleNews?.post_type === "premium" && token ? (
+                {singleNews?.post_type === 'premium' && token ? (
                   authUser?.subscription_status ? (
                     <div></div>
                   ) : (
-                    <div className="blur-content"></div>
+                    <div className='blur-content'></div>
                   )
-                ) : singleNews?.post_type === "premium" && token === null ? (
-                  <div className="blur-content"></div>
+                ) : (singleNews?.post_type === 'premium' && token === null) ||
+                  (singleNews?.post_type === 'free' && token === null) ? (
+                  <div className='blur-content'></div>
                 ) : (
-                  <div className=""></div>
+                  <div className=''></div>
                 )}
-                <div className="check-mate">
-                  {singleNews?.post_type === "premium" && token === null ? (
+                <div className='check-mate'>
+                  {singleNews?.post_type === 'premium' && token === null ? (
                     <LoggedInNotSubscribed />
-                  ) : singleNews?.post_type === "premium" && token !== null ? (
+                  ) : singleNews?.post_type === 'premium' && token !== null ? (
                     authUser?.subscription_status ? (
-                      ""
+                      ''
                     ) : (
                       <LoggedInNotSubscribed />
                     )
@@ -181,12 +184,12 @@ const GetNews = () => {
                 </div>
                 <ShareNews next={next} previous={previous} />
                 {currentCategoryNewsWithoutSingleNews.length !== 0 ? (
-                  <div className="related-articles-section">
-                    <button className="related-articles-btn">
+                  <div className='related-articles-section'>
+                    <button className='related-articles-btn'>
                       related articles
                     </button>
-                    <div className="related-content">
-                      <Row xs={1} md={4} className="related-row">
+                    <div className='related-content'>
+                      <Row xs={1} md={4} className='related-row'>
                         {currentCategoryNewsWithoutSingleNews
                           .slice(firstPageIndex, lastPageIndex)
                           .map((categ) => (
@@ -209,26 +212,26 @@ const GetNews = () => {
                           onPageChange={(page) => setCurrentPage(page)}
                         />
                       ) : (
-                        ""
+                        ''
                       )}
                     </div>
                   </div>
                 ) : (
-                  ""
+                  ''
                 )}
               </div>
             )}
           </div>
-          <div className="cat-left-content s-n-right-content">
-            <h5 className="cat-left-heading section-heading-default">
+          <div className='cat-left-content s-n-right-content'>
+            <h5 className='cat-left-heading section-heading-default'>
               Trending Posts
             </h5>
-            <div className="trend-img-container">
-              <img src={cybertruck} alt="tesla" className="trend-img" />
+            <div className='trend-img-container'>
+              <img src={cybertruck} alt='tesla' className='trend-img' />
             </div>
-            <div className="trending-posts">
+            <div className='trending-posts'>
               {!getNewsLoading && news.length === 0 ? (
-                <h5 className="text-dark">
+                <h5 className='text-dark'>
                   No trending news available - Please check your internet
                   connection
                 </h5>
@@ -241,7 +244,7 @@ const GetNews = () => {
                   .map((eachCard) => (
                     <Link
                       to={`/post/${eachCard.slug}`}
-                      className="trending-card lastest-card-link"
+                      className='trending-card lastest-card-link'
                       key={eachCard.id}
                     >
                       <TeaserCard eachCard={eachCard} />
@@ -249,8 +252,8 @@ const GetNews = () => {
                   ))
               )}
             </div>
-            <div className="trend--img-container">
-              <img src={cybertruck} alt="tesla" className="trend-img" />
+            <div className='trend--img-container'>
+              <img src={cybertruck} alt='tesla' className='trend-img' />
             </div>
           </div>
         </div>

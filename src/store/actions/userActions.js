@@ -1,6 +1,6 @@
-import * as userTypes from "../constants/userTypes";
-import { withoutAuthToken } from "../../utils/axios";
-import axios from "axios";
+import * as userTypes from '../constants/userTypes';
+import { withoutAuthToken } from '../../utils/axios';
+import axios from 'axios';
 
 export const createUser = (formData) => async (dispatch) => {
   try {
@@ -8,7 +8,7 @@ export const createUser = (formData) => async (dispatch) => {
       type: userTypes.USER_REGISTER_REQUEST,
     });
 
-    const { data } = await withoutAuthToken.post("/register", formData);
+    const { data } = await withoutAuthToken.post('/register', formData);
 
     dispatch({
       type: userTypes.USER_REGISTER_SUCCESS,
@@ -34,7 +34,7 @@ export const getUser = () => async (dispatch, getState) => {
 
     const config = {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
     };
@@ -49,7 +49,7 @@ export const getUser = () => async (dispatch, getState) => {
       payload: data,
     });
 
-    localStorage.setItem("authuser", JSON.stringify(data));
+    localStorage.setItem('authuser', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: userTypes.GET_USER_ERROR,
@@ -64,16 +64,17 @@ export const loginUser = (formData) => async (dispatch) => {
       type: userTypes.USER_LOGIN_REQUEST,
     });
 
-    const { data } = await withoutAuthToken.post("/login", formData);
+    const { data } = await withoutAuthToken.post('/login', formData);
 
     dispatch({
       type: userTypes.USER_LOGIN_SUCCESS,
       payload: data.data,
     });
-    localStorage.setItem("token", data.token);
-    console.log(data.data);
-    localStorage.setItem("user", JSON.stringify(data?.data));
-    window.location.replace("/");
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('user', JSON.stringify(data?.data));
+    // window.location.replace('/');
+    window.history.back();
+    getUser();
   } catch (error) {
     dispatch({
       type: userTypes.USER_LOGIN_ERROR,
@@ -88,14 +89,14 @@ export const getPlans = () => async (dispatch) => {
       type: userTypes.GET_PLANS_REQUEST,
     });
 
-    const { data } = await withoutAuthToken.get("/plans");
+    const { data } = await withoutAuthToken.get('/plans');
 
     dispatch({
       type: userTypes.GET_PLANS_SUCCESS,
       payload: data.plans,
     });
 
-    localStorage.setItem("plans", JSON.stringify(data.plans));
+    localStorage.setItem('plans', JSON.stringify(data.plans));
   } catch (error) {
     dispatch({
       type: userTypes.GET_PLANS_ERROR,
@@ -110,7 +111,7 @@ export const userPay = (paymentData) => async (dispatch) => {
       type: userTypes.USER_PAY_REQUEST,
     });
 
-    const { data } = await withoutAuthToken.post("/pay", paymentData);
+    const { data } = await withoutAuthToken.post('/pay', paymentData);
 
     dispatch({
       type: userTypes.USER_PAY_SUCCESS,
@@ -152,9 +153,9 @@ export const userEmailSub = (email) => async (dispatch) => {
 
 export const logout = () => (dispatch) => {
   dispatch({ type: userTypes.USER_LOGOUT });
-  localStorage.removeItem("user");
-  localStorage.removeItem("token");
-  window.location.replace("/");
+  localStorage.removeItem('user');
+  localStorage.removeItem('token');
+  window.location.replace('/');
 };
 
 export const clearErrors = () => (dispatch) => {

@@ -147,11 +147,11 @@ const GetNews = () => {
                       singleNews?.post_type === 'premium' && token !== null
                         ? authUser?.subscription_status
                           ? singleNews?.post_description
-                          : singleNews?.post_description.substring(0, 1500)
+                          : singleNews?.post_description.substring(0, 1250)
                         : (singleNews?.post_type === 'premium' &&
                             token === null) ||
                           (singleNews?.post_type === 'free' && token === null)
-                        ? singleNews?.post_description.substring(0, 1500)
+                        ? singleNews?.post_description.substring(0, 1250)
                         : singleNews?.post_description
                     }`,
                     HtmlParseOptions

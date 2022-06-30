@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import newLogo from '../../../../assets/images/main logo.png';
@@ -19,14 +19,19 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const loginUser = useSelector((state) => state.loginUser);
   const { token } = loginUser;
+  const [access, setAccess] = useState(false);
 
   const handleMenuClick = () => {
     setMenu((prev) => !prev);
   };
 
-  // useEffect(() => {
-  //   if (token || loading) dispatch(userActions.getUser());
-  // }, [dispatch, token, loading]);
+  useEffect(() => {
+    if (token) {
+      setAccess(true);
+    } else {
+      setAccess(false);
+    }
+  }, [token]);
 
   return (
     <div className='navigation'>
@@ -92,7 +97,7 @@ const Navbar = () => {
             <div className='cta-buttons'>
               <ul className='cta-list'>
                 <li className='cta-item'>
-                  {token ? (
+                  {access ? (
                     <a href='#!' onClick={() => dispatch(logout())}>
                       <span className='hide-sm'>Sign out</span>
                     </a>

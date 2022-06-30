@@ -12,11 +12,11 @@ const PodcastCategories = ({ header, podcasts }) => {
       </div>
       <div className='pod-category-list'>
         {podcasts.slice(0, podcasts.length).map((podcast) => (
-          <div key={podcast.collectionName} className='pod-collections'>
+          <div key={podcast.name} className='pod-collections'>
             <div className='pod-grid'>
               <div className='pod-img-container'>
                 <img
-                  src={podcast.artworkUrl600}
+                  src={podcast.image}
                   alt='podcast-artwork'
                   className='pod-img'
                 />
@@ -24,24 +24,21 @@ const PodcastCategories = ({ header, podcasts }) => {
               <div className='pod-collection-details'>
                 <div className='pod-intro-details'>
                   <p className='pod-text'>
-                    Damini Ebunoluwa Ogulu (born 2 july 1991), known
-                    professionally as Burna Boy, is a Nigerian singer,
-                    songwriter, rapper, and dancer. He is one of the biggest and
-                    most successful African artists.
+                    {podcast.description
+                      ? podcast.description
+                      : `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti repellat mollitia consequatur, optio nesciunt placeat. Iste voluptates excepturi tenetur, nesciunt.`}
                   </p>
                   <p className='pod-text'>
-                    He rose to prominence in 2012 after releasing "Like to
-                    Party", the lead single from his debut studio album L.I.F.E
-                    (2013). In 2017, Burna Boy signed with Bad Habit/Atlantic
-                    Records in the United States and Warner Music Group
-                    internationally.
+                    {podcast.description
+                      ? podcast.description
+                      : `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti repellat mollitia consequatur, optio nesciunt placeat. Iste voluptates excepturi tenetur, nesciunt.`}
                   </p>
                 </div>
                 <div className='pod-cta'>
                   <button
                     className='pod-btn play-button'
                     onClick={() =>
-                      history.push(`/podcast/${podcast.collectionId}`)
+                      history.push(`/podcast/${podcast.author_id}`)
                     }
                   >
                     <img src={play_button} alt='play' />
@@ -56,10 +53,7 @@ const PodcastCategories = ({ header, podcasts }) => {
                 </div>
               </div>
             </div>
-            <Link
-              to={`/podcast/${podcast.collectionId}`}
-              className='pod-episodes'
-            >
+            <Link to={`/podcast/${podcast.author_id}`} className='pod-episodes'>
               ALL EPISODES
             </Link>
           </div>

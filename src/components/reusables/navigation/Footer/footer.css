@@ -32,6 +32,7 @@
   background-color: red;
   text-transform: uppercase;
   margin-bottom: 1rem;
+  font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
 .footer-list {
@@ -45,6 +46,7 @@
 }
 .footer-link {
   color: #999999;
+  font-size: clamp(0.85rem, 2vw, 1rem);
 }
 .footer-link:hover {
   color: #fff;
@@ -90,13 +92,13 @@
 
 .download-link {
   color: #fff;
-  font-size: 1.35rem;
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
 }
 .copy-right-red {
   color: red;
   display: inline-block;
 }
-.copy-right-red:hover{
+.copy-right-red:hover {
   color: red;
 }
 
@@ -112,10 +114,9 @@
   }
   .footer-content {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
     width: 100%;
     grid-gap: 1rem !important;
-    text-align: center;
     margin-top: 1rem;
     padding: 0.5rem;
   }
@@ -148,5 +149,13 @@
   }
   .rights {
     text-align: center;
+  }
+}
+
+@media (max-width: 685px) {
+  .footer-content {
+    display: grid;
+    grid-template-columns: 12rem 11rem;
+    justify-content: space-between;
   }
 }

@@ -1,4 +1,4 @@
-import * as userTypes from "../constants/userTypes";
+import * as userTypes from '../constants/userTypes';
 
 export const createUserReducer = (
   state = { loading: false, message: null, error: null, user: {} },

@@ -3,6 +3,7 @@
   display: block;
   margin-left: 0;
   margin-right: 0;
+  color: black;
 }
 
 .pod-category-header {
@@ -11,6 +12,7 @@
   margin: 0 0 3rem 0;
 }
 .pod-header {
+  color: black;
   margin: 0;
 }
 .pod-category-list {
@@ -27,7 +29,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 1rem;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid black;
   padding: 0 0 1.3rem 0;
 }
 .pod-img-container {
@@ -40,12 +42,17 @@
   height: 100%;
   display: block;
   object-fit: cover;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 40%);
 }
 .pod-collection-details {
   display: block;
   width: 100%;
   text-align: left;
   margin: 0;
+  color: black;
+}
+.pod-text {
+  color: black !important;
 }
 .pod-cta {
   width: 100%;
@@ -54,19 +61,42 @@
   justify-content: flex-start;
 }
 
+.subscribe-div {
+  position: absolute;
+  top: 2.5rem;
+  right: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  border: 2.5px solid rgb(0, 0, 0);
+}
+
+.subscribe-div > * + * {
+  border-top: 2px solid #fff;
+}
+.subscribe-item {
+  padding: 0.3rem 0;
+  font-weight: 400;
+}
+
+.subscribe-item:hover {
+  background-color: #fff;
+  color: black;
+}
+
 .pod-cta > * + * {
   margin: 0 0 0 1.5rem;
 }
 
 .pod-btn {
   background: transparent;
-  color: #fff;
+  color: black;
   outline: none;
   padding: 0.2rem 0.5rem;
   font-weight: bold;
+  position: relative;
 }
 .play-button {
-  border: 2px solid #fff;
+  border: 2px solid black;
   display: flex;
   align-items: center;
 }
@@ -75,25 +105,41 @@
   margin: 0 0 0 0.5rem;
 }
 
-
 .pod-subscribe {
   border: none;
   background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.8rem;
+  color: #fff;
 }
+
+.pod-subscribe:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+.pod-subscribe img {
+  width: 0.7rem;
+  margin-left: 1.8rem;
+  filter: invert(96%) sepia(40%) saturate(5933%) hue-rotate(180deg)
+    brightness(127%) contrast(100%);
+}
+
 .pod-episodes {
   margin: 0.3rem 0;
-  color: #fff;
+  color: black;
   display: block;
   width: 100%;
 }
 .pod-episodes:hover {
-  color: #fff;
+  color: red;
 }
-.pod-text{
-  line-height:30px;
+.pod-text {
+  line-height: 30px;
 }
 
-@media(max-width:685px) {
+@media (max-width: 685px) {
   .pod-grid {
     display: block;
     grid-template-columns: unset;

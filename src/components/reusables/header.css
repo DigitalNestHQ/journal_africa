@@ -46,7 +46,7 @@ ul {
 }
 
 .account-links {
-  border: 2px solid #fff;
+  border: 1px solid black;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,7 +55,7 @@ ul {
   cursor: pointer;
 }
 .account-links img {
-  width: 0.7rem;
+  width: 0.6rem;
   margin: 0.3rem 0.5rem;
 }
 
@@ -64,6 +64,11 @@ ul {
 
 .account-links p {
   margin: unset;
+  font-weight: 500;
+}
+.account-links > p {
+  font-size: 0.7rem;
+  font-weight: 700;
 }
 
 .account-link-card {
@@ -81,6 +86,7 @@ ul {
   padding: 0.5rem;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.5);
+  font-size: 0.8rem;
 }
 .account-link-card > * + * {
   border-top: none !important;

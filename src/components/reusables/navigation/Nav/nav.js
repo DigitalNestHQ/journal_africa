@@ -12,6 +12,10 @@ import '../../header.css';
 import MobileNav from './MobileNav';
 import { logout } from '../../../../store/actions/userActions';
 
+import userIcon from '../../../../assets/images/user-solid.svg';
+import downIcon from '../../../../assets/images/down-solid.svg';
+import arrowRight from '../../../../assets/images/arrow-right.svg';
+
 const Navbar = () => {
   const { width } = useViewPort();
   const breakpoint = 1250;
@@ -32,6 +36,16 @@ const Navbar = () => {
       setAccess(false);
     }
   }, [token]);
+
+  const [state, setState] = useState(false);
+
+  const handleDropdown = () => {
+    if (state) {
+      setState(false);
+    } else {
+      setState(true);
+    }
+  };
 
   return (
     <div className='navigation'>
@@ -98,9 +112,26 @@ const Navbar = () => {
               <ul className='cta-list'>
                 <li className='cta-item'>
                   {access ? (
-                    <a href='#!' onClick={() => dispatch(logout())}>
-                      <span className='hide-sm'>Sign out</span>
-                    </a>
+                    <div className='account-links' onClick={handleDropdown}>
+                      <img src={userIcon} className='profile-icon' alt='' />
+                      <p>My account</p>
+                      <img src={downIcon} alt='' />
+                      {state && (
+                        <ul className='account-link-card'>
+                          <li className='card-item'>
+                            <img src={userIcon} alt='' />
+                            <p>Dashboard</p>
+                          </li>
+                          <li
+                            className='card-item'
+                            onClick={() => dispatch(logout())}
+                          >
+                            <img src={arrowRight} alt='' />
+                            <p>Sign Out</p>
+                          </li>
+                        </ul>
+                      )}
+                    </div>
                   ) : (
                     <Link to='/login'>sign in</Link>
                   )}

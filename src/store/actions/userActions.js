@@ -74,6 +74,7 @@ export const loginUser = (formData) => async (dispatch) => {
     localStorage.setItem('user', JSON.stringify(data?.data));
     // window.location.replace('/');
     window.history.back();
+    window.location.reload();
     getUser();
   } catch (error) {
     dispatch({

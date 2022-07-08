@@ -110,7 +110,7 @@ const Navbar = () => {
           {width > breakpoint ? (
             <div className='cta-buttons'>
               <ul className='cta-list'>
-                <li className='cta-item'>
+                {/* <li className='cta-item'>
                   {access ? (
                     <div className='account-links' onClick={handleDropdown}>
                       <img src={userIcon} className='profile-icon' alt='' />
@@ -135,7 +135,7 @@ const Navbar = () => {
                   ) : (
                     <Link to='/login'>sign in</Link>
                   )}
-                </li>
+                </li> */}
                 <li className='cta-item subscribe text-center'>
                   <Link to='/subscribe' className='nav-sub-link'>
                     subscribe

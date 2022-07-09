@@ -4,7 +4,6 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
   display: grid;
   gap: 24px;
-  z-index: 20;
   position: relative;
 }
 
@@ -264,7 +263,7 @@
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;

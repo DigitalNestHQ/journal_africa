@@ -91,6 +91,7 @@ ins strong {
   max-width: 78.125rem;
   margin: 0 auto;
   display: block;
+  position: relative;
   padding: 1rem;
 }
 .section-heading-default {

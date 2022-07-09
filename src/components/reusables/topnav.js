@@ -1,15 +1,41 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import './header.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import userIcon from '../../assets/images/user-solid.svg';
+import downIcon from '../../assets/images/down-solid.svg';
+import arrowRight from '../../assets/images/arrow-right.svg';
+import { logout } from '../../store/actions/userActions';
 
 function TopNav() {
   const loginUser = useSelector((state) => state.loginUser);
   const { token, user } = loginUser;
 
+  const dispatch = useDispatch();
+
   let options = { year: 'numeric', month: 'long', day: 'numeric' };
 
   const [date] = useState(new Date().toLocaleDateString('en-US', options));
+
+  const [access, setAccess] = useState(false);
+
+  const [state, setState] = useState(false);
+
+  useEffect(() => {
+    if (token) {
+      setAccess(true);
+    } else {
+      setAccess(false);
+    }
+  }, [token]);
+
+  const handleDropdown = () => {
+    if (state) {
+      setState(false);
+    } else {
+      setState(true);
+    }
+  };
 
   const authLinks = (
     <Fragment>
@@ -40,6 +66,27 @@ function TopNav() {
       <div className='text-white name-sp'>
         <ul className='welcome-list'>{token ? authLinks : guestLinks}</ul>
       </div>
+      {access ? (
+        <div className='account-links' onClick={handleDropdown}>
+          <img src={userIcon} className='profile-icon' alt='' />
+          <p>My account</p>
+          <img src={downIcon} alt='' />
+          {state && (
+            <ul className='account-link-card'>
+              <li className='card-item'>
+                <img src={userIcon} alt='' />
+                <p>Dashboard</p>
+              </li>
+              <li className='card-item' onClick={() => dispatch(logout())}>
+                <img src={arrowRight} alt='' />
+                <p>Sign Out</p>
+              </li>
+            </ul>
+          )}
+        </div>
+      ) : (
+        <Link to='/login'>SIGN IN</Link>
+      )}
       <ul className='soc-nav'>
         <li>
           <a

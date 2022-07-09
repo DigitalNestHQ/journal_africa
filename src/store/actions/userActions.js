@@ -66,13 +66,13 @@ export const loginUser = (formData) => async (dispatch) => {
 
     const { data } = await withoutAuthToken.post('/login', formData);
 
+    window.history.back();
     dispatch({
       type: userTypes.USER_LOGIN_SUCCESS,
       payload: data,
     });
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data?.data));
-    window.history.back();
     getUser();
   } catch (error) {
     dispatch({

@@ -68,13 +68,11 @@ export const loginUser = (formData) => async (dispatch) => {
 
     dispatch({
       type: userTypes.USER_LOGIN_SUCCESS,
-      payload: data.data,
+      payload: data,
     });
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data?.data));
-    // window.location.replace('/');
     window.history.back();
-    window.location.reload();
     getUser();
   } catch (error) {
     dispatch({

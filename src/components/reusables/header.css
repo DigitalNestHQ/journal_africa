@@ -126,7 +126,6 @@ ul {
     display: none;
   }
   .welcome-list {
-    /* justify-content: space-between; */
     gap: unset;
   }
 }

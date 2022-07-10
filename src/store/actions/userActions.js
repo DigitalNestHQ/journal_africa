@@ -72,7 +72,6 @@ export const loginUser = (formData) => async (dispatch) => {
     });
     localStorage.setItem('token', data.token);
     localStorage.setItem('user', JSON.stringify(data?.data));
-    window.history.back();
     getUser();
   } catch (error) {
     dispatch({

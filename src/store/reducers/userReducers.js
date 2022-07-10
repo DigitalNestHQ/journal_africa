@@ -83,6 +83,7 @@ export const loginUserReducer = (
       };
 
     case userTypes.USER_LOGIN_SUCCESS:
+      // window.history.back();
       return {
         ...state,
         loading: false,

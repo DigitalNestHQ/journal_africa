@@ -1,4 +1,4 @@
-@import url("http://fonts.cdnfonts.com/css/nimbussanl");
+@import url('http://fonts.cdnfonts.com/css/nimbussanl');
 iframe {
   display: none;
 }
@@ -14,8 +14,8 @@ body {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "NimbusSanL", sans-serif;
-  font-family: "NimbusSanLCon", sans-serif;
+  font-family: 'NimbusSanL', sans-serif;
+  font-family: 'NimbusSanLCon', sans-serif;
   font-size: clamp(0.9rem, 2vw, 1rem);
 }
 a {
@@ -69,7 +69,6 @@ ins strong {
   top: 0;
   left: 0;
   padding: 0 0.1rem;
-  z-index: 100;
   font-size: 0.7rem;
 }
 .premium-badge-left {
@@ -80,7 +79,6 @@ ins strong {
   top: 0;
   right: 0;
   padding: 0 0.1rem;
-  z-index: 100;
   font-size: 0.7rem;
 }
 .section-content-default {
@@ -93,6 +91,7 @@ ins strong {
   max-width: 78.125rem;
   margin: 0 auto;
   display: block;
+  position: relative;
   padding: 1rem;
 }
 .section-heading-default {

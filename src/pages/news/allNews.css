@@ -52,6 +52,7 @@
   max-width: 790px !important;
   margin: auto;
   line-height: 30px;
+  line-clamp: 4;
 }
 .blur-content {
   background: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));

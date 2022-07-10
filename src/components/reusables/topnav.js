@@ -73,10 +73,13 @@ function TopNav() {
           <img src={downIcon} alt='' />
           {state && (
             <ul className='account-link-card'>
-              <li className='card-item'>
-                <img src={userIcon} alt='' />
-                <p>Dashboard</p>
-              </li>
+              <Link to='/account'>
+                <li className='card-item'>
+                  <img src={userIcon} alt='' />
+                  <p>Dashboard</p>
+                </li>
+              </Link>
+
               <li className='card-item' onClick={() => dispatch(logout())}>
                 <img src={arrowRight} alt='' />
                 <p>Sign Out</p>

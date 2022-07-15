@@ -18,7 +18,6 @@ function TopNav() {
   const [date] = useState(new Date().toLocaleDateString('en-US', options));
 
   const [access, setAccess] = useState(false);
-
   const [state, setState] = useState(false);
 
   useEffect(() => {
@@ -79,7 +78,6 @@ function TopNav() {
                   <p>Dashboard</p>
                 </li>
               </Link>
-
               <li className='card-item' onClick={() => dispatch(logout())}>
                 <img src={arrowRight} alt='' />
                 <p>Sign Out</p>

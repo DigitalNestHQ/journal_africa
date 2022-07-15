@@ -79,7 +79,6 @@ function TopNav() {
                   <p>Dashboard</p>
                 </li>
               </Link>
-
               <li className='card-item' onClick={() => dispatch(logout())}>
                 <img src={arrowRight} alt='' />
                 <p>Sign Out</p>

@@ -18,7 +18,6 @@ function TopNav() {
   const [date] = useState(new Date().toLocaleDateString('en-US', options));
 
   const [access, setAccess] = useState(false);
-
   const [state, setState] = useState(false);
 
   useEffect(() => {

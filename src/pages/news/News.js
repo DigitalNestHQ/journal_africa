@@ -135,7 +135,7 @@ const GetNews = () => {
                 </div>
                 <div className='news-img-container'>
                   <img
-                    src={`https://api.tv24africa.com/public/storage/post_image/${singleNews.featured_image}`}
+                    src={singleNews.featured_image}
                     alt='featuredImg'
                     className='news-img'
                   />

@@ -19,8 +19,6 @@ export const getPodcasts = () => async (dispatch) => {
       config
     );
 
-    console.log(response.data.data);
-
     dispatch({
       type: podcastTypes.GET_PODCASTS_SUCCESS,
       payload: response.data.data,

@@ -1,40 +1,42 @@
-import React from "react"
-import "./business.css"
-import { Link } from "react-router-dom"
-import { HtmlParseOptions } from "../../../_helper/parseNewsHtml"
-import ReactHtmlParser from "react-html-parser"
-import { Row, Col, Card } from "react-bootstrap"
-import { LargeSizeAds } from "../ads/Ads"
-import bannerAds from "../../../assets/images/bannerads.png"
-import "../ads/ads.css"
+import React from 'react';
+import './business.css';
+import { Link } from 'react-router-dom';
+import { HtmlParseOptions } from '../../../_helper/parseNewsHtml';
+import ReactHtmlParser from 'react-html-parser';
+import { Row, Col, Card } from 'react-bootstrap';
+import { LargeSizeAds } from '../ads/Ads';
+import bannerAds from '../../../assets/images/bannerads.png';
+import '../ads/ads.css';
 
 const Business = ({ data }) => {
-  const businessNews = data.filter((news) => news.category_id === "Business")
+  const businessNews = data.filter(
+    (news) => news.category_id.toLowerCase() === 'business and economy'
+  );
 
   return (
-    <section className="business-section section-content-default">
-      <div className="section-wrapper-default">
-        <h5 className="business-heading section-heading-default">
+    <section className='business-section section-content-default'>
+      <div className='section-wrapper-default'>
+        <h5 className='business-heading section-heading-default'>
           Business and Economy
         </h5>
-        <div className="business-content">
-          <Row xs={1} lg={3} className="g-4">
+        <div className='business-content'>
+          <Row xs={1} lg={3} className='g-4'>
             {businessNews.slice(0, 3).map((categ, idx) => (
-              <Col className="bus-col" key={categ.id}>
-                <Link to={`/post/${categ.slug}`} className="bus-link">
+              <Col className='bus-col' key={categ.id}>
+                <Link to={`/post/${categ.slug}`} className='bus-link'>
                   <Card>
                     <Card.Img
-                      variant="top"
-                      src={`https://api.tv24africa.com/public/storage/post_image/${categ.featured_image}`}
-                      className="mb-3 card-img-business"
+                      variant='top'
+                      src={categ.featured_image}
+                      className='mb-3 card-img-business'
                     />
-                    <p className="premium-badge">
-                      {categ.post_type === "premium"
+                    <p className='premium-badge'>
+                      {categ.post_type === 'premium'
                         ? `${categ.post_type}`
-                        : ""}
+                        : ''}
                     </p>
-                    <Card.Body className="bus-card-body">
-                      <Card.Subtitle className="text-danger mb-3 font-bold slug-default">
+                    <Card.Body className='bus-card-body'>
+                      <Card.Subtitle className='text-danger mb-3 font-bold slug-default'>
                         {categ.slug}
                       </Card.Subtitle>
                       <Card.Text>
@@ -52,19 +54,19 @@ const Business = ({ data }) => {
         </div>
         <Link
           to={{
-            pathname: "/news/categories",
+            pathname: '/news/categories',
             search: `?category=Business`,
           }}
-          className="explore-red-btn"
+          className='explore-red-btn'
         >
           Explore More...
         </Link>
-        <div className="ad-sense mt-5">
+        <div className='ad-sense mt-5'>
           <LargeSizeAds img={bannerAds} />
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Business
+export default Business;

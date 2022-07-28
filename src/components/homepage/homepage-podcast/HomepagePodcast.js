@@ -9,6 +9,9 @@ const HomepagePodcast = ({ data }) => {
   const businessNews = data.filter(
     (news) => news.category_id.toLowerCase() === 'business and economy'
   );
+
+  console.log(businessNews, 'podcast');
+
   return (
     <section className='business-section section-content-default'>
       <div className='section-wrapper-default'>
@@ -17,7 +20,8 @@ const HomepagePodcast = ({ data }) => {
         </h5>
         <div className='business-content'>
           <Row xs={1} lg={4} className='g-4'>
-            {businessNews.slice(3, 7).map((categ, idx) => (
+            {/* {businessNews.slice(3, 7).map((categ, idx) => ( */}
+            {businessNews.slice(0, 4).map((categ, idx) => (
               <Col className='bus-col' key={categ.id}>
                 <Link to={`/post/${categ.slug}`} className='bus-link'>
                   <Card className='com-card'>

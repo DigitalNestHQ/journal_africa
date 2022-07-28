@@ -8,8 +8,10 @@ import './lifestyle.css';
 
 const Business = ({ data }) => {
   const businessNews = data.filter(
-    (news) => news.category_id === 'business and economy'
+    (news) => news.category_id.toLowerCase() === 'gender and human rights'
   );
+
+  console.log(businessNews);
 
   return (
     <section className='business-section section-content-default'>
@@ -19,7 +21,8 @@ const Business = ({ data }) => {
         </h5>
         <div className='business-content'>
           <Row xs={1} lg={2} className='g-4'>
-            {businessNews.slice(3, 5).map((categ, idx) => (
+            {/* {businessNews.slice(3, 5).map((categ, idx) => ( */}
+            {businessNews.slice(0, 2).map((categ, idx) => (
               <Col className='com-col' key={categ.id}>
                 <Link to={`/post/${categ.slug}`} className='bus-link'>
                   <Card className='bus-card'>

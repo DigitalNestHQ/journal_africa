@@ -4,11 +4,14 @@ import './development.css';
 
 export const FactCheck = ({ data }) => {
   const factCheck = data.filter(
-    (news) => news.category_id === 'Fact Check Africa'
+    (news) => news.category_id.toLowerCase() === 'fact check africa'
   );
   const indepthAfrica = data.filter(
-    (news) => news.category_id === 'In-Depth Africa'
+    (news) => news.category_id.toLowerCase() === 'in-depth africa'
   );
+
+  console.log(indepthAfrica);
+
   return (
     <section className='fact-check-section section-content-default'>
       <div className='section-wrapper-default '>
@@ -28,7 +31,7 @@ export const FactCheck = ({ data }) => {
             </Link>
             <div className='fact-img-container'>
               <img
-                src={`https://api.tv24africa.com/public/storage/post_image/${factCheck[0].featured_image}`}
+                src={factCheck[0].featured_image}
                 alt='calabar'
                 className='f-c-img'
               />
@@ -42,7 +45,7 @@ export const FactCheck = ({ data }) => {
                 >
                   <div className='fact-list-img-container left-text'>
                     <img
-                      src={`https://api.tv24africa.com/public/storage/post_image/${item.featured_image}`}
+                      src={item.featured_image}
                       alt='factCheck'
                       className='f-c-l-img'
                     />
@@ -67,7 +70,7 @@ export const FactCheck = ({ data }) => {
             </Link>
             <div className='fact-img-container'>
               <img
-                src={`https://api.tv24africa.com/public/storage/post_image/${indepthAfrica[0].featured_image}`}
+                src={indepthAfrica[0].featured_image}
                 alt='calabar'
                 className='f-c-img'
               />
@@ -81,7 +84,7 @@ export const FactCheck = ({ data }) => {
                 >
                   <div className='fact-list-img-container'>
                     <img
-                      src={`https://api.tv24africa.com/public/storage/post_image/${item.featured_image}`}
+                      src={item.featured_image}
                       alt='factCheck'
                       className='f-c-l-img'
                     />

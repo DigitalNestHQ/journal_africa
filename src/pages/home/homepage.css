@@ -2,7 +2,7 @@
   margin-top: 125px;
 }
 .caro-item:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 0;
@@ -63,6 +63,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
   padding: 1.25rem 1.25rem 1.25rem 3.188rem;
 }
 

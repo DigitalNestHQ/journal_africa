@@ -11,23 +11,25 @@ const TeaserSection = ({ data }) => {
   const getWordpress = useSelector((state) => state.getWordpress);
   const { loading, wordpressNews } = getWordpress;
 
-  const politics = data.filter((post) => post.category_id === 'Politics');
+  const politics = data.filter(
+    (post) => post.category_id.toLowerCase() === 'politics'
+  );
   const discoverAfrica = data.filter(
-    (post) => post.category_id === 'Discover Africa'
+    (post) => post.category_id.toLowerCase() === 'discover africa'
   );
 
   const culture = discoverAfrica.filter(
-    (post) => post.sub_category === 'Culture'
+    (post) => post.sub_category.toLowerCase() === 'culture'
   );
   const places = discoverAfrica.filter(
-    (post) => post.sub_category === 'Places'
+    (post) => post.sub_category.toLowerCase() === 'places'
   );
   const lifestyle = discoverAfrica.filter(
-    (post) => post.sub_category === 'Lifestyle'
+    (post) => post.sub_category.toLowerCase() === 'lifestyle'
   );
 
   const people = discoverAfrica.filter(
-    (post) => post.sub_category === 'People'
+    (post) => post.sub_category.toLowerCase() === 'people'
   );
   const { width } = useViewPort();
   const breakpoint = 991;

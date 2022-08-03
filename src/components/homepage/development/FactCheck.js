@@ -10,8 +10,6 @@ export const FactCheck = ({ data }) => {
     (news) => news.category_id.toLowerCase() === 'in-depth africa'
   );
 
-  console.log(indepthAfrica);
-
   return (
     <section className='fact-check-section section-content-default'>
       <div className='section-wrapper-default '>

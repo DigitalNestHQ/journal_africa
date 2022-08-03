@@ -11,8 +11,6 @@ const Business = ({ data }) => {
     (news) => news.category_id.toLowerCase() === 'gender and human rights'
   );
 
-  console.log(businessNews);
-
   return (
     <section className='business-section section-content-default'>
       <div className='section-wrapper-default'>

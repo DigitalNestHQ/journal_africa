@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import cybertruck from '../../../assets/images/cybertruck1.jpg';
 import { useViewPort } from '../../hooks/Viewport';
@@ -12,29 +12,36 @@ const TeaserSection = ({ data }) => {
   const { loading, wordpressNews } = getWordpress;
 
   const politics = data.filter(
-    (post) => post.category_id.toLowerCase() === 'politics'
+    (post) => post.category_id.toLowerCase() === 'politics and government'
   );
   const discoverAfrica = data.filter(
     (post) => post.category_id.toLowerCase() === 'discover africa'
   );
 
-  const culture = discoverAfrica.filter(
-    (post) => post.sub_category.toLowerCase() === 'culture'
-  );
-  const places = discoverAfrica.filter(
-    (post) => post.sub_category.toLowerCase() === 'places'
-  );
-  const lifestyle = discoverAfrica.filter(
-    (post) => post.sub_category.toLowerCase() === 'lifestyle'
-  );
+  const [selected, setSelected] = useState([]);
 
-  const people = discoverAfrica.filter(
-    (post) => post.sub_category.toLowerCase() === 'people'
-  );
+  useEffect(() => {
+    subCategoryPost();
+    //eslint-disable-next-line
+  }, []);
+
+  const subCategoryPost = () => {
+    let post = [];
+    let count = [];
+
+    for (let i = 0; i < discoverAfrica.length; i++) {
+      let element = discoverAfrica[i];
+      if (!post.includes(element.sub_category)) {
+        post.push(element.sub_category);
+        count.push(i);
+      }
+    }
+    let newArr = discoverAfrica.filter((item, index) => count.includes(index));
+    setSelected(newArr);
+  };
+
   const { width } = useViewPort();
   const breakpoint = 991;
-
-  const selectedTeasers = [culture[0], places[0], lifestyle[0], people[0]];
 
   return (
     <section className='discover section-content-default '>
@@ -47,14 +54,14 @@ const TeaserSection = ({ data }) => {
                   Discover Africa
                 </h5>
                 <div className='africa-cards'>
-                  {selectedTeasers.length === 0 ? (
+                  {selected.length === 0 ? (
                     <p className='text-white'>No news found</p>
                   ) : (
-                    selectedTeasers.map((eachCard) => (
+                    selected.map((eachCard) => (
                       <div className='sub-categ-card' key={eachCard.id}>
                         <div className='a-img-container'>
                           <img
-                            src={`https://api.tv24africa.com/public/storage/post_image/${eachCard.featured_image}`}
+                            src={eachCard.featured_image}
                             alt={eachCard.sub_category}
                             className='f-img'
                           />
@@ -120,9 +127,9 @@ const TeaserSection = ({ data }) => {
           {width > breakpoint ? (
             <div className='latest-daily'>
               <div className='latest-daily-wrapper'>
-                <h5 className='latest-heading section-heading-default'>
+                {/* <h5 className='latest-heading section-heading-default'>
                   Latest Daily News
-                </h5>
+                </h5> */}
                 <div className='l-img-container'>
                   <img src={cybertruck} alt='tesla' className='l-img' />
                 </div>

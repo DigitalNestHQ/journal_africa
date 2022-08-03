@@ -31,12 +31,13 @@ const Homepage = () => {
     return <Loader />;
   } else if (!loading && news.length !== 0) {
     const sorted = news.sort((a, b) => (a.created_at > b.created_at ? -1 : 1));
+
     return (
       <Layout>
         <main>
           <Showcase data={sorted} />
           <LatestNews data={sorted} />
-          {/* <TeaserSection data={sorted} /> */}
+          <TeaserSection data={sorted} />
           <Business data={sorted} />
           <FactCheck data={sorted} />
           <Economy data={sorted} />

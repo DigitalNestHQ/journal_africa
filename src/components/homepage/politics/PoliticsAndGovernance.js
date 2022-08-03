@@ -8,7 +8,7 @@ import './politicsandgovernance.css';
 
 const Commentary = ({ data }) => {
   const businessNews = data.filter(
-    (news) => news.category_id.toLowerCase() === 'politics and government'
+    (news) => news.category_id.toLowerCase() === 'commentary'
   );
 
   return (

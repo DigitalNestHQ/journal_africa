@@ -10,8 +10,6 @@ const HomepagePodcast = ({ data }) => {
     (news) => news.category_id.toLowerCase() === 'business and economy'
   );
 
-  console.log(businessNews, 'podcast');
-
   return (
     <section className='business-section section-content-default'>
       <div className='section-wrapper-default'>

@@ -7,7 +7,7 @@ import { Row, Col, Card } from 'react-bootstrap';
 
 const Economy = ({ data }) => {
   const businessNews = data.filter(
-    (news) => news.category_id.toLowerCase() === 'politics and government'
+    (news) => news.category_id.toLowerCase() === 'policy and development'
   );
 
   return (

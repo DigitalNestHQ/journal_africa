@@ -48,7 +48,7 @@ const TeaserSection = ({ data }) => {
       <div className='section-wrapper-default'>
         <div className='content-grid'>
           <div className='africa-now'>
-            <div className='discover-africa-content'>
+            {/* <div className='discover-africa-content'>
               <div className='africa'>
                 <h5 className='africa-header section-heading-default'>
                   Discover Africa
@@ -95,7 +95,7 @@ const TeaserSection = ({ data }) => {
                   Explore More...
                 </Link>
               </div>
-            </div>
+            </div> */}
             <div className='policy'>
               <div className='policy-container'>
                 <h5 className='policy-heading section-heading-default'>

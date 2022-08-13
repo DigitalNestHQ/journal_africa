@@ -11,7 +11,6 @@ import './nav.css';
 import '../../header.css';
 import MobileNav from './MobileNav';
 import { logout } from '../../../../store/actions/userActions';
-
 import userIcon from '../../../../assets/images/user-solid.svg';
 import downIcon from '../../../../assets/images/down-solid.svg';
 import arrowRight from '../../../../assets/images/arrow-right.svg';

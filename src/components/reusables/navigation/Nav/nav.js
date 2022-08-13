@@ -74,7 +74,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: '?category=Politics',
+                    search: '?category=POLITICS AND GOVERNMENT',
                   }}
                 >
                   politics and government
@@ -84,7 +84,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: '?category=Business',
+                    search: '?category=BUSINESS AND ECONOMY',
                   }}
                 >
                   business and economy
@@ -94,7 +94,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: '?category=Development',
+                    search: '?category=POLICY AND DEVELOPMENT',
                   }}
                 >
                   policy and development

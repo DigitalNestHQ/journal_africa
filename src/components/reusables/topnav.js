@@ -65,29 +65,6 @@ function TopNav() {
       <div className='text-white name-sp'>
         <ul className='welcome-list'>{token ? authLinks : guestLinks}</ul>
       </div>
-      {access ? (
-        <div className='account-links' onClick={handleDropdown}>
-          <img src={userIcon} className='profile-icon' alt='' />
-          <p>My account</p>
-          <img src={downIcon} alt='' />
-          {state && (
-            <ul className='account-link-card'>
-              <Link to='/account'>
-                <li className='card-item'>
-                  <img src={userIcon} alt='' />
-                  <p>Dashboard</p>
-                </li>
-              </Link>
-              <li className='card-item' onClick={() => dispatch(logout())}>
-                <img src={arrowRight} alt='' />
-                <p>Sign Out</p>
-              </li>
-            </ul>
-          )}
-        </div>
-      ) : (
-        <Link to='/login'>SIGN IN</Link>
-      )}
       <ul className='soc-nav'>
         <li>
           <a

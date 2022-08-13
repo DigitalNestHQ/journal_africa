@@ -11,7 +11,6 @@ import './nav.css';
 import '../../header.css';
 import MobileNav from './MobileNav';
 import { logout } from '../../../../store/actions/userActions';
-
 import userIcon from '../../../../assets/images/user-solid.svg';
 import downIcon from '../../../../assets/images/down-solid.svg';
 import arrowRight from '../../../../assets/images/arrow-right.svg';
@@ -74,7 +73,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: '?category=Politics',
+                    search: '?category=POLITICS AND GOVERNMENT',
                   }}
                 >
                   politics and government
@@ -84,7 +83,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: '?category=Business',
+                    search: '?category=BUSINESS AND ECONOMY',
                   }}
                 >
                   business and economy
@@ -94,7 +93,7 @@ const Navbar = () => {
                 <Link
                   to={{
                     pathname: '/news/categories',
-                    search: '?category=Development',
+                    search: '?category=POLICY AND DEVELOPMENT',
                   }}
                 >
                   policy and development
@@ -110,7 +109,7 @@ const Navbar = () => {
           {width > breakpoint ? (
             <div className='cta-buttons'>
               <ul className='cta-list'>
-                {/* <li className='cta-item'>
+                <li className='cta-item'>
                   {access ? (
                     <div className='account-links' onClick={handleDropdown}>
                       <img src={userIcon} className='profile-icon' alt='' />
@@ -118,10 +117,12 @@ const Navbar = () => {
                       <img src={downIcon} alt='' />
                       {state && (
                         <ul className='account-link-card'>
-                          <li className='card-item'>
-                            <img src={userIcon} alt='' />
-                            <p>Dashboard</p>
-                          </li>
+                          <Link to='/account'>
+                            <li className='card-item'>
+                              <img src={userIcon} alt='' />
+                              <p>Dashboard</p>
+                            </li>
+                          </Link>
                           <li
                             className='card-item'
                             onClick={() => dispatch(logout())}
@@ -135,7 +136,7 @@ const Navbar = () => {
                   ) : (
                     <Link to='/login'>sign in</Link>
                   )}
-                </li> */}
+                </li>
                 <li className='cta-item subscribe text-center'>
                   <Link to='/subscribe' className='nav-sub-link'>
                     subscribe

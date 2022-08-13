@@ -1,0 +1,7 @@
+.not-logged-in,
+.login-not-subscribed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

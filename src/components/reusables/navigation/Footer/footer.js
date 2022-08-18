@@ -303,10 +303,9 @@ const Footer = () => {
           </div>
         </div>
         <div className='rights'>
-          <p className='copy-rights'>
-            &copy; 2021 Journal Africa Newspaper Limited,{' '}
+          <p className='copy-rights copy-right-red'>
             <a href='https://newsmediaafrica.com/' className='copy-right-red'>
-              A Subsidiary of News Media Africa Limited
+              &copy; 2021 Journal Africa Newspaper Limited{' '}
             </a>
           </p>
         </div>

@@ -4,4 +4,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: unset;
+}
+
+.beyond-premium {
+  font-size: 1.1rem;
+  max-width: 35rem;
+  width: 85%;
+  text-align: center !important;
+  margin: unset;
+}
+
+.signup-signin-cta {
+  margin-bottom: 1rem;
 }

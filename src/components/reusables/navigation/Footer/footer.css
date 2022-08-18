@@ -95,15 +95,22 @@
   font-size: clamp(1.1rem, 3vw, 1.35rem);
 }
 .copy-right-red {
-  color: red;
+  color: #fff;
+  margin: unset;
+  margin-top: 1rem;
   display: inline-block;
 }
 .copy-right-red:hover {
   color: red;
 }
-
+.rights {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: unset;
+}
 .copy-rights {
-  font-size: inherit;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 993px) {

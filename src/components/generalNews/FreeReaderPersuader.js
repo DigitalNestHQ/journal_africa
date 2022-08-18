@@ -43,8 +43,6 @@ export const LoggedInNotSubscribed = () => {
 
   return (
     <div className='logged-in-not-subscribed'>
-      <h5 className='beyond-premium'>Read beyond the news</h5>
-
       <div
         style={{
           display: 'flex',
@@ -57,7 +55,7 @@ export const LoggedInNotSubscribed = () => {
         {token === null && authUser?.subscription_status === null ? (
           <>
             <div className='login-not-subscribed'>
-              <p>
+              <p className='beyond-premium'>
                 This story is only available to premium Subscribers. You have no
                 active subscription.
               </p>
@@ -67,7 +65,7 @@ export const LoggedInNotSubscribed = () => {
         ) : (
           <>
             <div className='not-logged-in'>
-              <p>
+              <p className='beyond-premium'>
                 This story is a premium content and only available to premium
                 subscribers.
               </p>

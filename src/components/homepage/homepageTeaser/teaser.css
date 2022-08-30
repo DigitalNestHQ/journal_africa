@@ -131,9 +131,6 @@
   display: block;
   width: 100%;
 }
-.latest-daily-wrapper {
-  border: 2px solid red;
-}
 
 .l-img-container {
   width: 100%;
@@ -247,5 +244,12 @@
   }
   .policy-card > * + * {
     margin: 1rem 0 0 0;
+  }
+  .latest-daily-wrapper .l-img-container {
+    display: block;
+    width: 100%;
+  }
+  .latest-daily-wrapper .l-img-container:first-child {
+    margin-right: unset;
   }
 }

@@ -127,15 +127,13 @@ const TeaserSection = ({ data }) => {
           {width > breakpoint ? (
             <div className='latest-daily'>
               <div className='latest-daily-wrapper'>
-                {/* <h5 className='latest-heading section-heading-default'>
-                  Latest Daily News
-                </h5> */}
                 <div className='l-img-container'>
                   <img src={cybertruck} alt='tesla' className='l-img' />
                 </div>
                 <div className='latest-content'>
                   {!loading && wordpressNews.length === 0 ? (
-                    <h5>No news Available</h5>
+                    // <h5>No news Available</h5>
+                    <h5></h5>
                   ) : (
                     wordpressNews.slice(0, 4).map((eachCard) => (
                       <Link
@@ -155,7 +153,32 @@ const TeaserSection = ({ data }) => {
               </div>
             </div>
           ) : (
-            ''
+            <div className='latest-daily'>
+              <div className='latest-daily-wrapper'>
+                <div className='l-img-container'>
+                  <img src={cybertruck} alt='tesla' className='l-img' />
+                </div>
+                <div className='l-img-container'>
+                  <img src={cybertruck} alt='tesla' className='l-img' />
+                </div>
+                <div className='latest-content'>
+                  {!loading && wordpressNews.length === 0 ? (
+                    // <h5>No news Available</h5>
+                    <h5></h5>
+                  ) : (
+                    wordpressNews.slice(0, 4).map((eachCard) => (
+                      <Link
+                        to={`/latest/${eachCard.post_title}`}
+                        className='lastest-card-link'
+                        key={eachCard.ID}
+                      >
+                        <TeaserLatestCard eachCard={eachCard} />
+                      </Link>
+                    ))
+                  )}
+                </div>
+              </div>
+            </div>
           )}
         </div>
       </div>

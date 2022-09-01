@@ -6,7 +6,8 @@ import './podcasthome.css';
 import NavBar from '../../components/reusables/navigation/Nav/nav';
 import Footer from '../../components/reusables/navigation/Footer/footer';
 import Loader from '../../components/loader/Loader';
-import cybertruck from '../../assets/images/cybertruck1.jpg';
+import ubaAd from '../../assets/images/uba-ad.jpg';
+import journalAd from '../../assets/images/journal-ad.png';
 import { useDispatch, useSelector } from 'react-redux';
 import * as podcastsActions from '../../store/actions/podcastActions';
 
@@ -45,35 +46,31 @@ const PodcastHome = () => {
                   header={'Journal Africa Podcast'}
                   podcasts={podcasts}
                 />
-                {/* <PodcastCategories
-                  header={"Radio & TV Podcasts"}
-                  podcasts={radioPodcasts}
-                /> */}
               </div>
             )}
             {width > breakpoint ? (
               <div className='pod-ads'>
                 <div className='pod-home-ad-sense'>
                   <img
-                    src={cybertruck}
+                    src={ubaAd}
                     alt='ads'
                     className='pod-home-ad-sense-img'
                   />
                 </div>
                 <div className='pod-home-ad-sense'>
                   <img
-                    src={cybertruck}
+                    src={journalAd}
                     alt='ads'
                     className='pod-home-ad-sense-img'
                   />
                 </div>
-                <div className='pod-home-ad-sense'>
+                {/* <div className='pod-home-ad-sense'>
                   <img
                     src={cybertruck}
                     alt='ads'
                     className='pod-home-ad-sense-img'
                   />
-                </div>
+                </div> */}
               </div>
             ) : (
               ''

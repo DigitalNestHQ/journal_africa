@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import '../../../pages/home/homepage.css';
 import '../ads/ads.css';
 import { LargeSizeAds } from '../ads/Ads';
-import bannerAds from '../../../assets/images/bannerads.png';
+import bannerAds from '../../../assets/images/heritage-ad.jpg';
 
 const Showcase = ({ data }) => {
   const { width } = useViewPort();

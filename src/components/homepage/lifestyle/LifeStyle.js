@@ -29,9 +29,14 @@ const Business = ({ data }) => {
                       src={categ.featured_image}
                       className='card-img-business'
                     />
-                    <a href='#!' className='com-title text-white slug-default'>
-                      Human Rights
-                    </a>
+                    <div className='bus-card'>
+                      <Link
+                        to={`/post/${categ.slug}`}
+                        className='com-title text-white slug-default'
+                      >
+                        <p>{categ.post_title}</p>
+                      </Link>
+                    </div>
                   </Card>
                 </Link>
               </Col>

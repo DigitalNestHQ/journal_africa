@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './latestnews.css';
 import { Row, Col, Card } from 'react-bootstrap';
 import { LargeSizeAds } from '../ads/Ads';
-import bannerAds from '../../../assets/images/bannerads.png';
+import bannerAds from '../../../assets/images/heritage-ad.jpg';
 import '../ads/ads.css';
 const LatestNews = ({ data }) => {
   return (

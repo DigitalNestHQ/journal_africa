@@ -78,6 +78,10 @@
 .ad-wrapper {
   display: block;
   margin-bottom: 1.3rem;
+  /* height: 10rem; */
+}
+.ad-wrapper img {
+  /* object-fit: cover; */
 }
 
 .caro-link {

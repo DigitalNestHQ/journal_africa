@@ -26,6 +26,7 @@ const Showcase = ({ data }) => {
                 interval={5000}
                 wrap={true}
                 slide={true}
+                className='right-carousel'
               >
                 {data.slice(0, 3).map((categ) => {
                   const { featured_image, id, slug, category_id } = categ;

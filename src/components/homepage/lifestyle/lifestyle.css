@@ -2,10 +2,22 @@
   display: block;
   padding: 1rem;
   background-color: red;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.com-title p {
   color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .com-title:hover {
   color: #fff;
+}
+.bus-card {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .com-card-body {
   padding-top: 1rem;

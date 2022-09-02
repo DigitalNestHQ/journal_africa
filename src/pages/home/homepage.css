@@ -13,6 +13,7 @@
 }
 .caro-img-cover {
   object-fit: cover;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 40%);
 }
 .car-p {
   margin: 1rem 0;
@@ -54,6 +55,10 @@
   padding-bottom: 0;
 }
 
+.right-carousel {
+  box-shadow: 0 3px 5px rgb(0 0 0 / 40%);
+}
+
 .carousel-control-next,
 .carousel-control-prev {
   display: none;
@@ -78,6 +83,10 @@
 .ad-wrapper {
   display: block;
   margin-bottom: 1.3rem;
+  /* height: 10rem; */
+}
+.ad-wrapper img {
+  /* object-fit: cover; */
 }
 
 .caro-link {

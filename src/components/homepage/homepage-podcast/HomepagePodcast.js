@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../business/business.css';
 import { Link } from 'react-router-dom';
 import { Row, Col, Card } from 'react-bootstrap';
 import '../politics/politicsandgovernance.css';
 import './homepagepodcast.css';
+import { useDispatch, useSelector } from 'react-redux';
+import * as podcastsActions from '../../../store/actions/podcastActions';
 
 const HomepagePodcast = ({ data }) => {
   const businessNews = data.filter(
     (news) => news.category_id.toLowerCase() === 'business and economy'
   );
+
+  const dispatch = useDispatch();
+  const getPodcast = useSelector((state) => state.getPodcast);
+  const { loading, error, podcasts } = getPodcast;
+
+  useEffect(() => {
+    dispatch(podcastsActions.getPodcasts());
+  }, [dispatch]);
 
   return (
     <section className='business-section section-content-default'>
@@ -18,20 +28,21 @@ const HomepagePodcast = ({ data }) => {
         </h5>
         <div className='business-content'>
           <Row xs={1} lg={4} className='g-4'>
-            {/* {businessNews.slice(3, 7).map((categ, idx) => ( */}
-            {businessNews.slice(0, 4).map((categ, idx) => (
+            {podcasts.slice(0, 4).map((categ, idx) => (
               <Col className='bus-col' key={categ.id}>
-                <Link to={`/post/${categ.slug}`} className='bus-link'>
+                <Link to={`/podcast`} className='bus-link'>
                   <Card className='com-card'>
-                    <Card.Img
-                      variant='top'
-                      src={categ.featured_image}
-                      className='mb-3 card-img-business'
-                    />
+                    <div className='card-img'>
+                      <Card.Img
+                        variant='top'
+                        src={categ.image}
+                        className='mb-3'
+                      />
+                    </div>
                     <i className='fas fa-microphone-alt'></i>
                     <Card.Body className='pod-card-body'>
                       <Card.Subtitle className='pod-title mb-3 font-bold slug-default'>
-                        {categ.slug}
+                        {categ.episode}
                       </Card.Subtitle>
                     </Card.Body>
                   </Card>

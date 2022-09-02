@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import play_button from '../../../assets/images/play_button.svg';
 import './podCategory.css';
@@ -7,6 +7,11 @@ import './podCategory.css';
 
 const PodcastItem = ({ podcastItem }) => {
   const [state, setState] = useState(false);
+  const [podCastAudio, setPodCastAudio] = useState({
+    audioUrl: podcastItem.audio,
+    playing: false,
+  });
+  const audioFile = useRef();
 
   const handleSubscribe = () => {
     if (state) {
@@ -14,6 +19,10 @@ const PodcastItem = ({ podcastItem }) => {
     } else {
       setState(true);
     }
+  };
+
+  const handleAudioPlayer = () => {
+    setPodCastAudio({ audioUrl: podcastItem.audio, playing: true });
   };
 
   return (
@@ -29,8 +38,8 @@ const PodcastItem = ({ podcastItem }) => {
         <div className='pod-collection-details'>
           <div className='pod-intro-details'>
             <p className='pod-text'>
-              {podcastItem.description
-                ? podcastItem.description
+              {podcastItem.episode
+                ? podcastItem.episode
                 : `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti repellat mollitia consequatur, optio nesciunt placeat. Iste voluptates excepturi tenetur, nesciunt.`}
             </p>
             <p className='pod-text'>
@@ -40,13 +49,18 @@ const PodcastItem = ({ podcastItem }) => {
             </p>
           </div>
           <div className='pod-cta'>
-            <button
-              className='pod-btn play-button'
-              // onClick={() => history.push(`/podcast/${podcast.author_id}`)}
-            >
-              <img src={play_button} alt='play' />
-              Play Latest episode
-            </button>
+            {podCastAudio.playing ? (
+              <audio src={podCastAudio.audioUrl} controls ref={audioFile} />
+            ) : (
+              <button
+                className='pod-btn play-button'
+                onClick={handleAudioPlayer}
+              >
+                <img src={play_button} alt='play' />
+                Play Latest episode
+              </button>
+            )}
+
             <button
               className='pod-btn pod-subscribe'
               style={{ 'background-color': `${state ? 'black' : 'red'}` }}

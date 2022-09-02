@@ -5,11 +5,12 @@ import CategoryCard from '../../components/category/CategoryCard';
 import { useLocation, Link } from 'react-router-dom';
 import Loader from '../../components/loader/Loader';
 import './newscategory.css';
-import LargeAds from '../../assets/images/bannerads.png';
+import LargeAds from '../../assets/images/heritage-ad.jpg';
 import '../../components/homepage/ads/ads.css';
 import { LargeSizeAds } from '../../components/homepage/ads/Ads';
 import TeaserCard from '../../components/homepage/homepageTeaser/TeaserCard';
-import cybertruck from '../../assets/images/cybertruck1.jpg';
+import ubaAd from '../../assets/images/uba-ad.jpg';
+import journalAd from '../../assets/images/journal-ad.png';
 import Layout from '../../components/layout/mainlayout/Layout';
 
 const CategoryNews = () => {
@@ -93,7 +94,7 @@ const CategoryNews = () => {
               Trending Posts
             </h5>
             <div className='trend-img-container'>
-              <img src={cybertruck} alt='tesla' className='trend-img' />
+              <img src={ubaAd} alt='tesla' className='trend-img' />
             </div>
             <div className='trending-posts'>
               {!newsLoading && news.length === 0 ? (
@@ -119,7 +120,7 @@ const CategoryNews = () => {
               )}
             </div>
             <div className='trend-img-container'>
-              <img src={cybertruck} alt='tesla' className='trend-img' />
+              <img src={journalAd} alt='tesla' className='trend-img' />
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import cybertruck from '../../../assets/images/cybertruck1.jpg';
+import ubaAd from '../../../assets/images/uba-ad.jpg';
+import journalAd from '../../../assets/images/journal-ad.png';
 import { useViewPort } from '../../hooks/Viewport';
 import './teaser.css';
 import TeaserLatestCard from './TeaserLatestCard';
@@ -128,7 +129,7 @@ const TeaserSection = ({ data }) => {
             <div className='latest-daily'>
               <div className='latest-daily-wrapper'>
                 <div className='l-img-container'>
-                  <img src={cybertruck} alt='tesla' className='l-img' />
+                  <img src={ubaAd} alt='tesla' className='l-img' />
                 </div>
                 <div className='latest-content'>
                   {!loading && wordpressNews.length === 0 ? (
@@ -148,7 +149,7 @@ const TeaserSection = ({ data }) => {
                 </div>
 
                 <div className='l-img-container'>
-                  <img src={cybertruck} alt='tesla' className='l-img' />
+                  <img src={journalAd} alt='tesla' className='l-img' />
                 </div>
               </div>
             </div>
@@ -156,10 +157,10 @@ const TeaserSection = ({ data }) => {
             <div className='latest-daily'>
               <div className='latest-daily-wrapper'>
                 <div className='l-img-container'>
-                  <img src={cybertruck} alt='tesla' className='l-img' />
+                  <img src={ubaAd} alt='tesla' className='l-img' />
                 </div>
                 <div className='l-img-container'>
-                  <img src={cybertruck} alt='tesla' className='l-img' />
+                  <img src={journalAd} alt='tesla' className='l-img' />
                 </div>
                 <div className='latest-content'>
                   {!loading && wordpressNews.length === 0 ? (

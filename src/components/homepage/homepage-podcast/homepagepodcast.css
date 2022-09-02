@@ -9,6 +9,17 @@
   color: #000;
 }
 
+.com-card .card-img {
+  height: 12rem;
+}
+
+.com-card img {
+  object-fit: cover;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 40%);
+  height: 100%;
+  width: 100%;
+}
+
 .more-pod {
   background-color: #000;
   color: #fff;

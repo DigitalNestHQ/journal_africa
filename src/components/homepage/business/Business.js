@@ -5,7 +5,7 @@ import { HtmlParseOptions } from '../../../_helper/parseNewsHtml';
 import ReactHtmlParser from 'react-html-parser';
 import { Row, Col, Card } from 'react-bootstrap';
 import { LargeSizeAds } from '../ads/Ads';
-import bannerAds from '../../../assets/images/bannerads.png';
+import bannerAds from '../../../assets/images/heritage-ad.jpg';
 import '../ads/ads.css';
 
 const Business = ({ data }) => {

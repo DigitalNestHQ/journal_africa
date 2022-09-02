@@ -15,6 +15,31 @@
   margin: unset;
 }
 
+.news-social-icons-items {
+  font-size: 2rem;
+}
+
+.n-facebook,
+.n-twitter,
+.n-linkedin {
+  color: #1da1f2;
+  filter: invert(48%) sepia(71%) saturate(2465%) hue-rotate(180deg)
+    brightness(104%) contrast(90%);
+}
+
+.n-whatsapp {
+  filter: invert(91%) sepia(84%) saturate(4293%) hue-rotate(65deg)
+    brightness(88%) contrast(87%);
+}
+.n-instagram {
+  filter: invert(24%) sepia(59%) saturate(2882%) hue-rotate(296deg)
+    brightness(90%) contrast(92%);
+}
+.n-instagram:hover {
+  filter: invert(24%) sepia(59%) saturate(2882%) hue-rotate(296deg)
+    brightness(90%) contrast(92%) !important;
+}
+
 .signup-signin-cta {
   margin-bottom: 1rem;
 }

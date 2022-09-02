@@ -27,6 +27,7 @@ const PodcastItem = ({ podcastItem }) => {
 
   return (
     <div key={podcastItem.name} className='pod-collections'>
+      <h2>{podcastItem.name}</h2>
       <div className='pod-grid'>
         <div className='pod-img-container'>
           <img

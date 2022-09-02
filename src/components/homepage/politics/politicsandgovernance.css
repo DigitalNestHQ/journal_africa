@@ -29,9 +29,12 @@
 }
 
 .com-card {
-  border: none;
   background-color: inherit;
   color: #fff;
+}
+
+.card-img-business {
+  height: 15rem !important;
 }
 
 .bus-card-body {

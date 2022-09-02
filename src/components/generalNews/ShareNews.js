@@ -44,9 +44,9 @@ const ShareNews = ({ next, previous }) => {
           </li>
           <li className='news-social-icons-items n-whatsapp'>
             <a
-              href={`whatsapp://send?text=<${
+              href={`whatsapp://send?text=${
                 'https://journal.africa/' + urlPath
-              }>`}
+              }`}
               // href='whatsapp://send?text=<URL>'
               data-action='share/whatsapp/share'
               target='_blank'

@@ -85,7 +85,7 @@ const PodcastItem = ({ podcastItem }) => {
           </div>
         </div>
       </div>
-      <Link to={`/podcast/${podcastItem.author_id}`} className='pod-episodes'>
+      <Link to={`/podcast/${podcastItem.author}`} className='pod-episodes'>
         ALL EPISODES
       </Link>
     </div>

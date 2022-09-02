@@ -43,7 +43,7 @@ const Homepage = () => {
           <Economy data={sorted} />
           <PoliticsAndGovernance data={sorted} />
           <Tech data={sorted} />
-          <HomepagePodcast data={sorted} />
+          <HomepagePodcast />
           <SignupTeaser />
         </main>
       </Layout>

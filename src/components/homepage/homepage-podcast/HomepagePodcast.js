@@ -7,18 +7,26 @@ import './homepagepodcast.css';
 import { useDispatch, useSelector } from 'react-redux';
 import * as podcastsActions from '../../../store/actions/podcastActions';
 
-const HomepagePodcast = ({ data }) => {
-  const businessNews = data.filter(
-    (news) => news.category_id.toLowerCase() === 'business and economy'
-  );
-
+const HomepagePodcast = () => {
   const dispatch = useDispatch();
   const getPodcast = useSelector((state) => state.getPodcast);
   const { loading, error, podcasts } = getPodcast;
 
+  const uniqueIds = [];
+
   useEffect(() => {
     dispatch(podcastsActions.getPodcasts());
   }, [dispatch]);
+
+  const uniquePodcast = podcasts.filter((item) => {
+    const isDuplicate = uniqueIds.includes(item.category);
+
+    if (!isDuplicate) {
+      uniqueIds.push(item.category);
+      return true;
+    }
+    return false;
+  });
 
   return (
     <section className='business-section section-content-default'>
@@ -28,7 +36,7 @@ const HomepagePodcast = ({ data }) => {
         </h5>
         <div className='business-content'>
           <Row xs={1} lg={4} className='g-4'>
-            {podcasts.slice(0, 4).map((categ, idx) => (
+            {uniquePodcast.slice(0, 4).map((categ, idx) => (
               <Col className='bus-col' key={categ.id}>
                 <Link to={`/podcast`} className='bus-link'>
                   <Card className='com-card'>

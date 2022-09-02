@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import play_button from '../../../assets/images/play_button.svg';
-import './podCategory.css';
 import drop_down from '../../../assets/images/caret-down-solid.svg';
 import './podCategory.css';
 
@@ -27,7 +26,7 @@ const PodcastItem = ({ podcastItem }) => {
 
   return (
     <div key={podcastItem.name} className='pod-collections'>
-      <h2>{podcastItem.name}</h2>
+      <h2>{podcastItem.category}</h2>
       <div className='pod-grid'>
         <div className='pod-img-container'>
           <img

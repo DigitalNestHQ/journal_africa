@@ -25,6 +25,9 @@
   margin: 2rem 0;
   border-bottom: 7px solid #8a8787;
 }
+.pod-collections h2 {
+  font-size: 1.3rem;
+}
 .pod-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;

@@ -15,7 +15,8 @@ import {
 import { LargeSizeAds } from '../../components/homepage/ads/Ads';
 import TeaserCard from '../../components/homepage/homepageTeaser/TeaserCard';
 import { Row } from 'react-bootstrap';
-import cybertruck from '../../assets/images/cybertruck1.jpg';
+import ubaAd from '../../assets/images/uba-ad.jpg';
+import journalAd from '../../assets/images/journal-ad.png';
 import { HtmlParseOptions } from '../../_helper/parseNewsHtml';
 import { useViewPort } from '../../components/hooks/Viewport';
 import '../../pages/category/newscategory.css';
@@ -227,7 +228,7 @@ const GetNews = () => {
               Trending Posts
             </h5>
             <div className='trend-img-container'>
-              <img src={cybertruck} alt='tesla' className='trend-img' />
+              <img src={ubaAd} alt='tesla' className='trend-img' />
             </div>
             <div className='trending-posts'>
               {!getNewsLoading && news.length === 0 ? (
@@ -253,7 +254,7 @@ const GetNews = () => {
               )}
             </div>
             <div className='trend--img-container'>
-              <img src={cybertruck} alt='tesla' className='trend-img' />
+              <img src={journalAd} alt='tesla' className='trend-img' />
             </div>
           </div>
         </div>

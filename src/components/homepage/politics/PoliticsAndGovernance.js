@@ -37,12 +37,12 @@ const Commentary = ({ data }) => {
                       <Card.Subtitle className='mb-3 font-bold slug-default text-white'>
                         {categ.slug}
                       </Card.Subtitle>
-                      <Card.Text>
+                      {/* <Card.Text>
                         {ReactHtmlParser(
                           `${categ.post_description.substring(0, 130)}...`,
                           HtmlParseOptions
                         )}
-                      </Card.Text>
+                      </Card.Text> */}
                     </Card.Body>
                   </Card>
                 </Link>

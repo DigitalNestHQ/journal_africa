@@ -41,12 +41,19 @@ const PodcastHome = () => {
                 Podcast unavailable - Please check your internet connection
               </h5>
             ) : (
-              <div className='pod-categories'>
-                <PodcastCategories
-                  header={'Journal Africa Podcast'}
-                  podcasts={podcasts}
-                />
-              </div>
+              <>
+                <div className='category-comp-heading'>
+                  <h5 className='category-header section-heading-default'>
+                    Journal Africa Podcast
+                  </h5>
+                </div>
+                <div className='pod-categories'>
+                  <PodcastCategories
+                    // header={'Journal Africa Podcast'}
+                    podcasts={podcasts}
+                  />
+                </div>
+              </>
             )}
             {width > breakpoint ? (
               <div className='pod-ads'>
@@ -64,13 +71,6 @@ const PodcastHome = () => {
                     className='pod-home-ad-sense-img'
                   />
                 </div>
-                {/* <div className='pod-home-ad-sense'>
-                  <img
-                    src={cybertruck}
-                    alt='ads'
-                    className='pod-home-ad-sense-img'
-                  />
-                </div> */}
               </div>
             ) : (
               ''

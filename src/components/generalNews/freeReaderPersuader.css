@@ -6,6 +6,10 @@
   justify-content: center;
   padding: unset;
 }
+.not-logged-in .cta-text {
+  text-align: center !important;
+  width: 95%;
+}
 
 .beyond-premium {
   font-size: 1.1rem;
@@ -13,6 +17,7 @@
   width: 85%;
   text-align: center !important;
   margin: unset;
+  margin-bottom: 0.8rem;
 }
 
 .news-social-icons-items {

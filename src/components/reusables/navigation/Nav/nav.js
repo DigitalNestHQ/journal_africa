@@ -113,7 +113,7 @@ const Navbar = () => {
                   {access ? (
                     <div className='account-links' onClick={handleDropdown}>
                       <img src={userIcon} className='profile-icon' alt='' />
-                      <p>My account</p>
+                      <p>MY ACCOUNT</p>
                       <img src={downIcon} alt='' />
                       {state && (
                         <ul className='account-link-card'>

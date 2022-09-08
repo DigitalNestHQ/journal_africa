@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import * as podcastsActions from "../../../store/actions/podcastActions";
-import NavBar from "../../../components/reusables/navigation/Nav/nav";
-import Footer from "../../../components/reusables/navigation/Footer/footer";
-import Loader from "../../../components/loader/Loader";
-import CurrentPodcastDetails from "./CurrentPodcastDetails";
-import CurrentPodcastHeader from "./CurrentPodcastHeader";
-import "./currentpodcast-style.css";
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import * as podcastsActions from '../../../store/actions/podcastActions';
+import NavBar from '../../../components/reusables/navigation/Nav/nav';
+import Footer from '../../../components/reusables/navigation/Footer/footer';
+import Loader from '../../../components/loader/Loader';
+import CurrentPodcastDetails from './CurrentPodcastDetails';
+import CurrentPodcastHeader from './CurrentPodcastHeader';
+import './currentpodcast-style.css';
 
 const CurrentPodCast = () => {
   const { collectionId } = useParams();
@@ -23,15 +23,17 @@ const CurrentPodCast = () => {
     return <Loader />;
   }
 
-  const podcastList = podcast.slice(0, 50);
+  console.log(podcast);
+
+  const podcastList = podcast;
   const podcastDetails = podcast[0];
 
   return (
-    <section className="pod-bg">
+    <section className='pod-bg'>
       <NavBar />
-      <div className="section-content-default pod-content">
-        <div className="section-wrapper-default">
-          {(podcast.length === 0 && !loading) || error ? (
+      <div className='section-content-default pod-content'>
+        <div className='section-wrapper-default'>
+          {podcast.length === 0 && !loading ? (
             <h5>
               No episodes available - Please check your internet connection
             </h5>

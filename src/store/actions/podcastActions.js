@@ -41,16 +41,15 @@ export const getSinglePodcasts = (collectionId) => async (dispatch) => {
       'Access-Control-Allow-Origin': '*',
     };
 
-    const {
-      data: { results },
-    } = await axios.get(
-      `${BASE_URL}lookup?id=${collectionId}&country=US&media=podcast&entity=podcastEpisode&limit=400`,
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_BASE_URL}podcast/${collectionId}`,
       headers
     );
 
+    console.log(data, 'fetch');
     dispatch({
       type: podcastTypes.GET_SINGLE_PODCASTS_SUCCESS,
-      payload: results,
+      payload: data.data,
     });
   } catch (error) {
     dispatch({

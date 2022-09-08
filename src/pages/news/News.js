@@ -179,6 +179,8 @@ const GetNews = () => {
                     ) : (
                       <LoggedInNotSubscribed />
                     )
+                  ) : singleNews?.post_type === 'free' && token !== null ? (
+                    ''
                   ) : (
                     <NotLoggedIn />
                   )}

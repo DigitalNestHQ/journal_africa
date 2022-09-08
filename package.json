@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@paystack/inline-js": "^2.12.6",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -18,6 +19,7 @@
     "react-html-parser": "^2.0.2",
     "react-infinite-scroll-component": "^6.1.0",
     "react-moment": "^1.1.1",
+    "react-paystack": "^4.0.1",
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",

@@ -21,14 +21,9 @@ const PodcastHome = () => {
     dispatch(podcastsActions.getPodcasts());
   }, [dispatch]);
 
-  // let digitalPodcasts, radioPodcasts;
-
   if (loading) {
     return <Loader />;
   }
-
-  // digitalPodcasts = podcasts.slice(0, 10);
-  // radioPodcasts = podcasts.slice(10, 20);
 
   return (
     <section className='pod-bg'>
@@ -48,10 +43,7 @@ const PodcastHome = () => {
                   </h5>
                 </div>
                 <div className='pod-categories'>
-                  <PodcastCategories
-                    // header={'Journal Africa Podcast'}
-                    podcasts={podcasts}
-                  />
+                  <PodcastCategories podcasts={podcasts} />
                 </div>
               </>
             )}

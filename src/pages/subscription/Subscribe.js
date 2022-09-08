@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import * as userActions from "../../store/actions/userActions";
-import "./subscribe.css";
-import PaymentButton from "./payment_handler/PaymentButton";
-import { Link } from "react-router-dom";
-import Loader from "../../components/loader/Loader";
-import AuthLayout from "../../components/layout/authlayout/AuthLayout";
-import Alerts from "../../components/alert/Alerts";
-import { showAlert } from "../../store/actions/alertActions";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as userActions from '../../store/actions/userActions';
+import './subscribe.css';
+import PaymentButton from './payment_handler/PaymentButton';
+import { Link } from 'react-router-dom';
+import Loader from '../../components/loader/Loader';
+import AuthLayout from '../../components/layout/authlayout/AuthLayout';
+import Alerts from '../../components/alert/Alerts';
+import { showAlert } from '../../store/actions/alertActions';
+// import { PaystackButton } from 'react-paystack';
 
 const Subscribe = () => {
   const dispatch = useDispatch();
@@ -17,19 +18,19 @@ const Subscribe = () => {
   const { error: payError, message } = userPay;
   const loginUser = useSelector((state) => state.loginUser);
   const { user, token } = loginUser;
-  const [currency, setCurrency] = useState("NGN");
+  const [currency, setCurrency] = useState('NGN');
 
   useEffect(() => {
     if (plans.length === 0) dispatch(userActions.getPlans());
 
     if (message) {
-      dispatch(showAlert(message, "success"));
+      dispatch(showAlert(message, 'success'));
     }
     if (error) {
-      dispatch(showAlert(error, "danger"));
+      dispatch(showAlert(error, 'danger'));
     }
     if (payError) {
-      dispatch(showAlert(payError, "danger"));
+      dispatch(showAlert(payError, 'danger'));
     }
   }, [dispatch, error, message, payError, plans.length]);
 
@@ -39,56 +40,56 @@ const Subscribe = () => {
 
   return (
     <AuthLayout>
-      <h2 className="subscribe-heading text-center text-white">
+      <h2 className='subscribe-heading text-center text-white'>
         Let's put you ahead with the news
       </h2>
-      <div className="pay-currency-option">
-        <h2 className="pay-in-currency">
-          Pay in {currency === "NGN" ? "NAIRA" : "USD"}
+      <div className='pay-currency-option'>
+        <h2 className='pay-in-currency'>
+          Pay in {currency === 'NGN' ? 'NAIRA' : 'USD'}
         </h2>
-        <div className="sub-curency">
+        <div className='sub-curency'>
           <button
-            className="sub-curency_ngn"
-            onClick={() => setCurrency("NGN")}
+            className='sub-curency_ngn'
+            onClick={() => setCurrency('NGN')}
           >
             NGN
           </button>
           <button
-            className="sub-curency_usd"
-            onClick={() => setCurrency("USD")}
+            className='sub-curency_usd'
+            onClick={() => setCurrency('USD')}
           >
             USD
           </button>
         </div>
       </div>
-      <div className="subscirbe-flex-cards">
+      <div className='subscirbe-flex-cards'>
         {error && <Alerts />}
         {payError && <Alerts />}
         {message && <Alerts />}
         {plans &&
           plans.map((plan) => (
-            <div className="subscription-cards" key={plan.id}>
-              <h3 className="subscribtion-header">{plan.name}</h3>
-              <p className="subscription-desc">{plan.description}</p>
-              <h5 className="pricing">
-                {currency === "NGN"
+            <div className='subscription-cards' key={plan.id}>
+              <h3 className='subscribtion-header'>{plan.name}</h3>
+              <p className='subscription-desc'>{plan.description}</p>
+              <h5 className='pricing'>
+                {currency === 'NGN'
                   ? `N${plan.price_ngn}`
-                  : currency === "USD"
+                  : currency === 'USD'
                   ? `$${plan.price_usd}`
-                  : ""}
+                  : ''}
               </h5>
-              {currency === "USD" ? (
-                <span className="monthly-pricing">
-                  {plan.price_usd === "48"
+              {currency === 'USD' ? (
+                <span className='monthly-pricing'>
+                  {plan.price_usd === '48'
                     ? `$ ${plan.price_usd / 12} per month`
-                    : plan.price_usd === "13.5"
+                    : plan.price_usd === '13.5'
                     ? `$ ${plan.price_usd / 3} per month`
-                    : plan.price_usd === "5"
+                    : plan.price_usd === '5'
                     ? `$ ${plan.price_usd} per month`
-                    : ""}
+                    : ''}
                 </span>
               ) : (
-                ""
+                ''
               )}
               {token ? (
                 <PaymentButton
@@ -97,9 +98,9 @@ const Subscribe = () => {
                   profile={user}
                   title={plan.name}
                   amount={
-                    currency === "USD"
+                    currency === 'USD'
                       ? plan.price_usd
-                      : currency === "NGN"
+                      : currency === 'NGN'
                       ? plan.price_ngn
                       : null
                   }
@@ -107,7 +108,7 @@ const Subscribe = () => {
                   currency={currency}
                 />
               ) : (
-                <Link to="/login" className="subscription-btn">
+                <Link to='/login' className='subscription-btn'>
                   Click to subscribe
                 </Link>
               )}

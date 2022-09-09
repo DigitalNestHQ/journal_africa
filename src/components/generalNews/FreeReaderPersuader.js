@@ -52,7 +52,7 @@ export const LoggedInNotSubscribed = () => {
           textAlign: 'center',
         }}
       >
-        {token === null && authUser?.subscription_status === null ? (
+        {token === null || authUser?.subscription_status === null ? (
           <>
             <div className='login-not-subscribed'>
               <p className='beyond-premium'>
@@ -69,7 +69,7 @@ export const LoggedInNotSubscribed = () => {
                 This story is only available to premium subscribers.
               </p>
               <p className='cta-text'>
-                You are signed in, but you have no active subscription plan.
+                You are signed in, but you have no active subscription.
               </p>
             </div>
           </>

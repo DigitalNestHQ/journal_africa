@@ -23,7 +23,7 @@ export default function PaymentButton({ packageID, amount, packageName }) {
       callback: function (response) {
         let message = 'Payment complete! Reference: ' + response.reference;
         alert(message);
-        console.log('pay made');
+        console.log('pay made', message);
       },
     });
 

@@ -56,8 +56,7 @@ export const LoggedInNotSubscribed = () => {
           <>
             <div className='login-not-subscribed'>
               <p className='beyond-premium'>
-                This story is a content and only available to premium
-                Subscribers.
+                This story is only available to premium Subscribers.
               </p>
               <p>To continue reading, subscribe or sign in.</p>
             </div>

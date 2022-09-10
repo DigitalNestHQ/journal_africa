@@ -9,7 +9,6 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-    "flutterwave-react-v3": "^1.0.9",
     "marked": "^4.0.7",
     "moment": "^2.29.1",
     "query-string": "^6.14.1",

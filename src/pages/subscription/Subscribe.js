@@ -9,6 +9,7 @@ import AuthLayout from '../../components/layout/authlayout/AuthLayout';
 import Alerts from '../../components/alert/Alerts';
 import { showAlert } from '../../store/actions/alertActions';
 // import { PaystackButton } from 'react-paystack';
+// import {   } from '@pay'
 
 const Subscribe = () => {
   const dispatch = useDispatch();
@@ -66,6 +67,7 @@ const Subscribe = () => {
         {error && <Alerts />}
         {payError && <Alerts />}
         {message && <Alerts />}
+
         {plans &&
           plans.map((plan) => (
             <div className='subscription-cards' key={plan.id}>
@@ -91,6 +93,7 @@ const Subscribe = () => {
               ) : (
                 ''
               )}
+
               {token ? (
                 <PaymentButton
                   packageID={plan.id}

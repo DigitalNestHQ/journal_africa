@@ -13,9 +13,9 @@ export default function PaymentButton({ packageID, amount, packageName }) {
 
   const config = {
     reference: new Date().getTime().toString(),
-    email: 'agba@gmail.com.com',
+    email: '',
     amount: 20000,
-    publicKey: 'pk_live_80458517341e0e85780177e5acee2f1014f264ec',
+    publicKey: '',
   };
 
   const onSuccess = (reference) => {
@@ -31,45 +31,29 @@ export default function PaymentButton({ packageID, amount, packageName }) {
   const initializePayment = usePaystackPayment(config);
 
   function subscribe() {
-    console.log('pay now');
-    // let handler = window.PaystackPop.setup({
-    //   key: '',
-    //   email: '',
-    //   amount: 1900000,
-    //   onClose: function () {
-    //     alert('Window closed.');
-    //     console.log('pay made');
-    //   },
-    //   callback: function (response) {
-    //     let message = 'Payment complete! Reference: ' + response.reference;
-    //     alert(message);
-    //     console.log('pay made', message);
-    //   },
-    // });
-    // window.PaystackPop.setup({
-    //   key: 'pk_live_80458517341e0e85780177e5acee2f1014f264ec',
-    //   email: 'tracemycodes@gmail.com',
-    //   amount: 1900000,
-    //   onClose: function () {
-    //     alert('Window closed.');
-    //     console.log('pay made');
-    //   },
-    //   callback: function (response) {
-    //     let message = 'Payment complete! Reference: ' + response.reference;
-    //     alert(message);
-    //     console.log('pay made', message);
-    //   },
-    // }).openIframe();
-
-    // console.log('paid');
-    // handler.openIframe();
+    let handler = window.PaystackPop.setup({
+      key: '',
+      email: '',
+      amount: 1900000,
+      onClose: function () {
+        alert('Window closed.');
+        console.log('pay made');
+      },
+      callback: function (response) {
+        let message = 'Payment complete! Reference: ' + response.reference;
+        alert(message);
+        console.log('pay made', message);
+      },
+    });
+    handler.openIframe();
   }
 
   return (
     <button
       className='subscription-btn'
       onClick={() => {
-        initializePayment(onSuccess, onClose);
+        // initializePayment(onSuccess, onClose);
+        subscribe();
       }}
     >
       {/* {loading ? (

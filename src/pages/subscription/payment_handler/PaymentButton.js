@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import '../subscribe.css';
 import { useState } from 'react';
 // import PaystackPop from '@paystack/inline-js';
-import { usePaystackPayment } from 'react-paystack';
+import { PaystackConsumer } from 'react-paystack';
 
 export default function PaymentButton({ packageID, amount, packageName }) {
   const loginUser = useSelector((state) => state.loginUser);
@@ -11,20 +11,25 @@ export default function PaymentButton({ packageID, amount, packageName }) {
 
   const config = {
     reference: new Date().getTime().toString(),
-    email: 'agbaayoh@gmail.com',
+    email: 'user@example.com',
     amount: 20000,
-    publicKey: 'pk_live_80458517341e0e85780177e5acee2f1014f264ec',
+    publicKey: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY,
   };
 
-  const onSuccess = (reference) => {
+  const handleSuccess = (reference) => {
     console.log(reference);
   };
 
-  const onClose = () => {
+  const handleClose = () => {
     console.log('closed');
   };
 
-  const initializePayment = usePaystackPayment(config);
+  const componentProps = {
+    ...config,
+    text: 'Paystack Button Implementation',
+    onSuccess: (reference) => handleSuccess(reference),
+    onClose: handleClose,
+  };
 
   // function subscribe() {
   //   let handler = window.PaystackPop.setup({
@@ -45,14 +50,26 @@ export default function PaymentButton({ packageID, amount, packageName }) {
   // }
 
   return (
-    <button
-      className='subscription-btn'
-      onClick={() => {
-        initializePayment(onSuccess, onClose);
-        // subscribe();
-      }}
-    >
-      <span>Click to Subscribe</span>
-    </button>
+    <>
+      {/* <button
+        className='subscription-btn'
+        onClick={() => {
+          // initializePayment(onSuccess, onClose);
+          // subscribe();
+        }}
+      >
+        <span>Click to Subscribe</span>
+      </button> */}
+      <PaystackConsumer {...componentProps}>
+        {({ initializePayment }) => (
+          <button
+            className='subscription-btn'
+            onClick={() => initializePayment(handleSuccess, handleClose)}
+          >
+            Click to Subscribe
+          </button>
+        )}
+      </PaystackConsumer>
+    </>
   );
 }

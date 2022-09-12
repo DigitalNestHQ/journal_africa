@@ -29,7 +29,8 @@ const Showcase = ({ data }) => {
                 className='right-carousel'
               >
                 {data.slice(0, 3).map((categ) => {
-                  const { featured_image, id, slug, category_id } = categ;
+                  const { featured_image, post_title, id, slug, category_id } =
+                    categ;
                   return (
                     <Carousel.Item className='caro-item' key={id}>
                       <img
@@ -48,10 +49,10 @@ const Showcase = ({ data }) => {
                           {category_id}
                         </Link>
                         <Link
-                          to={`/post/${slug}`}
+                          to={`/post/${id}`}
                           className='text-white text-left car-p text-capitalize'
                         >
-                          {slug.toLowerCase()}
+                          {post_title.toLowerCase()}
                         </Link>
                       </Carousel.Caption>
                     </Carousel.Item>
@@ -81,10 +82,10 @@ const Showcase = ({ data }) => {
                         </Link>
 
                         <Link
-                          to={`/post/${categ.slug}`}
+                          to={`/post/${categ.id}`}
                           className='card-msg text-left text-capitalize text-white'
                         >
-                          {categ.slug}
+                          {categ.post_title}
                         </Link>
                       </Card.ImgOverlay>
                     </Card>
@@ -109,10 +110,10 @@ const Showcase = ({ data }) => {
                           {categ.category_id}
                         </Link>
                         <Link
-                          to={`/post/${categ.slug}`}
+                          to={`/post/${categ.id}`}
                           className='card-msg text-left text-white'
                         >
-                          {categ.slug}
+                          {categ.post_title}
                         </Link>
                       </Card.ImgOverlay>
                     </Card>

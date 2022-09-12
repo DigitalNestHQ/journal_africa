@@ -57,13 +57,13 @@ const GetNews = () => {
           postIndex <= 0
             ? ''
             : {
-                slug: currentCategoryNews[postIndex - 1].slug,
+                slug: currentCategoryNews[postIndex - 1].post_title,
               },
         next:
           postIndex >= currentCategoryNews.length - 1
             ? ''
             : {
-                slug: currentCategoryNews[postIndex + 1].slug,
+                slug: currentCategoryNews[postIndex + 1].post_title,
               },
       };
     },
@@ -198,7 +198,7 @@ const GetNews = () => {
                           .map((categ) => (
                             <RelatedNews
                               key={categ.id}
-                              slug={categ.slug}
+                              slug={categ.post_title}
                               featured_image={categ.featured_image}
                               post_type={categ.post_type}
                             />

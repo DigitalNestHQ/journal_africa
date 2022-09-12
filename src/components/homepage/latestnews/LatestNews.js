@@ -16,7 +16,7 @@ const LatestNews = ({ data }) => {
           <Row xs={1} md={4} className='g-4'>
             {data.slice(0, 4).map((categ) => (
               <Col className='per-card' key={categ.id}>
-                <Link to={`/post/${categ.slug}`} className='per-link'>
+                <Link to={`/post/${categ.id}`} className='per-link'>
                   <Card className='l-card'>
                     <Card.Img
                       variant='top'

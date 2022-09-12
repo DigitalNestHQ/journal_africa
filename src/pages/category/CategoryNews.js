@@ -89,7 +89,7 @@ const CategoryNews = () => {
               ''
             )}
           </div>
-          <div className='cat-left-content'>
+          <div className='cat-news-left-content'>
             <h5 className='cat-left-heading section-heading-default'>
               Trending Posts
             </h5>

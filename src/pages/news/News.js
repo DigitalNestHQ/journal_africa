@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as newsActions from '../../store/actions/newsActions';
 import * as userActions from '../../store/actions/userActions';
 import Layout from '../../components/layout/mainlayout/Layout';
-import bannerAds from './../../assets/images/bannerads.png';
+import bannerAds from './../../assets/images/heritage-ad.jpg';
 import ReactHtmlParser from 'react-html-parser';
 import { useParams, Link } from 'react-router-dom';
 import Loader from '../../components/loader/Loader';

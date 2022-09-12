@@ -29,7 +29,7 @@ const LatestNews = ({ data }) => {
                         : ''}
                     </p>
                     <Card.Body className='l-card-body'>
-                      <Card.Text>{categ.slug}</Card.Text>
+                      <Card.Text>{categ.post_title}</Card.Text>
                     </Card.Body>
                   </Card>
                 </Link>

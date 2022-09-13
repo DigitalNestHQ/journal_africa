@@ -185,7 +185,11 @@ const GetNews = () => {
                     <NotLoggedIn />
                   )}
                 </div>
-                <ShareNews next={next} previous={previous} />
+                <ShareNews
+                  next={next}
+                  previous={previous}
+                  singleNews={singleNews}
+                />
                 {currentCategoryNewsWithoutSingleNews.length !== 0 ? (
                   <div className='related-articles-section'>
                     <button className='related-articles-btn'>

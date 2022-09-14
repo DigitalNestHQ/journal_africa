@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import newLogo from '../../../../assets/images/main logo.png';
+import newLogo from '../../../../assets/images/tv-journal-logo.png';
 import hamburger from '../../../../assets/images/hamburger.svg';
 import close from '../../../../assets/images/close.svg';
 import { useViewPort } from '../../../hooks/Viewport';

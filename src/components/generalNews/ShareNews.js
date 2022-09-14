@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './freeReaderPersuader.css';
 
-const ShareNews = ({ next, previous }) => {
+const ShareNews = ({ next, previous, singleNews }) => {
   const location = useLocation();
-  const title = location.pathname.slice(
-    location.pathname.lastIndexOf('/') + 1,
-    location.pathname.length
-  );
-  const urlPath = location.pathname.split(' ').join('%20');
+  const urlPath = location.pathname;
+  const [title, setTitle] = useState('Post Title');
+
+  useEffect(() => {
+    setTitle(singleNews.post_title);
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <div className='next-prev-section'>

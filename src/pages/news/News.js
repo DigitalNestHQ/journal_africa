@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as newsActions from '../../store/actions/newsActions';
 import * as userActions from '../../store/actions/userActions';
 import Layout from '../../components/layout/mainlayout/Layout';
-import bannerAds from './../../assets/images/bannerads.png';
+import bannerAds from './../../assets/images/heritage-ad.jpg';
 import ReactHtmlParser from 'react-html-parser';
 import { useParams, Link } from 'react-router-dom';
 import Loader from '../../components/loader/Loader';
@@ -57,13 +57,13 @@ const GetNews = () => {
           postIndex <= 0
             ? ''
             : {
-                slug: currentCategoryNews[postIndex - 1].slug,
+                slug: currentCategoryNews[postIndex - 1].post_title,
               },
         next:
           postIndex >= currentCategoryNews.length - 1
             ? ''
             : {
-                slug: currentCategoryNews[postIndex + 1].slug,
+                slug: currentCategoryNews[postIndex + 1].post_title,
               },
       };
     },
@@ -198,7 +198,7 @@ const GetNews = () => {
                           .map((categ) => (
                             <RelatedNews
                               key={categ.id}
-                              slug={categ.slug}
+                              slug={categ.post_title}
                               featured_image={categ.featured_image}
                               post_type={categ.post_type}
                             />

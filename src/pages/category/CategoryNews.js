@@ -70,12 +70,12 @@ const CategoryNews = () => {
                 <Link
                   className='category-card-links'
                   key={eachCard.id}
-                  to={`/post/${eachCard.slug}`}
+                  to={`/post/${eachCard.id}`}
                 >
                   <CategoryCard
                     featured_image={eachCard.featured_image}
                     post_type={eachCard.post_type}
-                    slug={eachCard.slug}
+                    slug={eachCard.post_title}
                     post_description={eachCard.post_description}
                   />
                 </Link>
@@ -89,7 +89,7 @@ const CategoryNews = () => {
               ''
             )}
           </div>
-          <div className='cat-left-content'>
+          <div className='cat-news-left-content'>
             <h5 className='cat-left-heading section-heading-default'>
               Trending Posts
             </h5>
@@ -110,7 +110,7 @@ const CategoryNews = () => {
                   .slice(0, 3)
                   .map((eachCard) => (
                     <Link
-                      to={`/post/${eachCard.slug}`}
+                      to={`/post/${eachCard.id}`}
                       className='trending-card lastest-card-link'
                       key={eachCard.id}
                     >

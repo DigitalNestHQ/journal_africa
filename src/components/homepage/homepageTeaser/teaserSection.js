@@ -49,54 +49,6 @@ const TeaserSection = ({ data }) => {
       <div className='section-wrapper-default'>
         <div className='content-grid'>
           <div className='africa-now'>
-            {/* <div className='discover-africa-content'>
-              <div className='africa'>
-                <h5 className='africa-header section-heading-default'>
-                  Discover Africa
-                </h5>
-                <div className='africa-cards'>
-                  {selected.length === 0 ? (
-                    <p className='text-white'>No news found</p>
-                  ) : (
-                    selected.map((eachCard) => (
-                      <div className='sub-categ-card' key={eachCard.id}>
-                        <div className='a-img-container'>
-                          <img
-                            src={eachCard.featured_image}
-                            alt={eachCard.sub_category}
-                            className='f-img'
-                          />
-                        </div>
-                        <Link
-                          to={{
-                            pathname: '/news/sub-categories',
-                            search: `?subcategory=${eachCard.sub_category}`,
-                          }}
-                          className='dest slug-default'
-                        >
-                          {eachCard.sub_category}
-                        </Link>
-                        <Link
-                          to={`/post/${eachCard.slug}`}
-                          className='a-text africa-discover-link'
-                        >
-                          {eachCard.slug}
-                        </Link>
-                      </div>
-                    ))
-                  )}
-                </div>
-                <Link
-                  to={{
-                    pathname: '/news/categories',
-                    search: `?category=Discovery Africa`,
-                  }}
-                  className='explore-white-btn'
-                >
-                  Explore More...
-                </Link>
-              </div>
-            </div> */}
             <div className='policy'>
               <div className='policy-container'>
                 <h5 className='policy-heading section-heading-default'>
@@ -105,7 +57,7 @@ const TeaserSection = ({ data }) => {
                 <div className='policy-content'>
                   {politics.slice(0, 3).map((eachCard) => (
                     <Link
-                      to={`/post/${eachCard.slug}`}
+                      to={`/post/${eachCard.id}`}
                       className='policy-government-link'
                       key={eachCard.id}
                     >

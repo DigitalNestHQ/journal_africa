@@ -22,7 +22,7 @@ const Business = ({ data }) => {
             {/* {businessNews.slice(3, 5).map((categ, idx) => ( */}
             {businessNews.slice(0, 2).map((categ, idx) => (
               <Col className='com-col' key={categ.id}>
-                <Link to={`/post/${categ.slug}`} className='bus-link'>
+                <Link to={`/post/${categ.id}`} className='bus-link'>
                   <Card className='bus-card'>
                     <Card.Img
                       variant='top'
@@ -31,7 +31,7 @@ const Business = ({ data }) => {
                     />
                     <div className='bus-card'>
                       <Link
-                        to={`/post/${categ.slug}`}
+                        to={`/post/${categ.id}`}
                         className='com-title text-white slug-default'
                       >
                         <p>{categ.post_title}</p>
@@ -47,7 +47,7 @@ const Business = ({ data }) => {
           <Row xs={1} lg={3} className='g-4'>
             {businessNews.slice(3, 6).map((categ, idx) => (
               <Col className='bus-col' key={categ.id}>
-                <Link to={`/post/${categ.slug}`} className='bus-link'>
+                <Link to={`/post/${categ.id}`} className='bus-link'>
                   <Card className='bus-card'>
                     <Card.Img
                       variant='top'
@@ -61,7 +61,7 @@ const Business = ({ data }) => {
                     </p>
                     <Card.Body className='com-card-body'>
                       <Card.Subtitle className='mb-3 slug-default'>
-                        {categ.slug}
+                        {categ.post_title}
                       </Card.Subtitle>
                       <Card.Text>
                         {ReactHtmlParser(

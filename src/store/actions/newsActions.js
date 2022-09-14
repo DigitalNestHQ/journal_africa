@@ -80,9 +80,11 @@ export const getSingleNews = (slug) => async (dispatch) => {
       data: { data },
     } = await withoutAuthToken.get(`/getpost/${slug}`);
 
+    console.log(data);
+
     dispatch({
       type: newsTypes.GET_NEWS_A_SUCCESS,
-      payload: data && data[0] ? data[0] : null,
+      payload: data,
     });
   } catch (error) {
     dispatch({

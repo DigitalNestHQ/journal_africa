@@ -37,7 +37,7 @@ export const FactCheck = ({ data }) => {
             <div className='fact-content-list'>
               {factCheck.slice(0, 3).map((item) => (
                 <Link
-                  to={`/post/${item.slug}`}
+                  to={`/post/${item.id}`}
                   className='fact-check-list-item'
                   key={item.id}
                 >
@@ -48,7 +48,7 @@ export const FactCheck = ({ data }) => {
                       className='f-c-l-img'
                     />
                   </div>
-                  <p className='slug-default font-bold'>{item.slug}</p>
+                  <p className='slug-default font-bold'>{item.post_title}</p>
                 </Link>
               ))}
             </div>
@@ -76,7 +76,7 @@ export const FactCheck = ({ data }) => {
             <div className='fact-content-list'>
               {indepthAfrica.slice(0, 3).map((item) => (
                 <Link
-                  to={`/post/${item.slug}`}
+                  to={`/post/${item.id}`}
                   className='fact-check-list-item right-text'
                   key={item.id}
                 >
@@ -88,7 +88,7 @@ export const FactCheck = ({ data }) => {
                     />
                   </div>
                   <p className='slug-default font-bold'>
-                    {item.slug.substring(0, 100)}
+                    {item.post_title.substring(0, 100)}
                   </p>
                 </Link>
               ))}

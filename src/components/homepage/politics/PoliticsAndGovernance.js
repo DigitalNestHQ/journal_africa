@@ -21,7 +21,7 @@ const Commentary = ({ data }) => {
           <Row xs={1} lg={4} className='g-4'>
             {businessNews.slice(0, 4).map((categ, idx) => (
               <Col className='bus-col' key={categ.id}>
-                <Link to={`/post/${categ.slug}`} className='bus-link'>
+                <Link to={`/post/${categ.id}`} className='bus-link'>
                   <Card className='com-card'>
                     <Card.Img
                       variant='top'
@@ -35,7 +35,7 @@ const Commentary = ({ data }) => {
                     </p>
                     <Card.Body className='bus-card-body'>
                       <Card.Subtitle className='mb-3 font-bold slug-default text-white'>
-                        {categ.slug}
+                        {categ.post_title}
                       </Card.Subtitle>
                       {/* <Card.Text>
                         {ReactHtmlParser(

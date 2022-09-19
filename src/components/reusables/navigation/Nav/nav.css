@@ -91,13 +91,13 @@ ul.nav-links {
 }
 
 .logo {
-  width: 100px;
+  width: 170px;
   height: 63px;
   object-fit: cover;
 }
 
 .img-container {
-  margin-right: 2.438rem;
+  margin-right: 0.3rem;
 }
 
 .subscribe a {

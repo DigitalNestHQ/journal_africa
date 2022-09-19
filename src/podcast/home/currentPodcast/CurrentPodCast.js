@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import * as podcastsActions from '../../../store/actions/podcastActions';
+import * as podcastsAction from '../../../store/actions/podcastActions';
 import NavBar from '../../../components/reusables/navigation/Nav/nav';
 import Footer from '../../../components/reusables/navigation/Footer/footer';
 import Loader from '../../../components/loader/Loader';
@@ -12,28 +12,28 @@ import './currentpodcast-style.css';
 const CurrentPodCast = () => {
   const { collectionId } = useParams();
   const dispatch = useDispatch();
-  const getSinglePodcasts = useSelector((state) => state.getSinglePodcasts);
-  const { loading, error, podcast } = getSinglePodcasts;
+
+  const getPodcasts = useSelector((state) => state.getPodcast);
+  const { loading, error, podcasts } = getPodcasts;
 
   useEffect(() => {
-    dispatch(podcastsActions.getSinglePodcasts(collectionId));
-  }, [collectionId, dispatch]);
+    dispatch(podcastsAction.getPodcasts());
+    // eslint-disable-next-line
+  }, [dispatch]);
 
   if (loading) {
     return <Loader />;
   }
 
-  console.log(podcast);
-
-  const podcastList = podcast;
-  const podcastDetails = podcast[0];
+  const podcastList = podcasts.filter((item) => item.category === collectionId);
+  const podcastDetails = podcastList[0];
 
   return (
     <section className='pod-bg'>
       <NavBar />
       <div className='section-content-default pod-content'>
         <div className='section-wrapper-default'>
-          {podcast.length === 0 && !loading ? (
+          {podcastList.length === 0 && !loading ? (
             <h5>
               No episodes available - Please check your internet connection
             </h5>

@@ -19,7 +19,7 @@ const PodcastCategories = ({ header, podcasts }) => {
     <div className='each-pod-category'>
       <div className='pod-category-header'></div>
       <div className='pod-category-list'>
-        {uniquePodcast.slice(0, podcasts.length).map((podcast) => (
+        {uniquePodcast.map((podcast) => (
           <PodcastItem key={podcast.id} podcastItem={podcast} />
         ))}
       </div>

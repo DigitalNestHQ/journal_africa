@@ -17,14 +17,12 @@ const CategoryNews = () => {
   const dispatch = useDispatch();
   const getCategory = useSelector((state) => state.getCategory);
   const { loading: categoryLoading, categoryNews } = getCategory;
-  console.log(categoryNews);
   const getNews = useSelector((state) => state.getNews);
   const { loading: newsLoading, news } = getNews;
   const [numberOfCategCard, setNumberOfCategCard] = useState(5);
   const { search } = useLocation();
   const x = new URLSearchParams(search);
   const category = x.get('category');
-  console.log(category, x, search);
 
   const handleMore = () => {
     setNumberOfCategCard((prev) => prev + 2);

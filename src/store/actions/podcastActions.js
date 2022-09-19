@@ -46,7 +46,6 @@ export const getSinglePodcasts = (collectionId) => async (dispatch) => {
       headers
     );
 
-    console.log(data, 'fetch');
     dispatch({
       type: podcastTypes.GET_SINGLE_PODCASTS_SUCCESS,
       payload: data.data,

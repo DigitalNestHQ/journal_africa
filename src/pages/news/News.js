@@ -58,12 +58,14 @@ const GetNews = () => {
             ? ''
             : {
                 slug: currentCategoryNews[postIndex - 1].post_title,
+                id: currentCategoryNews[postIndex - 1].id,
               },
         next:
           postIndex >= currentCategoryNews.length - 1
             ? ''
             : {
                 slug: currentCategoryNews[postIndex + 1].post_title,
+                id: currentCategoryNews[postIndex + 1].id,
               },
       };
     },
@@ -203,6 +205,7 @@ const GetNews = () => {
                             <RelatedNews
                               key={categ.id}
                               slug={categ.post_title}
+                              id={categ.id}
                               featured_image={categ.featured_image}
                               post_type={categ.post_type}
                             />
@@ -250,7 +253,7 @@ const GetNews = () => {
                   .slice(0, 3)
                   .map((eachCard) => (
                     <Link
-                      to={`/post/${eachCard.slug}`}
+                      to={`/post/${eachCard.id}`}
                       className='trending-card lastest-card-link'
                       key={eachCard.id}
                     >

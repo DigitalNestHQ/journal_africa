@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Card } from 'react-bootstrap';
 
-const RelatedNews = ({ slug, featured_image, post_type }) => {
+const RelatedNews = ({ slug, featured_image, id, post_type }) => {
   return (
     <Col className='related-card'>
-      <Link to={`/post/${slug}`} className='related-link'>
+      <Link to={`/post/${id}`} className='related-link'>
         <Card className='l-card'>
           <Card.Img
             variant='top'

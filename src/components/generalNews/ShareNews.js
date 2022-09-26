@@ -75,7 +75,7 @@ const ShareNews = ({ next, previous, singleNews }) => {
           {previous.slug ? (
             <div>
               <p className='previous-article'>Previous Article</p>
-              <Link to={`/post/${previous.slug}`} className='prev-link'>
+              <Link to={`/post/${previous.id}`} className='prev-link'>
                 {previous.slug}
               </Link>
             </div>
@@ -87,7 +87,7 @@ const ShareNews = ({ next, previous, singleNews }) => {
           {next.slug ? (
             <div>
               <p className='next-article'>Next Article</p>
-              <Link to={`/post/${next.slug}`} className='next-link'>
+              <Link to={`/post/${next.id}`} className='next-link'>
                 {next.slug}
               </Link>
             </div>

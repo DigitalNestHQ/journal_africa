@@ -3,7 +3,6 @@ import EpisodeDesc from "./EpisodeDesc";
 import ReleaseDate from "./ReleaseDate";
 import EpisodeDuration from "./EpisodeDuration";
 import play_button from "../../../assets/images/play_button.svg";
-import { Link } from "react-router-dom";
 
 const PodDetailsEpisodes = ({ episodes }) => {
   const createdDate = new Date(episodes[0].created_at);

@@ -39,15 +39,6 @@ const PodDetailsEpisodes = ({ episodes }) => {
                 />
                 <div className="pod-pause-play-section">
                   {podCastAudio.playing ? (<audio src={podCastAudio.audioUrl} controls ref={audioFile} />) : (<img src={play_button} onClick={handleAudioPlayer} alt="play" />)}
-                  {/* <Link
-                    className="pod-play-button"
-                    to={{
-                      pathname: `/podcast/single/${episode.id}`,
-                      search: `?searchpod=${episode.id}`,
-                    }}
-                  >
-                    <img src={play_button} alt="play" />
-                  </Link> */}
                   <ReleaseDate date={createdDate.toLocaleDateString()} />
                   <EpisodeDuration duration={episode.trackTimeMillis} />
                 </div>

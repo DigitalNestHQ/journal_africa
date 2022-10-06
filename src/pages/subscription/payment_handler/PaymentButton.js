@@ -5,24 +5,28 @@ import { useState } from 'react';
 // import PaystackPop from '@paystack/inline-js';
 import { PaystackConsumer } from 'react-paystack';
 
+
+const config = {
+  reference: new Date().getTime().toString(),
+  email: 'user@example.com',
+  amount: 20000,
+  publicKey: "pk_live_80458517341e0e85780177e5acee2f1014f264ec",
+};
+
+const handleSuccess = (reference) => {
+  console.log(reference);
+};
+
+const handleClose = () => {
+  console.log('closed');
+};
+
+
 export default function PaymentButton({ packageID, amount, packageName }) {
   const loginUser = useSelector((state) => state.loginUser);
   const { user } = loginUser;
 
-  const config = {
-    reference: new Date().getTime().toString(),
-    email: 'user@example.com',
-    amount: 20000,
-    publicKey: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY,
-  };
-
-  const handleSuccess = (reference) => {
-    console.log(reference);
-  };
-
-  const handleClose = () => {
-    console.log('closed');
-  };
+ 
 
   const componentProps = {
     ...config,

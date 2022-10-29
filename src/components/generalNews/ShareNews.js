@@ -49,7 +49,6 @@ const ShareNews = ({ next, previous, singleNews }) => {
               href={`whatsapp://send?text=${
                 'https://journal.africa/' + urlPath
               }`}
-              // href='whatsapp://send?text=<URL>'
               data-action='share/whatsapp/share'
               target='_blank'
               rel='noopener noreferrer'

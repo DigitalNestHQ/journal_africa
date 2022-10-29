@@ -17,7 +17,6 @@ const Login = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // console.log(location);
     if (token) {
       const fromSuccessPage = location.state && location.state.fromSuccessPage;
       if (fromSuccessPage) {

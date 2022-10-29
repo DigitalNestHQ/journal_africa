@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
-import PodcastCategories from './podcategories/PodcastCategories';
-import { useViewPort } from '../../components/hooks/Viewport';
-import '../../components/homepage/politics/politicsandgovernance.css';
-import './podcasthome.css';
-import NavBar from '../../components/reusables/navigation/Nav/nav';
-import Footer from '../../components/reusables/navigation/Footer/footer';
-import Loader from '../../components/loader/Loader';
-import ubaAd from '../../assets/images/uba-ad.jpg';
-import journalAd from '../../assets/images/journal-ad.png';
-import { useDispatch, useSelector } from 'react-redux';
-import * as podcastsActions from '../../store/actions/podcastActions';
+import React, { useEffect } from "react";
+import PodcastCategories from "./podcategories/PodcastCategories";
+import { useViewPort } from "../../components/hooks/Viewport";
+import "../../components/homepage/politics/politicsandgovernance.css";
+import "./podcasthome.css";
+import NavBar from "../../components/reusables/navigation/Nav/nav";
+import Footer from "../../components/reusables/navigation/Footer/footer";
+import ubaAd from "../../assets/images/uba-ad.jpg";
+import journalAd from "../../assets/images/journal-ad.png";
+import { useDispatch, useSelector } from "react-redux";
+import * as podcastsActions from "../../store/actions/podcastActions";
+import Spinner from "components/spinner/Spinner";
 
 const PodcastHome = () => {
   const dispatch = useDispatch();
@@ -21,51 +21,50 @@ const PodcastHome = () => {
     dispatch(podcastsActions.getPodcasts());
   }, [dispatch]);
 
-  if (loading) {
-    return <Loader />;
-  }
 
   return (
-    <section className='pod-bg'>
+    <section className="pod-bg">
       <NavBar />
-      <div className='section-content-default pod-content'>
-        <div className='section-wrapper-default'>
-          <div className='pod-content-grid'>
-            {(podcasts.length === 0 && !loading) || error ? (
+      <div className="section-content-default pod-content">
+        <div className="section-wrapper-default">
+          <div className="pod-content-grid">
+            {loading ? (
+              <Spinner />
+            ) : (podcasts.length === 0 && !loading) || error ? (
               <h5>
                 Podcast unavailable - Please check your internet connection
               </h5>
             ) : (
               <>
-                <div className='category-comp-heading'>
-                  <h5 className='category-header section-heading-default'>
+                <div className="category-comp-heading">
+                  <h5 className="category-header section-heading-default">
                     Journal Africa Podcast
                   </h5>
                 </div>
-                <div className='pod-categories'>
+                <div className="pod-categories">
                   <PodcastCategories podcasts={podcasts} />
                 </div>
               </>
             )}
             {width > breakpoint ? (
-              <div className='pod-ads'>
-                <div className='pod-home-ad-sense'>
+              <div className="pod-ads">
+                <div className="pod-home-ad-sense">
                   <img
                     src={ubaAd}
-                    alt='ads'
-                    className='pod-home-ad-sense-img'
+                    alt="ads"
+                    className="pod-home-ad-sense-img"
                   />
                 </div>
-                <div className='pod-home-ad-sense'>
+                <div className="pod-home-ad-sense">
                   <img
                     src={journalAd}
-                    alt='ads'
-                    className='pod-home-ad-sense-img'
+                    alt="ads"
+                    className="pod-home-ad-sense-img"
                   />
                 </div>
               </div>
             ) : (
-              ''
+              ""
             )}
           </div>
         </div>

@@ -21,7 +21,6 @@ const MainSection = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log(contact)
     setContact({
       subject: "",
       name: "",

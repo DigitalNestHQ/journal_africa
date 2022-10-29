@@ -31,7 +31,6 @@ export const Form = ({ buttonText, closeModal, currentCard }) => {
   };
 
   useEffect(() => {
-    console.log("currentCard", currentCard);
 
     if (currentCard) {
       setUser({
@@ -61,11 +60,9 @@ export const Form = ({ buttonText, closeModal, currentCard }) => {
       );
       setLoading(false);
       closeModal();
-      console.log("add card", data);
     } catch (e) {
       setLoading(false);
       closeModal();
-      console.log(e);
     }
   };
 

@@ -36,7 +36,9 @@ const CategoryNews = () => {
 
   return (
     <Layout category={true}>
-      {!categoryLoading && categoryNews.length === 0 ? (
+      {categoryLoading || newsLoading ? (
+        ""
+      ) : !categoryLoading && categoryNews.length === 0 ? (
         <div className="category-comp-heading">
           <h5 className="category-header section-heading-default">
             No news available - Please check your internet connection

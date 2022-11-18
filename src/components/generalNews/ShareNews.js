@@ -20,7 +20,7 @@ const ShareNews = ({ next, previous, singleNews }) => {
           <li className='news-social-icons-items n-facebook'>
             <a
               href={`http://www.facebook.com/sharer.php?u=${
-                'https://journal.africa/' + urlPath
+                'https://journal.africa' + urlPath
               }`}
               target='_blank'
               rel='noopener noreferrer'
@@ -31,7 +31,7 @@ const ShareNews = ({ next, previous, singleNews }) => {
           <li className='news-social-icons-items n-twitter'>
             <a
               href={`http://twitter.com/share?text=${title}&url=${
-                'https://journal.africa/' + urlPath
+                'https://journal.africa' + urlPath
               }&hashtags=#journalAfrica`}
               target='_blank'
               rel='noopener noreferrer'
@@ -47,7 +47,7 @@ const ShareNews = ({ next, previous, singleNews }) => {
           <li className='news-social-icons-items n-whatsapp'>
             <a
               href={`whatsapp://send?text=${
-                'https://journal.africa/' + urlPath
+                'https://journal.africa' + urlPath
               }`}
               data-action='share/whatsapp/share'
               target='_blank'
@@ -59,7 +59,7 @@ const ShareNews = ({ next, previous, singleNews }) => {
           <li className='news-social-icons-items n-linkedin'>
             <a
               href={`https://www.linkedin.com/shareArticle?url=${
-                'https://journal.africa/' + urlPath
+                'https://journal.africa' + urlPath
               }&title=${title}`}
               target='_blank'
               rel='noopener noreferrer'

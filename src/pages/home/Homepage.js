@@ -15,6 +15,7 @@ import Layout from '../../components/layout/mainlayout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import * as newsActions from '../../store/actions/newsActions';
 
+
 const Homepage = () => {
   const dispatch = useDispatch();
   const getNews = useSelector((state) => state.getNews);
@@ -59,5 +60,6 @@ const Homepage = () => {
     );
   }
 };
+
 
 export default Homepage;
